@@ -5,9 +5,7 @@ parameters:
         - public
         - .
         - vendor/autoload.php
-        - vendor/composer
     excludePaths:
         - vendor
         - tests ?
         - tmp ?
-

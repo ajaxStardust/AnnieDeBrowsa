@@ -3,6 +3,9 @@
 namespace Adb\Model;
 
 use Adb\Model\Adbsoc as Adbsoc;
+if(!defined('ADBLOCTN')){
+    define('ADBLOCTN',rtrim(dirname(__DIR__)));
+}
 
 class Cwthumbs
 {

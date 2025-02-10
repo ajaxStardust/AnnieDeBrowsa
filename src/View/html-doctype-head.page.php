@@ -26,14 +26,14 @@ $css = 'assets/css/style.css';
 $config = $Adbsoc->getConfig();
 $json_urls = $config['home_urls'];  // Assuming $config contains the parsed JSON data
 $build_local_urls = $Localsites->getSites($json_urls);  // Call the function and output the result
-
+$title = str_ireplace('var/www/','',$pathOps);
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>NONE</title>
+    <title><?= $title; ?></title>
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,7 +53,7 @@ $build_local_urls = $Localsites->getSites($json_urls);  // Call the function and
     <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all">
         <link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
     <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
-    
+
     <!-- <link id="bstheme" rel="stylesheet" type="text/css" href="assets/css/theme.css" media="all"> -->
     <style>
     #sytebuild_htmlbuild * {
@@ -63,8 +63,8 @@ $build_local_urls = $Localsites->getSites($json_urls);  // Call the function and
         font-family: sans-serif;
     }
     </style>
-<!-- link id="style_main" rel="stylesheet" href="https://unpkg.com/chota@latest" -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+<!-- link id="style_main" rel="stylesheet" href="https://unpkg.com/chota@latest" -->
 
 
 

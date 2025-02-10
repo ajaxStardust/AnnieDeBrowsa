@@ -64,7 +64,7 @@ class Dirhandler
 
                 $this->anchor[$objKey] = '<a data-filepath="' . urlencode($this_basename) . '" title="View ' . urlencode($this_basename) . ' in main iFrame" href="file_loader.php?file=' . urlencode($this_basename) . '" id="navAnchor_' . urlencode($this_basename) . '" class="iframe-nav-link">'. $this_filename .'.<span class="bold red">'. $this_extension . '</span></a>';
 
-                $characterArray[$firstChar][] = '<li class="navlist target">' . $this->anchor[$objKey] . '</li>
+                $characterArray[$firstChar][] = '<li class="navlist target '.$this_extension.'icon">' . $this->anchor[$objKey] . '</li>
                 ';
             }
         }
