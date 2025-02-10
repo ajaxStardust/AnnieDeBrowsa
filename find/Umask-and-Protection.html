@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Umask and Protection (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Umask and Protection (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Umask and Protection (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Symbolic-Modes.html" rel="up" title="Symbolic Modes">
+<link href="Multiple-Changes.html" rel="prev" title="Multiple Changes">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="Umask-and-Protection">
+<div class="nav-panel">
+<p>
+Previous: <a href="Multiple-Changes.html" accesskey="p" rel="prev">Making Multiple Changes</a>, Up: <a href="Symbolic-Modes.html" accesskey="u" rel="up">Symbolic Modes</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="The-Umask-and-Protection">5.2.6 The Umask and Protection</h4>
+
+<a class="index-entry-id" id="index-umask-and-modes"></a>
+<a class="index-entry-id" id="index-modes-and-umask"></a>
+<p>If the <var class="var">users</var> part of a symbolic mode is omitted, it defaults to
+&lsquo;<samp class="samp">a</samp>&rsquo; (affect all users), except that any permissions that are
+<em class="emph">set</em> in the system variable <code class="code">umask</code> are <em class="emph">not affected</em>.
+The value of <code class="code">umask</code> can be set using the
+<code class="code">umask</code> command.  Its default value varies from system to system.
+</p>
+<a class="index-entry-id" id="index-giving-away-permissions"></a>
+<p>Omitting the <var class="var">users</var> part of a symbolic mode is generally not useful
+with operations other than &lsquo;<samp class="samp">+</samp>&rsquo;.  It is useful with &lsquo;<samp class="samp">+</samp>&rsquo; because
+it allows you to use <code class="code">umask</code> as an easily customizable protection
+against giving away more permission to files than you intended to.
+</p>
+<p>As an example, if <code class="code">umask</code> has the value 2, which removes write
+permission for users who are not in the file&rsquo;s group, then the mode:
+</p>
+<div class="example">
+<pre class="example-preformatted">+w
+</pre></div>
+
+<p>adds permission to write to the file to its owner and to other users who
+are in the file&rsquo;s group, but <em class="emph">not</em> to other users.  In contrast,
+the mode:
+</p>
+<div class="example">
+<pre class="example-preformatted">a+w
+</pre></div>
+
+<p>ignores <code class="code">umask</code>, and <em class="emph">does</em> give write permission for
+the file to all users.
+</p>
+</div>
+
+
+
+</body>
+</html>

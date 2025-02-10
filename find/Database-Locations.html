@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Database Locations (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Database Locations (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Database Locations (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Databases.html" rel="up" title="Databases">
+<link href="Database-Formats.html" rel="next" title="Database Formats">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Database-Locations">
+<div class="nav-panel">
+<p>
+Next: <a href="Database-Formats.html" accesskey="n" rel="next">Database Formats</a>, Up: <a href="Databases.html" accesskey="u" rel="up">File Name Databases</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Database-Locations-1">4.1 Database Locations</h3>
+
+<p>There can be multiple file name databases.  Users can select which
+databases <code class="code">locate</code> searches using the <code class="env">LOCATE_PATH</code>
+environment variable or a command line option.  The system
+administrator can choose the file name of the default database, the
+frequency with which the databases are updated, and the directories
+for which they contain entries.  File name databases are updated by
+running the <code class="code">updatedb</code> program, typically nightly.
+</p>
+<p>In networked environments, it often makes sense to build a database at
+the root of each filesystem, containing the entries for that
+filesystem.  <code class="code">updatedb</code> is then run for each filesystem on the
+fileserver where that filesystem is on a local disk, to prevent
+thrashing the network.
+</p>
+<p>See <a class="xref" href="Invoking-updatedb.html">Invoking <code class="code">updatedb</code></a>, for the description of the options to
+<code class="code">updatedb</code>.  These options can be used to specify which
+directories are indexed by each database file.
+</p>
+<p>The default location for the locate database depends on how findutils
+is built, but the findutils installation accompanying this manual uses
+the default location <samp class="file">/usr/local/var/locatedb</samp>.
+</p>
+<p>If no database exists at <samp class="file">/usr/local/var/locatedb</samp> but the user did not
+specify where to look (by using &lsquo;<samp class="samp">-d</samp>&rsquo; or setting
+<code class="env">LOCATE_PATH</code>), then <code class="code">locate</code> will also check for a
+&ldquo;secure&rdquo; database in <samp class="file">/var/lib/slocate/slocate.db</samp>.
+</p>
+</div>
+
+
+
+</body>
+</html>

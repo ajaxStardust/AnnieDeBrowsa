@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Security Considerations for find (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Security Considerations for find (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Security Considerations for find (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Security-Considerations.html" rel="up" title="Security Considerations">
+<link href="Security-Considerations-for-xargs.html" rel="next" title="Security Considerations for xargs">
+<link href="Levels-of-Risk.html" rel="prev" title="Levels of Risk">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Security-Considerations-for-find">
+<div class="nav-panel">
+<p>
+Next: <a href="Security-Considerations-for-xargs.html" accesskey="n" rel="next">Security Considerations for <code class="code">xargs</code></a>, Previous: <a href="Levels-of-Risk.html" accesskey="p" rel="prev">Levels of Risk</a>, Up: <a href="Security-Considerations.html" accesskey="u" rel="up">Security Considerations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Security-Considerations-for-find-1">11.2 Security Considerations for <code class="code">find</code></h3>
+
+
+<p>Some of the actions <code class="code">find</code> might take have a direct effect;
+these include <code class="code">-exec</code> and <code class="code">-delete</code>.  However, it is also
+common to use <code class="code">-print</code> explicitly or implicitly, and so if
+<code class="code">find</code> produces the wrong list of file names, that can also be a
+security problem; consider the case for example where <code class="code">find</code> is
+producing a list of files to be deleted.
+</p>
+<p>We normally assume that the <code class="code">find</code> command line expresses the
+file selection criteria and actions that the user had in mind &ndash; that
+is, the command line is &ldquo;trusted&rdquo; data.
+</p>
+<p>From a security analysis point of view, the output of <code class="code">find</code>
+should be correct; that is, the output should contain only the names
+of those files which meet the user&rsquo;s criteria specified on the command
+line.  This applies for the <code class="code">-exec</code> and <code class="code">-delete</code> actions;
+one can consider these to be part of the output.
+</p>
+<p>On the other hand, the contents of the filesystem can be manipulated
+by other people, and hence we regard this as &ldquo;untrusted&rdquo; data.  This
+implies that the <code class="code">find</code> command line is a filter which converts
+the untrusted contents of the filesystem into a correct list of output
+files.
+</p>
+<p>The filesystem will in general change while <code class="code">find</code> is searching
+it; in fact, most of the potential security problems with <code class="code">find</code>
+relate to this issue in some way.
+</p>
+<p><em class="dfn">Race conditions</em> are a general class of security problem where the
+relative ordering of actions taken by <code class="code">find</code> (for example) and
+something else are critically important in getting the correct and expected result<a class="footnote" id="DOCF3" href="#FOOT3"><sup>3</sup></a> .
+</p>
+<p>For <code class="code">find</code>, an attacker might move or rename files or directories in
+the hope that an action might be taken against a file which was not
+normally intended to be affected.  Alternatively, this sort of attack
+might be intended to persuade <code class="code">find</code> to search part of the
+filesystem which would not normally be included in the search
+(defeating the <code class="code">-prune</code> action for example).
+</p>
+
+<ul class="mini-toc">
+<li><a href="Problems-with-_002dexec-and-filenames.html" accesskey="1">Problems with <code class="code">-exec</code> and filenames</a></li>
+<li><a href="Changing-the-Current-Working-Directory.html" accesskey="2">Changing the Current Working Directory</a></li>
+<li><a href="Race-Conditions-with-_002dexec.html" accesskey="3">Race Conditions with <code class="code">-exec</code></a></li>
+<li><a href="Race-Conditions-with-_002dprint-and-_002dprint0.html" accesskey="4">Race Conditions with <code class="code">-print</code> and <code class="code">-print0</code></a></li>
+</ul>
+</div>
+<div class="footnotes-segment">
+<hr>
+<h4 class="footnotes-heading">Footnotes</h4>
+
+<h5 class="footnote-body-heading"><a id="FOOT3" href="#DOCF3">(3)</a></h5>
+<p>This is more or less the
+definition of the term &ldquo;race condition&rdquo;</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Security-Considerations-for-xargs.html">Security Considerations for <code class="code">xargs</code></a>, Previous: <a href="Levels-of-Risk.html">Levels of Risk</a>, Up: <a href="Security-Considerations.html">Security Considerations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

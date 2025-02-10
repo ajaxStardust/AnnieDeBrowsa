@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Security Considerations (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Security Considerations (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Security Considerations (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="Error-Messages.html" rel="next" title="Error Messages">
+<link href="Worked-Examples.html" rel="prev" title="Worked Examples">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="chapter-level-extent" id="Security-Considerations">
+<div class="nav-panel">
+<p>
+Next: <a href="Error-Messages.html" accesskey="n" rel="next">Error Messages</a>, Previous: <a href="Worked-Examples.html" accesskey="p" rel="prev">Worked Examples</a>, Up: <a href="index.html" accesskey="u" rel="up">GNU Findutils</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h2 class="chapter" id="Security-Considerations-1">11 Security Considerations</h2>
+
+<p>Security considerations are important if you are using <code class="code">find</code> or
+<code class="code">xargs</code> to search for or process files that don&rsquo;t belong to you
+or which other people have control.  Security considerations
+relating to <code class="code">locate</code> may also apply if you have files which you
+do not want others to see.
+</p>
+<p>The most severe forms of security problems affecting
+<code class="code">find</code> and related programs are when third parties bring
+about a situation allowing them to do something
+they would normally not be able to accomplish.  This is called <em class="emph">privilege
+elevation</em>.  This might include deleting files they would not normally
+be able to delete.  It is common for the operating system to periodically
+invoke <code class="code">find</code> for self-maintenance purposes.  These invocations of
+<code class="code">find</code> are particularly problematic from a security point of view
+as these are often invoked by the superuser and search the entire
+filesystem hierarchy.  Generally, the severity of any associated problem depends
+on what the system is going to do with the files found by <code class="code">find</code>.
+</p>
+
+
+<ul class="mini-toc">
+<li><a href="Levels-of-Risk.html" accesskey="1">Levels of Risk</a></li>
+<li><a href="Security-Considerations-for-find.html" accesskey="2">Security Considerations for <code class="code">find</code></a></li>
+<li><a href="Security-Considerations-for-xargs.html" accesskey="3">Security Considerations for <code class="code">xargs</code></a></li>
+<li><a href="Security-Considerations-for-locate.html" accesskey="4">Security Considerations for <code class="code">locate</code></a></li>
+<li><a href="Security-Summary.html" accesskey="5">Summary</a></li>
+<li><a href="Further-Reading-on-Security.html" accesskey="6">Further Reading on Security</a></li>
+</ul>
+</div>
+
+
+
+</body>
+</html>

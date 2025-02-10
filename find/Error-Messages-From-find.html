@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Error Messages From find (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Error Messages From find (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Error Messages From find (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Error-Messages.html" rel="up" title="Error Messages">
+<link href="Error-Messages-From-xargs.html" rel="next" title="Error Messages From xargs">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Error-Messages-From-find">
+<div class="nav-panel">
+<p>
+Next: <a href="Error-Messages-From-xargs.html" accesskey="n" rel="next">Error Messages From <code class="code">xargs</code></a>, Up: <a href="Error-Messages.html" accesskey="u" rel="up">Error Messages</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Error-Messages-From-find-1">12.1 Error Messages From <code class="code">find</code></h3>
+
+<p>Most error messages produced by find are self-explanatory.  Error
+messages sometimes include a filename.  When this happens, the
+filename is quoted in order to prevent any unusual characters in the
+filename making unwanted changes in the state of the terminal.
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">invalid predicate `-foo'</samp>&rsquo;</dt>
+<dd><p>This means that the <code class="code">find</code> command line included something that
+started with a dash or other special character.  The <code class="code">find</code>
+program tried to interpret this as a test, action or option, but
+didn&rsquo;t recognise it.  If it was intended to be a test, check what was
+specified against the documentation.  If, on the other hand, the
+string is the name of a file which has been expanded from a wildcard
+(for example because you have a &lsquo;<samp class="samp">*</samp>&rsquo; on the command line),
+consider using &lsquo;<samp class="samp">./*</samp>&rsquo; or just &lsquo;<samp class="samp">.</samp>&rsquo; instead.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">unexpected extra predicate</samp>&rsquo;</dt>
+<dd><p>This usually happens if you have an extra bracket on the command line
+(for example &lsquo;<samp class="samp">find . -print \)</samp>&rsquo;).
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">Warning: filesystem /path/foo has recently been mounted</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">Warning: filesystem /path/foo has recently been unmounted</samp>&rsquo;</dt>
+<dd><p>These messages might appear when <code class="code">find</code> moves into a directory
+and finds that the device number and inode are different from what it
+expected them to be.  If the directory <code class="code">find</code> has moved into is
+on a network filesystem (NFS), it will not issue this message, because
+<code class="code">automount</code> frequently mounts new filesystems on directories as
+you move into them (that is how it knows you want to use the
+filesystem).  So, if you do see this message, be wary &ndash;
+<code class="code">automount</code> may not have been responsible.  Consider the
+possibility that someone else is manipulating the filesystem while
+<code class="code">find</code> is running.  Some people might do this in order to mislead
+<code class="code">find</code> or persuade it to look at one set of files when it thought
+it was looking at another set.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">/path/foo changed during execution of find (old device number 12345, new device number 6789, filesystem type is &lt;whatever&gt;) [ref XXX]</samp>&rsquo;</dt>
+<dd><p>This message is issued when <code class="code">find</code> moves into a directory and ends up
+somewhere it didn&rsquo;t expect to be.  This happens in one of two
+circumstances.  Firstly, this happens when <code class="code">automount</code> intervenes
+on a system where <code class="code">find</code> doesn&rsquo;t know how to determine what
+the current set of mounted filesystems is.
+</p>
+<p>Secondly, this can happen when the device number of a directory
+appears to change during a change of current directory, but
+<code class="code">find</code> is moving up the filesystem hierarchy rather than down into it.
+In order to prevent <code class="code">find</code> wandering off into some unexpected
+part of the filesystem, we stop it at this point.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">Don't know how to use getmntent() to read `/etc/mtab'.  This is a bug.</samp>&rsquo;</dt>
+<dd><p>This message is issued when a problem similar to the above occurs on a
+system where <code class="code">find</code> doesn&rsquo;t know how to figure out the current
+list of mount points.  Ask for help on <a class="email" href="mailto:bug-findutils@gnu.org">bug-findutils@gnu.org</a>.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">/path/foo/bar changed during execution of find (old inode number 12345, new inode number 67893, filesystem type is &lt;whatever&gt;) [ref XXX]&quot;),</samp>&rsquo;</dt>
+<dd><p>This message is issued when <code class="code">find</code> moves into a directory and
+discovers that the inode number of that directory
+is different from the inode number that it obtained when it examined the
+directory previously.  This usually means that while
+<code class="code">find</code> was deep in a directory hierarchy doing a
+time consuming operation, somebody has moved one of the parent directories to
+another location in the same filesystem.  This may or may not have been done
+maliciously.  In any case, <code class="code">find</code> stops at this point
+to avoid traversing parts of the filesystem that it wasn&rsquo;t
+intended to.  You can use <code class="code">ls -li</code> or <code class="code">find /path -inum
+12345 -o -inum 67893</code> to find out more about what has happened.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">sanity check of the fnmatch() library function failed.</samp>&rsquo;</dt>
+<dd><p>Please submit a bug report.  You may well be asked questions about
+your system, and if you compiled the <code class="code">findutils</code> code yourself,
+you should keep your copy of the build tree around.  The likely
+explanation is that your system has a buggy implementation of
+<code class="code">fnmatch</code> that looks enough like the GNU version to fool
+<code class="code">configure</code>, but which doesn&rsquo;t work properly.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">cannot fork</samp>&rsquo;</dt>
+<dd><p>This normally happens if you use the <code class="code">-exec</code> action or
+something similar (<code class="code">-ok</code> and so forth) but the system has run out
+of free process slots.  This is either because the system is very busy
+and the system has reached its maximum process limit, or because you
+have a resource limit in place and you&rsquo;ve reached it.  Check the
+system for runaway processes (with <code class="code">ps</code>, if possible).  Some process
+slots are normally reserved for use by &lsquo;<samp class="samp">root</samp>&rsquo;.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">some-program terminated by signal 99</samp>&rsquo;</dt>
+<dd><p>Some program which was launched with <code class="code">-exec</code> or similar was killed
+with a fatal signal.  This is just an advisory message.
+</p></dd>
+</dl>
+
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Error-Messages-From-xargs.html">Error Messages From <code class="code">xargs</code></a>, Up: <a href="Error-Messages.html">Error Messages</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

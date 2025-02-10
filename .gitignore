@@ -6,9 +6,9 @@ vendor/
 .scraps/
 !public/assets/css/style.css
 public/assets/css/*.png
-public/assets/css/*.jpg 
-public/assets/css/*.gif 
-public/assets/css/*.psd 
+public/assets/css/*.jpg
+public/assets/css/*.gif
+public/assets/css/*.psd
 public/assets/css/*.svg
 
 
@@ -146,10 +146,10 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# archive 
+# archive
 *.7z
 
-# codelobster 
+# codelobster
 *.clpprj
 *.csprj
 
@@ -228,4 +228,5 @@ adbfinal00.komodoproject
 
 *debug*.log
 *debug*.txt
-
+/.vscode/
+/.scraps/

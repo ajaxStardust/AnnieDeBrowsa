@@ -6,6 +6,9 @@ use Adb\Model\Urlprocessor as Urlprocessor;
 use Adb\Model\Jsonconfigmanager as Jsonconfigmanager;
 use Adb\Model\Environmentmanager as Environmentmanager;
 
+/**
+ * Adbsoc separation of concerns
+ */
 #[\AllowDynamicProperties]
 class Adbsoc
 {

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Filesystems (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Filesystems (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Filesystems (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Finding-Files.html" rel="up" title="Finding Files">
+<link href="Combining-Primaries-With-Operators.html" rel="next" title="Combining Primaries With Operators">
+<link href="Directories.html" rel="prev" title="Directories">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Filesystems">
+<div class="nav-panel">
+<p>
+Next: <a href="Combining-Primaries-With-Operators.html" accesskey="n" rel="next">Combining Primaries With Operators</a>, Previous: <a href="Directories.html" accesskey="p" rel="prev">Directories</a>, Up: <a href="Finding-Files.html" accesskey="u" rel="up">Finding Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Filesystems-1">2.12 Filesystems</h3>
+
+<p>A <em class="dfn">filesystem</em> is a section of a disk, either on the local host or
+mounted from a remote host over a network.  Searching network
+filesystems can be slow, so it is common to make <code class="code">find</code> avoid
+them.
+</p>
+<p>There are two ways to avoid searching certain filesystems.  One way is
+to tell <code class="code">find</code> to only search one filesystem:
+</p>
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dxdev"><span class="category-def">Option: </span><span><strong class="def-name">-xdev</strong><a class="copiable-link" href='#index-_002dxdev'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-_002dmount"><span class="category-def">Option: </span><span><strong class="def-name">-mount</strong><a class="copiable-link" href='#index-_002dmount'> &para;</a></span></dt>
+<dd><p>Don&rsquo;t descend directories on other filesystems.  These options are
+synonyms.
+</p></dd></dl>
+
+<p>The other way is to check the type of filesystem each file is on, and
+not descend directories that are on undesirable filesystem types:
+</p>
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dfstype"><span class="category-def">Test: </span><span><strong class="def-name">-fstype</strong> <var class="def-var-arguments">type</var><a class="copiable-link" href='#index-_002dfstype'> &para;</a></span></dt>
+<dd><p>True if the file is on a filesystem of type <var class="var">type</var>.  The valid
+filesystem types vary among different versions of Unix; an incomplete
+list of filesystem types that are accepted on some version of Unix or
+another is:
+</p><div class="example">
+<pre class="example-preformatted">autofs ext3 ext4 fuse.sshfs nfs proc sshfs sysfs ufs tmpfs xfs
+</pre></div>
+<p>You can use &lsquo;<samp class="samp">-printf</samp>&rsquo; with the &lsquo;<samp class="samp">%F</samp>&rsquo; directive to see the
+types of your filesystems.  The &lsquo;<samp class="samp">%D</samp>&rsquo; directive shows the device
+number.  See <a class="xref" href="Print-File-Information.html">Print File Information</a>.  &lsquo;<samp class="samp">-fstype</samp>&rsquo; is usually
+used with &lsquo;<samp class="samp">-prune</samp>&rsquo; to avoid searching remote filesystems
+(see <a class="pxref" href="Directories.html">Directories</a>).
+</p></dd></dl>
+
+</div>
+
+
+
+</body>
+</html>

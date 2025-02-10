@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Size Directives (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Size Directives (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Size Directives (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Format-Directives.html" rel="up" title="Format Directives">
+<link href="Location-Directives.html" rel="next" title="Location Directives">
+<link href="Ownership-Directives.html" rel="prev" title="Ownership Directives">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsubsection-level-extent" id="Size-Directives">
+<div class="nav-panel">
+<p>
+Next: <a href="Location-Directives.html" accesskey="n" rel="next">Location Directives</a>, Previous: <a href="Ownership-Directives.html" accesskey="p" rel="prev">Ownership Directives</a>, Up: <a href="Format-Directives.html" accesskey="u" rel="up">Format Directives</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Size-Directives-1">3.2.2.3 Size Directives</h4>
+
+<dl class="table">
+<dt><code class="code">%k</code></dt>
+<dd><p>The amount of disk space used for this file in 1K blocks. Since disk
+space is allocated in multiples of the filesystem block size this is
+usually greater than %s/1024, but it can also be smaller if the file
+is a sparse file (that is, it has &ldquo;holes&rdquo;).
+</p></dd>
+<dt><code class="code">%b</code></dt>
+<dd><p>The amount of disk space used for this file in 512-byte blocks. Since
+disk space is allocated in multiples of the filesystem block size this
+is usually greater than %s/512, but it can also be smaller if the
+file is a sparse file (that is, it has &ldquo;holes&rdquo;).
+</p></dd>
+<dt><code class="code">%s</code></dt>
+<dd><p>File&rsquo;s size in bytes.
+</p></dd>
+<dt><code class="code">%S</code></dt>
+<dd><p>File&rsquo;s sparseness.  This is calculated as <code class="code">(BLOCKSIZE*st_blocks /
+st_size)</code>.  The exact value you will get for an ordinary file of a
+certain length is system-dependent.  However, normally sparse files
+will have values less than 1.0, and files which use indirect blocks
+and have few holes may have a value which is greater than 1.0.  The
+value used for BLOCKSIZE is system-dependent, but is usually 512
+bytes.  If the file size is zero, the value printed is undefined.  On
+systems which lack support for st_blocks, a file&rsquo;s sparseness is
+assumed to be 1.0.
+</p></dd>
+</dl>
+
+</div>
+
+
+
+</body>
+</html>

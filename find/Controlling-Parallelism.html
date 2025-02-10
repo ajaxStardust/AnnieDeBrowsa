@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Controlling Parallelism (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Controlling Parallelism (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Controlling Parallelism (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Multiple-Files.html" rel="up" title="Multiple Files">
+<link href="Interspersing-File-Names.html" rel="next" title="Interspersing File Names">
+<link href="Limiting-Command-Size.html" rel="prev" title="Limiting Command Size">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsubsection-level-extent" id="Controlling-Parallelism">
+<div class="nav-panel">
+<p>
+Next: <a href="Interspersing-File-Names.html" accesskey="n" rel="next">Interspersing File Names</a>, Previous: <a href="Limiting-Command-Size.html" accesskey="p" rel="prev">Limiting Command Size</a>, Up: <a href="Multiple-Files.html" accesskey="u" rel="up">Multiple Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Controlling-Parallelism-1">3.3.2.5 Controlling Parallelism</h4>
+
+<p>Normally, <code class="code">xargs</code> runs one command at a time.  This is called
+&quot;serial&quot; execution; the commands happen in a series, one after another.
+If you&rsquo;d like <code class="code">xargs</code> to do things in &quot;parallel&quot;, you can ask it
+to do so, either when you invoke it, or later while it is running.
+Running several commands at one time can make the entire operation
+go more quickly, if the commands are independent, and if your system
+has enough resources to handle the load.  When parallelism works in
+your application, <code class="code">xargs</code> provides an easy way to get your work
+done faster.
+</p>
+<dl class="table">
+<dt><code class="code">--max-procs=<var class="var">max-procs</var></code></dt>
+<dt><code class="code">-P <var class="var">max-procs</var></code></dt>
+<dd><p>Run up to <var class="var">max-procs</var> processes at a time; the default is 1.  If
+<var class="var">max-procs</var> is 0, <code class="code">xargs</code> will run as many processes as
+possible at a time.  Use the &lsquo;<samp class="samp">-n</samp>&rsquo;, &lsquo;<samp class="samp">-s</samp>&rsquo;, or &lsquo;<samp class="samp">-L</samp>&rsquo; option
+with &lsquo;<samp class="samp">-P</samp>&rsquo;; otherwise chances are that the command will be run
+only once. If a child process exits with status 255, <code class="code">xargs</code> will
+still wait for all child processes to exit (before version 4.9.0 this
+might not happen).
+</p></dd>
+</dl>
+
+<p>If <code class="code">xargs</code> is run without the &lsquo;<samp class="samp">-P</samp>&rsquo; option, it will not
+change the handling of the <code class="code">SIGUSR1</code> and <code class="code">SIGUSR2</code> signals.
+This means they will terminate the <code class="code">xargs</code> program unless those
+signals were set to be ignored in the parent process of <code class="code">xargs</code>.
+If you do not want parallel execution but you also do not want these
+signals to be fatal, you can specify <code class="code">-P 1</code>.
+</p>
+<p>Suppose you have a directory tree of large image files and a
+<code class="code">makeallsizes</code> script that takes a single file name and creates
+various sized images from it (thumbnail-sized, web-page-sized,
+printer-sized, and the original large file).  The script is doing
+enough work that it takes significant time to run, even on a single
+image.  You could run:
+</p>
+<div class="example">
+<pre class="example-preformatted">find originals -name '*.jpg' | xargs -L 1 makeallsizes
+</pre></div>
+
+<p>This will run <code class="code">makeallsizes <var class="var">filename</var></code> once for each <code class="code">.jpg</code>
+file in the <code class="code">originals</code> directory.  However, if your system has
+two central processors, this script will only keep one of them busy.
+Instead, you could probably finish in about half the time by running:
+</p>
+<div class="example">
+<pre class="example-preformatted">find originals -name '*.jpg' | xargs -L 1 -P 2 makeallsizes
+</pre></div>
+
+<p><code class="code">xargs</code> will run the first two commands in parallel, and then
+whenever one of them terminates, it will start another one, until
+the entire job is done.
+</p>
+<p>The same idea can be generalized to as many processors as you have handy.
+It also generalizes to other resources besides processors.  For example,
+if <code class="code">xargs</code> is running commands that are waiting for a response from a
+distant network connection, running a few in parallel may reduce the
+overall latency by overlapping their waiting time.
+</p>
+<p>If you are running commands in parallel, you need to think about how
+they should arbitrate access to any resources that they share.  For
+example, if more than one of them tries to print to stdout, the output
+will be produced in an indeterminate order (and very likely mixed up)
+unless the processes collaborate in some way to prevent this.  Using
+some kind of locking scheme is one way to prevent such problems.  In
+general, using a locking scheme will help ensure correct output but
+reduce performance.  If you don&rsquo;t want to tolerate the performance
+difference, simply arrange for each process to produce a separate output
+file (or otherwise use separate resources).
+</p>
+<p><code class="code">xargs</code> also allows &ldquo;turning up&rdquo; or &ldquo;turning down&rdquo; its parallelism
+in the middle of a run.  Suppose you are keeping your four-processor
+system busy for hours, processing thousands of images using <code class="code">-P 4</code>.
+Now, in the middle of the run, you or someone else wants you to reduce
+your load on the system, so that something else will run faster.
+If you interrupt <code class="code">xargs</code>, your job will be half-done, and it
+may take significant manual work to resume it only for the remaining
+images.  If you suspend <code class="code">xargs</code> using your shell&rsquo;s job controls
+(e.g. <code class="code">control-Z</code>), then it will get no work done while suspended.
+</p>
+<p>Find out the process ID of the <code class="code">xargs</code> process, either from your
+shell or with the <code class="code">ps</code> command.  After you send it the signal
+<code class="code">SIGUSR2</code>, <code class="code">xargs</code> will run one fewer command in parallel.
+If you send it the signal <code class="code">SIGUSR1</code>, it will run one more command
+in parallel.  For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">shell$ xargs &lt;allimages -L 1 -P 4 makeallsizes &amp;
+[4] 27643
+   ... at some later point ...
+shell$ kill -USR2 27643
+shell$ kill -USR2 %4
+</pre></div>
+
+<p>The first <code class="code">kill</code> command will cause <code class="code">xargs</code> to wait for
+two commands to terminate before starting the next command (reducing
+the parallelism from 4 to 3).  The second <code class="code">kill</code> will reduce it from
+3 to 2.  (<code class="code">%4</code> works in some shells as a shorthand for the process
+ID of the background job labeled <code class="code">[4]</code>.)
+</p>
+<p>Similarly, if you started a long <code class="code">xargs</code> job without parallelism, you
+can easily switch it to start running two commands in parallel by sending
+it a <code class="code">SIGUSR1</code>.
+</p>
+<p><code class="code">xargs</code> will never terminate any existing commands when you ask it
+to run fewer processes.  It merely waits for the excess commands to
+finish.  If you ask it to run more commands, it will start the next
+one immediately (if it has more work to do).  If the degree of
+parallelism is already 1, sending <code class="code">SIGUSR2</code> will have no further
+effect (since <code class="code">--max-procs=0</code> means that there should be no limit
+on the number of processes to run).
+</p>
+<p>There is an implementation-defined limit on the number of processes.
+This limit is shown with <code class="code">xargs --show-limits</code>.  The limit is at
+least 127 on all systems (and on the author&rsquo;s system it is
+2147483647).
+</p>
+<p>If you send several identical signals quickly, the operating system
+does not guarantee that each of them will be delivered to <code class="code">xargs</code>.
+This means that you can&rsquo;t rapidly increase or decrease the parallelism by
+more than one command at a time.  You can avoid this problem by sending
+a signal, observing the result, then sending the next one; or merely by
+delaying for a few seconds between signals (unless your system is very
+heavily loaded).
+</p>
+<p>Whether or not parallel execution will work well for you depends on
+the nature of the commmand you are running in parallel, on the
+configuration of the system on which you are running the command, and
+on the other work being done on the system at the time.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Interspersing-File-Names.html">Interspersing File Names</a>, Previous: <a href="Limiting-Command-Size.html">Limiting Command Size</a>, Up: <a href="Multiple-Files.html">Multiple Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

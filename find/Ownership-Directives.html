@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Ownership Directives (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Ownership Directives (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Ownership Directives (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Format-Directives.html" rel="up" title="Format Directives">
+<link href="Size-Directives.html" rel="next" title="Size Directives">
+<link href="Name-Directives.html" rel="prev" title="Name Directives">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsubsection-level-extent" id="Ownership-Directives">
+<div class="nav-panel">
+<p>
+Next: <a href="Size-Directives.html" accesskey="n" rel="next">Size Directives</a>, Previous: <a href="Name-Directives.html" accesskey="p" rel="prev">Name Directives</a>, Up: <a href="Format-Directives.html" accesskey="u" rel="up">Format Directives</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Ownership-Directives-1">3.2.2.2 Ownership Directives</h4>
+
+<dl class="table">
+<dt><code class="code">%g</code></dt>
+<dd><p>File&rsquo;s group name, or numeric group ID if the group has no name.
+</p></dd>
+<dt><code class="code">%G</code></dt>
+<dd><p>File&rsquo;s numeric group ID.
+</p></dd>
+<dt><code class="code">%u</code></dt>
+<dd><p>File&rsquo;s user name, or numeric user ID if the user has no name.
+</p></dd>
+<dt><code class="code">%U</code></dt>
+<dd><p>File&rsquo;s numeric user ID.
+</p></dd>
+<dt><code class="code">%m</code></dt>
+<dd><p>File&rsquo;s mode bits (in octal).  If you always want to have a leading
+zero on the number, use the &rsquo;#&rsquo; format flag, for example &rsquo;%#m&rsquo;.
+</p>
+<p>The file mode bit numbers used are the traditional Unix
+numbers, which will be as expected on most systems, but if your
+system&rsquo;s file mode bit layout differs from the traditional Unix
+semantics, you will see a difference between the mode as printed by
+&lsquo;<samp class="samp">%m</samp>&rsquo; and the mode as it appears in <code class="code">struct stat</code>.
+</p>
+</dd>
+<dt><code class="code">%M</code></dt>
+<dd><p>File&rsquo;s type and mode bits (in symbolic form, as for <code class="code">ls</code>).  This
+directive is supported in findutils 4.2.5 and later.
+</p></dd>
+</dl>
+
+</div>
+
+
+
+</body>
+</html>

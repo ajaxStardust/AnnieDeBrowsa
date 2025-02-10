@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>General date syntax (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="General date syntax (GNU Findutils 4.10.0)">
+<meta name="keywords" content="General date syntax (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Date-input-formats.html" rel="up" title="Date input formats">
+<link href="Calendar-date-items.html" rel="next" title="Calendar date items">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+ul.mark-bullet {list-style-type: disc}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="General-date-syntax">
+<div class="nav-panel">
+<p>
+Next: <a href="Calendar-date-items.html" accesskey="n" rel="next">Calendar date items</a>, Up: <a href="Date-input-formats.html" accesskey="u" rel="up">Date input formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="General-date-syntax-1">6.1 General date syntax</h3>
+
+<a class="index-entry-id" id="index-general-date-syntax"></a>
+
+<a class="index-entry-id" id="index-items-in-date-strings"></a>
+<p>A <em class="dfn">date</em> is a string, possibly empty, containing many items
+separated by whitespace.  The whitespace may be omitted when no
+ambiguity arises.  The empty string means the beginning of today (i.e.,
+midnight).  Order of the items is immaterial.  A date string may contain
+many flavors of items:
+</p>
+<ul class="itemize mark-bullet">
+<li>calendar date items
+</li><li>time of day items
+</li><li>time zone items
+</li><li>combined date and time of day items
+</li><li>day of the week items
+</li><li>relative items
+</li><li>pure numbers.
+</li></ul>
+
+<p>We describe each of these item types in turn, below.
+</p>
+<a class="index-entry-id" id="index-numbers_002c-written_002dout"></a>
+<a class="index-entry-id" id="index-ordinal-numbers"></a>
+<a class="index-entry-id" id="index-first-in-date-strings"></a>
+<a class="index-entry-id" id="index-next-in-date-strings"></a>
+<a class="index-entry-id" id="index-last-in-date-strings"></a>
+<p>A few ordinal numbers may be written out in words in some contexts.  This is
+most useful for specifying day of the week items or relative items (see
+below).  Among the most commonly used ordinal numbers, the word
+&lsquo;<samp class="samp">last</samp>&rsquo; stands for <em class="math">-1</em>, &lsquo;<samp class="samp">this</samp>&rsquo; stands for 0, and
+&lsquo;<samp class="samp">first</samp>&rsquo; and &lsquo;<samp class="samp">next</samp>&rsquo; both stand for 1.  Because the word
+&lsquo;<samp class="samp">second</samp>&rsquo; stands for the unit of time there is no way to write the
+ordinal number 2, but for convenience &lsquo;<samp class="samp">third</samp>&rsquo; stands for 3,
+&lsquo;<samp class="samp">fourth</samp>&rsquo; for 4, &lsquo;<samp class="samp">fifth</samp>&rsquo; for 5,
+&lsquo;<samp class="samp">sixth</samp>&rsquo; for 6, &lsquo;<samp class="samp">seventh</samp>&rsquo; for 7, &lsquo;<samp class="samp">eighth</samp>&rsquo; for 8,
+&lsquo;<samp class="samp">ninth</samp>&rsquo; for 9, &lsquo;<samp class="samp">tenth</samp>&rsquo; for 10, &lsquo;<samp class="samp">eleventh</samp>&rsquo; for 11 and
+&lsquo;<samp class="samp">twelfth</samp>&rsquo; for 12.
+</p>
+<a class="index-entry-id" id="index-months_002c-written_002dout"></a>
+<p>When a month is written this way, it is still considered to be written
+numerically, instead of being &ldquo;spelled in full&rdquo;; this changes the
+allowed strings.
+</p>
+<a class="index-entry-id" id="index-language_002c-in-dates"></a>
+<p>In the current implementation, only English is supported for words and
+abbreviations like &lsquo;<samp class="samp">AM</samp>&rsquo;, &lsquo;<samp class="samp">DST</samp>&rsquo;, &lsquo;<samp class="samp">EST</samp>&rsquo;, &lsquo;<samp class="samp">first</samp>&rsquo;,
+&lsquo;<samp class="samp">January</samp>&rsquo;, &lsquo;<samp class="samp">Sunday</samp>&rsquo;, &lsquo;<samp class="samp">tomorrow</samp>&rsquo;, and &lsquo;<samp class="samp">year</samp>&rsquo;.
+</p>
+<a class="index-entry-id" id="index-language_002c-in-dates-1"></a>
+<a class="index-entry-id" id="index-time-zone-item"></a>
+<p>The output of the <code class="command">date</code> command
+is not always acceptable as a date string,
+not only because of the language problem, but also because there is no
+standard meaning for time zone items like &lsquo;<samp class="samp">IST</samp>&rsquo;.  When using
+<code class="command">date</code> to generate a date string intended to be parsed later,
+specify a date format that is independent of language and that does not
+use time zone items other than &lsquo;<samp class="samp">UTC</samp>&rsquo; and &lsquo;<samp class="samp">Z</samp>&rsquo;.  Here are some
+ways to do this:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ LC_ALL=C TZ=UTC0 date
+Tue Nov 15 02:02:42 UTC 2022
+$ TZ=UTC0 date +'%Y-%m-%d %H:%M:%SZ'
+2022-11-15 02:02:42Z
+$ date --rfc-3339=ns  # --rfc-3339 is a GNU extension.
+2022-11-14 21:02:42.000000000-05:00
+$ date --rfc-email  # a GNU extension
+Mon, 14 Nov 2022 21:02:42 -0500
+$ date +'%Y-%m-%d %H:%M:%S %z'  # %z is a GNU extension.
+2022-11-14 21:02:42 -0500
+$ date +'@%s.%N'  # %s and %N are GNU extensions.
+@1668477762.692722128
+</pre></div>
+
+<a class="index-entry-id" id="index-case_002c-ignored-in-dates"></a>
+<a class="index-entry-id" id="index-comments_002c-in-dates"></a>
+<p>Alphabetic case is completely ignored in dates.  Comments may be introduced
+between round parentheses, as long as included parentheses are properly
+nested.  Hyphens not followed by a digit are currently ignored.  Leading
+zeros on numbers are ignored.
+</p>
+<a class="index-entry-id" id="index-leap-seconds"></a>
+<p>Invalid dates like &lsquo;<samp class="samp">2022-02-29</samp>&rsquo; or times like &lsquo;<samp class="samp">24:00</samp>&rsquo; are
+rejected.  In the typical case of a host that does not support leap
+seconds, a time like &lsquo;<samp class="samp">23:59:60</samp>&rsquo; is rejected even if it
+corresponds to a valid leap second.
+</p>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Calendar-date-items.html">Calendar date items</a>, Up: <a href="Date-input-formats.html">Date input formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

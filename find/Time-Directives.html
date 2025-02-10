@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Time Directives (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Time Directives (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Time Directives (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Format-Directives.html" rel="up" title="Format Directives">
+<link href="Other-Directives.html" rel="next" title="Other Directives">
+<link href="Location-Directives.html" rel="prev" title="Location Directives">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsubsection-level-extent" id="Time-Directives">
+<div class="nav-panel">
+<p>
+Next: <a href="Other-Directives.html" accesskey="n" rel="next">Other Directives</a>, Previous: <a href="Location-Directives.html" accesskey="p" rel="prev">Location Directives</a>, Up: <a href="Format-Directives.html" accesskey="u" rel="up">Format Directives</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Time-Directives-1">3.2.2.5 Time Directives</h4>
+
+<p>Some of these directives use the C <code class="code">ctime</code> function.  Its output
+depends on the current locale, but it typically looks like
+</p>
+<div class="example">
+<pre class="example-preformatted">Wed Nov  2 00:42:36 1994
+</pre></div>
+
+<dl class="table">
+<dt><code class="code">%a</code></dt>
+<dd><p>File&rsquo;s last access time in the format returned by the C <code class="code">ctime</code>
+function.
+</p>
+</dd>
+<dt><code class="code">%A<var class="var">k</var></code></dt>
+<dd><p>File&rsquo;s last access time in the format specified by <var class="var">k</var>
+(see <a class="pxref" href="Time-Formats.html">Time Formats</a>).
+</p>
+</dd>
+<dt><code class="code">%B<var class="var">k</var></code></dt>
+<dd><p>File&rsquo;s birth time, i.e., its creation time, in the format specified by <var class="var">k</var>
+(see <a class="pxref" href="Time-Formats.html">Time Formats</a>).
+</p>
+<p>This directive produces an empty string if the underlying operating system or
+filesystem does not support birth times.
+</p>
+</dd>
+<dt><code class="code">%c</code></dt>
+<dd><p>File&rsquo;s last status change time in the format returned by the C
+<code class="code">ctime</code> function.
+</p>
+</dd>
+<dt><code class="code">%C<var class="var">k</var></code></dt>
+<dd><p>File&rsquo;s last status change time in the format specified by <var class="var">k</var>
+(see <a class="pxref" href="Time-Formats.html">Time Formats</a>).
+</p>
+</dd>
+<dt><code class="code">%t</code></dt>
+<dd><p>File&rsquo;s last modification time in the format returned by the C
+<code class="code">ctime</code> function.
+</p>
+</dd>
+<dt><code class="code">%T<var class="var">k</var></code></dt>
+<dd><p>File&rsquo;s last modification time in the format specified by <var class="var">k</var>
+(see <a class="pxref" href="Time-Formats.html">Time Formats</a>).
+</p></dd>
+</dl>
+
+</div>
+
+
+
+</body>
+</html>

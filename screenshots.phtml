@@ -1,4 +1,8 @@
 <?php 
+
+namespace Adb;
+use Adb\Model\Cwthumbs as cwThumbs;
+
 if (!defined('ABSOLUTELOCATION')) {
     define('ABSOLUTELOCATION', dirname(__FILE__));
 }
@@ -18,8 +22,9 @@ date_default_timezone_set('EST');
 $page_heading = 'Screenshots in ./assets/screenshots';
 $title = 'screenshots rendering page';
 $lastMod = "Modified: " . date("D M j Y G:i:s T", getlastmod());
-require 'public/class/class-cwthumbs.php';
-
+if(!class_exists('CwThumbs')){
+    include 'src/Model/Cwthumbs.php';
+}
 
 $cwThumbsClass = new cwThumbs;
 

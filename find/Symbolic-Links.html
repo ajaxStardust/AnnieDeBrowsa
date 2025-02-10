@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Symbolic Links (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Symbolic Links (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Symbolic Links (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Links.html" rel="up" title="Links">
+<link href="Hard-Links.html" rel="next" title="Hard Links">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+ul.mark-bullet {list-style-type: disc}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="Symbolic-Links">
+<div class="nav-panel">
+<p>
+Next: <a href="Hard-Links.html" accesskey="n" rel="next">Hard Links</a>, Up: <a href="Links.html" accesskey="u" rel="up">Links</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Symbolic-Links-1">2.4.1 Symbolic Links</h4>
+
+<p>Symbolic links are names that reference other files.  GNU <code class="code">find</code>
+will handle symbolic links in one of two ways; firstly, it can
+dereference the links for you - this means that if it comes across a
+symbolic link, it examines the file that the link points to, in order
+to see if it matches the criteria you have specified.  Secondly, it
+can check the link itself in case you might be looking for the actual
+link.  If the file that the symbolic link points to is also within the
+directory hierarchy you are searching with the <code class="code">find</code> command,
+you may not see a great deal of difference between these two
+alternatives.
+</p>
+<p>By default, <code class="code">find</code> examines symbolic links themselves when it
+finds them (and, if it later comes across the linked-to file, it will
+examine that, too).  If you would prefer <code class="code">find</code> to dereference
+the links and examine the file that each link points to, specify the
+&lsquo;<samp class="samp">-L</samp>&rsquo; option to <code class="code">find</code>.  You can explicitly specify the
+default behaviour by using the &lsquo;<samp class="samp">-P</samp>&rsquo; option.  The &lsquo;<samp class="samp">-H</samp>&rsquo;
+option is a half-way-between option which ensures that any symbolic
+links listed on the command line are dereferenced, but other symbolic
+links are not.
+</p>
+<p>Symbolic links are different from &ldquo;hard links&rdquo; in the sense that you
+need permission to search the directories
+in the linked-to file name to
+dereference the link.  This can mean that even if you specify the
+&lsquo;<samp class="samp">-L</samp>&rsquo; option, <code class="code">find</code> may not be able to determine the
+properties of the file that the link points to (because you don&rsquo;t have
+sufficient permission).  In this situation, <code class="code">find</code> uses the
+properties of the link itself.  This also occurs if a symbolic link
+exists but points to a file that is missing, or where the symbolic
+link points to itself (directly or indirectly).
+</p>
+<p>The options controlling the behaviour of <code class="code">find</code> with respect to
+links are as follows:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">-P</samp>&rsquo;</dt>
+<dd><p><code class="code">find</code> does not dereference symbolic links at all.  This is the
+default behaviour.  This option must be specified before any of the
+file names on the command line.
+</p></dd>
+<dt>&lsquo;<samp class="samp">-H</samp>&rsquo;</dt>
+<dd><p><code class="code">find</code> does not dereference symbolic links (except in the case of
+file names on the command line, which are dereferenced).  If a
+symbolic link cannot be dereferenced, the information for the symbolic
+link itself is used.  This option must be specified before any of the
+file names on the command line.
+</p></dd>
+<dt>&lsquo;<samp class="samp">-L</samp>&rsquo;</dt>
+<dd><p><code class="code">find</code> dereferences symbolic links where possible, and where this
+is not possible it uses the properties of the symbolic link itself.
+This option must be specified before any of the file names on the
+command line.  Use of this option also implies the same behaviour as
+the &lsquo;<samp class="samp">-noleaf</samp>&rsquo; option.  If you later use the &lsquo;<samp class="samp">-H</samp>&rsquo; or
+&lsquo;<samp class="samp">-P</samp>&rsquo; options, this does not turn off &lsquo;<samp class="samp">-noleaf</samp>&rsquo;.
+</p>
+<p>Actions that can cause symbolic links to become broken while
+&lsquo;<samp class="samp">find</samp>&rsquo; is executing (for example &lsquo;<samp class="samp">-delete</samp>&rsquo;) can give rise to
+confusing behaviour.  Take for example the command line
+&lsquo;<samp class="samp">find -L . -type d -delete</samp>&rsquo;.   This will delete empty
+directories.  If a subtree includes only directories and symbolic
+links to directoires, this command may still not successfully delete
+it, since deletion of the target of the symbolic link will cause the
+symbolic link to become broken and &lsquo;<samp class="samp">-type d</samp>&rsquo; is false for broken
+symbolic links.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-follow</samp>&rsquo;</dt>
+<dd><p>This option forms part of the &ldquo;expression&rdquo; and must be specified
+after the file names, but it is otherwise equivalent to &lsquo;<samp class="samp">-L</samp>&rsquo;.
+The &lsquo;<samp class="samp">-follow</samp>&rsquo; option affects only those tests which appear after
+it on the command line.  This option is deprecated.  Where possible,
+you should use &lsquo;<samp class="samp">-L</samp>&rsquo; instead.
+</p></dd>
+</dl>
+
+<p>The following differences in behaviour occur when the &lsquo;<samp class="samp">-L</samp>&rsquo; option
+is used:
+</p>
+<ul class="itemize mark-bullet">
+<li><code class="code">find</code> follows symbolic links to directories when searching
+directory trees.
+</li><li>&lsquo;<samp class="samp">-lname</samp>&rsquo; and &lsquo;<samp class="samp">-ilname</samp>&rsquo; always return false (unless they
+happen to match broken symbolic links).
+</li><li>&lsquo;<samp class="samp">-type</samp>&rsquo; reports the types of the files that symbolic links point
+to.  This means that in combination with &lsquo;<samp class="samp">-L</samp>&rsquo;, &lsquo;<samp class="samp">-type l</samp>&rsquo;
+will be true only for broken symbolic links.  To check for symbolic
+links when &lsquo;<samp class="samp">-L</samp>&rsquo; has been specified, use &lsquo;<samp class="samp">-xtype l</samp>&rsquo;.
+</li><li>Implies &lsquo;<samp class="samp">-noleaf</samp>&rsquo; (see <a class="pxref" href="Directories.html">Directories</a>).
+</li></ul>
+
+<p>If the &lsquo;<samp class="samp">-L</samp>&rsquo; option or the &lsquo;<samp class="samp">-H</samp>&rsquo; option is used,
+the file names used as arguments to &lsquo;<samp class="samp">-newer</samp>&rsquo;, &lsquo;<samp class="samp">-anewer</samp>&rsquo;, and
+&lsquo;<samp class="samp">-cnewer</samp>&rsquo; are dereferenced and the timestamp from the pointed-to
+file is used instead (if possible &ndash; otherwise the timestamp from the
+symbolic link is used).
+</p>
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dlname"><span class="category-def">Test: </span><span><strong class="def-name">-lname</strong> <var class="def-var-arguments">pattern</var><a class="copiable-link" href='#index-_002dlname'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-_002dilname"><span class="category-def">Test: </span><span><strong class="def-name">-ilname</strong> <var class="def-var-arguments">pattern</var><a class="copiable-link" href='#index-_002dilname'> &para;</a></span></dt>
+<dd><p>True if the file is a symbolic link whose contents match shell pattern
+<var class="var">pattern</var>.  For &lsquo;<samp class="samp">-ilname</samp>&rsquo;, the match is case-insensitive.
+See <a class="xref" href="Shell-Pattern-Matching.html">Shell Pattern Matching</a>, for details about the <var class="var">pattern</var>
+argument.  If the &lsquo;<samp class="samp">-L</samp>&rsquo; option is in effect, this test will always
+return false for symbolic links unless they are broken.  So, to list
+any symbolic links to <samp class="file">sysdep.c</samp> in the current directory and its
+subdirectories, you can do:
+</p>
+<div class="example">
+<pre class="example-preformatted">find . -lname '*sysdep.c'
+</pre></div>
+</dd></dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Hard-Links.html">Hard Links</a>, Up: <a href="Links.html">Links</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

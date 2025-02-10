@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Database Formats (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Database Formats (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Database Formats (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Databases.html" rel="up" title="Databases">
+<link href="Newline-Handling.html" rel="next" title="Newline Handling">
+<link href="Database-Locations.html" rel="prev" title="Database Locations">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Database-Formats">
+<div class="nav-panel">
+<p>
+Next: <a href="Newline-Handling.html" accesskey="n" rel="next">Newline Handling</a>, Previous: <a href="Database-Locations.html" accesskey="p" rel="prev">Database Locations</a>, Up: <a href="Databases.html" accesskey="u" rel="up">File Name Databases</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Database-Formats-1">4.2 Database Formats</h3>
+
+<p>The file name databases contain lists of files that were in particular
+directory trees when the databases were last updated.  The file name
+database format changed starting with GNU <code class="code">locate</code> version 4.0 to
+allow machines with different byte orderings to share the databases.
+</p>
+<p>GNU <code class="code">locate</code> can read both the old pre-findutils-4.0 database
+format and the &lsquo;<samp class="samp">LOCATE02</samp>&rsquo; database format.  Support for the old
+database format will shortly be removed from <code class="code">locate</code>.  It has
+already been removed from <code class="code">updatedb</code>.
+</p>
+<p>If you run &lsquo;<samp class="samp">locate --statistics</samp>&rsquo;, the resulting summary indicates
+the type of each <code class="code">locate</code> database.   You select which database
+format <code class="code">updatedb</code> will use with the &lsquo;<samp class="samp">--dbformat</samp>&rsquo; option.
+</p>
+<p>The &lsquo;<samp class="samp">slocate</samp>&rsquo; database format is very similar to &lsquo;<samp class="samp">LOCATE02</samp>&rsquo;
+and is also supported (in both <code class="code">updatedb</code> and <code class="code">locate</code>).
+</p>
+
+<ul class="mini-toc">
+<li><a href="LOCATE02-Database-Format.html" accesskey="1">LOCATE02 Database Format</a></li>
+<li><a href="Sample-LOCATE02-Database.html" accesskey="2">Sample LOCATE02 Database</a></li>
+<li><a href="slocate-Database-Format.html" accesskey="3">slocate Database Format</a></li>
+<li><a href="Old-Database-Format.html" accesskey="4">Old Database Format</a></li>
+</ul>
+</div>
+
+
+
+</body>
+</html>

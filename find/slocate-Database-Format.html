@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>slocate Database Format (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="slocate Database Format (GNU Findutils 4.10.0)">
+<meta name="keywords" content="slocate Database Format (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Database-Formats.html" rel="up" title="Database Formats">
+<link href="Old-Database-Format.html" rel="next" title="Old Database Format">
+<link href="Sample-LOCATE02-Database.html" rel="prev" title="Sample LOCATE02 Database">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="slocate-Database-Format">
+<div class="nav-panel">
+<p>
+Next: <a href="Old-Database-Format.html" accesskey="n" rel="next">Old Database Format</a>, Previous: <a href="Sample-LOCATE02-Database.html" accesskey="p" rel="prev">Sample LOCATE02 Database</a>, Up: <a href="Database-Formats.html" accesskey="u" rel="up">Database Formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="slocate-Database-Format-1">4.2.3 slocate Database Format</h4>
+
+<p>The <code class="code">slocate</code> program uses a database format similar to, but not
+quite the same as, GNU <code class="code">locate</code>.  The first byte of the database
+specifies its <em class="dfn">security level</em>.  If the security level is 0,
+<code class="code">slocate</code> will read, match and print filenames on the basis of
+the information in the database only.  However, if the security level
+byte is 1, <code class="code">slocate</code> omits entries from its output if the
+invoking user is unable to access them.  The second byte of the
+database is zero.  The second byte is immediately followed by the
+first database entry.  The first entry in the database is not preceded
+by any differential count or dummy entry.  Instead the differential
+count for the first item is assumed to be zero.
+</p>
+<p>Starting with the second entry (if any) in the database, data is
+interpreted as for the GNU LOCATE02 format.
+</p>
+</div>
+
+
+
+</body>
+</html>

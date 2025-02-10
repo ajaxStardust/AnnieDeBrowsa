@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Fixing Permissions (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Fixing Permissions (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Fixing Permissions (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Common-Tasks.html" rel="up" title="Common Tasks">
+<link href="Classifying-Files.html" rel="next" title="Classifying Files">
+<link href="Strange-File-Names.html" rel="prev" title="Strange File Names">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Fixing-Permissions">
+<div class="nav-panel">
+<p>
+Next: <a href="Classifying-Files.html" accesskey="n" rel="next">Classifying Files</a>, Previous: <a href="Strange-File-Names.html" accesskey="p" rel="prev">Strange File Names</a>, Up: <a href="Common-Tasks.html" accesskey="u" rel="up">Common Tasks</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Fixing-Permissions-1">9.5 Fixing Permissions</h3>
+
+<p>Suppose you want to make sure that everyone can write to the
+directories in a certain directory tree.  Here is a way to find
+directories lacking either user or group write permission (or both),
+and fix their permissions:
+</p>
+<div class="example">
+<pre class="example-preformatted">find . -type d -not -perm -ug=w | xargs chmod ug+w
+</pre></div>
+
+<p>You could also reverse the operations, if you want to make sure that
+directories do <em class="emph">not</em> have world write permission.
+</p>
+</div>
+
+
+
+</body>
+</html>

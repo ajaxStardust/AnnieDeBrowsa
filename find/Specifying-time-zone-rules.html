@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Specifying time zone rules (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Specifying time zone rules (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Specifying time zone rules (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Date-input-formats.html" rel="up" title="Date input formats">
+<link href="Authors-of-parse_005fdatetime.html" rel="next" title="Authors of parse_datetime">
+<link href="Seconds-since-the-Epoch.html" rel="prev" title="Seconds since the Epoch">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Specifying-time-zone-rules">
+<div class="nav-panel">
+<p>
+Next: <a href="Authors-of-parse_005fdatetime.html" accesskey="n" rel="next">Authors of <code class="code">parse_datetime</code></a>, Previous: <a href="Seconds-since-the-Epoch.html" accesskey="p" rel="prev">Seconds since the Epoch</a>, Up: <a href="Date-input-formats.html" accesskey="u" rel="up">Date input formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Specifying-time-zone-rules-1">6.10 Specifying time zone rules</h3>
+
+<a class="index-entry-id" id="index-TZ"></a>
+<p>Normally, dates are interpreted using the rules of the current time
+zone, which in turn are specified by the <code class="env">TZ</code> environment
+variable, or by a system default if <code class="env">TZ</code> is not set.  To specify a
+different set of default time zone rules that apply just to one date,
+start the date with a string of the form &lsquo;<samp class="samp">TZ=&quot;<var class="var">rule</var>&quot;</samp>&rsquo;.  The
+two quote characters (&lsquo;<samp class="samp">&quot;</samp>&rsquo;) must be present in the date, and any
+quotes or backslashes within <var class="var">rule</var> must be escaped by a
+backslash.
+</p>
+<p>For example, with the GNU <code class="command">date</code> command you can
+answer the question &ldquo;What time is it in New York when a Paris clock
+shows 6:30am on October 31, 2022?&rdquo; by using a date beginning with
+&lsquo;<samp class="samp">TZ=&quot;Europe/Paris&quot;</samp>&rsquo; as shown in the following shell transcript:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ export TZ=&quot;America/New_York&quot;
+$ date --date='TZ=&quot;Europe/Paris&quot; 2022-10-31 06:30'
+Mon Oct 31 01:30:00 EDT 2022
+</pre></div>
+
+<p>In this example, the <samp class="option">--date</samp> operand begins with its own
+<code class="env">TZ</code> setting, so the rest of that operand is processed according
+to &lsquo;<samp class="samp">Europe/Paris</samp>&rsquo; rules, treating the string &lsquo;<samp class="samp">2022-11-14
+06:30</samp>&rsquo; as if it were in Paris.  However, since the output of the
+<code class="command">date</code> command is processed according to the overall time zone
+rules, it uses New York time.  (Paris was normally six hours ahead of
+New York in 2022, but this example refers to a brief Halloween period
+when the gap was five hours.)
+</p>
+<p>A <code class="env">TZ</code> value is a rule that typically names a location in the
+<a class="uref" href="https://www.iana.org/time-zones">&lsquo;<samp class="samp">tz</samp>&rsquo; database</a>.
+A recent catalog of location names appears in the
+<a class="uref" href="https://twiki.org/cgi-bin/xtra/tzdatepick.html">TWiki Date and Time
+Gateway</a>.  A few non-GNU hosts require a colon before a
+location name in a <code class="env">TZ</code> setting, e.g.,
+&lsquo;<samp class="samp">TZ=&quot;:America/New_York&quot;</samp>&rsquo;.
+</p>
+<p>The &lsquo;<samp class="samp">tz</samp>&rsquo; database includes a wide variety of locations ranging
+from &lsquo;<samp class="samp">Africa/Abidjan</samp>&rsquo; to &lsquo;<samp class="samp">Pacific/Tongatapu</samp>&rsquo;, but
+if you are at sea and have your own private time zone, or if you are
+using a non-GNU host that does not support the &lsquo;<samp class="samp">tz</samp>&rsquo;
+database, you may need to use a POSIX rule instead.
+The previously-mentioned POSIX rule &lsquo;<samp class="samp">UTC0</samp>&rsquo; says that the time zone
+abbreviation is &lsquo;<samp class="samp">UTC</samp>&rsquo;, the zone is zero hours away from
+Greenwich, and there is no daylight saving time.
+POSIX rules can also specify nonzero Greenwich offsets.
+For example, the following shell transcript answers the question
+&ldquo;What time is it five and a half hours east of Greenwich when a clock
+seven hours west of Greenwich shows 9:50pm on July 12, 2022?&rdquo;
+</p>
+<div class="example">
+<pre class="example-preformatted">$ TZ=&quot;&lt;+0530&gt;-5:30&quot; date --date='TZ=&quot;&lt;-07&gt;+7&quot; 2022-07-12 21:50'
+Wed Jul 13 10:20:00 +0530 2022
+</pre></div>
+
+<p>This example uses the somewhat-confusing POSIX convention for rules.
+&lsquo;<samp class="samp">TZ=&quot;&lt;-07&gt;+7&quot;</samp>&rsquo; says that the time zone abbreviation is &lsquo;<samp class="samp">-07</samp>&rsquo;
+and the time zone is 7 hours west of Greenwich, and
+&lsquo;<samp class="samp">TZ=&quot;&lt;+0530&gt;-5:30&quot;</samp>&rsquo; says that the time zone abbreviation is &lsquo;<samp class="samp">+0530</samp>&rsquo;
+and the time zone is 5 hours 30 minutes east of Greenwich.
+(One should never use a setting like &lsquo;<samp class="samp">TZ=&quot;UTC-5&quot;</samp>&rsquo;, since
+this would incorrectly imply that local time is five hours east of
+Greenwich and the time zone is called &ldquo;UTC&rdquo;.)
+Although trickier POSIX <code class="env">TZ</code> settings like
+&lsquo;<samp class="samp">TZ=&quot;&lt;-05&gt;+5&lt;-04&gt;,M3.2.0/2,M11.1.0/2&quot;</samp>&rsquo; can specify some daylight
+saving regimes, location-based settings like
+&lsquo;<samp class="samp">TZ=&quot;America/New_York&quot;</samp>&rsquo; are typically simpler and more accurate
+historically.  See <a data-manual="libc" href="https://www.gnu.org/software/libc/manual/html_node/TZ-Variable.html#TZ-Variable">Specifying the Time Zone with <code class="code">TZ</code></a> in <cite class="cite">The GNU C Library</cite>.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Authors-of-parse_005fdatetime.html">Authors of <code class="code">parse_datetime</code></a>, Previous: <a href="Seconds-since-the-Epoch.html">Seconds since the Epoch</a>, Up: <a href="Date-input-formats.html">Date input formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

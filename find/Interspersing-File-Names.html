@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Interspersing File Names (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Interspersing File Names (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Interspersing File Names (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Multiple-Files.html" rel="up" title="Multiple Files">
+<link href="Controlling-Parallelism.html" rel="prev" title="Controlling Parallelism">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsubsection-level-extent" id="Interspersing-File-Names">
+<div class="nav-panel">
+<p>
+Previous: <a href="Controlling-Parallelism.html" accesskey="p" rel="prev">Controlling Parallelism</a>, Up: <a href="Multiple-Files.html" accesskey="u" rel="up">Multiple Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Interspersing-File-Names-1">3.3.2.6 Interspersing File Names</h4>
+
+<p><code class="code">xargs</code> can insert the name of the file it is processing between
+arguments you give for the command.  Unless you also give options to
+limit the command size (see <a class="pxref" href="Limiting-Command-Size.html">Limiting Command Size</a>), this mode of
+operation is equivalent to &lsquo;<samp class="samp">find -exec</samp>&rsquo; (see <a class="pxref" href="Single-File.html">Single File</a>).
+</p>
+<dl class="table">
+<dt><code class="code">-I <var class="var">replace-str</var></code></dt>
+<dt><code class="code">--replace<span class="r">[</span>=<var class="var">replace-str</var><span class="r">]</span></code></dt>
+<dt><code class="code">-i<span class="r">[</span><var class="var">replace-str</var><span class="r">]</span></code></dt>
+<dd><p>Replace occurrences of <var class="var">replace-str</var> in the initial arguments with
+names read from standard input.
+Also, unquoted blanks do not terminate arguments;
+instead, the input is split at newlines only.
+If <var class="var">replace-str</var> is omitted (omitting it is allowed only for &lsquo;<samp class="samp">-i</samp>&rsquo;
+and &lsquo;<samp class="samp">--replace</samp>&rsquo;), it defaults to &lsquo;<samp class="samp">{}</samp>&rsquo; (like for &lsquo;<samp class="samp">find -exec</samp>&rsquo;).
+Implies &lsquo;<samp class="samp">-x</samp>&rsquo; and &lsquo;<samp class="samp">-L 1</samp>&rsquo;.
+The &lsquo;<samp class="samp">-i</samp>&rsquo; option is deprecated in favour of the &lsquo;<samp class="samp">-I</samp>&rsquo; option.
+</p></dd>
+</dl>
+
+<p>As an example, to sort each file in the <samp class="file">bills</samp>
+directory, leaving the output in that file name with <samp class="file">.sorted</samp>
+appended, you could do:
+</p>
+<div class="example">
+<pre class="example-preformatted">find bills -type f | xargs -I XX sort -o XX.sorted XX
+</pre></div>
+
+<p>The equivalent command using &lsquo;<samp class="samp">find -execdir</samp>&rsquo; is:
+</p>
+<div class="example">
+<pre class="example-preformatted">find bills -type f -execdir sort -o '{}.sorted' '{}' ';'
+</pre></div>
+
+<p>When you use the &lsquo;<samp class="samp">-I</samp>&rsquo; option, each line read from the input is
+buffered internally.  This means that there is an upper limit on the
+length of input line that <code class="code">xargs</code> will accept when used with the
+&lsquo;<samp class="samp">-I</samp>&rsquo; option.  To work around this limitation, you can use the
+&lsquo;<samp class="samp">-s</samp>&rsquo; option to increase the amount of buffer space that xargs
+uses, and you can also use an extra invocation of xargs to ensure that
+very long lines do not occur.  For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">somecommand | xargs -s 50000 echo | xargs -I '{}' -s 100000 rm '{}'
+</pre></div>
+
+<p>Here, the first invocation of <code class="code">xargs</code> has no input line length
+limit because it doesn&rsquo;t use the &lsquo;<samp class="samp">-I</samp>&rsquo; option. The second
+invocation of <code class="code">xargs</code> does have such a limit, but we have ensured
+that it never encounters a line which is longer than it can
+handle.
+</p>
+<p>This is not an ideal solution.  Instead, the &lsquo;<samp class="samp">-I</samp>&rsquo; option should
+not impose a line length limit (apart from any limit imposed by the
+operating system) and so one might consider this limitation to be a
+bug.  A better solution would be to allow <code class="code">xargs -I</code> to
+automatically move to a larger value for the &lsquo;<samp class="samp">-s</samp>&rsquo; option when
+this is needed.
+</p>
+<p>This sort of problem doesn&rsquo;t occur with the output of <code class="code">find</code>
+because it emits just one filename per line.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Previous: <a href="Controlling-Parallelism.html">Controlling Parallelism</a>, Up: <a href="Multiple-Files.html">Multiple Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

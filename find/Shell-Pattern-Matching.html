@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Shell Pattern Matching (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Shell Pattern Matching (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Shell Pattern Matching (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Name.html" rel="up" title="Name">
+<link href="Fast-Full-Name-Search.html" rel="prev" title="Fast Full Name Search">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="Shell-Pattern-Matching">
+<div class="nav-panel">
+<p>
+Previous: <a href="Fast-Full-Name-Search.html" accesskey="p" rel="prev">Fast Full Name Search</a>, Up: <a href="Name.html" accesskey="u" rel="up">Name</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Shell-Pattern-Matching-1">2.3.4 Shell Pattern Matching</h4>
+
+<p><code class="code">find</code> and <code class="code">locate</code> can compare file names, or parts of file
+names, to shell patterns.  A <em class="dfn">shell pattern</em> is a string that may
+contain the following special characters, which are known as
+<em class="dfn">wildcards</em> or <em class="dfn">metacharacters</em>.
+</p>
+<p>You must quote patterns that contain metacharacters to prevent the
+shell from expanding them itself.  Double and single quotes both work;
+so does escaping with a backslash.
+</p>
+<dl class="table">
+<dt><code class="code">*</code></dt>
+<dd><p>Matches any zero or more characters.
+</p>
+</dd>
+<dt><code class="code">?</code></dt>
+<dd><p>Matches any one character.
+</p>
+</dd>
+<dt><code class="code">[<var class="var">string</var>]</code></dt>
+<dd><p>Matches exactly one character that is a member of the string
+<var class="var">string</var>.  This is called a <em class="dfn">character class</em>.  As a
+shorthand, <var class="var">string</var> may contain ranges, which consist of two
+characters with a dash between them.  For example, the class
+&lsquo;<samp class="samp">[a-z0-9_]</samp>&rsquo; matches a lowercase letter, a number, or an
+underscore.  You can negate a class by placing a &lsquo;<samp class="samp">!</samp>&rsquo; or &lsquo;<samp class="samp">^</samp>&rsquo;
+immediately after the opening bracket.  Thus, &lsquo;<samp class="samp">[^A-Z@]</samp>&rsquo; matches
+any character except an uppercase letter or an at sign.
+</p>
+</dd>
+<dt><code class="code">\</code></dt>
+<dd><p>Removes the special meaning of the character that follows it.  This
+works even in character classes.
+</p></dd>
+</dl>
+
+<p>In the <code class="code">find</code> tests that do shell pattern matching (&lsquo;<samp class="samp">-name</samp>&rsquo;,
+&lsquo;<samp class="samp">-wholename</samp>&rsquo;, etc.), wildcards in the pattern will match a
+&lsquo;<samp class="samp">.</samp>&rsquo;  at the beginning of a file name.  This is also the case for
+<code class="code">locate</code>.  Thus, &lsquo;<samp class="samp">find -name '*macs'</samp>&rsquo; will match a file
+named <samp class="file">.emacs</samp>, as will &lsquo;<samp class="samp">locate '*macs'</samp>&rsquo;.
+</p>
+<p>Slash characters have no special significance in the shell pattern
+matching that <code class="code">find</code> and <code class="code">locate</code> do, unlike in the shell,
+in which wildcards do not match them.  Therefore, a pattern
+&lsquo;<samp class="samp">foo*bar</samp>&rsquo; can match a file name &lsquo;<samp class="samp">foo3/bar</samp>&rsquo;, and a pattern
+&lsquo;<samp class="samp">./sr*sc</samp>&rsquo; can match a file name &lsquo;<samp class="samp">./src/misc</samp>&rsquo;.
+</p>
+<p>If you want to locate some files with the &lsquo;<samp class="samp">locate</samp>&rsquo; command but
+don&rsquo;t need to see the full list you can use the &lsquo;<samp class="samp">--limit</samp>&rsquo; option
+to see just a small number of results, or the &lsquo;<samp class="samp">--count</samp>&rsquo; option to
+display only the total number of matches.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Previous: <a href="Fast-Full-Name-Search.html">Fast Full Name Search</a>, Up: <a href="Name.html">Name</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

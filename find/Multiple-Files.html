@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Multiple Files (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Multiple Files (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Multiple Files (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Run-Commands.html" rel="up" title="Run Commands">
+<link href="Querying.html" rel="next" title="Querying">
+<link href="Single-File.html" rel="prev" title="Single File">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="Multiple-Files">
+<div class="nav-panel">
+<p>
+Next: <a href="Querying.html" accesskey="n" rel="next">Querying</a>, Previous: <a href="Single-File.html" accesskey="p" rel="prev">Single File</a>, Up: <a href="Run-Commands.html" accesskey="u" rel="up">Run Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Multiple-Files-1">3.3.2 Multiple Files</h4>
+
+<p>Sometimes you need to process files one at a time.  But usually this
+is not necessary, and, it is faster to run a command on as many files
+as possible at a time, rather than once per file.  Doing this saves on
+the time it takes to start up the command each time.
+</p>
+<p>The &lsquo;<samp class="samp">-execdir</samp>&rsquo; and &lsquo;<samp class="samp">-exec</samp>&rsquo; actions have variants that build
+command lines containing as many matched files as possible.
+</p>
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dexecdir-1"><span class="category-def">Action: </span><span><strong class="def-name">-execdir</strong> <var class="def-var-arguments">command {} +</var><a class="copiable-link" href='#index-_002dexecdir-1'> &para;</a></span></dt>
+<dd><p>This works as for &lsquo;<samp class="samp">-execdir command ;</samp>&rsquo;, except that the result is
+always true, and the &lsquo;<samp class="samp">{}</samp>&rsquo; at the end of the command is expanded
+to a list of names of matching files.  This expansion is done in such
+a way as to avoid exceeding the maximum command line length available
+on the system.  Only one &lsquo;<samp class="samp">{}</samp>&rsquo; is allowed within the command,
+and it must appear at the end, immediately before the &lsquo;<samp class="samp">+</samp>&rsquo;.  A
+&lsquo;<samp class="samp">+</samp>&rsquo; appearing in any position other than immediately after
+&lsquo;<samp class="samp">{}</samp>&rsquo; is not considered to be special (that is, it does not
+terminate the command).
+</p></dd></dl>
+
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dexec-1"><span class="category-def">Action: </span><span><strong class="def-name">-exec</strong> <var class="def-var-arguments">command {} +</var><a class="copiable-link" href='#index-_002dexec-1'> &para;</a></span></dt>
+<dd><p>This insecure variant of the &lsquo;<samp class="samp">-execdir</samp>&rsquo; action is specified by
+POSIX.  The main difference is that the command is executed in the
+directory from which <code class="code">find</code> was invoked, meaning that &lsquo;<samp class="samp">{}</samp>&rsquo;
+is expanded to a relative path starting with the name of one of the
+starting directories, rather than just the basename of the matched
+file.  The result is always true.
+</p></dd></dl>
+
+<p>Before <code class="code">find</code> exits, any partially-built command lines are
+executed.  This happens even if the exit was caused by the
+&lsquo;<samp class="samp">-quit</samp>&rsquo; action.  However, some types of error (for example not
+being able to invoke <code class="code">stat()</code> on the current directory) can cause
+an immediate fatal exit.  In this situation, any partially-built
+command lines will not be invoked (this prevents possible infinite
+loops).
+</p>
+<p>At first sight, it looks like the list of filenames to be processed
+can only be at the end of the command line, and that this might be a
+problem for some commands (<code class="code">cp</code> and <code class="code">rsync</code> for example).
+</p>
+<p>However, there is a slightly obscure but powerful workaround for this
+problem which takes advantage of the behaviour of <code class="code">sh -c</code>:
+</p>
+<div class="example">
+<pre class="example-preformatted">find startpoint -tests &hellip; -exec sh -c 'scp &quot;$@&quot; remote:/dest' sh {} +
+</pre></div>
+
+<p>In the example above, the filenames we want to work on need to occur
+on the <code class="code">scp</code> command line before the name of the destination.  We
+use the shell to invoke the command <code class="code">scp &quot;$@&quot; remote:/dest</code> and
+the shell expands <code class="code">&quot;$@&quot;</code> to the list of filenames we want to
+process.
+</p>
+<p>Another, but less secure, way to run a command on more than one file
+at once, is to use the <code class="code">xargs</code> command, which is invoked like
+this:
+</p>
+<div class="example">
+<pre class="example-preformatted">xargs <span class="r">[</span><var class="var">option</var>&hellip;<span class="r">]</span> <span class="r">[</span><var class="var">command</var> <span class="r">[</span><var class="var">initial-arguments</var><span class="r">]</span><span class="r">]</span>
+</pre></div>
+
+<p><code class="code">xargs</code> normally reads arguments from the standard input.  These
+arguments are delimited by blanks (which can be protected with double
+or single quotes or a backslash) or newlines.  It executes the
+<var class="var">command</var> (the default is <samp class="file">echo</samp>) one or more times with any
+<var class="var">initial-arguments</var> followed by arguments read from standard
+input.  Blank lines on the standard input are ignored.  If the
+&lsquo;<samp class="samp">-L</samp>&rsquo; option is in use, trailing blanks indicate that <code class="code">xargs</code>
+should consider the following line to be part of this one.
+</p>
+<p>Instead of blank-delimited names, it is safer to use &lsquo;<samp class="samp">find
+-print0</samp>&rsquo; or &lsquo;<samp class="samp">find -fprint0</samp>&rsquo; and process the output by giving the
+&lsquo;<samp class="samp">-0</samp>&rsquo; or &lsquo;<samp class="samp">--null</samp>&rsquo; option to GNU <code class="code">xargs</code>, GNU <code class="code">tar</code>,
+GNU <code class="code">cpio</code>, or <code class="code">perl</code>.  The <code class="code">locate</code> command also has a
+&lsquo;<samp class="samp">-0</samp>&rsquo; or &lsquo;<samp class="samp">--null</samp>&rsquo; option which does the same thing.
+</p>
+<p>You can use shell command substitution (backquotes) to process a list
+of arguments, like this:
+</p>
+<div class="example">
+<pre class="example-preformatted">grep -l sprintf `find $HOME -name '*.c' -print`
+</pre></div>
+
+<p>However, that method produces an error if the length of the &lsquo;<samp class="samp">.c</samp>&rsquo;
+file names exceeds the operating system&rsquo;s command line length limit.
+<code class="code">xargs</code> avoids that problem by running the command as many times
+as necessary without exceeding the limit:
+</p>
+<div class="example">
+<pre class="example-preformatted">find $HOME -name '*.c' -print | xargs grep -l sprintf
+</pre></div>
+
+<p>However, if the command needs to have its standard input be a terminal
+(<code class="code">less</code>, for example), you have to use the shell command
+substitution method or use either the &lsquo;<samp class="samp">--arg-file</samp>&rsquo; option or the
+&lsquo;<samp class="samp">--open-tty</samp>&rsquo; option of <code class="code">xargs</code>.
+</p>
+<p>The <code class="code">xargs</code> command will usually process all of its input,
+building command lines and executing them.
+The processing stops earlier and immediately if the tool reads a line containing
+the end-of-file marker string specified with the &lsquo;<samp class="samp">--eof</samp>&rsquo; option,
+or if one of the launched commands exits with a status of 255.
+The latter will cause <code class="code">xargs</code> to issue an error message and exit with
+status 124.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Unsafe-File-Name-Handling.html" accesskey="1">Unsafe File Name Handling</a></li>
+<li><a href="Safe-File-Name-Handling.html" accesskey="2">Safe File Name Handling</a></li>
+<li><a href="Unusual-Characters-in-File-Names.html" accesskey="3">Unusual Characters in File Names</a></li>
+<li><a href="Limiting-Command-Size.html" accesskey="4">Limiting Command Size</a></li>
+<li><a href="Controlling-Parallelism.html" accesskey="5">Controlling Parallelism</a></li>
+<li><a href="Interspersing-File-Names.html" accesskey="6">Interspersing File Names</a></li>
+</ul>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Querying.html">Querying</a>, Previous: <a href="Single-File.html">Single File</a>, Up: <a href="Run-Commands.html">Run Commands</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

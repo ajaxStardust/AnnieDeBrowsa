@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Mode Structure (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Mode Structure (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Mode Structure (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="File-Permissions.html" rel="up" title="File Permissions">
+<link href="Symbolic-Modes.html" rel="next" title="Symbolic Modes">
+<style type="text/css">
+<!--
+ul.mark-bullet {list-style-type: disc}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Mode-Structure">
+<div class="nav-panel">
+<p>
+Next: <a href="Symbolic-Modes.html" accesskey="n" rel="next">Symbolic Modes</a>, Up: <a href="File-Permissions.html" accesskey="u" rel="up">File Permissions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Structure-of-File-Permissions">5.1 Structure of File Permissions</h3>
+
+<p>There are three kinds of permissions that a user can have for a file:
+</p>
+<ol class="enumerate">
+<li> <a class="index-entry-id" id="index-read-permission"></a>
+permission to read the file.  For directories, this means permission to
+list the contents of the directory.
+</li><li> <a class="index-entry-id" id="index-write-permission"></a>
+permission to write to (change) the file.  For directories, this means
+permission to create and remove files in the directory.
+</li><li> <a class="index-entry-id" id="index-execute-permission"></a>
+permission to execute the file (run it as a program).  For directories,
+this means permission to access files in the directory.
+</li></ol>
+
+<p>There are three categories of users who may have different permissions
+to perform any of the above operations on a file:
+</p>
+<ol class="enumerate">
+<li> the file&rsquo;s owner;
+</li><li> other users who are in the file&rsquo;s group;
+</li><li> everyone else.
+</li></ol>
+
+<a class="index-entry-id" id="index-owner_002c-default"></a>
+<a class="index-entry-id" id="index-group-owner_002c-default"></a>
+<p>Files are given an owner and group when they are created.  Usually the
+owner is the current user and the group is the group of the directory
+the file is in, but this varies with the operating system, the
+file system the file is created on, and the way the file is created.  You
+can change the owner and group of a file by using the <code class="command">chown</code> and
+<code class="command">chgrp</code> commands.
+</p>
+<p>In addition to the three sets of three permissions listed above, a
+file&rsquo;s permissions have three special components, which affect only
+executable files (programs) and, on some systems, directories:
+</p>
+<ol class="enumerate">
+<li> <a class="index-entry-id" id="index-setuid"></a>
+Set the process&rsquo;s effective user ID to that of the file upon execution
+(called the <em class="dfn">setuid bit</em>).  No effect on directories.
+</li><li> <a class="index-entry-id" id="index-setgid"></a>
+Set the process&rsquo;s effective group ID to that of the file upon execution
+(called the <em class="dfn">setgid bit</em>).  For directories on some systems, put
+files created in the directory into the same group as the directory, no
+matter what group the user who creates them is in.
+</li><li> <a class="index-entry-id" id="index-sticky"></a>
+<a class="index-entry-id" id="index-swap-space_002c-saving-text-image-in"></a>
+<a class="index-entry-id" id="index-text-image_002c-saving-in-swap-space"></a>
+<a class="index-entry-id" id="index-restricted-deletion-flag"></a>
+prevent users from removing or renaming a file in a directory
+unless they own the file or the directory; this is called the
+<em class="dfn">restricted deletion flag</em> for the directory.
+For regular files on some systems, save the program&rsquo;s text image on the
+swap device so it will load more quickly when run; this is called the
+<em class="dfn">sticky bit</em>.
+</li></ol>
+
+<p>In addition to the permissions listed above, there may be file attributes
+specific to the file system, e.g: access control lists (ACLs), whether a
+file is compressed, whether a file can be modified (immutability), whether
+a file can be dumped.  These are usually set using programs
+specific to the file system.  For example:
+</p>
+<dl class="table">
+<dt>ext2</dt>
+<dd><p>On <abbr class="acronym">GNU</abbr> and <abbr class="acronym">GNU</abbr>/Linux the file permissions
+(&ldquo;attributes&rdquo;) specific to
+the ext2 file system are set using <code class="command">chattr</code>.
+</p>
+</dd>
+<dt>FFS</dt>
+<dd><p>On FreeBSD the file permissions (&ldquo;flags&rdquo;) specific to the FFS
+file system are set using <code class="command">chrflags</code>.
+</p></dd>
+</dl>
+
+<p>Although a file&rsquo;s permission &ldquo;bits&rdquo; allow an operation on that file,
+that operation may still fail, because:
+</p>
+<ul class="itemize mark-bullet">
+<li>the file-system-specific permissions do not permit it;
+
+</li><li>the file system is mounted as read-only.
+</li></ul>
+
+<p>For example, if the immutable attribute is set on a file,
+it cannot be modified, regardless of the fact that you
+may have just run <code class="code">chmod a+w FILE</code>.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Symbolic-Modes.html">Symbolic Modes</a>, Up: <a href="File-Permissions.html">File Permissions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

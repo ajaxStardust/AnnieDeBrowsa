@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Old Database Format (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Old Database Format (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Old Database Format (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Database-Formats.html" rel="up" title="Database Formats">
+<link href="slocate-Database-Format.html" rel="prev" title="slocate Database Format">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="Old-Database-Format">
+<div class="nav-panel">
+<p>
+Previous: <a href="slocate-Database-Format.html" accesskey="p" rel="prev">slocate Database Format</a>, Up: <a href="Database-Formats.html" accesskey="u" rel="up">Database Formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Old-Database-Format-1">4.2.4 Old Database Format</h4>
+
+<p>The old database format is used by Unix <code class="code">locate</code> and <code class="code">find</code>
+programs and pre-4.0 releases of GNU findutils.  <code class="code">locate</code>
+understands this format, though <code class="code">updatedb</code> will no longer produce
+it.
+</p>
+<p>The old format differs from &lsquo;<samp class="samp">LOCATE02</samp>&rsquo; in the following ways.
+Instead of each entry starting with an offset-differential count byte
+and ending with a null, byte values from 0 through 28 indicate
+offset-differential counts from -14 through 14.  The byte value
+indicating that a long offset-differential count follows is 0x1e (30),
+not 0x80.  The long counts are stored in host byte order, which is not
+necessarily network byte order, and host integer word size, which is
+usually 4 bytes.  They also represent a count 14 less than their
+value.  The database lines have no termination byte; the start of the
+next line is indicated by its first byte having a value &lt;= 30.
+</p>
+<p>In addition, instead of starting with a dummy entry, the old database
+format starts with a 256 byte table containing the 128 most common
+bigrams in the file list.  A bigram is a pair of adjacent bytes.
+Bytes in the database that have the high bit set are indexes (with the
+high bit cleared) into the bigram table.  The bigram and
+offset-differential count coding makes these databases 20-25% smaller
+than the new format, but makes them not 8-bit clean.  Any byte in a
+file name that is in the ranges used for the special codes is replaced
+in the database by a question mark, which not coincidentally is the
+shell wildcard to match a single character. The old format therefore
+cannot faithfully store entries with non-ASCII characters.
+</p>
+<p>Because the long counts are stored as
+native-order machine words, the database format is not easily used in
+environments which differ in terms of byte order.  If locate databases
+are to be shared between machines, the &lsquo;<samp class="samp">LOCATE02</samp>&rsquo; database format should
+be used.  This has other benefits as discussed above.  However, the
+length of the filename currently being processed can normally be used
+to place reasonable limits on the long counts and so this information
+is used by locate to help it guess the byte ordering of the old format
+database.  Unless it finds evidence to the contrary, <code class="code">locate</code>
+will assume that the byte order of the database is the same as the
+native byte order of the machine running <code class="code">locate</code>.  The output of
+&lsquo;<samp class="samp">locate --statistics</samp>&rsquo; also includes information about the byte
+order of old-format databases.
+</p>
+<p>The output of &lsquo;<samp class="samp">locate --statistics</samp>&rsquo; will give an incorrect count
+of the number of file names containing newlines or high-bit characters
+for old-format databases.
+</p>
+<p>Old versions of GNU <code class="code">locate</code> fail to correctly handle very long
+file names, possibly leading to security problems relating to a heap
+buffer overrun.  See <a class="xref" href="Security-Considerations-for-locate.html">Security Considerations for <code class="code">locate</code></a>, for a
+detailed explanation.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Previous: <a href="slocate-Database-Format.html">slocate Database Format</a>, Up: <a href="Database-Formats.html">Database Formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

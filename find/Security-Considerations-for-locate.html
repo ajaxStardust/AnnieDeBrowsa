@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Security Considerations for locate (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Security Considerations for locate (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Security Considerations for locate (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Security-Considerations.html" rel="up" title="Security Considerations">
+<link href="Security-Summary.html" rel="next" title="Security Summary">
+<link href="Security-Considerations-for-xargs.html" rel="prev" title="Security Considerations for xargs">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Security-Considerations-for-locate">
+<div class="nav-panel">
+<p>
+Next: <a href="Security-Summary.html" accesskey="n" rel="next">Summary</a>, Previous: <a href="Security-Considerations-for-xargs.html" accesskey="p" rel="prev">Security Considerations for <code class="code">xargs</code></a>, Up: <a href="Security-Considerations.html" accesskey="u" rel="up">Security Considerations</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Security-Considerations-for-locate-1">11.4 Security Considerations for <code class="code">locate</code></h3>
+
+<ul class="mini-toc">
+<li><a href="#Race-Conditions" accesskey="1">Race Conditions</a></li>
+</ul>
+<div class="subsection-level-extent" id="Race-Conditions">
+<h4 class="subsection">11.4.1 Race Conditions</h4>
+<p>It is fairly unusual for the output of <code class="code">locate</code> to be fed into
+another command.  However, if this were to be done, this would raise
+the same set of security issues as the use of &lsquo;<samp class="samp">find &hellip; -print</samp>&rsquo;.
+Although the problems relating to whitespace in file names can be
+resolved by using <code class="code">locate</code>&rsquo;s &lsquo;<samp class="samp">-0</samp>&rsquo; option, this still leaves
+the race condition problems associated with &lsquo;<samp class="samp">find &hellip; -print0</samp>&rsquo;.
+There is no way to avoid these problems in the case of <code class="code">locate</code>.
+</p>
+</div>
+</div>
+
+
+
+</body>
+</html>

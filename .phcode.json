@@ -1,7 +1,7 @@
 {
     "livePreviewUseDevServer": true,
-    "livePreviewServerURL": "http://wsldebian/adbfinal01",
+    "livePreviewServerURL": "http://wsldebian/adbfinal01/",
     "livePreviewServerProjectPath": "/",
-    "livePreviewHotReloadSupported": false,
+    "livePreviewHotReloadSupported": true,
     "livePreviewFramework": "Custom"
 }

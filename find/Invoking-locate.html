@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Invoking locate (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Invoking locate (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Invoking locate (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Reference.html" rel="up" title="Reference">
+<link href="Invoking-updatedb.html" rel="next" title="Invoking updatedb">
+<link href="Invoking-find.html" rel="prev" title="Invoking find">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Invoking-locate">
+<div class="nav-panel">
+<p>
+Next: <a href="Invoking-updatedb.html" accesskey="n" rel="next">Invoking <code class="code">updatedb</code></a>, Previous: <a href="Invoking-find.html" accesskey="p" rel="prev">Invoking <code class="code">find</code></a>, Up: <a href="Reference.html" accesskey="u" rel="up">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Invoking-locate-1">8.2 Invoking <code class="code">locate</code></h3>
+
+<div class="example">
+<pre class="example-preformatted">locate <span class="r">[</span><var class="var">option</var>&hellip;<span class="r">]</span> <var class="var">pattern</var>&hellip;
+</pre></div>
+
+<p>For each <var class="var">pattern</var> given <code class="code">locate</code> searches one or more file
+name databases returning each match of <var class="var">pattern</var>.
+</p>
+<dl class="table">
+<dt><code class="code">--all</code></dt>
+<dt><code class="code">-A</code></dt>
+<dd><p>Print only names which match all non-option arguments, not those
+matching one or more non-option arguments.
+</p>
+</dd>
+<dt><code class="code">--basename</code></dt>
+<dt><code class="code">-b</code></dt>
+<dd><p>The specified pattern is matched against just the last component of
+the name of a file in the <code class="code">locate</code> database.  This last
+component is also called the &ldquo;base name&rdquo;.  For example, the base
+name of <samp class="file">/tmp/mystuff/foo.old.c</samp> is <samp class="file">foo.old.c</samp>.  If the
+pattern contains metacharacters, it must match the base name exactly.
+If not, it must match part of the base name.
+</p>
+</dd>
+<dt><code class="code">--count</code></dt>
+<dt><code class="code">-c</code></dt>
+<dd><p>Instead of printing the matched file names, just print the total
+number of matches found, unless &lsquo;<samp class="samp">--print</samp>&rsquo; (&lsquo;<samp class="samp">-p</samp>&rsquo;) is also
+present.
+</p>
+
+</dd>
+<dt><code class="code">--database=<var class="var">path</var></code></dt>
+<dt><code class="code">-d <var class="var">path</var></code></dt>
+<dd><p>Instead of searching the default <code class="code">locate</code> database
+<samp class="file">/usr/local/var/locatedb</samp>, <code class="code">locate</code> searches the file
+name databases in <var class="var">path</var>, which is a colon-separated list of
+database file names.  You can also use the environment variable
+<code class="env">LOCATE_PATH</code> to set the list of database files to search.  The
+option overrides the environment variable if both are used.  Empty
+elements in <var class="var">path</var> (that is, a leading or trailing colon, or two
+colons in a row) are taken to stand for the default database.
+A database can be supplied on stdin, using &lsquo;<samp class="samp">-</samp>&rsquo; as an element
+of &lsquo;<samp class="samp">path</samp>&rsquo;. If more than one element of &lsquo;<samp class="samp">path</samp>&rsquo; is &lsquo;<samp class="samp">-</samp>&rsquo;,
+later instances are ignored (but a warning message is printed).
+</p>
+</dd>
+<dt><code class="code">--existing</code></dt>
+<dt><code class="code">-e</code></dt>
+<dd><p>Only print out such names which currently exist (instead of such names
+which existed when the database was created).  Note that this may slow
+down the program a lot, if there are many matches in the database.
+The way in which broken symbolic links are treated is affected by the
+&lsquo;<samp class="samp">-L</samp>&rsquo;, &lsquo;<samp class="samp">-P</samp>&rsquo; and &lsquo;<samp class="samp">-H</samp>&rsquo; options.  Please note that it is
+possible for the file to be deleted after <code class="code">locate</code> has checked
+that it exists, but before you use it.  This option is automatically
+turned on when reading an <code class="code">slocate</code> database in secure mode
+(see <a class="pxref" href="slocate-Database-Format.html">slocate Database Format</a>).
+</p>
+</dd>
+<dt><code class="code">--non-existing</code></dt>
+<dt><code class="code">-E</code></dt>
+<dd><p>Only print out such names which currently do not exist (instead of
+such names which existed when the database was created).  Note that
+this may slow down the program a lot, if there are many matches in the
+database.  The way in which broken symbolic links are treated is
+affected by the &lsquo;<samp class="samp">-L</samp>&rsquo;, &lsquo;<samp class="samp">-P</samp>&rsquo; and &lsquo;<samp class="samp">-H</samp>&rsquo; options.  Please
+note that <code class="code">locate</code> checks that the file does not exist, but a
+file of the same name might be created after <code class="code">locate</code>&rsquo;s check but
+before you read <code class="code">locate</code>&rsquo;s output.
+</p>
+</dd>
+<dt><code class="code">--follow</code></dt>
+<dt><code class="code">-L</code></dt>
+<dd><p>If testing for the existence of files (with the &lsquo;<samp class="samp">-e</samp>&rsquo; or &lsquo;<samp class="samp">-E</samp>&rsquo;
+options), consider broken symbolic links to be non-existing.  This is
+the default behaviour.
+</p>
+</dd>
+<dt><code class="code">--nofollow</code></dt>
+<dt><code class="code">-P</code></dt>
+<dt><code class="code">-H</code></dt>
+<dd><p>If testing for the existence of files (with the &lsquo;<samp class="samp">-e</samp>&rsquo; or &lsquo;<samp class="samp">-E</samp>&rsquo;
+options), treat broken symbolic links as if they were existing files.
+The &lsquo;<samp class="samp">-H</samp>&rsquo; form of this option is provided purely for similarity
+with <code class="code">find</code>; the use of &lsquo;<samp class="samp">-P</samp>&rsquo; is recommended over &lsquo;<samp class="samp">-H</samp>&rsquo;.
+</p>
+</dd>
+<dt><code class="code">--ignore-case</code></dt>
+<dt><code class="code">-i</code></dt>
+<dd><p>Ignore case distinctions in both the pattern and the file names.
+</p>
+</dd>
+<dt><code class="code">--limit=N</code></dt>
+<dt><code class="code">-l N</code></dt>
+<dd><p>Limit the number of results printed to N.  When used with the
+&lsquo;<samp class="samp">--count</samp>&rsquo; option, the value printed will never be larger than
+this limit.
+</p></dd>
+<dt><code class="code">--max-database-age=D</code></dt>
+<dd><p>Normally, <code class="code">locate</code> will issue a warning message when it searches
+a database which is more than 8 days old.  This option changes that
+value to something other than 8.  The effect of specifying a negative
+value is undefined.
+</p></dd>
+<dt><code class="code">--mmap</code></dt>
+<dt><code class="code">-m</code></dt>
+<dd><p>Accepted but does nothing.  The option is supported only to provide
+compatibility with BSD&rsquo;s <code class="code">locate</code>.
+</p>
+</dd>
+<dt><code class="code">--null</code></dt>
+<dt><code class="code">-0</code></dt>
+<dd><p>Results are separated with the ASCII NUL character rather than the
+newline character.  To get the full benefit of this option,
+use the new <code class="code">locate</code> database format (that is the default
+anyway).
+</p>
+</dd>
+<dt><code class="code">--print</code></dt>
+<dt><code class="code">-p</code></dt>
+<dd><p>Print search results when they normally would not be due to
+use of &lsquo;<samp class="samp">--statistics</samp>&rsquo; (&lsquo;<samp class="samp">-S</samp>&rsquo;) or &lsquo;<samp class="samp">--count</samp>&rsquo;
+(&lsquo;<samp class="samp">-c</samp>&rsquo;).
+</p>
+</dd>
+<dt><code class="code">--wholename</code></dt>
+<dt><code class="code">-w</code></dt>
+<dd><p>The specified pattern is matched against the whole name of the file in
+the <code class="code">locate</code> database.  If the pattern contains metacharacters,
+it must match exactly.  If not, it must match part of the whole file
+name.  This is the default behaviour.
+</p>
+</dd>
+<dt><code class="code">--regex</code></dt>
+<dt><code class="code">-r</code></dt>
+<dd><p>Instead of using substring or shell glob matching, the pattern
+specified on the command line is understood to be a regular
+expression.  GNU Emacs-style regular expressions are assumed unless
+the &lsquo;<samp class="samp">--regextype</samp>&rsquo; option is also given.  File names from the
+<code class="code">locate</code> database are matched using the specified regular
+expression.  If the &lsquo;<samp class="samp">-i</samp>&rsquo; flag is also given, matching is
+case-insensitive.  Matches are performed against the whole path name,
+and so by default a pathname will be matched if any part of it matches
+the specified regular expression.  The regular expression may use
+&lsquo;<samp class="samp">^</samp>&rsquo; or &lsquo;<samp class="samp">$</samp>&rsquo; to anchor a match at the beginning or end of a
+pathname.
+</p>
+</dd>
+<dt><code class="code">--regextype</code></dt>
+<dd><p>This option changes the regular expression syntax and behaviour used
+by the &lsquo;<samp class="samp">--regex</samp>&rsquo; option.  <a class="ref" href="Regular-Expressions.html">Regular Expressions</a> for more
+information on the regular expression dialects understood by GNU
+findutils.
+</p>
+</dd>
+<dt><code class="code">--stdio</code></dt>
+<dt><code class="code">-s</code></dt>
+<dd><p>Accepted but does nothing.  The option is supported only to provide
+compatibility with BSD&rsquo;s <code class="code">locate</code>.
+</p>
+</dd>
+<dt><code class="code">--statistics</code></dt>
+<dt><code class="code">-S</code></dt>
+<dd><p>Print some summary information for each <code class="code">locate</code> database.  No
+search is performed unless non-option arguments are given.
+Although the BSD version of locate also has this option, the format of the
+output is different.
+</p>
+</dd>
+<dt><code class="code">--help</code></dt>
+<dd><p>Print a summary of the command line usage for <code class="code">locate</code> and exit.
+</p>
+</dd>
+<dt><code class="code">--version</code></dt>
+<dd><p>Print the version number of <code class="code">locate</code> and exit.
+</p></dd>
+</dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Invoking-updatedb.html">Invoking <code class="code">updatedb</code></a>, Previous: <a href="Invoking-find.html">Invoking <code class="code">find</code></a>, Up: <a href="Reference.html">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

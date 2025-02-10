@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Mode Bits (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Mode Bits (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Mode Bits (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Finding-Files.html" rel="up" title="Finding Files">
+<link href="Contents.html" rel="next" title="Contents">
+<link href="Owner.html" rel="prev" title="Owner">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Mode-Bits">
+<div class="nav-panel">
+<p>
+Next: <a href="Contents.html" accesskey="n" rel="next">Contents</a>, Previous: <a href="Owner.html" accesskey="p" rel="prev">Owner</a>, Up: <a href="Finding-Files.html" accesskey="u" rel="up">Finding Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="File-Mode-Bits">2.9 File Mode Bits</h3>
+
+<p>See <a class="xref" href="File-Permissions.html">File Permissions</a>, for information on how file mode bits are
+structured and how to specify them.
+</p>
+<p>Four tests determine what users can do with files.  These are
+&lsquo;<samp class="samp">-readable</samp>&rsquo;, &lsquo;<samp class="samp">-writable</samp>&rsquo;, &lsquo;<samp class="samp">-executable</samp>&rsquo; and
+&lsquo;<samp class="samp">-perm</samp>&rsquo;.  The first three tests ask the operating system if the
+current user can perform the relevant operation on a file, while
+&lsquo;<samp class="samp">-perm</samp>&rsquo; just examines the file&rsquo;s mode.  The file mode may give
+a misleading impression of what the user can actually do, because the
+file may have an access control list, or exist on a read-only
+filesystem, for example.  Of these four tests though, only
+&lsquo;<samp class="samp">-perm</samp>&rsquo; is specified by the POSIX standard.
+</p>
+<p>The &lsquo;<samp class="samp">-readable</samp>&rsquo;, &lsquo;<samp class="samp">-writable</samp>&rsquo; and &lsquo;<samp class="samp">-executable</samp>&rsquo; tests
+are implemented via the <code class="code">access</code> system call.  This is
+implemented within the operating system itself.  If the file being
+considered is on an NFS filesystem, the remote system may allow or
+forbid read or write operations for reasons of which the NFS client
+cannot take account.  This includes user-ID mapping, either in the
+general sense or the more restricted sense in which remote superusers
+are treated by the NFS server as if they are the local user
+&lsquo;<samp class="samp">nobody</samp>&rsquo; on the NFS server.
+</p>
+<p>None of the tests in this section should be used to verify that a user
+is authorised to perform any operation (on the file being tested or
+any other file) because of the possibility of a race condition.  That
+is, the situation may change between the test and an action being
+taken on the basis of the result of that test.
+</p>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dreadable"><span class="category-def">Test: </span><span><strong class="def-name">-readable</strong><a class="copiable-link" href='#index-_002dreadable'> &para;</a></span></dt>
+<dd><p>True if the file can be read by the invoking user.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dwritable"><span class="category-def">Test: </span><span><strong class="def-name">-writable</strong><a class="copiable-link" href='#index-_002dwritable'> &para;</a></span></dt>
+<dd><p>True if the file can be written by the invoking user.  This is an
+in-principle check, and other things may prevent a successful write
+operation; for example, the filesystem might be full.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dexecutable"><span class="category-def">Test: </span><span><strong class="def-name">-executable</strong><a class="copiable-link" href='#index-_002dexecutable'> &para;</a></span></dt>
+<dd><p>True if the file can be executed/searched by the invoking user.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dperm"><span class="category-def">Test: </span><span><strong class="def-name">-perm</strong> <var class="def-var-arguments">pmode</var><a class="copiable-link" href='#index-_002dperm'> &para;</a></span></dt>
+<dd>
+<p>True if the file&rsquo;s mode bits match <var class="var">pmode</var>, which can be
+either a symbolic or numeric <var class="var">mode</var> (see <a class="pxref" href="File-Permissions.html">File Permissions</a>)
+optionally prefixed by &lsquo;<samp class="samp">-</samp>&rsquo; or &lsquo;<samp class="samp">/</samp>&rsquo;.
+</p>
+<p>Note that <var class="var">pmode</var> starts with all file mode bits cleared, i.e.,
+does not relate to the process&rsquo;s file creation bit mask (also known
+as <code class="command">umask</code>).
+</p>
+<p>A <var class="var">pmode</var> that starts with neither &lsquo;<samp class="samp">-</samp>&rsquo; nor &lsquo;<samp class="samp">/</samp>&rsquo; matches
+if <var class="var">mode</var> exactly matches the file mode bits.
+(To avoid confusion with an obsolete GNU extension, <var class="var">mode</var>
+must not start with a &lsquo;<samp class="samp">+</samp>&rsquo; immediately followed by an octal digit.)
+</p>
+<p>A <var class="var">pmode</var> that starts with &lsquo;<samp class="samp">-</samp>&rsquo; matches if
+<em class="emph">all</em> the file mode bits set in <var class="var">mode</var> are set for the file;
+bits not set in <var class="var">mode</var> are ignored.
+</p>
+<p>A <var class="var">pmode</var> that starts with &lsquo;<samp class="samp">/</samp>&rsquo; matches if
+<em class="emph">any</em> of the file mode bits set in <var class="var">mode</var> are set for the file;
+bits not set in <var class="var">mode</var> are ignored.
+This is a GNU extension.
+</p>
+<p>If you don&rsquo;t use the &lsquo;<samp class="samp">/</samp>&rsquo; or &lsquo;<samp class="samp">-</samp>&rsquo; form with a symbolic mode
+string, you may have to specify a rather complex mode string.  For
+example &lsquo;<samp class="samp">-perm g=w</samp>&rsquo; will only match files that have mode 0020
+(that is, ones for which group write permission is the only file mode bit
+set).  It is more likely that you will want to use the &lsquo;<samp class="samp">/</samp>&rsquo; or
+&lsquo;<samp class="samp">-</samp>&rsquo; forms, for example &lsquo;<samp class="samp">-perm -g=w</samp>&rsquo;, which matches any file
+with group write permission.
+</p>
+
+<dl class="table">
+<dt>&lsquo;<samp class="samp">-perm 664</samp>&rsquo;</dt>
+<dd><p>Match files that have read and write permission for their owner,
+and group, but that the rest of the world can read but not write to.
+Do not match files that meet these criteria but have other file mode
+bits set (for example if someone can execute/search the file).
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-perm -664</samp>&rsquo;</dt>
+<dd><p>Match files that have read and write permission for their owner,
+and group, but that the rest of the world can read but not write to,
+without regard to the presence of any extra file mode bits (for
+example the executable bit).  This matches a file with mode
+0777, for example.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-perm /222</samp>&rsquo;</dt>
+<dd><p>Match files that are writable by somebody (their owner, or
+their group, or anybody else).
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-perm /022</samp>&rsquo;</dt>
+<dd><p>Match files that are writable by their group or everyone else - the latter
+often called <em class="dfn">other</em>.  The files don&rsquo;t have to be writable by both the
+group and other to be matched; either will do.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-perm /g+w,o+w</samp>&rsquo;</dt>
+<dd><p>As above.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-perm /g=w,o=w</samp>&rsquo;</dt>
+<dd><p>As above.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-perm -022</samp>&rsquo;</dt>
+<dd><p>Match files that are writable by both their group and everyone else.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-perm -g+w,o+w</samp>&rsquo;</dt>
+<dd><p>As above.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-perm -444 -perm /222 ! -perm /111</samp>&rsquo;</dt>
+<dd><p>Match files that are readable for everybody, have at least one
+write bit set (i.e., somebody can write to them), but that cannot be
+executed/searched by anybody.  Note that in some shells the &lsquo;<samp class="samp">!</samp>&rsquo; must be
+escaped.
+</p>
+</dd>
+<dt>&lsquo;<samp class="samp">-perm -a+r -perm /a+w ! -perm /a+x</samp>&rsquo;</dt>
+<dd><p>As above.
+</p>
+</dd>
+</dl>
+
+<blockquote class="quotation">
+<p><b class="b">Warning:</b> If you specify &lsquo;<samp class="samp">-perm /000</samp>&rsquo; or &lsquo;<samp class="samp">-perm /mode</samp>&rsquo; where the
+symbolic mode &lsquo;<samp class="samp">mode</samp>&rsquo; has no bits set, the test matches all files.
+Versions of GNU <code class="code">find</code> prior to 4.3.3 matched no files in this
+situation.
+</p></blockquote>
+
+</dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dcontext"><span class="category-def">Test: </span><span><strong class="def-name">-context</strong> <var class="def-var-arguments">pattern</var><a class="copiable-link" href='#index-_002dcontext'> &para;</a></span></dt>
+<dd><p>True if file&rsquo;s SELinux context matches the pattern <var class="var">pattern</var>.
+The pattern uses shell glob matching.
+</p>
+<p>This predicate is supported only on <code class="code">find</code> versions compiled with
+SELinux support and only when SELinux is enabled.
+</p></dd></dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Contents.html">Contents</a>, Previous: <a href="Owner.html">Owner</a>, Up: <a href="Finding-Files.html">Finding Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

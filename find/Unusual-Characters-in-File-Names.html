@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Unusual Characters in File Names (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Unusual Characters in File Names (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Unusual Characters in File Names (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Multiple-Files.html" rel="up" title="Multiple Files">
+<link href="Limiting-Command-Size.html" rel="next" title="Limiting Command Size">
+<link href="Safe-File-Name-Handling.html" rel="prev" title="Safe File Name Handling">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsubsection-level-extent" id="Unusual-Characters-in-File-Names">
+<div class="nav-panel">
+<p>
+Next: <a href="Limiting-Command-Size.html" accesskey="n" rel="next">Limiting Command Size</a>, Previous: <a href="Safe-File-Name-Handling.html" accesskey="p" rel="prev">Safe File Name Handling</a>, Up: <a href="Multiple-Files.html" accesskey="u" rel="up">Multiple Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsubsection" id="Unusual-Characters-in-File-Names-1">3.3.2.3 Unusual Characters in File Names</h4>
+<p>As discussed above, you often need to be careful about how the names
+of files are handled by <code class="code">find</code> and other programs.  If the output
+of <code class="code">find</code> is not going to another program but instead is being
+shown on a terminal, this can still be a problem.  For example, some
+character sequences can reprogram the function keys on some terminals.
+See <a class="xref" href="Security-Considerations.html">Security Considerations</a>, for a discussion of other security
+problems relating to <code class="code">find</code>.
+</p>
+<p>Unusual characters are handled differently by various
+actions, as described below.
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">-print0</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">-fprint0</samp>&rsquo;</dt>
+<dd><p>Always print the exact file name, unchanged, even if the output is
+going to a terminal.
+</p></dd>
+<dt>&lsquo;<samp class="samp">-ok</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">-okdir</samp>&rsquo;</dt>
+<dd><p>Always print the exact file name, unchanged.  This will probably
+change in a future release.
+</p></dd>
+<dt>&lsquo;<samp class="samp">-ls</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">-fls</samp>&rsquo;</dt>
+<dd><p>Unusual characters are always escaped.  White space, backslash, and
+double quote characters are printed using C-style escaping (for
+example &lsquo;<samp class="samp">\f</samp>&rsquo;, &lsquo;<samp class="samp">\&quot;</samp>&rsquo;).  Other unusual characters are printed
+using an octal escape.  Other printable characters (for &lsquo;<samp class="samp">-ls</samp>&rsquo; and
+&lsquo;<samp class="samp">-fls</samp>&rsquo; these are the characters between octal 041 and 0176) are
+printed as-is.
+</p></dd>
+<dt>&lsquo;<samp class="samp">-printf</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">-fprintf</samp>&rsquo;</dt>
+<dd><p>If the output is not going to a terminal, it is printed as-is.
+Otherwise, the result depends on which directive is in use:
+</p>
+<dl class="table">
+<dt>%D, %F, %H, %Y, %y</dt>
+<dd><p>These expand to values which are not under control of files&rsquo; owners,
+and so are printed as-is.
+</p></dd>
+<dt>%a, %b, %c, %d, %g, %G, %i, %k, %m, %M, %n, %s, %t, %u, %U</dt>
+<dd><p>These have values which are under the control of files&rsquo; owners but
+which cannot be used to send arbitrary data to the terminal, and so
+these are printed as-is.
+</p></dd>
+<dt>%f, %h, %l, %p, %P</dt>
+<dd><p>The output of these directives is quoted if the output is going to a
+terminal.  The setting of the <code class="env">LC_CTYPE</code> environment
+variable is used to determine which characters need to be quoted.
+</p>
+<p>This quoting is performed in the same way as for GNU <code class="code">ls</code>.  This
+is not the same quoting mechanism as the one used for &lsquo;<samp class="samp">-ls</samp>&rsquo; and
+&lsquo;<samp class="samp">fls</samp>&rsquo;.  If you are able to decide what format to use for the
+output of <code class="code">find</code> then it is normally better to use &lsquo;<samp class="samp">\0</samp>&rsquo; as a
+terminator than to use newline, as file names can contain white space
+and newline characters.
+</p></dd>
+</dl>
+</dd>
+<dt>&lsquo;<samp class="samp">-print</samp>&rsquo;</dt>
+<dt>&lsquo;<samp class="samp">-fprint</samp>&rsquo;</dt>
+<dd><p>Quoting is handled in the same way as for the &lsquo;<samp class="samp">%p</samp>&rsquo; directive of
+&lsquo;<samp class="samp">-printf</samp>&rsquo; and &lsquo;<samp class="samp">-fprintf</samp>&rsquo;.  If you are using <code class="code">find</code> in a
+script or in a situation where the matched files might have arbitrary
+names, you should consider using &lsquo;<samp class="samp">-print0</samp>&rsquo; instead of
+&lsquo;<samp class="samp">-print</samp>&rsquo;.
+</p></dd>
+</dl>
+
+
+<p>The <code class="code">locate</code> program quotes and escapes unusual characters in
+file names in the same way as <code class="code">find</code>&rsquo;s &lsquo;<samp class="samp">-print</samp>&rsquo; action.
+</p>
+<p>The behaviours described above may change soon, as the treatment of
+unprintable characters is harmonised for &lsquo;<samp class="samp">-ls</samp>&rsquo;, &lsquo;<samp class="samp">-fls</samp>&rsquo;,
+&lsquo;<samp class="samp">-print</samp>&rsquo;, &lsquo;<samp class="samp">-fprint</samp>&rsquo;, &lsquo;<samp class="samp">-printf</samp>&rsquo; and &lsquo;<samp class="samp">-fprintf</samp>&rsquo;.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Limiting-Command-Size.html">Limiting Command Size</a>, Previous: <a href="Safe-File-Name-Handling.html">Safe File Name Handling</a>, Up: <a href="Multiple-Files.html">Multiple Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

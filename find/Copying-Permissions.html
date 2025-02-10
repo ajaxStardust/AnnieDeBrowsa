@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Copying Permissions (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Copying Permissions (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Copying Permissions (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Symbolic-Modes.html" rel="up" title="Symbolic Modes">
+<link href="Changing-Special-Permissions.html" rel="next" title="Changing Special Permissions">
+<link href="Setting-Permissions.html" rel="prev" title="Setting Permissions">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="Copying-Permissions">
+<div class="nav-panel">
+<p>
+Next: <a href="Changing-Special-Permissions.html" accesskey="n" rel="next">Changing Special Permissions</a>, Previous: <a href="Setting-Permissions.html" accesskey="p" rel="prev">Setting Permissions</a>, Up: <a href="Symbolic-Modes.html" accesskey="u" rel="up">Symbolic Modes</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Copying-Existing-Permissions">5.2.2 Copying Existing Permissions</h4>
+
+<a class="index-entry-id" id="index-copying-existing-permissions"></a>
+<a class="index-entry-id" id="index-permissions_002c-copying-existing"></a>
+<p>You can base a file&rsquo;s permissions on its existing permissions.  To do
+this, instead of using a series of &lsquo;<samp class="samp">r</samp>&rsquo;, &lsquo;<samp class="samp">w</samp>&rsquo;, or &lsquo;<samp class="samp">x</samp>&rsquo;
+letters after the
+operator, you use the letter &lsquo;<samp class="samp">u</samp>&rsquo;, &lsquo;<samp class="samp">g</samp>&rsquo;, or &lsquo;<samp class="samp">o</samp>&rsquo;.  For
+example, the mode
+</p>
+<div class="example">
+<pre class="example-preformatted">o+g
+</pre></div>
+
+<p>adds the permissions for users who are in a file&rsquo;s group to the
+permissions that other users have for the file.  Thus, if the file
+started out as mode 664 (&lsquo;<samp class="samp">rw-rw-r--</samp>&rsquo;), the above mode would change
+it to mode 666 (&lsquo;<samp class="samp">rw-rw-rw-</samp>&rsquo;).  If the file had started out as mode
+741 (&lsquo;<samp class="samp">rwxr----x</samp>&rsquo;), the above mode would change it to mode 745
+(&lsquo;<samp class="samp">rwxr--r-x</samp>&rsquo;).  The &lsquo;<samp class="samp">-</samp>&rsquo; and &lsquo;<samp class="samp">=</samp>&rsquo; operations work
+analogously.
+</p>
+</div>
+
+
+
+</body>
+</html>

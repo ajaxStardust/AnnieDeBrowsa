@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Comparing Timestamps (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Comparing Timestamps (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Comparing Timestamps (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Time.html" rel="up" title="Time">
+<link href="Age-Ranges.html" rel="prev" title="Age Ranges">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="Comparing-Timestamps">
+<div class="nav-panel">
+<p>
+Previous: <a href="Age-Ranges.html" accesskey="p" rel="prev">Age Ranges</a>, Up: <a href="Time.html" accesskey="u" rel="up">Time</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Comparing-Timestamps-1">2.5.2 Comparing Timestamps</h4>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dnewerXY"><span class="category-def">Test: </span><span><strong class="def-name">-newerXY</strong> <var class="def-var-arguments">reference</var><a class="copiable-link" href='#index-_002dnewerXY'> &para;</a></span></dt>
+<dd><p>Succeeds if timestamp &lsquo;<samp class="samp">X</samp>&rsquo; of the file being considered is newer
+than timestamp &lsquo;<samp class="samp">Y</samp>&rsquo; of the file <samp class="file">reference</samp>.   The letters
+&lsquo;<samp class="samp">X</samp>&rsquo; and &lsquo;<samp class="samp">Y</samp>&rsquo; can be any of the following letters:
+</p>
+<dl class="table">
+<dt>&lsquo;<samp class="samp">a</samp>&rsquo;</dt>
+<dd><p>Last-access time of <samp class="file">reference</samp>
+</p></dd>
+<dt>&lsquo;<samp class="samp">B</samp>&rsquo;</dt>
+<dd><p>Birth time of <samp class="file">reference</samp> (when this is not known, the test cannot succeed)
+</p></dd>
+<dt>&lsquo;<samp class="samp">c</samp>&rsquo;</dt>
+<dd><p>Last-change time of <samp class="file">reference</samp>
+</p></dd>
+<dt>&lsquo;<samp class="samp">m</samp>&rsquo;</dt>
+<dd><p>Last-modification time of <samp class="file">reference</samp>
+</p></dd>
+<dt>&lsquo;<samp class="samp">t</samp>&rsquo;</dt>
+<dd><p>The <samp class="file">reference</samp> argument is interpreted as a literal time, rather
+than the name of a file.  See <a class="xref" href="Date-input-formats.html">Date input formats</a>, for a description
+of how the timestamp is understood.  Tests of the form &lsquo;<samp class="samp">-newerXt</samp>&rsquo;
+are valid but tests of the form &lsquo;<samp class="samp">-newertY</samp>&rsquo; are not.
+</p></dd>
+</dl>
+
+<p>For example the test <code class="code">-newerac /tmp/foo</code> succeeds for all files
+which have been accessed more recently than <samp class="file">/tmp/foo</samp> was
+changed.   Here &lsquo;<samp class="samp">X</samp>&rsquo; is &lsquo;<samp class="samp">a</samp>&rsquo; and &lsquo;<samp class="samp">Y</samp>&rsquo; is &lsquo;<samp class="samp">c</samp>&rsquo;.
+</p>
+<p>Not all files have a known birth time.  If &lsquo;<samp class="samp">Y</samp>&rsquo; is &lsquo;<samp class="samp">B</samp>&rsquo; and
+the birth time of <samp class="file">reference</samp> is not available, <code class="code">find</code> exits
+with an explanatory error message.  If &lsquo;<samp class="samp">X</samp>&rsquo; is &lsquo;<samp class="samp">B</samp>&rsquo; and we do
+not know the birth time the file currently being considered, the test
+simply fails (that is, it behaves like <code class="code">-false</code> does).
+</p>
+<p>Some operating systems (for example, most implementations of Unix) do
+not support file birth times.  Some others, for example NetBSD-3.1,
+do.  Even on operating systems which support file birth times, the
+information may not be available for specific files.  For example,
+under NetBSD, file birth times are supported on UFS2 file systems, but
+not UFS1 file systems.
+</p>
+</dd></dl>
+
+
+
+<p>There are two ways to list files in <samp class="file">/usr</samp> modified after
+February 1 of the current year.  One uses &lsquo;<samp class="samp">-newermt</samp>&rsquo;:
+</p>
+<div class="example">
+<pre class="example-preformatted">find /usr -newermt &quot;Feb 1&quot;
+</pre></div>
+
+<p>The other way of doing this works on the versions of find before 4.3.3:
+</p>
+<div class="example">
+<pre class="example-preformatted">touch -t 02010000 /tmp/stamp$$
+find /usr -newer /tmp/stamp$$
+rm -f /tmp/stamp$$
+</pre></div>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002danewer"><span class="category-def">Test: </span><span><strong class="def-name">-anewer</strong> <var class="def-var-arguments">reference</var><a class="copiable-link" href='#index-_002danewer'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-_002dcnewer"><span class="category-def">Test: </span><span><strong class="def-name">-cnewer</strong> <var class="def-var-arguments">reference</var><a class="copiable-link" href='#index-_002dcnewer'> &para;</a></span></dt>
+<dt class="deffnx def-cmd-deffn" id="index-_002dnewer"><span class="category-def">Test: </span><span><strong class="def-name">-newer</strong> <var class="def-var-arguments">reference</var><a class="copiable-link" href='#index-_002dnewer'> &para;</a></span></dt>
+<dd><p>True if the time of the last access (or status change or data modification)
+of the current file is more recent than that of the last data modification
+of the <var class="var">reference</var> file.
+As such, &lsquo;<samp class="samp">-anewer</samp>&rsquo; is equivalent to &lsquo;<samp class="samp">-neweram</samp>&rsquo;,
+&lsquo;<samp class="samp">-cnewer</samp>&rsquo; to &lsquo;<samp class="samp">-newercm</samp>&rsquo;, and &lsquo;<samp class="samp">-newer</samp>&rsquo; to &lsquo;<samp class="samp">-newermm</samp>&rsquo;.
+</p>
+<p>If <var class="var">reference</var> is a symbolic link and the &lsquo;<samp class="samp">-H</samp>&rsquo; option or the &lsquo;<samp class="samp">-L</samp>&rsquo;
+option is in effect, then the time of the last data modification of the file
+it points to is always used.
+</p>
+<p>These tests are affected by &lsquo;<samp class="samp">-follow</samp>&rsquo; only if &lsquo;<samp class="samp">-follow</samp>&rsquo; comes before
+them on the command line.  See <a class="xref" href="Symbolic-Links.html">Symbolic Links</a>, for more information on
+&lsquo;<samp class="samp">-follow</samp>&rsquo;.
+</p>
+<p>As an example, to list any files modified since
+<samp class="file">/bin/sh</samp> was last modified:
+</p>
+<div class="example">
+<pre class="example-preformatted">find . -newer /bin/sh
+</pre></div>
+</dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dused"><span class="category-def">Test: </span><span><strong class="def-name">-used</strong> <var class="def-var-arguments">n</var><a class="copiable-link" href='#index-_002dused'> &para;</a></span></dt>
+<dd><p>True if the file was last accessed <var class="var">n</var> days after its status was
+last changed.  Useful for finding files that are not being used, and
+could perhaps be archived or removed to save disk space.
+</p></dd></dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Previous: <a href="Age-Ranges.html">Age Ranges</a>, Up: <a href="Time.html">Time</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

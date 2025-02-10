@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Combining Primaries With Operators (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Combining Primaries With Operators (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Combining Primaries With Operators (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Finding-Files.html" rel="up" title="Finding Files">
+<link href="Filesystems.html" rel="prev" title="Filesystems">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Combining-Primaries-With-Operators">
+<div class="nav-panel">
+<p>
+Previous: <a href="Filesystems.html" accesskey="p" rel="prev">Filesystems</a>, Up: <a href="Finding-Files.html" accesskey="u" rel="up">Finding Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Combining-Primaries-With-Operators-1">2.13 Combining Primaries With Operators</h3>
+
+<p>Operators build a complex expression from tests and actions.
+The operators are, in order of decreasing precedence:
+</p>
+<dl class="table">
+<dt id='index-_0028_0029'><span><code class="code">( <var class="var">expr</var> )</code><a class="copiable-link" href='#index-_0028_0029'> &para;</a></span></dt>
+<dd><p>Force precedence.  True if <var class="var">expr</var> is true.
+</p>
+</dd>
+<dt id='index-_0021'><span><code class="code">! <var class="var">expr</var></code><a class="copiable-link" href='#index-_0021'> &para;</a></span></dt>
+<dt><code class="code">-not <var class="var">expr</var></code></dt>
+<dd><a class="index-entry-id" id="index-_002dnot"></a>
+<p>True if <var class="var">expr</var> is false.  In some shells, it is necessary to
+protect the &lsquo;<samp class="samp">!</samp>&rsquo; from shell interpretation by quoting it.
+</p>
+</dd>
+<dt id='index-_002dand'><span><code class="code"><var class="var">expr1 expr2</var></code><a class="copiable-link" href='#index-_002dand'> &para;</a></span></dt>
+<dt><code class="code"><var class="var">expr1</var> -a <var class="var">expr2</var></code></dt>
+<dt><code class="code"><var class="var">expr1</var> -and <var class="var">expr2</var></code></dt>
+<dd><a class="index-entry-id" id="index-_002da"></a>
+<p>And; <var class="var">expr2</var> is not evaluated if <var class="var">expr1</var> is false.
+</p>
+</dd>
+<dt id='index-_002dor'><span><code class="code"><var class="var">expr1</var> -o <var class="var">expr2</var></code><a class="copiable-link" href='#index-_002dor'> &para;</a></span></dt>
+<dt><code class="code"><var class="var">expr1</var> -or <var class="var">expr2</var></code></dt>
+<dd><a class="index-entry-id" id="index-_002do"></a>
+<p>Or; <var class="var">expr2</var> is not evaluated if <var class="var">expr1</var> is true.
+</p>
+</dd>
+<dt id='index-_002c'><span><code class="code"><var class="var">expr1</var> , <var class="var">expr2</var></code><a class="copiable-link" href='#index-_002c'> &para;</a></span></dt>
+<dd><p>List; both <var class="var">expr1</var> and <var class="var">expr2</var> are always evaluated.  True if
+<var class="var">expr2</var> is true.  The value of <var class="var">expr1</var> is discarded.  This
+operator lets you do multiple independent operations on one traversal,
+without depending on whether other operations succeeded.  The two
+operations <var class="var">expr1</var> and <var class="var">expr2</var> are not always fully
+independent, since <var class="var">expr1</var> might have side effects like touching
+or deleting files, or it might use &lsquo;<samp class="samp">-prune</samp>&rsquo; which would also
+affect <var class="var">expr2</var>.
+</p></dd>
+</dl>
+
+<p><code class="code">find</code> searches the directory tree rooted at each file name by
+evaluating the expression from left to right, according to the rules
+of precedence, until the outcome is known (the left hand side is false
+for &lsquo;<samp class="samp">-and</samp>&rsquo;, true for &lsquo;<samp class="samp">-or</samp>&rsquo;), at which point <code class="code">find</code>
+moves on to the next file name.
+</p>
+<p>There are two other tests that can be useful in complex expressions:
+</p>
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dtrue"><span class="category-def">Test: </span><span><strong class="def-name">-true</strong><a class="copiable-link" href='#index-_002dtrue'> &para;</a></span></dt>
+<dd><p>Always true.
+</p></dd></dl>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dfalse"><span class="category-def">Test: </span><span><strong class="def-name">-false</strong><a class="copiable-link" href='#index-_002dfalse'> &para;</a></span></dt>
+<dd><p>Always false.
+</p></dd></dl>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Previous: <a href="Filesystems.html">Filesystems</a>, Up: <a href="Finding-Files.html">Finding Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

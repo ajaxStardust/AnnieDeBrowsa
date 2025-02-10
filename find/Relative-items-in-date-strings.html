@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Relative items in date strings (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Relative items in date strings (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Relative items in date strings (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Date-input-formats.html" rel="up" title="Date input formats">
+<link href="Pure-numbers-in-date-strings.html" rel="next" title="Pure numbers in date strings">
+<link href="Day-of-week-items.html" rel="prev" title="Day of week items">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Relative-items-in-date-strings">
+<div class="nav-panel">
+<p>
+Next: <a href="Pure-numbers-in-date-strings.html" accesskey="n" rel="next">Pure numbers in date strings</a>, Previous: <a href="Day-of-week-items.html" accesskey="p" rel="prev">Day of week items</a>, Up: <a href="Date-input-formats.html" accesskey="u" rel="up">Date input formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Relative-items-in-date-strings-1">6.7 Relative items in date strings</h3>
+
+<a class="index-entry-id" id="index-relative-items-in-date-strings"></a>
+<a class="index-entry-id" id="index-displacement-of-dates"></a>
+
+<p><em class="dfn">Relative items</em> adjust a date (or the current date if none) forward
+or backward.  The effects of relative items accumulate.  Here are some
+examples:
+</p>
+<div class="example">
+<pre class="example-preformatted">1 year
+1 year ago
+3 years
+2 days
+</pre></div>
+
+<a class="index-entry-id" id="index-year-in-date-strings"></a>
+<a class="index-entry-id" id="index-month-in-date-strings"></a>
+<a class="index-entry-id" id="index-fortnight-in-date-strings"></a>
+<a class="index-entry-id" id="index-week-in-date-strings"></a>
+<a class="index-entry-id" id="index-day-in-date-strings"></a>
+<a class="index-entry-id" id="index-hour-in-date-strings"></a>
+<a class="index-entry-id" id="index-minute-in-date-strings"></a>
+<p>The unit of time displacement may be selected by the string &lsquo;<samp class="samp">year</samp>&rsquo;
+or &lsquo;<samp class="samp">month</samp>&rsquo; for moving by whole years or months.  These are fuzzy
+units, as years and months are not all of equal duration.  More precise
+units are &lsquo;<samp class="samp">fortnight</samp>&rsquo; which is worth 14 days, &lsquo;<samp class="samp">week</samp>&rsquo; worth 7
+days, &lsquo;<samp class="samp">day</samp>&rsquo; worth 24 hours, &lsquo;<samp class="samp">hour</samp>&rsquo; worth 60 minutes,
+&lsquo;<samp class="samp">minute</samp>&rsquo; or &lsquo;<samp class="samp">min</samp>&rsquo; worth 60 seconds, and &lsquo;<samp class="samp">second</samp>&rsquo; or
+&lsquo;<samp class="samp">sec</samp>&rsquo; worth one second.  An &lsquo;<samp class="samp">s</samp>&rsquo; suffix on these units is
+accepted and ignored.
+</p>
+<a class="index-entry-id" id="index-ago-in-date-strings"></a>
+<p>The unit of time may be preceded by a multiplier, given as an optionally
+signed number.  Unsigned numbers are taken as positively signed.  No
+number at all implies 1 for a multiplier.  Following a relative item by
+the string &lsquo;<samp class="samp">ago</samp>&rsquo; is equivalent to preceding the unit by a
+multiplier with value <em class="math">-1</em>.
+</p>
+<a class="index-entry-id" id="index-day-in-date-strings-1"></a>
+<a class="index-entry-id" id="index-tomorrow-in-date-strings"></a>
+<a class="index-entry-id" id="index-yesterday-in-date-strings"></a>
+<p>The string &lsquo;<samp class="samp">tomorrow</samp>&rsquo; is worth one day in the future (equivalent
+to &lsquo;<samp class="samp">day</samp>&rsquo;), the string &lsquo;<samp class="samp">yesterday</samp>&rsquo; is worth
+one day in the past (equivalent to &lsquo;<samp class="samp">day ago</samp>&rsquo;).
+</p>
+<a class="index-entry-id" id="index-now-in-date-strings"></a>
+<a class="index-entry-id" id="index-today-in-date-strings"></a>
+<a class="index-entry-id" id="index-this-in-date-strings"></a>
+<p>The strings &lsquo;<samp class="samp">now</samp>&rsquo; or &lsquo;<samp class="samp">today</samp>&rsquo; are relative items corresponding
+to zero-valued time displacement, these strings come from the fact
+a zero-valued time displacement represents the current time when not
+otherwise changed by previous items.  They may be used to stress other
+items, like in &lsquo;<samp class="samp">12:00 today</samp>&rsquo;.  The string &lsquo;<samp class="samp">this</samp>&rsquo; also has
+the meaning of a zero-valued time displacement, but is preferred in
+date strings like &lsquo;<samp class="samp">this thursday</samp>&rsquo;.
+</p>
+<p>When a relative item causes the resulting date to cross a boundary
+where the clocks were adjusted, typically for daylight saving time,
+the resulting date and time are adjusted accordingly.
+</p>
+<p>The fuzz in units can cause problems with relative items.  For
+example, &lsquo;<samp class="samp">2022-12-31 -1 month</samp>&rsquo; might evaluate to 2022-12-01,
+because 2022-11-31 is an invalid date.  To determine the previous
+month more reliably, you can ask for the month before the 15th of the
+current month.  For example:
+</p>
+<div class="example">
+<pre class="example-preformatted">$ date -R
+Thu, 31 Dec 2022 13:02:39 -0400
+$ date --date='-1 month' +'Last month was %B?'
+Last month was December?
+$ date --date=&quot;$(date +%Y-%m-15) -1 month&quot; +'Last month was %B!'
+Last month was November!
+</pre></div>
+
+<p>Also, take care when manipulating dates around clock changes such as
+daylight saving leaps.  In a few cases these have added or subtracted
+as much as 24 hours from the clock, so it is often wise to adopt
+universal time by setting the <code class="env">TZ</code> environment variable to
+&lsquo;<samp class="samp">UTC0</samp>&rsquo; before embarking on calendrical calculations.
+</p>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Pure-numbers-in-date-strings.html">Pure numbers in date strings</a>, Previous: <a href="Day-of-week-items.html">Day of week items</a>, Up: <a href="Date-input-formats.html">Date input formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>History (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="History (GNU Findutils 4.10.0)">
+<meta name="keywords" content="History (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="index.html" rel="up" title="Top">
+<link href="GNU-Free-Documentation-License.html" rel="next" title="GNU Free Documentation License">
+<link href="Error-Messages.html" rel="prev" title="Error Messages">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="chapter-level-extent" id="History">
+<div class="nav-panel">
+<p>
+Next: <a href="GNU-Free-Documentation-License.html" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="Error-Messages.html" accesskey="p" rel="prev">Error Messages</a>, Up: <a href="index.html" accesskey="u" rel="up">GNU Findutils</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h2 class="chapter" id="History-1">13 History</h2>
+
+<p>The <code class="code">xargs</code> and <code class="code">find</code> programs have separate origins but
+are collected together in Findutils because they are often used
+together.  While today they also share a small amount of
+implementation, this wasn&rsquo;t originally the case.  The <code class="code">locate</code>
+program started out as a feature of <code class="code">find</code> but today it is a
+separate program.
+</p>
+<ul class="mini-toc">
+<li><a href="#History-of-find" accesskey="1">History of <code class="code">find</code></a></li>
+<li><a href="#History-of-xargs" accesskey="2">History of <code class="code">xargs</code></a></li>
+<li><a href="#History-of-locate" accesskey="3">History of <code class="code">locate</code></a></li>
+</ul>
+<div class="section-level-extent" id="History-of-find">
+<h3 class="section">13.1 History of <code class="code">find</code></h3>
+
+<p>A <code class="code">find</code> program appeared in Version 5 Unix as part of the
+Programmer&rsquo;s Workbench project and was written by Dick Haight.  Doug
+McIlroy&rsquo;s <cite class="cite">A Research UNIX Reader: Annotated Excerpts from the
+Programmer’s Manual, 1971-1986</cite> provides some additional details; you
+can read it on-line at
+<a class="url" href="https://www.cs.dartmouth.edu/~doug/reader.pdf">https://www.cs.dartmouth.edu/~doug/reader.pdf</a>.
+</p>
+<p>GNU <code class="code">find</code> was originally written by Eric Decker, with
+enhancements by David MacKenzie, Jay Plett, and Tim Wood.  The idea
+for &lsquo;<samp class="samp">find -print0</samp>&rsquo; and &lsquo;<samp class="samp">xargs -0</samp>&rsquo; came from Dan Bernstein.
+</p>
+</div>
+<div class="section-level-extent" id="History-of-xargs">
+<h3 class="section">13.2 History of <code class="code">xargs</code></h3>
+
+<p>The <code class="code">xargs</code> program was invented by Herb Gellis at Bell Labs.  In
+his own words:
+</p>
+<blockquote class="quotation">
+<p>Hi James, Thanks for reaching out. Yes I invented <code class="code">xargs</code> way
+back before we even released UNIX to the general public when it was
+running on PDP-11 machines with little memory, and capable shell
+programs were not there yet - kind of like early IBM PC-DOS command
+lines. The name came about, first, by noticing at the time there were
+no commands beginning with &lsquo;<samp class="samp">x</samp>&rsquo; (silly reason, I know), and then
+came up with, basically, &quot;eXecute command with ARGumentS&quot;. This
+obviously allowed one to process files, sequentially, including
+batches of files, while the UNIX command line buffer was very tiny. I
+don&rsquo;t remember exactly how small but possibly only 512 bytes. The very
+first use intended was to allow compiling C programs that were broken
+into many small routines whose total name length would exceed the
+command line buffer. Hope this settles the matter! Oh, another arcane
+factoid about <code class="code">xargs</code> at the beginning was that I was able to
+keep it smaller than 4k (I think that was the amount) which at the
+time was the maximum size of a file segment on PDP-11/UNIX, so that
+the program could be loaded completely on the first segment, without
+having to go back and get chains of further segments - Hence fast!
+</p></blockquote>
+
+<p>In 2023, GNU <code class="code">xargs</code> is unfortunately much larger, around 75KiB
+when stripped.
+</p>
+<p>GNU <code class="code">xargs</code> isn&rsquo;t derived from the original Bell Labs program.
+It was originally written by Mike Rendell, with enhancements by David
+MacKenzie.
+</p>
+</div>
+<div class="section-level-extent" id="History-of-locate">
+<h3 class="section">13.3 History of <code class="code">locate</code></h3>
+
+<p>4.3-BSD introduced the <em class="dfn">fast-find</em> feature, in which the command
+<code class="code">find needle</code> would look for a file named &lsquo;<samp class="samp">needle</samp>&rsquo;.  This
+took advantage of the fact that, at the time, there was no valid
+two-argument <code class="code">find</code> invocation.  The implementation was much
+faster than searching the whole file system in real time, because it
+used a pre-built file name database.  This functionality is described
+in more detail in <cite class="cite">Finding Files Fast</cite> by James Woods (Usenix
+;login, Volume 8 Issue 1, pages. 8-10, 1983).
+</p>
+<p>Standardisation of <code class="code">find</code> led to this functionality being moved
+into the <code class="code">locate</code> program in 4.4-BSD.   The command <code class="code">find
+needle</code> now unambiguously means &ldquo;start searching at the file
+<code class="code">needle</code> and print the names of the files you encounter&rdquo;.
+</p>
+<p>GNU <code class="code">locate</code> and its associated utilities were originally written
+by James Woods, with enhancements by David MacKenzie.
+</p>
+</div>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="GNU-Free-Documentation-License.html">GNU Free Documentation License</a>, Previous: <a href="Error-Messages.html">Error Messages</a>, Up: <a href="index.html">GNU Findutils</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

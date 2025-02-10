@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Environment Variables (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Environment Variables (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Environment Variables (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Reference.html" rel="up" title="Reference">
+<link href="Regular-Expressions.html" rel="prev" title="Regular Expressions">
+<style type="text/css">
+<!--
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Environment-Variables">
+<div class="nav-panel">
+<p>
+Previous: <a href="Regular-Expressions.html" accesskey="p" rel="prev">Regular Expressions</a>, Up: <a href="Reference.html" accesskey="u" rel="up">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Environment-Variables-1">8.6 Environment Variables</h3>
+<dl class="table">
+<dt><code class="code">LANG</code></dt>
+<dd><p>Provides a default value for the internationalisation variables that
+are unset or null.
+</p>
+</dd>
+<dt><code class="code">LC_ALL</code></dt>
+<dd><p>If set to a non-empty string value, override the values of all the
+other internationalisation variables.
+</p>
+</dd>
+<dt><code class="code">LC_COLLATE</code></dt>
+<dd><p>The POSIX standard specifies that this variable affects the pattern
+matching to be used for the &lsquo;<samp class="samp">-name</samp>&rsquo; option.  GNU find uses the
+GNU version of the <code class="code">fnmatch</code> library function.
+</p>
+<p>This variable also affects the interpretation of the response to
+<code class="code">-ok</code>; while the <code class="env">LC_MESSAGES</code> variable selects the actual
+pattern used to interpret the response to <code class="code">-ok</code>, the interpretation
+of any bracket expressions in the pattern will be affected by the
+<code class="env">LC_COLLATE</code> variable.
+</p>
+</dd>
+<dt><code class="code">LC_CTYPE</code></dt>
+<dd><p>This variable affects the treatment of character classes used in
+regular expression and with
+the &lsquo;<samp class="samp">-name</samp>&rsquo; test, if the <code class="code">fnmatch</code> function supports this.
+</p>
+<p>This variable also affects the interpretation of any character classes
+in the regular expressions used to interpret the response to the
+prompt issued by <code class="code">-ok</code>.  The <code class="env">LC_CTYPE</code> environment variable will
+also affect which characters are considered to be unprintable when
+filenames are printed (see <a class="pxref" href="Unusual-Characters-in-File-Names.html">Unusual Characters in File Names</a>).
+</p>
+</dd>
+<dt><code class="code">LC_MESSAGES</code></dt>
+<dd><p>Determines the locale to be used for internationalised messages,
+including the interpretation of the response to the prompt made by the
+<code class="code">-ok</code> action.
+</p>
+</dd>
+<dt><code class="code">NLSPATH</code></dt>
+<dd><p>Determines the location of the internationalisation message catalogues.
+</p>
+</dd>
+<dt><code class="code">PATH</code></dt>
+<dd><p>Affects the directories which are searched to find the executables
+invoked by &lsquo;<samp class="samp">-exec</samp>&rsquo;, &lsquo;<samp class="samp">-execdir</samp>&rsquo; &lsquo;<samp class="samp">-ok</samp>&rsquo; and &lsquo;<samp class="samp">-okdir</samp>&rsquo;.
+If the <code class="env">PATH</code> environment variable includes the current directory
+(by explicitly including &lsquo;<samp class="samp">.</samp>&rsquo; or by having an empty element), and
+the find command line includes &lsquo;<samp class="samp">-execdir</samp>&rsquo; or &lsquo;<samp class="samp">-okdir</samp>&rsquo;,
+<code class="code">find</code> will refuse to run.  See <a class="xref" href="Security-Considerations.html">Security Considerations</a>, for a
+more detailed discussion of security matters.
+</p>
+</dd>
+<dt><code class="code">POSIXLY_CORRECT</code></dt>
+<dd><p>Determines the block size used by &lsquo;<samp class="samp">-ls</samp>&rsquo; and &lsquo;<samp class="samp">-fls</samp>&rsquo;.  If
+<code class="env">POSIXLY_CORRECT</code> is set, blocks are units of 512 bytes.  Otherwise
+they are units of 1024 bytes.
+</p>
+<p>Setting this variable also turns off warning messages (that is, implies
+&lsquo;<samp class="samp">-nowarn</samp>&rsquo;) by default, because POSIX requires that apart from
+the output for &lsquo;<samp class="samp">-ok</samp>&rsquo;, all messages printed on stderr are
+diagnostics and must result in a non-zero exit status.
+</p>
+<p>When <code class="env">POSIXLY_CORRECT</code> is set, the response to the prompt made by the
+<code class="code">-ok</code> action is interpreted according to the system&rsquo;s message
+catalogue, as opposed to according to <code class="code">find</code>&rsquo;s own message
+translations.
+</p>
+</dd>
+<dt><code class="code">TZ</code></dt>
+<dd><p>Affects the time zone used for some of the time-related format
+directives of &lsquo;<samp class="samp">-printf</samp>&rsquo; and &lsquo;<samp class="samp">-fprintf</samp>&rsquo;.
+</p></dd>
+</dl>
+
+
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Previous: <a href="Regular-Expressions.html">Regular Expressions</a>, Up: <a href="Reference.html">Reference</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

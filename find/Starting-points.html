@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Starting points (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Starting points (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Starting points (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Finding-Files.html" rel="up" title="Finding Files">
+<link href="Name.html" rel="next" title="Name">
+<link href="find-Expressions.html" rel="prev" title="find Expressions">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+div.example {margin-left: 3.2em}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Starting-points">
+<div class="nav-panel">
+<p>
+Next: <a href="Name.html" accesskey="n" rel="next">Name</a>, Previous: <a href="find-Expressions.html" accesskey="p" rel="prev"><code class="code">find</code> Expressions</a>, Up: <a href="Finding-Files.html" accesskey="u" rel="up">Finding Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Starting-points-1">2.2 Starting points</h3>
+
+<p>GNU <code class="code">find</code> searches the directory tree rooted at each given starting-point
+by evaluating the given expression from left to right, according to the
+rules of operator precedence, until the outcome is known (the left hand side
+is false for &lsquo;<samp class="samp">and</samp>&rsquo; operations, true for &lsquo;<samp class="samp">or</samp>&rsquo;), at which point
+<code class="code">find</code> moves on to the next file name.
+</p>
+<p>If no starting-point is specified, the current directory &lsquo;<samp class="samp">.</samp>&rsquo; is assumed.
+</p>
+<p>A double dash &lsquo;<samp class="samp">--</samp>&rsquo; could theoretically be used to signal that any remaining
+arguments are not options, but this does not really work due to the way
+<code class="code">find</code> determines the end of the list of starting point arguments:
+it does that by reading until an expression argument comes (which also starts
+with a &lsquo;<samp class="samp">-</samp>&rsquo;).
+Now, if a starting point argument would begin with a &lsquo;<samp class="samp">-</samp>&rsquo;, then <code class="code">find</code>
+would treat it as expression argument instead.
+Thus, to ensure that all start points are taken as such, and especially to
+prevent that wildcard patterns expanded by the calling shell are not mistakenly
+treated as expression arguments, it is generally safer to prefix wildcards
+or dubious path names with either &lsquo;<samp class="samp">./</samp>&rsquo;, or to use absolute path names
+starting with &lsquo;<samp class="samp">/</samp>&rsquo;.
+</p>
+<p>Alternatively, it is generally safe though non-portable to use the GNU option
+&lsquo;<samp class="samp">-files0-from</samp>&rsquo; to pass arbitrary starting points to <code class="code">find</code>.
+</p>
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002dfiles0_002dfrom"><span class="category-def">Option: </span><span><strong class="def-name">-files0-from</strong> <var class="def-var-arguments">file</var><a class="copiable-link" href='#index-_002dfiles0_002dfrom'> &para;</a></span></dt>
+<dd>
+<p>Read the starting points from <samp class="file">file</samp> instead of getting them on the
+command line.
+In contrast to the known limitations of passing starting points via arguments
+on the command line, namely the limitation of the amount of file names,
+and the inherent ambiguity of file names clashing with option names,
+using this option allows to safely pass an arbitrary number of starting points
+to <code class="code">find</code>.
+</p>
+<p>Using this option and passing starting points on the command line is mutually
+exclusive, and is therefore not allowed at the same time.
+</p>
+<p>The <samp class="file">file</samp> argument is mandatory.
+One can use &lsquo;<samp class="samp">-files0-from -</samp>&rsquo; to read the list of starting points from the
+standard input stream, and e.g. from a pipe.
+In this case, the actions &lsquo;<samp class="samp">-ok</samp>&rsquo; and &lsquo;<samp class="samp">-okdir</samp>&rsquo; are not allowed,
+because they would obviously interfere with reading from standard input
+in order to get a user confirmation.
+</p>
+<p>The starting points in <samp class="file">file</samp> have to be separated by ASCII NUL characters.
+Two consecutive NUL characters, i.e., a starting point with a Zero-length
+file name is not allowed and will lead to an error diagnostic followed by
+a non-Zero exit code later.
+</p>
+<p>In the case the given <samp class="file">file</samp> is empty, <code class="code">find</code> does not process any
+starting point and therefore will exit immediately after parsing the program
+arguments.
+This is unlike the standard invocation where <code class="code">find</code> assumes the current
+directory as starting point if no path argument is passed.
+</p>
+<p>The processing of the starting points is otherwise as usual, e.g. <code class="code">find</code>
+will recurse into subdirectories unless otherwise prevented.
+To process only the starting points, one can additionally pass &lsquo;<samp class="samp">-maxdepth 0</samp>&rsquo;.
+</p>
+<p>Further notes:
+if a file is listed more than once in the input file, it is unspecified
+whether it is visited more than once.
+If the <samp class="file">file</samp> is mutated during the operation of <code class="code">find</code>, the result
+is unspecified as well.
+Finally, the seek position within the named &lsquo;<samp class="samp">file</samp>&rsquo; at the time <code class="code">find</code>
+exits, be it with &lsquo;<samp class="samp">-quit</samp>&rsquo; or in any other way, is also unspecified.
+By &quot;unspecified&quot; here is meant that it may or may not work or do any specific
+thing, and that the behavior may change from platform to platform, or from
+findutils release to release.
+</p>
+<p>Example:
+Given that another program <code class="code">proggy</code> pre-filters and creates a huge
+NUL-separated list of files, process those as starting points, and find
+all regular, empty files among them:
+</p><div class="example">
+<pre class="example-preformatted">$ proggy | find -files0-from - -maxdepth 0 -type f -empty
+</pre></div>
+<p>The use of &lsquo;<samp class="samp">-files0-from -</samp>&rsquo; means to read the names of the starting points
+from standard input, i.e., from the pipe; and &lsquo;<samp class="samp">-maxdepth 0</samp>&rsquo; ensures that
+only explicitly those entries are examined without recursing into directories
+(in the case one of the starting points is one).
+</p></dd></dl>
+
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Name.html">Name</a>, Previous: <a href="find-Expressions.html"><code class="code">find</code> Expressions</a>, Up: <a href="Finding-Files.html">Finding Files</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Delete Files (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Delete Files (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Delete Files (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Actions.html" rel="up" title="Actions">
+<link href="Adding-Tests.html" rel="next" title="Adding Tests">
+<link href="Run-Commands.html" rel="prev" title="Run Commands">
+<style type="text/css">
+<!--
+a.copiable-link {visibility: hidden; text-decoration: none; line-height: 0em}
+span:hover a.copiable-link {visibility: visible}
+strong.def-name {font-family: monospace; font-weight: bold; font-size: larger}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Delete-Files">
+<div class="nav-panel">
+<p>
+Next: <a href="Adding-Tests.html" accesskey="n" rel="next">Adding Tests</a>, Previous: <a href="Run-Commands.html" accesskey="p" rel="prev">Run Commands</a>, Up: <a href="Actions.html" accesskey="u" rel="up">Actions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Delete-Files-1">3.4 Delete Files</h3>
+
+<dl class="first-deffn">
+<dt class="deffn" id="index-_002ddelete"><span class="category-def">Action: </span><span><strong class="def-name">-delete</strong><a class="copiable-link" href='#index-_002ddelete'> &para;</a></span></dt>
+<dd><p>Delete files or directories; true if removal succeeded.  If the
+removal failed, an error message is issued and <code class="code">find</code>&rsquo;s exit status
+will be nonzero (when it eventually exits).
+</p>
+<blockquote class="quotation">
+<p><b class="b">Warning:</b> Don&rsquo;t forget that <code class="code">find</code> evaluates the command line as an expression,
+so putting &lsquo;<samp class="samp">-delete</samp>&rsquo; first will make <code class="code">find</code> try to delete everything
+below the starting points you specified.
+</p></blockquote>
+
+<p>The use of the &lsquo;<samp class="samp">-delete</samp>&rsquo; action on the command line automatically
+turns on the &lsquo;<samp class="samp">-depth</samp>&rsquo; option.
+As in turn &lsquo;<samp class="samp">-depth</samp>&rsquo; makes &lsquo;<samp class="samp">-prune</samp>&rsquo; ineffective, the &lsquo;<samp class="samp">-delete</samp>&rsquo;
+action cannot usefully be combined with &lsquo;<samp class="samp">-prune</samp>&rsquo;.
+</p>
+<p>Often, the user might want to test a <code class="code">find</code> command line with &lsquo;<samp class="samp">-print</samp>&rsquo;
+prior to adding &lsquo;<samp class="samp">-delete</samp>&rsquo; for the actual removal run.  To avoid surprising
+results, it is usually best to remember to use &lsquo;<samp class="samp">-depth</samp>&rsquo; explicitly during
+those earlier test runs.
+</p>
+<p>See <a class="ref" href="Cleaning-Up.html">Cleaning Up</a> for a deeper discussion about good use cases of the
+&lsquo;<samp class="samp">-delete</samp>&rsquo; action and those with surprising results.
+</p>
+<p>The &lsquo;<samp class="samp">-delete</samp>&rsquo; action will fail to remove a directory unless it is empty.
+</p>
+<p>Together with the &lsquo;<samp class="samp">-ignore_readdir_race</samp>&rsquo; option, <code class="code">find</code> will
+ignore errors of the &lsquo;<samp class="samp">-delete</samp>&rsquo; action in the case the file has disappeared
+since the parent directory was read: it will not output an error diagnostic, not
+change the exit code to nonzero, and the return code of the &lsquo;<samp class="samp">-delete</samp>&rsquo;
+action will be true.
+</p></dd></dl>
+
+</div>
+
+
+
+</body>
+</html>

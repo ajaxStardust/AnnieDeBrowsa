@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Updating A Timestamp File (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Updating A Timestamp File (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Updating A Timestamp File (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Worked-Examples.html" rel="up" title="Worked Examples">
+<link href="Finding-the-Shallowest-Instance.html" rel="next" title="Finding the Shallowest Instance">
+<link href="Copying-A-Subset-of-Files.html" rel="prev" title="Copying A Subset of Files">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Updating-A-Timestamp-File">
+<div class="nav-panel">
+<p>
+Next: <a href="Finding-the-Shallowest-Instance.html" accesskey="n" rel="next">Finding the Shallowest Instance</a>, Previous: <a href="Copying-A-Subset-of-Files.html" accesskey="p" rel="prev">Copying A Subset of Files</a>, Up: <a href="Worked-Examples.html" accesskey="u" rel="up">Worked Examples</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Updating-A-Timestamp-File-1">10.3 Updating A Timestamp File</h3>
+
+<p>Suppose we have a directory full of files which is maintained with a
+set of automated tools; perhaps one set of tools updates them and
+another set of tools uses the result.  In this situation, it might be
+useful for the second set of tools to know if the files have recently
+been changed.  It might be useful, for example, to have a &rsquo;timestamp&rsquo;
+file which gives the timestamp on the newest file in the collection.
+</p>
+<p>We can use <code class="code">find</code> to achieve this, but there are several
+different ways to do it.
+</p>
+<ul class="mini-toc">
+<li><a href="#Updating-the-Timestamp-The-Wrong-Way" accesskey="1">Updating the Timestamp The Wrong Way</a></li>
+<li><a href="#Using-the-test-utility-to-compare-timestamps" accesskey="2">Using the test utility to compare timestamps</a></li>
+<li><a href="#A-combined-approach" accesskey="3">A combined approach</a></li>
+<li><a href="#Using-_002dprintf-and-sort-to-compare-timestamps" accesskey="4">Using <code class="code">-printf</code> and <code class="code">sort</code> to compare timestamps</a></li>
+<li><a href="#Solving-the-problem-with-make" accesskey="5">Solving the problem with <code class="code">make</code></a></li>
+<li><a href="#Coping-with-odd-filenames-too" accesskey="6">Coping with odd filenames too</a></li>
+</ul>
+<div class="subsection-level-extent" id="Updating-the-Timestamp-The-Wrong-Way">
+<h4 class="subsection">10.3.1 Updating the Timestamp The Wrong Way</h4>
+
+<p>The obvious but wrong answer is just to use &lsquo;<samp class="samp">-newer</samp>&rsquo;:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">find subdir -newer timestamp -exec touch -r {} timestamp \;
+</pre></div>
+
+<p>This does the right sort of thing but has a bug.  Suppose that two
+files in the subdirectory have been updated, and that these are called
+<samp class="file">file1</samp> and <samp class="file">file2</samp>.  The command above will update
+<samp class="file">timestamp</samp> with the modification time of <samp class="file">file1</samp> or that of
+<samp class="file">file2</samp>, but we don&rsquo;t know which one.  Since the timestamps on
+<samp class="file">file1</samp> and <samp class="file">file2</samp> will in general be different, this could
+well be the wrong value.
+</p>
+<p>One solution to this problem is to modify <code class="code">find</code> to recheck the
+modification time of <samp class="file">timestamp</samp> every time a file is to be
+compared against it, but that will reduce the performance of
+<code class="code">find</code>.
+</p>
+</div>
+<div class="subsection-level-extent" id="Using-the-test-utility-to-compare-timestamps">
+<h4 class="subsection">10.3.2 Using the test utility to compare timestamps</h4>
+
+<p>The <code class="code">test</code> command can be used to compare timestamps:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">find subdir -exec test {} -nt timestamp \; -exec touch -r {} timestamp \;
+</pre></div>
+
+<p>This will ensure that any changes made to the modification time of
+<samp class="file">timestamp</samp> that take place during the execution of <code class="code">find</code>
+are taken into account.  This resolves our earlier problem, but
+unfortunately this runs much more slowly.
+</p>
+</div>
+<div class="subsection-level-extent" id="A-combined-approach">
+<h4 class="subsection">10.3.3 A combined approach</h4>
+
+<p>We can of course still use &lsquo;<samp class="samp">-newer</samp>&rsquo; to cut down on the number of
+calls to <code class="code">test</code>:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">find subdir -newer timestamp -and \
+     -exec test {} -nt timestamp \; -and \
+     -exec touch -r {} timestamp \;
+</pre></div>
+
+<p>Here, the &lsquo;<samp class="samp">-newer</samp>&rsquo; test excludes all the files which are
+definitely older than the timestamp, but all the files which are newer
+than the old value of the timestamp are compared against the current
+updated timestamp.
+</p>
+<p>This is indeed faster in general, but the speed difference will depend
+on how many updated files there are.
+</p>
+</div>
+<div class="subsection-level-extent" id="Using-_002dprintf-and-sort-to-compare-timestamps">
+<h4 class="subsection">10.3.4 Using <code class="code">-printf</code> and <code class="code">sort</code> to compare timestamps</h4>
+
+<p>It is possible to use the &lsquo;<samp class="samp">-printf</samp>&rsquo; action to abandon the use of
+<code class="code">test</code> entirely:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">newest=$(find subdir -newer timestamp -printf &quot;%A@:%p\n&quot; |
+           sort -n |
+           tail -n1 |
+           cut -d: -f2- )
+touch -r &quot;${newest:-timestamp}&quot; timestamp
+</pre></div>
+
+<p>The command above works by generating a list of the timestamps and
+names of all the files which are newer than the timestamp.  The
+<code class="code">sort</code>, <code class="code">tail</code> and <code class="code">cut</code> commands simply pull out the
+name of the file with the largest timestamp value (that is, the latest
+file).  The <code class="code">touch</code> command is then used to update the timestamp,
+</p>
+<p>The <code class="code">&quot;${newest:-timestamp}&quot;</code> expression simply expands to the
+value of <code class="code">$newest</code> if that variable is set, but to
+<samp class="file">timestamp</samp> otherwise.  This ensures that an argument is always
+given to the &lsquo;<samp class="samp">-r</samp>&rsquo; option of the <code class="code">touch</code> command.
+</p>
+<p>This approach seems quite efficient, but unfortunately it has a
+problem.  Many operating systems now keep file modification time
+information at a granularity which is finer than one second.
+Findutils version 4.3.3 and later will print a fractional part with
+%A@, but older versions will not.
+</p>
+
+</div>
+<div class="subsection-level-extent" id="Solving-the-problem-with-make">
+<h4 class="subsection">10.3.5 Solving the problem with <code class="code">make</code></h4>
+
+<p>Another tool which often works with timestamps is <code class="code">make</code>.  We can
+use <code class="code">find</code> to generate a <samp class="file">Makefile</samp> file on the fly and then
+use <code class="code">make</code> to update the timestamps:
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">makefile=$(mktemp)
+find subdir \
+        \( \! -xtype l \) \
+        -newer timestamp \
+        -printf &quot;timestamp:: %p\n\ttouch -r %p timestamp\n\n&quot; &gt; &quot;$makefile&quot;
+make -f &quot;$makefile&quot;
+rm   -f &quot;$makefile&quot;
+</pre></div>
+
+<p>Unfortunately although the solution above is quite elegant, it fails
+to cope with white space within file names, and adjusting it to do so
+would require a rather complex shell script.
+</p>
+
+</div>
+<div class="subsection-level-extent" id="Coping-with-odd-filenames-too">
+<h4 class="subsection">10.3.6 Coping with odd filenames too</h4>
+
+<p>We can fix both of these problems (looping and problems with white
+space), and do things more efficiently too.  The following command
+works with newlines and doesn&rsquo;t need to sort the list of filenames.
+</p>
+<div class="example smallexample">
+<pre class="example-preformatted">find subdir -newer timestamp -printf &quot;%A@:%p\0&quot; |
+   perl -0 newest.pl |
+   xargs --no-run-if-empty --null --replace \
+      find {} -maxdepth 0 -newer timestamp -exec touch -r {} timestamp \;
+</pre></div>
+
+<p>The first <code class="code">find</code> command generates a list of files which are
+newer than the original timestamp file, and prints a list of them with
+their timestamps.  The <samp class="file">newest.pl</samp> script simply filters out all
+the filenames which have timestamps which are older than whatever the
+newest file is:
+</p>
+<div class="example smallexample">
+<pre class="verbatim">#! /usr/bin/perl -0
+my @newest = ();
+my $latest_stamp = undef;
+while (&lt;&gt;) {
+    my ($stamp, $name) = split(/:/);
+    if (!defined($latest_stamp) || ($tstamp &gt; $latest_stamp)) {
+        $latest_stamp = $stamp;
+        @newest = ();
+    }
+    if ($tstamp &gt;= $latest_stamp) {
+        push @newest, $name;
+    }
+}
+print join(&quot;\0&quot;, @newest);
+</pre></div>
+
+<p>This prints a list of zero or more files, all of which are newer than
+the original timestamp file, and which have the same timestamp as each
+other, to the nearest second.  The second <code class="code">find</code> command takes
+each resulting file one at a time, and if that is newer than the
+timestamp file, the timestamp is updated.
+</p>
+</div>
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Finding-the-Shallowest-Instance.html">Finding the Shallowest Instance</a>, Previous: <a href="Copying-A-Subset-of-Files.html">Copying A Subset of Files</a>, Up: <a href="Worked-Examples.html">Worked Examples</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

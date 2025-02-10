@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Time of day items (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Time of day items (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Time of day items (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Date-input-formats.html" rel="up" title="Date input formats">
+<link href="Time-zone-items.html" rel="next" title="Time zone items">
+<link href="Calendar-date-items.html" rel="prev" title="Calendar date items">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Time-of-day-items">
+<div class="nav-panel">
+<p>
+Next: <a href="Time-zone-items.html" accesskey="n" rel="next">Time zone items</a>, Previous: <a href="Calendar-date-items.html" accesskey="p" rel="prev">Calendar date items</a>, Up: <a href="Date-input-formats.html" accesskey="u" rel="up">Date input formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Time-of-day-items-1">6.3 Time of day items</h3>
+
+<a class="index-entry-id" id="index-time-of-day-item"></a>
+
+<p>A <em class="dfn">time of day item</em> in date strings specifies the time on a given
+day.  Here are some examples, all of which represent the same time:
+</p>
+<div class="example">
+<pre class="example-preformatted">20:02:00.000000
+20:02
+8:02pm
+20:02-0500      # In EST (U.S. Eastern Standard Time).
+</pre></div>
+
+<a class="index-entry-id" id="index-leap-seconds-1"></a>
+<p>More generally, the time of day may be given as
+&lsquo;<samp class="samp"><var class="var">hour</var>:<var class="var">minute</var>:<var class="var">second</var></samp>&rsquo;, where <var class="var">hour</var> is
+a number between 0 and 23, <var class="var">minute</var> is a number between 0 and
+59, and <var class="var">second</var> is a number between 0 and 59 possibly followed by
+&lsquo;<samp class="samp">.</samp>&rsquo; or &lsquo;<samp class="samp">,</samp>&rsquo; and a fraction containing one or more digits.
+Alternatively,
+&lsquo;<samp class="samp">:<var class="var">second</var></samp>&rsquo; can be omitted, in which case it is taken to
+be zero.  On the rare hosts that support leap seconds, <var class="var">second</var>
+may be 60.
+</p>
+<a class="index-entry-id" id="index-am-in-date-strings"></a>
+<a class="index-entry-id" id="index-pm-in-date-strings"></a>
+<a class="index-entry-id" id="index-midnight-in-date-strings"></a>
+<a class="index-entry-id" id="index-noon-in-date-strings"></a>
+<p>If the time is followed by &lsquo;<samp class="samp">am</samp>&rsquo; or &lsquo;<samp class="samp">pm</samp>&rsquo; (or &lsquo;<samp class="samp">a.m.</samp>&rsquo;
+or &lsquo;<samp class="samp">p.m.</samp>&rsquo;), <var class="var">hour</var> is restricted to run from 1 to 12, and
+&lsquo;<samp class="samp">:<var class="var">minute</var></samp>&rsquo; may be omitted (taken to be zero).  &lsquo;<samp class="samp">am</samp>&rsquo;
+indicates the first half of the day, &lsquo;<samp class="samp">pm</samp>&rsquo; indicates the second
+half of the day.  In this notation, 12 is the predecessor of 1:
+midnight is &lsquo;<samp class="samp">12am</samp>&rsquo; while noon is &lsquo;<samp class="samp">12pm</samp>&rsquo;.
+(This is the zero-oriented interpretation of &lsquo;<samp class="samp">12am</samp>&rsquo; and &lsquo;<samp class="samp">12pm</samp>&rsquo;,
+as opposed to the old tradition derived from Latin
+which uses &lsquo;<samp class="samp">12m</samp>&rsquo; for noon and &lsquo;<samp class="samp">12pm</samp>&rsquo; for midnight.)
+</p>
+<a class="index-entry-id" id="index-time-zone-correction"></a>
+<a class="index-entry-id" id="index-minutes_002c-time-zone-correction-by"></a>
+<p>The time may alternatively be followed by a time zone correction,
+expressed as &lsquo;<samp class="samp"><var class="var">s</var><var class="var">hh</var><var class="var">mm</var></samp>&rsquo;, where <var class="var">s</var> is &lsquo;<samp class="samp">+</samp>&rsquo;
+or &lsquo;<samp class="samp">-</samp>&rsquo;, <var class="var">hh</var> is a number of zone hours and <var class="var">mm</var> is a number
+of zone minutes.
+The zone minutes term, <var class="var">mm</var>, may be omitted, in which case
+the one- or two-digit correction is interpreted as a number of hours.
+You can also separate <var class="var">hh</var> from <var class="var">mm</var> with a colon.
+When a time zone correction is given this way, it
+forces interpretation of the time relative to
+Coordinated Universal Time (UTC), overriding any previous
+specification for the time zone or the local time zone.  For example,
+&lsquo;<samp class="samp">+0530</samp>&rsquo; and &lsquo;<samp class="samp">+05:30</samp>&rsquo; both stand for the time zone 5.5 hours
+ahead of UTC (e.g., India).
+This is the best way to
+specify a time zone correction by fractional parts of an hour.
+The maximum zone correction is 24 hours.
+</p>
+<p>Either &lsquo;<samp class="samp">am</samp>&rsquo;/&lsquo;<samp class="samp">pm</samp>&rsquo; or a time zone correction may be specified,
+but not both.
+</p>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Time-zone-items.html">Time zone items</a>, Previous: <a href="Calendar-date-items.html">Calendar date items</a>, Up: <a href="Date-input-formats.html">Date input formats</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

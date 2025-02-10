@@ -1,6 +1,7 @@
 <?php
 
 namespace Adb\Model;
+
 use Adb\Model\Adbsoc as Adbsoc;
 
 class Cwthumbs

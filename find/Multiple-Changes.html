@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Multiple Changes (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Multiple Changes (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Multiple Changes (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="Symbolic-Modes.html" rel="up" title="Symbolic Modes">
+<link href="Umask-and-Protection.html" rel="next" title="Umask and Protection">
+<link href="Conditional-Executability.html" rel="prev" title="Conditional Executability">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="subsection-level-extent" id="Multiple-Changes">
+<div class="nav-panel">
+<p>
+Next: <a href="Umask-and-Protection.html" accesskey="n" rel="next">The Umask and Protection</a>, Previous: <a href="Conditional-Executability.html" accesskey="p" rel="prev">Conditional Executability</a>, Up: <a href="Symbolic-Modes.html" accesskey="u" rel="up">Symbolic Modes</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h4 class="subsection" id="Making-Multiple-Changes">5.2.5 Making Multiple Changes</h4>
+
+<a class="index-entry-id" id="index-multiple-changes-to-permissions"></a>
+<p>The format of symbolic modes is actually more complex than described
+above (see <a class="pxref" href="Setting-Permissions.html">Setting Permissions</a>).  It provides two ways to make
+multiple changes to files&rsquo; permissions.
+</p>
+<p>The first way is to specify multiple <var class="var">operation</var> and
+<var class="var">permissions</var> parts after a <var class="var">users</var> part in the symbolic mode.
+</p>
+<p>For example, the mode:
+</p>
+<div class="example">
+<pre class="example-preformatted">og+rX-w
+</pre></div>
+
+<p>gives users other than the owner of the file read permission and, if
+it is a directory or if someone already had execute permission
+to it, gives them execute permission; and it also denies them write
+permission to the file.  It does not affect the permission that the
+owner of the file has for it.  The above mode is equivalent to
+the two modes:
+</p>
+<div class="example">
+<pre class="example-preformatted">og+rX
+og-w
+</pre></div>
+
+<p>The second way to make multiple changes is to specify more than one
+simple symbolic mode, separated by commas.  For example, the mode:
+</p>
+<div class="example">
+<pre class="example-preformatted">a+r,go-w
+</pre></div>
+
+<p>gives everyone permission to read the file and removes write
+permission on it for all users except its owner.  Another example:
+</p>
+<div class="example">
+<pre class="example-preformatted">u=rwx,g=rx,o=
+</pre></div>
+
+<p>sets all of the non-special permissions for the file explicitly.  (It
+gives users who are not in the file&rsquo;s group no permission at all for
+it.)
+</p>
+<p>The two methods can be combined.  The mode:
+</p>
+<div class="example">
+<pre class="example-preformatted">a+r,g+x-w
+</pre></div>
+
+<p>gives all users permission to read the file, and gives users who are in
+the file&rsquo;s group permission to execute it, as well, but not permission
+to write to it.  The above mode could be written in several different
+ways; another is:
+</p>
+<div class="example">
+<pre class="example-preformatted">u+r,g+rx,o+r,g-w
+</pre></div>
+
+</div>
+<hr>
+<div class="nav-panel">
+<p>
+Next: <a href="Umask-and-Protection.html">The Umask and Protection</a>, Previous: <a href="Conditional-Executability.html">Conditional Executability</a>, Up: <a href="Symbolic-Modes.html">Symbolic Modes</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+
+
+
+</body>
+</html>

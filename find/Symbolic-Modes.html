@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<!-- Created by GNU Texinfo 7.0.3, https://www.gnu.org/software/texinfo/ -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- This manual documents version 4.10.0 of the GNU utilities for finding
+files that match certain criteria and performing various operations on them.
+
+Copyright © 1994-2024 Free Software Foundation, Inc.
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled
+"GNU Free Documentation License". -->
+<title>Symbolic Modes (GNU Findutils 4.10.0)</title>
+
+<meta name="description" content="Symbolic Modes (GNU Findutils 4.10.0)">
+<meta name="keywords" content="Symbolic Modes (GNU Findutils 4.10.0)">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<link href="index.html" rel="start" title="Top">
+<link href="Primary-Index.html" rel="index" title="Primary Index">
+<link href="index.html#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="File-Permissions.html" rel="up" title="File Permissions">
+<link href="Numeric-Modes.html" rel="next" title="Numeric Modes">
+<link href="Mode-Structure.html" rel="prev" title="Mode Structure">
+<style type="text/css">
+<!--
+div.example {margin-left: 3.2em}
+span.r {font-family: initial; font-weight: normal; font-style: normal}
+-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://www.gnu.org/software/gnulib/manual.css">
+
+
+</head>
+
+<body lang="en">
+<div class="section-level-extent" id="Symbolic-Modes">
+<div class="nav-panel">
+<p>
+Next: <a href="Numeric-Modes.html" accesskey="n" rel="next">Numeric Modes</a>, Previous: <a href="Mode-Structure.html" accesskey="p" rel="prev">Structure of File Permissions</a>, Up: <a href="File-Permissions.html" accesskey="u" rel="up">File Permissions</a> &nbsp; [<a href="index.html#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="Primary-Index.html" title="Index" rel="index">Index</a>]</p>
+</div>
+<hr>
+<h3 class="section" id="Symbolic-Modes-1">5.2 Symbolic Modes</h3>
+
+<a class="index-entry-id" id="index-symbolic-modes"></a>
+<p><em class="dfn">Symbolic modes</em> represent changes to files&rsquo; permissions as
+operations on single-character symbols.  They allow you to modify either
+all or selected parts of files&rsquo; permissions, optionally based on
+their previous values, and perhaps on the current <code class="code">umask</code> as well
+(see <a class="pxref" href="Umask-and-Protection.html">The Umask and Protection</a>).
+</p>
+<p>The format of symbolic modes is:
+</p>
+<div class="example">
+<pre class="example-preformatted"><span class="r">[</span>ugoa&hellip;<span class="r">][</span>+-=<span class="r">]</span><var class="var">perms</var>&hellip;<span class="r">[</span>,&hellip;<span class="r">]</span>
+</pre></div>
+
+<p>where <var class="var">perms</var> is either zero or more letters from the set
+&lsquo;<samp class="samp">rwxXst</samp>&rsquo;, or a single letter from the set &lsquo;<samp class="samp">ugo</samp>&rsquo;.
+</p>
+<p>The following sections describe the operators and other details of
+symbolic modes.
+</p>
+
+<ul class="mini-toc">
+<li><a href="Setting-Permissions.html" accesskey="1">Setting Permissions</a></li>
+<li><a href="Copying-Permissions.html" accesskey="2">Copying Existing Permissions</a></li>
+<li><a href="Changing-Special-Permissions.html" accesskey="3">Changing Special Permissions</a></li>
+<li><a href="Conditional-Executability.html" accesskey="4">Conditional Executability</a></li>
+<li><a href="Multiple-Changes.html" accesskey="5">Making Multiple Changes</a></li>
+<li><a href="Umask-and-Protection.html" accesskey="6">The Umask and Protection</a></li>
+</ul>
+</div>
+
+
+
+</body>
+</html>
