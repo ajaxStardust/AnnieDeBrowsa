@@ -2,16 +2,20 @@
 
 # ---------------- NOT PART OF TEMPLATE -------------------
 !vendor/autoload.php
-vendor/
-.scraps/
 !public/assets/css/style.css
+!public/assets/css/gear.png
+!public/assets/css/firebug_icon_oldver.png 
+!public/assets/css/directional-arrow-left.png 
+!public/assets/css/back-matchingred.png 
+!public/assets/css/arrow-up.png 
+!public/assets/css/arrow-down.png 
 public/assets/css/*.png
 public/assets/css/*.jpg
 public/assets/css/*.gif
 public/assets/css/*.psd
 public/assets/css/*.svg
-
-
+vendor/
+.scraps/
 *.off
 index.html
 index.html.php
