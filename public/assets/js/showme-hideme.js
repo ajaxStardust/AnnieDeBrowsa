@@ -137,7 +137,7 @@ function popMeUp(target) {
     return false;
 }
 
-function showHide(obj1) {
+ function showHide(obj1) {
     var el1 = document.getElementById(obj1);
     if (el1.style.display != "block") {
         el1.style.display = 'block';
@@ -146,6 +146,25 @@ function showHide(obj1) {
         el1.style.display = 'none';
     }
 }
+
+/* function showHide(target,toggler) {
+    var el1 = document.getElementById(target);
+    var el2 = document.getElementById(toggler);
+    if (el1.style.display != "block") {
+        el1.style.display = 'block';
+    } else {
+
+        el1.style.display = 'none';
+    }
+
+    if (el1.style.display != 'block') {
+        el2.style.fontWeight = 'normal';
+        el2.style.fontSize = '16px';
+    } else {
+        el2.style.fontWeight = 'bold';
+        el2.style.fontSize = '18px';
+    }
+} */
 
 function makeBold(obj2) {
     var el = document.getElementById(obj2);

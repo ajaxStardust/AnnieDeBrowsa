@@ -1,5 +1,6 @@
 <?php
 namespace Adb\Model;
+
 use Adb\Model\Helpers as Helpers;
 
 class Jsonconfigmanager extends Helpers
@@ -11,26 +12,27 @@ class Jsonconfigmanager extends Helpers
     {
         if (!$this->config) {
             // remove the .off from paths if needed
-            $this->jsonFile = $_SERVER['DOCUMENT_ROOT'] . '/config.json_off';
-            if (file_exists($this->jsonFile)) {
-                if(!defined('JSONCONFIG')){
-                define('JSONCONFIG',realpath($this->jsonFile));
+            $configPaths = [];
+            $configPaths = [NS_ROOT . '/config.json',
+                '../config.json',
+                './config.json',
+                $_SERVER['DOCUMENT_ROOT'] . '/config.json',
+                TEST_DIRECTORY . '/config.json'];
+            foreach ($configPaths as $cKey => $config_path) {
+                $config_path = realpath($config_path);
+                if (file_exists($config_path)) {
+                    $this->config = json_decode(file_get_contents($config_path), true);
+                    if (!defined('JSONCONFIG')) {
+                    define('JSONCONFIG', $config_path);
+                    }
                 }
-                $this->config = json_decode(file_get_contents($this->jsonFile), true);
             }
-            elseif(file_exists('../config.json_off')){
-                if(!defined('JSONCONFIG')){
-                define('JSONCONFIG',realpath('../config.json'));
-                }
-                $this->config = json_decode(file_get_contents('../config.json'), true);                
-            }else{
-                if(!defined('JSONCONFIG')){
-                define('JSONCONFIG',realpath('config.json'));
-                }
-                $this->config = json_decode(file_get_contents(NS_ROOT.'/config.json'), true);
+        } else {
+            if (!defined('JSONCONFIG')) {
+                $this->config = json_decode(file_get_contents('config.json'), true);
+                define('JSONCONFIG', realpath($this->config));
             }
         }
-        
     }
 
     public function loadConfig()
