@@ -10,14 +10,15 @@ class Jsonconfigmanager extends Helpers
     public function __construct()
     {
         if (!$this->config) {
-            $this->jsonFile = $_SERVER['DOCUMENT_ROOT'] . '/config.json';
+            // remove the .off from paths if needed
+            $this->jsonFile = $_SERVER['DOCUMENT_ROOT'] . '/config.json_off';
             if (file_exists($this->jsonFile)) {
                 if(!defined('JSONCONFIG')){
                 define('JSONCONFIG',realpath($this->jsonFile));
                 }
                 $this->config = json_decode(file_get_contents($this->jsonFile), true);
             }
-            elseif(file_exists('../config.json')){
+            elseif(file_exists('../config.json_off')){
                 if(!defined('JSONCONFIG')){
                 define('JSONCONFIG',realpath('../config.json'));
                 }
@@ -26,7 +27,7 @@ class Jsonconfigmanager extends Helpers
                 if(!defined('JSONCONFIG')){
                 define('JSONCONFIG',realpath('config.json'));
                 }
-                $this->config = json_decode(file_get_contents('config.json'), true);
+                $this->config = json_decode(file_get_contents(NS_ROOT.'/config.json'), true);
             }
         }
         

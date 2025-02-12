@@ -2089,19 +2089,19 @@ p#collapser img {
   display:list-item;
 }
 
-#navlist li,
-#navlist li ul li,
-#pageControls ul li {
+#navlist li, #navlist li ul li, #pageControls ul li {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: rgba(220, 220, 255, 0.7);
   border-radius: 1rem 1rem 1rem 1rem;
   box-shadow: 0 0 0.25em #888;
   margin: 0.5em 1.1em 0.5em 0.5rem;
-  padding: 0.1rem;
+  padding: 0.01rem;
   text-align: left;
-  text-indent: 1rem;
-  font-size: inherit;
+  text-indent: 1em;
+  font-size: 0.7rem;
+  max-width: 90%;
 }
+
 #pageControls ul li {
   font-size: 0.65rem;
 }
@@ -2535,4 +2535,8 @@ figure figcaption {
 
 .inner-list {
   display:none;
+}
+
+.iframe-nav-link {
+  font-size: 1rem;
 }
