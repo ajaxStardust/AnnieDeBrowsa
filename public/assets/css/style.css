@@ -28,7 +28,7 @@ h1, h2 {
 :root {
   font-family: "HelveticaNeue-Light", "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif; 
   font-size: 16px;
-  background-color: hwb(0 85% 15%);
+  background-color: rgba(245,245,247,0.5);
   color:#333;
 }
 
@@ -977,11 +977,18 @@ li.phpicon::before {
 
 body {
   background-attachment: fixed;
-  background-color: #1e1e2e;
+  background-color: #808080;
   background-position: left top;
   background-repeat: repeat;
-  color: #304;
+  color: #fff;
   margin: 0;
+}
+body a {
+    color: #2E8A6A;
+}
+
+body div, body * p, body * {
+    background-color:#F0F0F0;
 }
 
 code,
@@ -998,18 +1005,24 @@ code.codelite {
   padding: 0.4rem;
 }
 
-#pageControls ul li *,
+/*#pageControls ul li *,
 body,
 dl,
 html {
   padding: 0;
-}
+  margin:0;
+}*/
 
+#pageControls * li {
+  padding: 0;
+  margin:0;
+  background-color:#fff;
+}
 #navlist li,
 dl,
 dl dl * dt {
-  color: #330;
   font-family: sans-serif;
+  color:
 }
 
 dl dd code,
@@ -1128,7 +1141,7 @@ iframe {
 }
 
 #navlist {
-  background-color: transparent;
+  background-color: rgba(217,217,217,0.5);
   color: #aaa;
   display: block;
   font-size: 0.9rem;
@@ -1491,6 +1504,7 @@ li.hiddenitem {
   letter-spacing: 0.1rem;
   line-height: 2rem;
   vertical-align: middle;
+  white-space:nowrap;
 }
 
 .unfloat,
@@ -2006,7 +2020,7 @@ p#collapser img {
 }
 
 #maincol {
-  background-color: transparent;
+  background-color: inherit;
   display: block;
   float: right;
   font-family: "Trebuchet MS", "Trebuchet", sans-serif;

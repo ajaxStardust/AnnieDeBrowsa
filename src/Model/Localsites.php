@@ -43,7 +43,14 @@ class Localsites extends Helpers
              if (!empty($site['url'])) {
 
              
-              $html .= '<a href="' . htmlspecialchars($site['url']) . '" target="_blank" title="' . htmlspecialchars($site['url']) . '">';
+/*               $html .= '<a href="' . htmlspecialchars($site['url']) . '" target="_blank" title="' . htmlspecialchars($site['url']) . '">'; */
+//temp for something
+            $html .= '<a href="#' . 
+            $site["name"] . 
+            '" target="_blank" title="' . 
+            htmlspecialchars($site["url"]) . 
+            '">';
+            
             $html .= htmlspecialchars($site['name']);
             $html .= '</a>
             ';
