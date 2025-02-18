@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>/wsldebian/adbadb</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/ico" href="favicon.ico">
+        <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+
+        <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+        <style>
+            #sytebuild_htmlbuild * {
+                display: inline-block;
+                font-size: 14px;
+                font-family: sans-serif;
+            }
+        </style>
+    </head>
+
+    <body id="index" style="background-color:#f5f5f5">
+        <figure id="cssBox_Target" class="pure-u-1">
+            <img src="assets/css/css-box_novicenotes-dot-net_transp.png" alt="CSS Box-model illustration" id="cssBoxImg">
+        </figure>
+        
+        <div id="pagewidth" class="container">
+            <div id="wrapper" class="columns">
+                <div class="col-12" id="cookieData"></div>
+                <div id="header" title=" - of - Header">
+                    <object id="svgtitle" class="pure-u-1" title="Documents of - container" data="assets/css/masthead.php" type="image/svg+xml"> </object>
+                </div>
+                <div id="pageControls" class="pure-u-1">
+                    <header id="pageControlHeader" class="h3">Page Control</header>
+                    <ul id="controList" class="list-inline">
+                        <li id="toTopJscon"> <a class="pure-button pure-button-primary" href="#header"><img src="assets/css/arrow-up.png" alt="jump to top"> <span id="headerJumper">top</span> </a></li>
+                        <li id="leftColtrigger" onclick="collapseNav('leftcol')" class="pure-button"> <span> <a title="Toggle show / hide HTML id:leftcol (the navigation at left)"> <img id="navControl" src="assets/css/directional-arrow-left.png" alt="collapse navigation"> <span id="navTxt">toggle</span> nav </a></span></li>
+                        <li id="pageCon_goBack"> <span id="goBackHandler" class="pure-button"><a title="JavaScript Function of showme-hideme_js - goBack()" onclick="goBack()"><img src="assets/css/back-matchingred.png" height="16" width="26" alt="History: Go Back" title="Back to previous page"></a></span> </li>
+                        <li id="toBottom"> <a class="pure-button" href="#footer"><img src="assets/css/arrow-down.png" alt="jump to bottom"> <span id="footJumper">bottom</span> </a></li>
+                        <li id="accessTrigger"><span id="accessContainerTrigger" class="pure-button" onclick="showHide('accessContainer')"> toggle acc </span></li>
+                        <li><span id="lockFrameLoader"><a id="lockFrameAnchor" class="pure-button" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">lock iframe</a> </span> </li>
+                        <li><span id="cssBox_Trigger" onclick="showHide('cssBox_Target')"><a title="Toggle show / hide CSS Box Model illustration"> CSS Box </a></span> </li>
+                        <li id="fbloader"><span><a title="Click to activate the portable Firebug Lite script embedded in my javascript container"><img src="assets/css/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16"> Firebug <em>Lite</em></a> </span> </li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <nav id="leftcol" class="pure-u-1">
+                <ul id="navlist" class="pure-menu-list">
+                    <li onclick="showHide('ul_.')" id="li_._control" class="pure-menu-item">
+                        <span style="font-weight:bold;">.</span> [ view 3 ]
+                        <ul id="ul_." class="pure-menu-list">
+                            <li><a data-filepath=".git" title="View .git in main iFrame" href="file_loader.php?file=.git" id="navAnchor_.git" class="pure-menu-link">.<span>git</span></a></li>
+                            <li><a data-filepath=".gitignore" title="View .gitignore in main iFrame" href="file_loader.php?file=.gitignore" id="navAnchor_.gitignore" class="pure-menu-link">.<span>gitignore</span></a></li>
+                            <li><a data-filepath=".vscode" title="View .vscode in main iFrame" href="file_loader.php?file=.vscode" id="navAnchor_.vscode" class="pure-menu-link">.<span>vscode</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </body>
+
+</html>

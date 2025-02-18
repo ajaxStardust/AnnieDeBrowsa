@@ -16,37 +16,35 @@
 ?>
 
 
-<div id="pageControls" class="test1">
+                <div id="pageControls" class="controls">
     <header id="pageControlHeader">Page Control</header>
-    <ul id="controList">
-    <li id="toTopJscon">
+                    <ul id="controList" class="nav">
+    <li id="toTopJscon"  class="nav-item">
             <a class="intraNav" href="#header"><img src="assets/css/arrow-up.png" alt="jump to top" /> <span id="headerJumper">top</span> </a></li>
-        <li id="leftColtrigger" onclick="collapseNav('leftcol')">
+        <li id="leftColtrigger" onclick="collapseNav('leftcol')" class="nav-item">
             <span class="trigger">
                 <a title="Toggle show &#x2F; hide HTML id:leftcol (the navigation at left)">
                     <img id="navControl" src="assets/css/directional-arrow-left.png" alt="collapse navigation" /> <span id="navTxt">toggle</span> nav </a></span></li>
-        <li id="pageCon_goBack">
+        <li id="pageCon_goBack" class="nav-item">
             <span class="handler" id="goBackHandler"><a title="JavaScript Function of showme-hideme_js - goBack()" onclick="goBack()"><img src="assets/css/back-matchingred.png" height="16" width="26" alt="History: Go Back" title="Back to previous page" /></a></span>
         </li>
-        <li id="toBottom">
+        <li id="toBottom" class="nav-item">
             <a class="intraNav" href="#footer"><img src="assets/css/arrow-down.png" alt="jump to bottom" /> <span id="footJumper">bottom</span>
             </a></li>
-        <li id="accessTrigger"><span class="trigger" id="accessContainerTrigger" onclick="showHide('accessContainer')"> toggle acc </span></li>
-        <li class="loader"> <span id="lockFrameLoader" class="cssloader"><a id="lockFrameAnchor" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">lock iframe</a> </span>
+        <li id="accessTrigger" class="nav-item"><span class="trigger" id="accessContainerTrigger" onclick="showHide('accessContainer')"> toggle acc </span></li>
+        <li class="loader" class="nav-item"> <span id="lockFrameLoader" class="cssloader"><a id="lockFrameAnchor" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">lock iframe</a> </span>
         </li>
-        <li class="trigger">
+        <li class="trigger" class="nav-item">
             <span id="cssBox_Trigger" class="trigger" onclick="showHide('cssBox_Target')"><a title="Toggle show &#x2F; hide CSS Box Model illustration"> CSS Box </a></span>
         </li>
-        <li id="fbloader" class="loader">
-            <span class="loader">
+         <li id="fbloader" class="loader nav-item">
                 <a title="Click to activate the portable Firebug Lite script embedded in my javascript container"><img src="assets/css/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16" /> Firebug <em>Lite</em></a>
-            </span>
         </li>
-                <li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a title="send frame to top">frame2top</a></span></li>
-        <li id="js2index"></li>
+                <li id="iframe2top" class="nav-item"><span class="trigger" id="send2top" onclick="frame2top()"><a title="send frame to top">frame2top</a></span></li>
+        <li id="js2index" class="nav-item"></li>
     </ul>
     <!-- temp note: moved css box model image to dochead for now -->
 </div>
  </div>
-<hr class="hidden" />
+<hr class="divider">
  

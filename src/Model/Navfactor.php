@@ -210,14 +210,17 @@ class Navfactor
 
     private function initializeHtmlOutput()
     {
-        $this->htmlPrint[] = "<nav id=\"leftcol\" class=\"navlist\"> \n <ul id=\"navlist\" class=\"navlist\"> \n";
+        $this->htmlPrint[] = "<nav id=\"leftcol\" class=\"nav\"> \n <ul id=\"navlist\" class=\"nav\"> \n";
         if (isset($this->goUp['url'])) {
             $tempArray = [];
-            $tempArray[] = '<li id="goUpItem" class="nav"><a title="crazy" href="//' . $this->goUp['url'] . '">' . $this->goUp['url'] . '</a></li>
+            $tempArray[] = '<li id="goUpItem" class="nav-item"><a title="crazy" href="//' . $this->goUp['url'] . '">' . $this->goUp['url'] . '</a></li>
             ';
         }
+        else {
+          $tempArray = array(0 => '<li id="goUpItem" class="nav-item warning">PLEASE SET goUp[URL]</li>');
+        }
         if(isset($tempArray)){
-            $this->htmlPrint[] = array_pop($tempArray) ;
+            array_unshift($this->htmlPrint,$tempArray) ;
         }
 
         return $this->htmlPrint;
@@ -287,11 +290,11 @@ class Navfactor
         $this->htmlPrint["$this->firstChar"] .= '</ul>';
     }
 
-    private function prepareGoUpUrl()
+    private function prepareGoUpUrl(): string
     {
         // ... (Your existing logic for preparing the "Go Up" URL)
         // $this->goUp = [];
-
+    
         $this->goUp['subject'] = $this->nav_pathInfo['dirname'];
         $this->goUp['replace'] = '';
         $this->goUp['search'] = '@^(.*(?=(/).*))@';
@@ -299,6 +302,7 @@ class Navfactor
         $this->goUp['url'] = str_ireplace($this->goUp['result'], $this->goUp['replace'], $this->goUp['subject']);
         $this->goUp['url'] = preg_replace('/([^\/]+\/)+([^\/]+)/', '$2', $this->goUp['url']);
         // $this->goUp['url'] = filter_path($_SERVER['DOCUMENT_ROOT'],$servername,$server_addr);
+        return $this->goUp['url']; // Make sure to return the URL as a string
     }
 
     private function processDirectoryStructure($DirReadArray, &$alphaNumFilledKeys, $dirObject)
@@ -364,7 +368,7 @@ class Navfactor
     }
     public function makeToggles()
     {
-        $this->makeTogglesReturn = $this->processDirectoryStructure($this->DirReadArray, $this->alphaNumFilledKeys, $this->dirObject);
+        $this->processDirectoryStructure($this->DirReadArray, $this->alphaNumFilledKeys, $this->dirObject);
     }
 
     public function htmlForItem($dirItems)
@@ -374,5 +378,26 @@ class Navfactor
 
     public function initNav() {
         return $this->initializeHtmlOutput();
+    }
+
+    /**
+     * Retrieves the "Go Up" URL based on the current navigation path.
+     *
+     * This method calls `prepareGoUpUrl` to calculate and return the URL
+     * that represents the directory above the current one in the navigation
+     * hierarchy.
+     *
+     * @return string The URL to navigate to the parent directory.
+     */
+
+/*************  ✨ Codeium Command ⭐  *************/
+    /**
+     * Retrieves the "Go Up" URL based on the current navigation path.
+     *
+     * @return string The URL to navigate to the parent directory.
+     */
+/******  a7238aa7-749e-46ad-b1bf-becb76afbf91  *******/
+    public function getGoUp() {
+        return $this->prepareGoUpUrl();
     }
 }

@@ -2,15 +2,15 @@
 
 namespace Adb\View;
 
-use Adb\Controller\Navcontroller as Navcontroller;
 use Adb\Model\Adbsoc as Adbsoc;
-use Adb\Model\Backlinks as Backlinks;
+use Adb\Model\Iframe as Iframe;
 use Adb\Model\Cwthumbs as Cwthumbs;
+use Adb\Model\Backlinks as Backlinks;
+use Adb\Model\Navfactor as Navfactor;
 use Adb\Model\Dirhandler as Dirhandler;
 use Adb\Model\Htmldochead as Htmldochead;
-use Adb\Model\Iframe as Iframe;
-use Adb\Model\Navfactor as Navfactor;
 use Adb\Model\Urlprocessor as Urlprocessor;
+use Adb\Controller\Navcontroller as Navcontroller;
 
 $Navfactor = new Navfactor(TEST_DIRECTORY);
 $Navcontroller = new Navcontroller(TEST_DIRECTORY);
@@ -44,17 +44,21 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
     // $htmlNavElement = $Navview->renderOne($Dirhandler->readDirectory(TEST_DIRECTORY));
 	$htmlNavElement = $Navfactor->getHtmlPrint();
 
-    $initNav = $Navfactor->initNav();
-    echo $initNav[0];
+    $initNav = $Navfactor->getGoUp();
+    
 	$Navfactor->groupTogglerReturn;
-	
+    echo '<nav id="leftcol" class="navlist nav">
+    <ul id="navlist" class="navlist nav">
+        <li id="goUpItem" class="nav-item"><a title="'. $initNav .
+        '" href="//' . $initNav. '">' . $initNav. '</a></li>';
+
     foreach ($htmlCharacterArray as $key => $value) {
 		if(is_array($value)) {
 			
 			$many = count($value);
 			echo '
-            <li onclick="showHide(\'ul_' . $key . '\')" id="li_' . $key . '_control" class="toggler"><span style="font-weight:bold;">' . $key . '</span> [ view ' . $many . ' ] 
-            <ul id="ul_'.$key.'" class="inner-list">';
+            <li onclick="showHide(\'ul_' . $key . '\')" id="li_' . $key . '_control"  class="nav-item toggler"><span style="font-weight:bold;">' . $key . '</span> [ view ' . $many . ' ] 
+            <ul id="ul_'.$key.'" class="nav">'; // class="inner-list
 			foreach($value as $target_html){
 				// echo '<br>TEMP<br>'. $target_html;
                 echo  $target_html;
@@ -68,8 +72,8 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
 ?>
 	</ul>
 </nav>
-<div id="maincol">
-    <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?php print $currentUrlPath . $pathInfoBasename; ?>
+<div id="maincol" class="content">
+    <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?= $pathInfoBasename ?>
     </h2>
 
     <div class="hide-show-element">

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Path to HTTP URL</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chota@latest">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+        .grid-2col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem; /* Adjust spacing */
+        }
+        @media (max-width: 768px) {
+            .grid-2col {
+                grid-template-columns: 1fr; /* Stack on small screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="center">
+            <h1>Convert System Path to HTTP URL</h1>
+        </header>
+        <div class="grid-2col">
+            <div class="card">
+                <h5>New Approach</h5>
+                <ul>
+                    <li>path[0]: <span class="tag">var</span></li>
+                    <li>path[1]: <span class="tag">www</span></li>
+                    <li>path[2]: <span class="tag">wsldebian</span></li>
+                    <li>path[3]: <span class="tag">adbadb</span></li>
+                </ul>
+                <p>Resulting URL: <a href="http://wsldebian/adbadb" target="_blank">http://wsldebian/adbadb</a></p>
+            </div>
+            <div class="card">
+                <h5>Dynamic Drop</h5>
+                <p class="error">Leave Subdomain at [none] if none exists.</p>
+                <form id="fixtheurl">
+                    <div class="grid">
+                        <div>
+                            <label for="prefix">Subdomain Selector</label>
+                            <select id="prefix">
+                                <option value="">[none]</option>
+                                <option value="other">other</option>
+                                <option value="atheat">atheat</option>
+                                <option value="atflux">atflux</option>
+                                <option value="laravel">laravel</option>
+                                <option value="python">python</option>
+                                <option value="mx21">mx21</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="suffix">Base Domain / Server Name</label>
+                            <select id="suffix">
+                                <option value="mxuni">mxuni</option>
+                                <option value="wsldebian">wsldebian</option>
+                                <option value="mxlinux-21">bunsen</option>
+                            </select>
+                        </div>
+                    </div>
+                    <input id="newItemInput" placeholder="Enter Path Segment">
+                    <button type="button" onclick="appendSelectedValue()" class="button primary">Add to URL</button>
+                    <button type="button" onclick="updateAppendedData()" class="button secondary">Apply to URL</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/p2u2.js"></script>
+    <script src="assets/js/dynamicdrop.js"></script>
+</body>
+</html>

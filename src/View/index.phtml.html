@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Path to HTTP URL</title>
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div class="container grid-lg">
+        <!-- Header -->
+        <header class="text-center p-2">
+            <h1>Convert System Path to HTTP URL</h1>
+        </header>
+
+        <!-- New Approach Section -->
+        <section class="card p-2 my-2">
+            <h5>New Approach</h5>
+            <p>Resulting URLs:</p>
+            <ul>
+                <li><a href="http://wsldebian/adbadb" target="_blank">http://wsldebian/adbadb</a></li>
+                <li><a href="http://wsldebian/adbadb" target="_blank">http://wsldebian/adbadb</a></li>
+                <li><a href="http://" target="_blank">http://</a></li>
+            </ul>
+        </section>
+
+        <!-- Dynamic Drop Section -->
+        <section class="card p-2 my-2">
+            <h5>Dynamic Drop</h5>
+            <p class="text-error">Leave Subdomain at [none] if none exists.</p>
+            <form id="fixtheurl">
+                <label for="prefix">Subdomain</label>
+                <select id="prefix" class="form-select">
+                    <option value="">[none]</option>
+                    <option value="other">other</option>
+                    <option value="atheat">atheat</option>
+                </select>
+                <label for="suffix">TLD / server_name</label>
+                <select id="suffix" class="form-select">
+                    <option value="mxuni">mxuni</option>
+                    <option value="wsldebian">wsldebian</option>
+                </select>
+                <button type="button" class="btn btn-primary mt-2" onclick="appendSelectedValue()">Append Value</button>
+            </form>
+        </section>
+
+        <!-- Path Processing -->
+        <section class="card p-2 my-2">
+            <h5>Process a Path</h5>
+            <form action="/adbadb/public/index.phtml" method="GET">
+                <input type="text" name="path2url" id="path2url" class="form-input" value="/var/www/wsldebian/adbadb">
+                <button class="btn btn-primary">New Hyperlink</button>
+            </form>
+        </section>
+
+        <!-- Server Info -->
+        <section class="card p-2 my-2">
+            <h5>Server Info</h5>
+            <p><strong>Server:</strong> nginx/1.26.0</p>
+            <p><strong>PHP Version:</strong> 8.2.27</p>
+            <p><strong>Server Name:</strong> wsldebian</p>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center p-2 mt-4">
+            <p>Based on Notes by <a href="https://github.com/ajaxStardust" target="_blank">@ajaxStardust</a></p>
+            <kbd>Modified: Mon Feb 10 2025 4:16:28 EST</kbd>
+        </footer>
+    </div>
+</body>
+</html>
