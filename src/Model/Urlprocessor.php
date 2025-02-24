@@ -1,6 +1,12 @@
 <?php
 namespace Adb\Model;
-
+if (!defined('NS_ROOT')) {
+    define('NS_ROOT', dirname(__DIR__, 2));
+ }
+ if (!defined('TEST_DIRECTORY')) {
+    define('TEST_DIRECTORY', dirname(__DIR__, 2));
+ }
+ 
 class Urlprocessor {
     // Properties
     private $subject;

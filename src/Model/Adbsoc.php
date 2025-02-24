@@ -61,7 +61,7 @@ class Adbsoc
 
         // Define the base directory where your files are located
         if (!defined('TEST_DIRECTORY')) {
-            define('TEST_DIRECTORY', dirname(__DIR__, 2) . '/src/View');
+            define('TEST_DIRECTORY', dirname(__DIR__, 2));
         }
 
         // Instantiate other necessary classes
