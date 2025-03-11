@@ -80,7 +80,7 @@ function collapseSection(sectionDiv) {
     var navImage = document.getElementById('navControl');
     var toggleTxt = document.getElementById('navTxt');
 
-    if (navImage.src == ('assets/css/collapse-left.gif' || 'assets/css/expand-left.gif')) {
+    if (navImage.src == ('assets/css/arrow-left.png' || 'assets/css/arrow-right.png')) {
         var spacer = '../';
     } else {
         var spacer = '';
@@ -90,12 +90,12 @@ function collapseSection(sectionDiv) {
         leftcol.style.display = 'none';
         maincol.style.width = '100%';
         maincol.style.paddingLeft = 0;
-        navImage.src = spacer + 'assets/css/expand-left.gif';
+        navImage.src = spacer + 'assets/css/arrow-right.png';
         toggleTxt.innerHTML = "show";
     } else {
         leftcol.style.display = 'block';
         maincol.style.width = '71%';
-        navImage.src = spacer + 'assets/css/collapse-left.gif';
+        navImage.src = spacer + 'assets/css/arrow-left.png';
         toggleTxt.innerHTML = "collapse";
     }
 }
@@ -107,22 +107,17 @@ function collapseNav(navDiv) {
     var navImage = document.getElementById('navControl');
     var toggleTxt = document.getElementById('navTxt');
 
-    if (navImage.src == ('assets/css/collapse-left.gif' || 'assets/css/expand-left.gif')) {
-        var spacer = '../';
-    } else {
-        var spacer = '';
-    }
 
     if (leftcol.style.display != 'none') {
         leftcol.style.display = 'none';
         maincol.style.width = '100%';
         maincol.style.paddingLeft = 0;
-        navImage.src = spacer + 'assets/css/expand-left.gif';
+        toggleTxt.className = "material-symbols-outlined collapsed";
         toggleTxt.innerHTML = "show";
     } else {
         leftcol.style.display = 'block';
-        maincol.style.width = '71%';
-        navImage.src = spacer + 'assets/css/collapse-left.gif';
+        maincol.style.width = 'revert-layer';
+        toggleTxt.className = "material-symbols-outlined visible";
         toggleTxt.innerHTML = "collapse";
     }
 }

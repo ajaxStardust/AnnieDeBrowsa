@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 <body id="index" style="background-color:#f5f5f5">
     <figure id="cssBox_Target" class="target displaynone">
         <!-- ^ cssBoxContainer ^ -->
-        <img src="assets/css/css-box_novicenotes-dot-net_transp.png" alt="CSS Box-model illustration" id="cssBoxImg">
+        <img src="assets/css/css-box.png" alt="CSS Box-model illustration" id="cssBoxImg">
     </figure>
         <!-- $ cssBoxContainer $ -->
     <div id="pagewidth" style="background-color:#f5f5f5">

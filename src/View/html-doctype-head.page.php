@@ -26,7 +26,7 @@ $css = 'assets/css/style.css';
 $config = $Adbsoc->getConfig();
 $json_urls = $config['home_urls'];  // Assuming $config contains the parsed JSON data
 $build_local_urls = $Localsites->getSites($json_urls);  // Call the function and output the result
-$title = str_ireplace('var/www/','',$pathOps);
+$title = str_ireplace('var/www/', '', $pathOps);
 
 ?>
 <!DOCTYPE html>
@@ -41,31 +41,19 @@ $title = str_ireplace('var/www/','',$pathOps);
     <link rel="icon" type="<?= $favtype; ?>" href="<?= $favicon; ?>">
     <link rel="shortcut icon" type="<?= $favtype; ?>" href="<?= $favicon; ?>">
 
-    <!-- Bootstrap Css v5 -->
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"> -->
 
+<style>
+    @font-face {
+  font-family: 'Material Symbols Outlined';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url('assets/woff2/MaterialSymbolsOutlined.woff2') format('woff2');
+}
+</style>
 
-    <!-- SPECTRE CSS -->
-    <!-- link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css" -->
-    <!-- SPECTRE CSS may be a lightweight tailwind -->
-
-    <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all">
+    <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all" charset="utf-8">
         <link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+    <link  id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
 
-    <!-- <link id="bstheme" rel="stylesheet" type="text/css" href="assets/css/theme.css" media="all"> -->
-    <style>
-    #sytebuild_htmlbuild * {
-        display: inline-block;
-        font-size: 14px;
-        /* font-family: --bs-font-sans-serif; */
-        font-family: sans-serif;
-    }
-    </style>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
-<!-- link id="style_main" rel="stylesheet" href="https://unpkg.com/chota@latest" -->
-
-
-
+<link id="style_chota" rel="stylesheet" href="assets/css/chota.min.css">
 </head>

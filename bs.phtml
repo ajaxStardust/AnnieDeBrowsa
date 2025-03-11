@@ -21,7 +21,6 @@
  * MA 02110-1301, USA.
  */
 
-header('Access-Control-Allow-Origin: *');  // ENABLE CORS (Cross-Origin Request) policy allow all
 date_default_timezone_set('EST');
 $page_heading = 'Some Text Styles of &#x201c;Bootstrap&#x201d; CSS';
 $title = 'TITLE ME PLEASE';
@@ -46,6 +45,9 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
         font-size: 1.2rem;
         font-style: italic;
     }
+        .displaynone {
+         display:none;   
+        }
 
     /** if needed add style here
                                 ** NOTE THE NEW favICON code here:
@@ -56,14 +58,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
     <link rel="icon" href="./favicon.ico" sizes="192x192">
     <link rel="apple-touch-icon" href="./favicon.ico">
     <meta name="msapplication-TileImage" content="<!-- http://.file./ -->">
-
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <!-- BOOTSTRAP STYLE -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-    <link href="https://api.mapbox.com/mapbox-gl-js/v2.1.1/mapbox-gl.css" rel="stylesheet">
-    <link href="assets/css/notes.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -162,11 +157,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
             </div>
         </footer>
     </div><!--    $ :end    END class.content (former id.maincol)    $    -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
-    </script>
-    <script src="assets/js/showme-hideme.js"></script>
+    <script src="public/assets/js/showme-hideme.js"></script>
 
 </body>
 
