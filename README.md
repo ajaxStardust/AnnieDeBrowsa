@@ -1,34 +1,53 @@
-## ADB
-Annie DeBrowsa (ADB). Which is supposed to remind you of "Any Dir Browser".
-
-[![Status](https://github-readme-stats.vercel.app/api/pin/?username=ajaxStardust&repo=AnnieDeBrowsa&show_owner=true)](https://github-readme-stats.vercel.app)
+# Annie DeBrowsa (ADB)
 
 ## Description
-This project was begun in the later 2000's bourne of my desire to have a means of previewing old website projects stored on a development server. Consider it a "static content management system". It's not a file manager. 
+Annie DeBrowsa (ADB) stands for Any Dir Browser, designed to help you preview old website projects stored on a development server. Think of it as a static content management system — not a file manager, but a way to view content directly from the web interface.
 
+### Installation
+To get started, clone this repository into your HTTP server document root or any directory you'd like to preview files from directly in your web browser.
 
-## Installation
-Clone it into your HTTP server document root, or any directory where you want to be able to "look at" whatever is in there without leaving your web browser.  
+```bash
+git clone https://github.com/ajaxStardust/AnnieDeBrowsa.git
+```
 
-## Usage
-The app puts an index.php file in the folder root, so do not place this where there is an existing index.php file for example. or, rename the ADB index file, perhaps, to index.phtml, or adb.php. whatever works for you. try it in an empty directory first to get the idea. 
-View a [demo](https://centrewebdesign.com/adb).
+Alternatively, you can download the project using wget or curl:
 
-## Support
-The author. Use this repository to get in touch with me. @ajaxStardust
+#### Using wget
 
-## Roadmap
-I'm rebuilding it in Laravel. You know, personal project stuff. This always makes for a good "template" for me, for playing around with ideas. 
+```bash
+wget https://github.com/ajaxStardust/AnnieDeBrowsa/archive/refs/heads/main.zip
+```
 
-## Contributing
-Open to contributions / collaboration!
+#### Using curl
 
+```bash
+curl -L https://github.com/ajaxStardust/AnnieDeBrowsa/archive/refs/heads/main.zip -o AnnieDeBrowsa.zip
+```
 
-## Authors and acknowledgment
-Created by Jeff Sabarese of https://wordpresscenter.net also avail via @ajaxStardust
+Once downloaded, extract the contents and move it to your desired directory.
 
-## License
-GPL
+#### Usage
+This app places an index.php file in the folder root. Do not place this where an index.php already exists, unless you rename the ADB index file, such as index.phtml or adb.php. Try it out first in an empty directory to get the feel of it.
 
-## Project status
-In development. I guess we'll call this alpha stage. 
+Visit a demo here: Demo.
+
+#### Support
+The author: @ajaxStardust
+Feel free to reach out by opening an issue or contributing to the repository.
+
+#### Roadmap
+I’m currently rebuilding ADB in Laravel — personal project stuff. It's always a fun template for experimenting with ideas and improvements.
+
+#### Contributing
+Contributions are welcome! Open an issue or submit a pull request if you'd like to help improve the project.
+
+#### Authors and Acknowledgments
+Created by Jeff Sabarese (@ajaxStardust) from WordPress Center
+
+Special thanks to the open-source community for their tools and contributions.
+
+#### License
+This project is licensed under the GPL License.
+
+#### Project Status
+Still in development, but it's working! Consider it in the alpha stage.
