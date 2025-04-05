@@ -35,8 +35,8 @@ echo -e "${CYAN}Requires PHP running on a local HTTP server (e.g., LAMP stack)${
 sleep 1
 
 # Define Paths
-HTDOCS='/media/wd2tb01/var/www/mxuni'
-HOSTNAME=mxuni
+HTDOCS='/var/www/html/mydocs'
+HOSTNAME=example.org
 MY_PROJECT_DIR=11011101
 MY_PROJECT=$HTDOCS/$MY_PROJECT_DIR
 
