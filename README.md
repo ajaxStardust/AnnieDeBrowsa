@@ -29,11 +29,11 @@ this will print the URL that you can use to view your files in a browser.
 
 **Note** If you want to open the URL automatically in your browser, you can uncomment the `xdg-open` line in the `transform.sh` script.
 
-For more details, refer to the [transform.sh script](https://gist.github.com/ajaxStardust/674b5d86f1f4386e72937a607e263608/raw/transform.sh).
+For more details, refer to the [transform.sh script](https://raw.githubusercontent.com/ajaxStardust/AnnieDeBrowsa/refs/heads/master/i_am_become_url.sh).
 
 ## Demo
 
-View a [live demo here](https://centrewebdesign.com/adb).
+View a [live demo here](https://whatsonyourbrain.com/adb).
 
 ## Support
 
