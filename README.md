@@ -17,7 +17,14 @@ If you prefer using a single command for quick installation, you can run:
 ```
 curl -o- https://gist.githubusercontent.com/ajaxStardust/674b5d86f1f4386e72937a607e263608/raw/install.sh | bash
 ```
-This will automatically set up the project and make it ready for you to use.
+This will automatically set up the project and make it ready for you to use, as shown:
+
+![image](https://github.com/user-attachments/assets/91be341f-5dc0-4289-8bc0-aa1c82030300)
+
+**NOTE:** you may want to terminate the script at the point shown in the screenshot, if you havne't edited the transform.sh script. Otherewise, you may discover it has created this "one-one-zero-one...one-one-zero-one!" directory. Why? 
+
+> _Check lines 37-40 of the install.sh shell script._
+... or is it the _transform.sh_ script? Hmm... 
 
 ## Usage
 
@@ -49,7 +56,7 @@ Feel free to contribute! If you have ideas or improvements, feel free to fork th
 
 ## Authors and Acknowledgment
 
-Created by Jeff Sabarese of [WordPress Center](https://wordpresscenter.net), also available via @ajaxStardust.
+Created by [Jeff Sabarese](https://neutility.life/agency-skills), also available via @ajaxStardust.
 
 ## License
 
