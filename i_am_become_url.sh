@@ -49,9 +49,9 @@ if [ $# -eq 0 ]; then
         printf "%s\n" "${CYAN}Object name to transform.sh: ${RESET}${BOLD}${FILENAME_ONLY}${RESET}"
         sleep 3
 
-        # Check if HOSTNAME is set and valid
-        HOSTNAME='mxuni'
-        MYHOSTNAME='localhost'
+        # Check if HOSTNAME is set in the SYSTEM ENV and valid. Uncomment next line to define HOSTNAME here instead. tweak with MYHostname
+        # HOSTNAME='example.org'
+        MYHOSTNAME='localhost' #OR WHATEVER you want it to be here is where you can define
         if [ -z "$HOSTNAME" ]; then
             # If HOSTNAME is not set, default to 'localhost' (the default MYHOSTNAME)
                 HOSTNAME=$MYHOSTNAME
