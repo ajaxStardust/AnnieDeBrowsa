@@ -35,10 +35,12 @@ echo -e "${CYAN}Requires PHP running on a local HTTP server (e.g., LAMP stack)${
 sleep 1
 
 # Define Paths
-HTDOCS='/var/www/html/mydocs'
-HOSTNAME=example.org
-MY_PROJECT_DIR=11011101
+HTDOCS='/nobody_has_a_folder_like_this/path/public_html' # for EXAMPLE 
+HOSTNAME='example.localhost' 
+MY_PROJECT_DIR='one_level_under_htdocs'
 MY_PROJECT=$HTDOCS/$MY_PROJECT_DIR
+# IMPORTANT! PLEASE SEE LINE 57 before continuing. 
+# NOTE: the command MKDIR does create MY_PROJECT dir at line 58
 
 echo -e "\n${BOLD}Step 1: Preparing Environment...${RESET}"
 sleep 1
