@@ -1815,11 +1815,8 @@ ul.keyTermsList li sup {
 }
 
 #cssBox_Target {
-  background-color: #fff;
-  border: 0.5em ridge #fff;
-  border-radius: 1rem;
-  -webkit-box-shadow: 1.5em 2em 1em rgba(0, 0, 0, 0.68);
-  box-shadow: 1.5em 2em 1em rgba(0, 0, 0, 0.68);
+  background-color: transparent;
+  border: none;
   float: left;
   left: 32.75%;
   margin: 0 auto;
@@ -1828,6 +1825,7 @@ ul.keyTermsList li sup {
   text-align: center;
   top: 25%;
   z-index: 99999;
+  box-shadow: 1.5em 2em 1em rgba(0, 0, 0, 0.68);
 }
 
 #cssTips * {
