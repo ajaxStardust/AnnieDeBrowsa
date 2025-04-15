@@ -82,182 +82,44 @@ $Functions = new Functions();
             <h1 class="bg-dark text-light text-end pe-3 h1"><?= $whatis['page_heading']; ?></h1>
         </section>
         <section>
-            <div class="row  row-cols-1 row-cols-md-2 g-4">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="h5">New Approach</h5>
-                            <div>
-<!-- new approach -->
- <?php
+  <h2>GPG Key Creation on Arch Linux — 2025-04-14</h2>
+  <blockquote>
+    <p><strong>User:</strong> I'm on Arch Linux. This is a new installation. I want to setup a GPG key via terminal, so the Desktop key manager will have it ready. Understand?</p>
 
-                        $trimmed_new_url = str_ireplace('/var/www/' . $contructNewMethod['_dynamichost'], '', $contructNewMethod['new_url_concat']);
-                        $buildByComp = $_SERVER['REQUEST_SCHEME'] . '://' . $contructNewMethod['_dynamichost'] . '/' . ltrim($trimmed_new_url,'/');
-                        $concatThis = $_SERVER['REQUEST_SCHEME'] . '://';
-                        $concatSwitch = $_SERVER['REQUEST_SCHEME'] . '://';
-                        foreach ($P2u2->path_comps['matches'] as $mKey => $mVal) {
-                            echo '<br>path[' . $mKey . ']: ' . $mVal;
-                            if($mVal != 'var' && $mVal != 'www'){
-                                $concatThis .= ltrim($mVal,'/').'/';
-                            }
-                                                        
-                        }
-    
-        $process_location = $Eval->test_location($enterpathhere)['pb'];
+    <p><strong>Assistant:</strong> Perfect — looks good. You’re on GnuPG 2.4.7 with everything you’d need. The home directory is where expected:<br>
+    <code>/home/jsabarese/.gnupg</code><br>
+    So your GUI key manager should be reading from that same keyring once we populate it.</p>
 
-                        foreach ($process_location as $mKey => $mVal) {
-                            echo '<br>path[' . $mKey . ']: ' . $mVal;
-                            $concatSwitch .= str_ireplace('/','',$mVal).'/';
-                            
-                        }
-                        // var_dump($process_location);
-                        
-                        echo '<br>Resulting URL buildByComp: <a href="' . $buildByComp . '" target="_blank">' . $buildByComp . '</a>';
-                        echo '<br>Resulting URL concatThis: <a href="' . rtrim($concatThis,'/') . '" target="_blank">' . rtrim($concatThis,'/') . '</a>';
-                       echo '<br>Resulting URL concatSwitch: <a href="' . $concatSwitch . '" target="_blank">' . $concatSwitch . '</a>';
-					  /*  echo '<h4>buildUrl vals:</h4>';
-                       if(is_array($buildUrl)){
-                       foreach($buildUrl as $bKey => $bVal) {
-                        echo '<br>bVal['.$bKey.']: '.$bVal ;
-                       }
-                    } */
+    <p><strong>Next Step: Generate the key</strong></p>
+    <pre>
+gpg --full-generate-key
+    </pre>
+    <p>And follow the prompts:</p>
+    <ul>
+      <li>Key type: 1 (RSA and RSA)</li>
+      <li>Key size: 4096</li>
+      <li>Expiration: up to you (1-2 years suggested)</li>
+      <li>Name</li>
+      <li>Email</li>
+      <li>Passphrase</li>
+    </ul>
 
+    <p>Once done, confirm:</p>
+    <pre>
+gpg --list-keys
+    </pre>
 
-                        ?>
-                            </div>
-                            <div id="image_look"><dl><dt>Screenshot: </dt><dd><!-- img src="assets/images/look-at-the-code.png" alt="shitface" -->
-                                Could go here if you want
-                            </dd></dl></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <?php
-                            include 'Form.page.phtml';
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section>
+    <p>If you crack open your key manager (like Seahorse on GNOME), it should show up under your personal keys.</p>
 
-            <div class="row  row-cols-1 row-cols-md-2 g-4">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="h5">Clone at GitHub</h5>
-                            <p class="card-text"><a href="https://github.com/ajaxStardust/AnnieDeBrowsa"
-                                    target="_blank"><img
-                                        src="https://github-readme-stats.vercel.app/api/pin/?username=ajaxStardust&amp;repo=AnnieDeBrowsa&amp;show_owner=true"
-                                        alt="Status" /></a></p>
-                            <p class="card-text"><a href="https://github.com/ajaxStardust" target="_blank"><img
-                                        src="https://github-readme-stats.vercel.app/api/?username=ajaxStardust&amp;repo=AnnieDeBrowsa&amp;show_owner=true&amp;show_icons=true"
-                                        alt="More" /></a></p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col">
-                    
-                <div class="card">
-                        <div class="card-body">
-                            <h5 class="h5">Nav Go Up</h5>
-                            <!-- php nav goup -->
-                            <ol id="navgoup_demo">
-                                <?php
-                                $goUpArray = $Functions->process_goup();
-                                foreach ($goUpArray as $goUpKey => $goUpVal) {
-                                    echo '<li class="navgoup_item">goUp[' . $goUpKey . ']: ' . $goUpVal . '</li>';
-                                }
-                                ?>
-                            </ol>
-                        </div>
-                    </div>
-                    <div class="card">
-                            
-                    <div class="card-body">
-                            <h5 class="h5">URL Processing</h5>
-                            <?php
+    <p><strong>Optional but Recommended: Generate a Revocation Certificate</strong></p>
+    <pre>
+gpg --output ~/revocation-cert-yourname.asc --gen-revoke [YOUR-KEY-ID]
+    </pre>
 
-                            //    echo '<br>get_defined_vars(): ' . print_r(get_defined_vars()); 
-                            $jsonEnv = json_encode($Env);
-                            $try_decode = json_decode($jsonEnv);
-                            //$jsonEnv = json_decode($jsonEnv);
-                            /* echo '<ul>';
-                            foreach($jsonEnv as $jsKey => $jsVal){
-                                echo '<li>'.$jsKey.': '.$jsVal.'</li>';
-                            }
-                            echo '</ul>'; */
-                            //echo '<br><strong class="red">$jsonEnv</strong>: ' . $jsonEnv . '<br>';
-                            //echo '<br>$try_decode[pathOps]: ' . $try_decode["pathOps"] . '<br>';
-                            //echo '<br>constructNewMethod[urlconcat]: ' . $contructNewMethod['new_url_concat'];
-                            echo '<br><strong>NEW!</strong> - $P2u2->clean_chars[url_2_convert]: ' . $P2u2->clean_chars['url_2_convert'];
-							echo '<br>convert2replaced = str_ireplace(/var/www, , P2u2->clean_chars[url_2_convert])' .  $convert2replaced = str_ireplace('/var/www', '', $P2u2->clean_chars['url_2_convert']);
+    <p>You’ll get asked for a reason and comments. Save this <code>.asc</code> file somewhere offline (like a USB drive or encrypted disk).</p>
+  </blockquote>
+</section>
 
-
-
-                            /*                             if (is_array($try_decode)) {
-                                echo '<h3>try_decode array()</h3>';
-                                echo '<ol id="clean_url">';
-                                foreach ($try_decode as $tryKey => $tryVal) {
-                                    echo '<li class="clean_item">' . $tryKey . ': ' . $tryVal . '</li>';
-                                }
-                                echo '</ol>';
-                            }
- */
-
-
-
-                            ?>
-                            
-
-
-                        </div>
- 
-
-                    </div>
-                </div>
-                
-                
-
-                
-
-            
-
-
-            </div>
-
-        </section>
-        <section class="container">
-            
-            <?php
-            // require 'LateLogic.page.phtml';
-            ?>
-            <div class="col">
-                <h5 class="h5">Server Info</h5>
-                <?php
-				echo '<br>__FILE__ info shown: ' . __FILE__ ;
-                if (isset($Env->initialize_enviornment['abspathtml'])) {
-                    echo '<p><strong>ABSPATHHTML</strong>:' . $Env->initialize_enviornment['abspathtml'];
-                } else {
-                    echo '<p><strong class="red">$Env->initialize_enviornment[abspathtml] is not set</strong></p>';
-                }
-
-                echo '<div class="container"><div class="bg-dark d-flex justify-content-between flex-wrap" id="info_container"><p class="bg-dark text-light">Served by: <span class="bg-dark text-warning">' . $Env->initialize_enviornment['serversoftware'] . '</span></p>
-        <p class="bg-dark text-light">PHP Version: <span class="text-warning">' . phpversion() . '</span></p>
-        <p class="bg-dark text-light">Server Name: <span class="text-info">' . $Env->initialize_enviornment['server_name'] . '</span></p>
-        <p class="bg-dark text-light">Server Addr: <span class="text-info">' . $Env->initialize_enviornment['server_addr'] . '</span></p>
-        </div></div>';
-                ?>
-            </div>
-            <div class="notes">
-            </div> <!--  $    div   .notes    $   -->
-        </section> <!--    $   section   #general_notes  .container    $   -->
-        <section class="container">
-        </section> <!-- $  section .container          -->
         <section class="footer px-4">
             <!--    .FOOTER     -->
             <div class="row gx-5">
