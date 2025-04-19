@@ -51,6 +51,6 @@ $title = str_ireplace('var/www/', '', $pathOps);
     <meta name="msapplication-TileImage" content="<?php echo "http://".$_SERVER['DOCUMENT_ROOT'].'/public/assets/svg/tile-image.svg'; ?>">
     <!-- link rel="stylesheet" href="https://unpkg.com/chota@latest" -->
   <link href="assets/css/lightslider.css" rel="stylesheet">
-  <style>.displaynone {display:none;}</style>">
+  <style>.displaynone {display:none;}</style>
 
 </head>
