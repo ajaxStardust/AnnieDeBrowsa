@@ -99,7 +99,13 @@ $Functions = new Functions();
                                     <li><code>concatSwitch</code> employs the use of a switch case logic. This is usually garbage for some reason. All in the spirit of playing with code.</li>
                                 </ul>
                                 <?php
-
+        $common_paths=[
+            '\/var\/www\/html',
+            '\/var\/www\/htdocs',
+            '\/var\/www\/public_html',
+            '\/var\/www\/htdocs\/public_html',
+            '\/var\/www\/wwwroot'
+        ];
 $trimmed_new_url = str_ireplace('/var/www/' . $contructNewMethod['_dynamichost'], '', $contructNewMethod['new_url_concat']);
 $buildByComp = $_SERVER['REQUEST_SCHEME'] . '://' . $contructNewMethod['_dynamichost'] . '/' . ltrim($trimmed_new_url, '/');
 $concatThis = $_SERVER['REQUEST_SCHEME'] . '://';

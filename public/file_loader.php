@@ -3,7 +3,7 @@
 namespace Adb;
 
 if (!defined('TEST_DIRECTORY')) {
-    define('TEST_DIRECTORY', '/var/www/wsldebian/adbfinal01');
+    define('TEST_DIRECTORY', '/var/www/html');
 }
 require_once __DIR__ . '/../vendor/autoload.php';
 

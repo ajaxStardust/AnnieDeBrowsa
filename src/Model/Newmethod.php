@@ -95,7 +95,36 @@ class Newmethod
         $nurlLoop = $this->_construct_NewMethod["extracted_comps_html"];
         $new_url_concat = rtrim($new_url_concat, '/');
         
-        $this->_construct_NewMethod['new_url_concat'] = str_ireplace('/var/www/wsldebian/', '', $new_url_concat);
+        $common_paths=[
+            '\/var\/www\/html',
+            '\/var\/www\/htdocs',
+            '\/var\/www\/public_html',
+            '\/var\/www\/htdocs\/public_html',
+            '\/var\/www\/wwwroot'
+        ];
+
+foreach($common_paths as $pathSubject) {
+    if(preg_match('/'.$pathSubject.'/',$new_url_concat)){
+        $pathSubject = str_ireplace('\/','/',$pathSubject);
+        $this->_construct_NewMethod['new_url_concat'] = str_ireplace($pathSubject, '', $new_url_concat);
+        // echo $this->_construct_NewMethod['new_url_concat'] . ', because: '. $pathSubject.'<br>';
+        $break = 1;
+        /* sorry. brain damage */
+        
+    }
+    else {
+        if($break == 1){
+         break;
+        }
+        else {
+            $pathSubject = str_ireplace('\/','/',$pathSubject);
+            $this->_construct_NewMethod['new_url_concat'] = str_ireplace($pathSubject, '', $new_url_concat);
+           //  echo 'No because because $pathSubject is '.$pathSubject.', so the result is: '. $this->_construct_NewMethod['new_url_concat'].'<br>';
+        }
+    }
+
+
+}
         $nurlLoop = $nurlLoop . '<p>new_url_concat: ' . $new_url_concat . '</p>
     <p>New URL Construct:<br> _SERVER[REQUEST_SCHEME] . :// . _SERVER[HTTP_HOST] . new_url_concat ==</p>
     <p><a href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_dynamichost . '/' . $this->_construct_NewMethod['new_url_concat'] . '" target="_blank">'
