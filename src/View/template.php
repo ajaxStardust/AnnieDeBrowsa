@@ -14,8 +14,8 @@ $Dirhandler = new Dirhandler(TEST_DIRECTORY);
 
 require NS_ROOT . '/src/View/html-doctype-head.page.php';
 require NS_ROOT . '/src/View/html-body-top.page.php';
-require NS_ROOT . '/src/View/html-maincontrols.page.php';
 require NS_ROOT . '/src/View/html-main.page.php';
+require NS_ROOT . '/src/View/html-maincontrols.page.php';
 require NS_ROOT . '/src/View/html-footer.page.php'; 
 
 ?>

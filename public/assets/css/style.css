@@ -2,6 +2,101 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Condiment&display=swap');
 
+@font-face {
+font-family: 'Material Symbols Outlined';
+font-style: normal;
+font-weight: 100 700;
+src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v179/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2) format('woff2');
+}
+			    .hide-show-element {
+			        width: 10rem;
+			        display: inline-block;
+			    }
+
+			    .hide-show-element label:hover {
+			        color: #D00;
+			    }
+
+			    .hide-show-element input[type='checkbox'] {
+			        display: none;
+			    }
+
+			    .hide-show-element label {
+			        margin: 0 .1em;
+			        padding: 0 .3em;
+			        border-radius: 3px;
+			        border: .1em solid #ccc;
+			        color: #333;
+			        line-height: 1.625;
+			        font-size: .83em;
+			        font-family: inherit;
+			        background-color: #f7f7f7;
+			        box-shadow: 0 .1em 0 rgba(0, 0, 0, .2), 0 0 0 .2em #fff inset;
+			    }
+
+			    .hide-show-element label {
+			        /* background-color: #a00; */
+			        /* border: 1px solid #111; */
+			        color: #E8E6FF;
+			        cursor: pointer;
+			        /* display: block; */
+			        /* padding: 20px; */
+			        display: inline-block;
+			        text-align: center;
+			        transition-duration: 0.4s;
+			        width: 90%;
+			        margin: 0;
+			        text-shadow: 0.06rem 0.06rem 0.1rem #33333355;
+			    }
+
+			    .hide-show-element label:after {
+			        display: block;
+			        content: "Show Controls";
+			    }
+
+			    .hide-show-element input:checked+label {
+			        background-color: none;
+			        /* border: 1px solid #a00; */
+			        color: #3A29BB;
+			    }
+
+			    .hide-show-element input:checked+label:after {
+			        content: "Hide Controls";
+			    }
+
+			    .test1 {
+			        opacity: 0;
+			        position: relative;
+			        height: 0;
+			        transform: rotate(135deg);
+			        top: 20%;
+			        transition-duration: 0.6s;
+			        width: 0;
+			    }
+
+			    .hide-show-element input:checked~.test1 {
+			        filter: grayscale(25%);
+			        opacity: 1;
+			        height: 200px;
+			        transform: rotate(0);
+			        width: 8rem;
+              z-index: 999;
+			    }
+			    .randomimage {
+			        display:inline-block;
+			        max-width:1024;
+			        max-height:768;
+			    }
+			    #jsaffect {
+
+			    display: inline-block;
+			    flex-direction: unset;
+			    border: 0.01rem solid #7fd5ff;
+
+			    }
+
+
+
 .condiment-regular {
   font-family: "Condiment", cursive;
   font-weight: 400;
@@ -939,8 +1034,6 @@ thead {
 
 #pageControl,
 #pageControls {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
@@ -2068,7 +2161,7 @@ p#collapser img {
   min-width: 8rem;
 }
 
-#pageControls {
+#pageControls, #controlList {
   z-index: 999;
 }
 
@@ -2531,9 +2624,10 @@ li.xcficon::before {
   padding: 1.5em 0.5em 1.5em 0;
   position: fixed;
   right: 5px;
-  display: flex;
-  flex-direction: column;
+  /* display: flex;
+  flex-direction: column; */
   margin: 10% 2rem 0 0;
+  width:14rem;
 }
 
 figure,

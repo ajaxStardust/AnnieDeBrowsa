@@ -1,5 +1,6 @@
 // javascript jQuery
 
+
 $(document).ready(function() {
 	// Function to update the news ticker with a random variable
 	function updateNewsTicker() {
@@ -31,4 +32,3 @@ $(document).ready(function() {
 	}
 
 });
-
