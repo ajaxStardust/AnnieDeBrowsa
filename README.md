@@ -35,9 +35,10 @@ To use Annie DeBrowsa, simply run the following command:
 bash transform.sh <directory_name>
 ```
 
-> The idea is actually to copy the .sh script to /usr/local/bin/transform.sh 
-then create in e.g. your .bashrc a line like 
-alias 2url=/usr/local/bin/transform.sh 
+> The idea is actually to copy the .sh script to /usr/local/bin/transform.sh
+
+e.g. in .bashrc  add a line like 
+```alias 2url=/usr/local/bin/transform.sh ```
 
 so you can just type 
 2url ./index.html 
