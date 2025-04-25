@@ -18,8 +18,14 @@ If you prefer using a single command for quick installation, you can run:
 curl -o- https://gist.githubusercontent.com/ajaxStardust/674b5d86f1f4386e72937a607e263608/raw/install.sh > ~/install_adb_by_ajaxStardust.sh
 chmod 755 ~/install_adb_by_ajaxStardust.sh
 nano ~/install_adb_by_ajaxStardust.sh
+cd /var/www/html
+~/install_adb_by_ajaxStardust.sh
 ```
-This will automatically set up the project and make it ready for you to use, as shown:
+The files and folders will be deployed as if it were set by the dude who wanted you to try this project and make it ready for you to use, as shown:
+The crux of it is the file that processes system URL paths, and then the part that lets you browse your http server content. 
+
+**Try it out!** 
+I feel like it's pretty basic, and potentially useful to your production flow tool chain. I've done my best to make it pretty from 2009. 
 
 ![image](https://github.com/user-attachments/assets/91be341f-5dc0-4289-8bc0-aa1c82030300)
 
