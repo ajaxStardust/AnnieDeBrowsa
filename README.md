@@ -15,7 +15,9 @@ git clone https://github.com/ajaxStardust/AnnieDeBrowsa.git
 If you prefer using a single command for quick installation, you can run: 
 
 ```
-curl -o- https://gist.githubusercontent.com/ajaxStardust/674b5d86f1f4386e72937a607e263608/raw/install.sh | bash
+curl -o- https://gist.githubusercontent.com/ajaxStardust/674b5d86f1f4386e72937a607e263608/raw/install.sh > ~/install_adb_by_ajaxStardust.sh
+chmod 755 ~/install_adb_by_ajaxStardust.sh
+nano ~/install_adb_by_ajaxStardust.sh
 ```
 This will automatically set up the project and make it ready for you to use, as shown:
 
