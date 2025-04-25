@@ -23,7 +23,7 @@ This will automatically set up the project and make it ready for you to use, as 
 
 ![image](https://github.com/user-attachments/assets/91be341f-5dc0-4289-8bc0-aa1c82030300)
 
-**NOTE:** you may want to terminate the script at the point shown in the screenshot, if you havne't edited the transform.sh script. Otherewise, you may discover it has created this "one-one-zero-one...one-one-zero-one!" directory. Why? 
+**NOTE:** You must edit approx line 40 to set correct paths for variables used. Otherewise, you may discover it has created this "one-one-zero-one...one-one-zero-one!"
 
 > _Check lines 37-40 of the install.sh shell script._
 ... or is it the _transform.sh_ script? Hmm... 
@@ -34,6 +34,17 @@ To use Annie DeBrowsa, simply run the following command:
 ```
 bash transform.sh <directory_name>
 ```
+
+> The idea is actually to copy the .sh script to /usr/local/bin/transform.sh 
+then create in e.g. your .bashrc a line like 
+alias 2url=/usr/local/bin/transform.sh 
+
+so you can just type 
+2url ./index.html 
+to get 
+https://localhost/adb-logic-to-transform-something-whatever/
+
+
 this will print the URL that you can use to view your files in a browser.
 
 **Note** If you want to open the URL automatically in your browser, you can uncomment the `xdg-open` line in the `transform.sh` script.
