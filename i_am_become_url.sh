@@ -51,7 +51,7 @@ if [ $# -eq 0 ]; then
 
         # Check if HOSTNAME is set in the SYSTEM ENV and valid. Uncomment next line to define HOSTNAME here instead. tweak with MYHostname
         # HOSTNAME='example.org'
-        MYHOSTNAME='localhost' #OR WHATEVER you want it to be here is where you can define
+        MYHOSTNAME='centrewebdesign.com/anniedebrowsa' #OR WHATEVER you want it to be here is where you can define
         if [ -z "$HOSTNAME" ]; then
             # If HOSTNAME is not set, default to 'localhost' (the default MYHOSTNAME)
                 HOSTNAME=$MYHOSTNAME
@@ -71,10 +71,10 @@ if [ $# -eq 0 ]; then
                         sleep 3
 
                         # Use xdg-open to open the URL in the default browser
-                        xdg-open "$URL"
+printf "%s\n" "${BLUE}Click it.  $URL {$RESET}"
 
                         # Show the variables used
-                        sleep 1
+                        sleep 5
                         printf "%s\n" "${CYAN}Variables used include:${RESET}"
                         sleep 1
                         printf "%s\n" "${YELLOW}PWD:${RESET} ${GREEN}$PWD${RESET}"

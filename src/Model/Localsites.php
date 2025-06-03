@@ -18,11 +18,11 @@ class Localsites extends Helpers
     public function getSites($json_urls) {
         $home_urls_default = [];
         $home_urls_default['home_urls'][] = [
-            "url" => "https://neutility.store",
-            "name" => "Oct 8",
+            "url" => "https://neutility.life",
+            "name" => "Neutility._",
             "data" => "Waving",
             "count" => (int) "2",
-            "path" => 'https://neutility.store'
+            "path" => 'https://neutility.life'
         ];
         // Initialize HTML structure for the list
         $html = '<div id="sytebuild_htmlbuild">
@@ -43,13 +43,8 @@ class Localsites extends Helpers
              if (!empty($site['url'])) {
 
              
-/*               $html .= '<a href="' . htmlspecialchars($site['url']) . '" target="_blank" title="' . htmlspecialchars($site['url']) . '">'; */
-//temp for something
-            $html .= '<a href="#' . 
-            $site["name"] . 
-            '" target="_blank" title="' . 
-            htmlspecialchars($site["url"]) . 
-            '">';
+
+            $html .= '<a href="'. htmlspecialchars($site["url"]) . '" target="_blank" title="' . $site["name"] . '" rel="noopener noreferrer" class="link" data-url="' . htmlspecialchars($site['url']) . '" data-name="' . htmlspecialchars($site['name']) . '">';
             
             $html .= htmlspecialchars($site['name']);
             $html .= '</a>

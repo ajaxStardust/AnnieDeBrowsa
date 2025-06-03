@@ -104,16 +104,27 @@ $Functions = new Functions();
             '\/var\/www\/htdocs',
             '\/var\/www\/public_html',
             '\/var\/www\/htdocs\/public_html',
-            '\/var\/www\/wwwroot'
+            '\/var\/www\/wwwroot',
+            '\/home\/admin\/web'
         ];
-$trimmed_new_url = str_ireplace('/var/www/' . $contructNewMethod['_dynamichost'], '', $contructNewMethod['new_url_concat']);
+// $trimmed_new_url = str_ireplace('/var/www/' . $contructNewMethod['_dynamichost'], '', $contructNewMethod['new_url_concat']);
+foreach($common_paths as $cpathKey => $cpathVal){
+    if(preg_match($cpathVal,$contructNewMethod['new_url_concat'])){
+    $trimmed_new_url = str_ireplace($cpathVal, '', $contructNewMethod['new_url_concat']);
+    break;
+    }
+}
+
 $buildByComp = $_SERVER['REQUEST_SCHEME'] . '://' . $contructNewMethod['_dynamichost'] . '/' . ltrim($trimmed_new_url, '/');
 $concatThis = $_SERVER['REQUEST_SCHEME'] . '://';
 $concatSwitch = $_SERVER['REQUEST_SCHEME'] . '://';
 foreach ($P2u2->path_comps['matches'] as $mKey => $mVal) {
     echo '<br>path[' . $mKey . ']: ' . $mVal;
-    if ($mVal != 'var' && $mVal != 'www') {
+    if ($mVal != 'var' && $mVal != 'www' && $mVal != 'admin' && $mVal != 'home' && $mVal != 'web') {
+        $mVal =  str_ireplace('public_html','',$mVal);
+        $mVal = str_ireplace('//','/',$mVal);
         $concatThis .= ltrim($mVal, '/') . '/';
+        // $concatThis = str_ireplace($_SERVER['SERVER_NAME'],'/',$concatThis);
     }
 }
 
@@ -127,10 +138,13 @@ foreach ($process_location as $mKey => $mVal) {
 </dd>
 </dl>
 <?php
+// $concatThis = str_ireplace('//','/',$concatThis);
 echo '<dl id="resulting_url_anchors">';
-echo '<dt>buildByComp</dt><dd><a href="' . $buildByComp . '" target="_blank">' . $buildByComp . '</a></dd>';
-echo '<dt>concatThis</dt><dd><a href="' . rtrim($concatThis, '/') . '" target="_blank">' . rtrim($concatThis, '/') . '</a></dd>';
-echo '<dt>concatSwitch</dt><dd><a href="' . $concatSwitch . '" target="_blank">' . $concatSwitch . '</a></dd></dl>';
+echo '<dt>buildByComp (dynamic hostname)</dt><dd><a href="' . $buildByComp . '" target="_blank">' . $buildByComp . '</a></dd>';
+echo '<dt>concatThis</dt>
+    <dd><a href="'.$concatThis.'" target="_blank">' . rtrim($concatThis, '/') . '</a></dd>';
+
+    echo '<dt>concatSwitch</dt><dd><a href="' . $concatSwitch . '" target="_blank">' . $concatSwitch . '</a></dd></dl>';
 /*  echo '<h4>buildUrl vals:</h4>';
                        if(is_array($buildUrl)){
                        foreach($buildUrl as $bKey => $bVal) {

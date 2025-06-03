@@ -50,11 +50,11 @@ class Newmethod
                         if (preg_match('/\w:/', $this_component)) {
                             $this->_construct_NewMethod['tc']               = $tc = $this_component;
 
-                            $this->_construct_NewMethod['_dynamichost']     = $_dynamichost ??= 'mxuni';
+                            $this->_construct_NewMethod['_dynamichost']     = $_dynamichost ??= 'localhost';
                             $this->_construct_NewMethod['new_url_concat']   = $new_url_concat .= '/' . $this_component . '/';
                         } elseif ($this_key < 2) {
                             $this->_construct_NewMethod['tc']               = $tc = $this_component;
-                            $this->_construct_NewMethod['_dynamichost']     = $_dynamichost ??= 'mxuni';
+                            $this->_construct_NewMethod['_dynamichost']     = $_dynamichost ??= 'localhost';
 
                             $this->_construct_NewMethod['new_url_concat']   = $new_url_concat .= '/' . $this_component . '/';
                             break;
@@ -100,13 +100,15 @@ class Newmethod
             '\/var\/www\/htdocs',
             '\/var\/www\/public_html',
             '\/var\/www\/htdocs\/public_html',
-            '\/var\/www\/wwwroot'
+            '\/var\/www\/wwwroot',
+            '\/home\/admin\/web'
         ];
 
 foreach($common_paths as $pathSubject) {
     if(preg_match('/'.$pathSubject.'/',$new_url_concat)){
         $pathSubject = str_ireplace('\/','/',$pathSubject);
         $this->_construct_NewMethod['new_url_concat'] = str_ireplace($pathSubject, '', $new_url_concat);
+        $this->_construct_NewMethod['new_url_concat'] = str_ireplace('public_html', '', $this->_construct_NewMethod['new_url_concat']);
         // echo $this->_construct_NewMethod['new_url_concat'] . ', because: '. $pathSubject.'<br>';
         $break = 1;
         /* sorry. brain damage */
