@@ -10700,7 +10700,7 @@ append(ChromeBase,
     focusCommandLine: function()
     {
         var selectedPanelName = this.selectedPanel.name, panelToSelect;
-
+
         if (focusCommandLineState == 0 || selectedPanelName != "Console")
         {
             focusCommandLineState = 0;
