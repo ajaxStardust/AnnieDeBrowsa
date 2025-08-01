@@ -69,7 +69,7 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
     </ul>
 </nav>
 <div id="maincol">
-    <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?php print $currentUrlPath . $pathInfoBasename; ?>
+    <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?php print $currentUrlPath; ?>
     </h2>
 
     <div class="hide-show-element">
@@ -124,12 +124,12 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
         echo $build_local_urls;
 
     ?>
-    <div class="info">Change quick links in <?= JSONCONFIG ?> </div>
+    <div id="quickChange" class="info">Change quick links in <?= JSONCONFIG ?> </div>
 
     <div id="mainFrameContainer">
 
         <!--    ^   id:mainFrameContainer   ^   -->
-        <div id="frameTitler">Currently Viewing: <span id="frameName"><?php print $defaultIframe; ?></span>
+        <div id="frameTitler">Frame:<span id="frameName"><?php print $defaultIframe; ?></span>
         </div>
         <!--    $   id:frameTitler  $   -->
         <iframe title="frame content as selected in main navigation" src="index.phtml" id="mainFrame">
