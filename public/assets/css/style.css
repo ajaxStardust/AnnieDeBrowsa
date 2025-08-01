@@ -519,6 +519,8 @@ li.webpicon,
 li.webpicon.material-symbols-outlined::before,
 li.webmicon,
 li.webmicon.material-symbols-outlined::before {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
   font-family: 'Material Symbols Outlined';
   color: #66cc91;
   content: '\e639';
@@ -540,7 +542,9 @@ li.mdicon {
 
 li.markdownicon,
 li.mdicon::before {
-  color: #66cc91;
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
+  color: #ffffff;
   content: "∑";
   display: block;
   list-style-type: none;
@@ -567,7 +571,7 @@ li.navnobull::before {
 }
 
 li.cssicon::before {
-  color: #ff0;
+  color: #ffffff;
   content: "♛";
   display: block;
   font-weight: 500;
@@ -585,7 +589,9 @@ li.imgShowItem img {
 }
 
 li.navnobull::before {
-  color: #00bfff;
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
+  color: #ffffff;
   content: "∆";
   font-weight: 900;
 }
@@ -597,7 +603,7 @@ li.shtmlicon::before,
 li.xmlicon::before,
 li.yamlicon::before,
 li.ymlicon::before {
-  color: #ff46ff;
+  color: #ffffff;
   content: "⛧";
   margin-left: -3.1rem;
   padding-left: 0;
@@ -610,7 +616,7 @@ li.ymlicon::before {
 li.xmlicon::before,
 li.yamlicon::before,
 li.ymlicon::before {
-  color: #fab;
+  color: #ffffff;
   content: "⛥";
 }
 
@@ -618,7 +624,7 @@ li.logicon::before,
 li.pharicon::before,
 li.regicon::before,
 li.txticon::before {
-  color: #bfb;
+  color: #ffffff;
   content: "♀";
   margin-left: -3rem;
   padding-left: 0;
@@ -640,6 +646,8 @@ li.txticon,
 li.xmlicon,
 li.yamlicon,
 li.ymlicon {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
   list-style-image: none !important;
 }
 
@@ -647,7 +655,7 @@ li.logicon::before,
 li.regicon::before,
 li.txticon::before {
   content: "🖹";
-  color: #d1d1d1;
+  color: #ffffff;
   font-weight: 500;
 }
 
@@ -725,7 +733,7 @@ n::before {
 
 li.regicon::before {
   content: "⚿";
-  color: #9f9;
+  color: #ffffff;
   max-height: 16px;
   max-width: 16px;
 }
@@ -755,6 +763,8 @@ li.tifficon::before,
 li.tificon::before,
 li.xcf::before,
 li.xcficon {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
   list-style-image: none !important;
 }
 
@@ -776,7 +786,7 @@ li.phtmlicon::before,
 li.raricon::before,
 li.sevenzipicon::before,
 li.zipicon::before {
-  color: #efa;
+  color: #ffffff;
   content: "☯";
   margin-left: -3rem;
   padding-left: 0;
@@ -856,8 +866,10 @@ ul#navlist li.phpicon a:hover {
 
 .icoicon::before,
 li.phtmlicon::before {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
   content: "∠";
-  color: #ffc;
+  color: #ffffff;
   font-weight: 900;
 }
 
@@ -953,7 +965,9 @@ li.pdficon {
 li.phtmlicon {}
 
 li.phtmlicon::before {
-  color: #4646ff;
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
+  color: #ffffff;
   content: "⚤";
   font-weight: 500;
 }
@@ -980,7 +994,10 @@ li.thumbicon {
 }
 
 li.txticon,
-li.xmlicon {}
+li.xmlicon {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
+}
 
 li.xpiicon {
   list-style-image: url(xpiicon.png);
@@ -1046,7 +1063,7 @@ li.php::before,
 li.phpicon::before {
   text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
   list-style-image: none;
-  color: #ff46ff;
+  color: #ffffff;
   content: "♀";
   margin-left: -3rem;
   padding-left: 0;
@@ -1681,7 +1698,7 @@ li.iniicon {
 li.htmicon::before,
 li.htmlicon::before {
   text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
-  color: red;
+  color: #ffffff;
   content: "♂";
   margin-left: -3rem;
   padding-left: 0;
@@ -1759,7 +1776,10 @@ li.kpficon,
 li.nppsessionicon,
 li.pnprojicon,
 li.projectfile,
-li.projecticon {}
+li.projecticon {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
+}
 
 li.apficon::before,
 li.clpprjicon::before,
@@ -1772,7 +1792,7 @@ li.projectfile::before,
 li.projecticon::before,
 li.workspaceicon::before {
   text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
-  color: #bb0;
+  color: #ffffff;
   content: "☸";
   max-height: 16px;
   max-width: 16px;
@@ -2030,7 +2050,6 @@ ul.keyTermsList li sup {
 }
 
 #frameName {
-  background-color: rgba(255, 245, 152, 0.5);
   color: #003c3c;
   font-family: serif;
   font-size: 0.9rem;
@@ -2191,8 +2210,8 @@ p#collapser img {
 #navlist li ul li,
 #pageControls ul li {
   background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(220, 220, 255, 0.7);
-  border-radius: 1rem 1rem 1rem 1rem;
+  outline-color: rgba(220, 220, 255, 0.2);
+  outline-style: groove;
   box-shadow: 0 0 0.25em #888;
   margin: 0.5em 1.1em 0.5em 0.5rem;
   padding: 0.01rem;
@@ -2201,6 +2220,12 @@ p#collapser img {
   font-size: 0.7rem;
   max-width: 90%;
 }
+
+
+#navlist li {
+  outline: none;
+}
+
 
 #pageControls ul li {
   font-size: 0.65rem;
@@ -2563,6 +2588,8 @@ li.tiff,
 li.tifficon,
 li.tificon,
 li.xcf {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  list-style-image: none;
   list-style-image: none;
 }
 
@@ -2591,7 +2618,7 @@ li.tificon::before,
 li.xcf::before,
 li.xcficon::before {
   text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
-  color: #ffc;
+  color: #ffffff;
   content: "∠";
   margin-left: -3rem;
   padding-left: 0;
@@ -2603,6 +2630,18 @@ li.xcficon::before {
 
 li.xcficon::before {
   list-style-image: none;
+}
+
+li.shicon::before {
+  text-shadow: 0.01rem 0.01rem 0.05rem #737373aa;
+  color: #ffffff;
+  content: "↯";
+  margin-left: -3rem;
+  padding-left: 0;
+  white-space: pre;
+  font-size: 1.5rem;
+  float: left;
+  font-weight: 900;
 }
 
 #wrapper {
@@ -2668,7 +2707,7 @@ figure figcaption {
 
 #navlist li ul li.icon::before {
   text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
-  color: #ff46ffAA;
+  color: #9999a6AA;
   content: "♀";
   margin-left: -3rem;
   padding-left: 0;
@@ -2745,4 +2784,24 @@ li#js2index::before {
   display: inline-block;
   font-size: 14px;
   font-family: sans-serif;
+}
+
+#quickChange {
+  font-size: small;
+  background-color: #fefefe;
+}
+
+#navlist li.toggler {
+  background-color: #EDEDED;
+  border-radius: 0.0 ;
+  padding-top:0;
+  padding-bottom:0;
+}
+
+li.toggler ul li {
+  outline: none;
+}
+
+.inner-list li {
+  background-color: transparent;
 }
