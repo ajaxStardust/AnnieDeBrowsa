@@ -865,7 +865,7 @@ ul#navlist li.phpicon a:hover {
 }
 
 .icoicon::before,
-li.phtmlicon::before {
+li.webpicon::before {
     text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
   list-style-image: none;
   content: "∠";
@@ -1776,7 +1776,8 @@ li.kpficon,
 li.nppsessionicon,
 li.pnprojicon,
 li.projectfile,
-li.projecticon {
+li.projecticon,
+li.code-workspaceicon{
     text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
   list-style-image: none;
 }
@@ -2072,7 +2073,7 @@ p#collapser img {
   text-align: center;
   text-shadow: 0.08em 0.08em 0.06rem;
   z-index: 20;
-  border-bottom: 20px solid #2d2090;
+  border-bottom: 20px solid var(--color-primary);
   position:relative;
   bottom: -10px;
 }
@@ -2633,8 +2634,8 @@ li.xcficon::before {
 }
 
 li.shicon::before {
-  text-shadow: 0.01rem 0.01rem 0.05rem #737373aa;
-  color: #ffffff;
+  text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+  color: hsl(30, 100%, 90%);
   content: "↯";
   margin-left: -3rem;
   padding-left: 0;
