@@ -48,7 +48,7 @@ $title = str_ireplace('var/www/', '', $pathOps);
     <link rel="icon" href="favicon.ico" sizes="192x192">
     <link rel="icon" href="favicon.ico" sizes="16x16">
     <link rel="apple-touch-icon" href="favicon.ico">
-    <meta name="msapplication-TileImage" content="<?php echo "http://".$_SERVER['DOCUMENT_ROOT'].'/public/assets/svg/tile-image.svg'; ?>">
+    <meta name="msapplication-TileImage" content="<?php echo "https://".$_SERVER['DOCUMENT_ROOT'].'/public/assets/svg/tile-image.svg'; ?>">
     <!-- link rel="stylesheet" href="https://unpkg.com/chota@latest" -->
   <link href="assets/css/lightslider.css" rel="stylesheet">
   <style>.displaynone {display:none;}</style>
