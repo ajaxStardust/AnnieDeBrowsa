@@ -20,7 +20,7 @@ if (isset($_GET['path2url'])) {
 }
 
 // path sent to process
-$enterpathhere = isset($path2url) ? $path2url : $_SERVER['DOCUMENT_ROOT'] . '/my_Notes/index.php';
+$enterpathhere = isset($path2url) ? $path2url : $_SERVER['DOCUMENT_ROOT'] . '/index.php';
 // set Env vars based on enterpathhere
 // DIFF? whatis allows for path
 $whatis = $Env->whatis($enterpathhere);
@@ -100,6 +100,7 @@ $Functions = new Functions();
                                 </ul>
                                 <?php
         $common_paths=[
+            '\/opt\/lampp\/htdocs',
             '\/var\/www\/html',
             '\/var\/www\/htdocs',
             '\/var\/www\/public_html',
@@ -111,8 +112,10 @@ $Functions = new Functions();
 foreach($common_paths as $cpathKey => $cpathVal){
     if(preg_match($cpathVal,$contructNewMethod['new_url_concat'])){
     $trimmed_new_url = str_ireplace($cpathVal, '', $contructNewMethod['new_url_concat']);
+        
     break;
     }
+    
 }
 
 $buildByComp = $_SERVER['REQUEST_SCHEME'] . '://' . $contructNewMethod['_dynamichost'] . '/' . ltrim($trimmed_new_url, '/');
@@ -186,16 +189,7 @@ echo '<dt>concatThis</dt>
                 </div>
             </div>
         </section>
-        <section>
-
-            <div class="row  row-cols-1 row-cols-md-2 g-4">
-                <div class="col">
-                <!-- moved from here card -->
-                </div>
-
- </div>
-
-        </section>
+        
         <section class="container">
 
             <?php
@@ -218,11 +212,8 @@ echo '<dt>concatThis</dt>
         </div></div>';
                 ?>
             </div>
-            <div class="notes">
-            </div> <!--  $    div   .notes    $   -->
         </section> <!--    $   section   #general_notes  .container    $   -->
-        <section class="container">
-        </section> <!-- $  section .container          -->
+        
         <section class="footer px-4">
             <!--    .FOOTER     -->
             <div class="row gx-5">
