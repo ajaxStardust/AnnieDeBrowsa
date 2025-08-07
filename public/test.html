@@ -1,27 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 	<head>
 		<title>/media/wd2tb01/vps111/VerifyGit</title>
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all" charset="utf-8">
+		<link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all">
 		<link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
 		<link id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
-		<link id="style_chota" rel="stylesheet" href="assets/css/chota.min.css">
 		<link rel="icon" type="image/ico" href="favicon.ico">
 		<link rel="shortcut icon" type="image/ico" href="favicon.ico">
 		<link rel="icon" href="favicon.ico" sizes="32x32">
 		<link rel="icon" href="favicon.ico" sizes="192x192">
 		<link rel="icon" href="favicon.ico" sizes="16x16">
 		<link rel="apple-touch-icon" href="favicon.ico">
-		<meta name="msapplication-TileImage" content="https:///media/wd2tb01/var/www/vps111/public/assets/svg/tile-image.svg">
-		<!-- link rel="stylesheet" href="https://unpkg.com/chota@latest" -->
+		<meta name="msapplication-TileImage" content="assets/svg/tile-image.svg">
+		<link id="style_chota" rel="stylesheet" href="assets/css/chota.min.css">
 		<link href="assets/css/lightslider.css" rel="stylesheet">
-		<style>
-			.displaynone {display:none;}
-		</style>
 	</head>
 
 	<body id="index" style="background-color:#f5f5f5">
@@ -32,8 +28,12 @@
 			<div id="wrapper" class="unfloat">
 				<!-- ^ id=wrapper ^ -->
 				<div class="content" id="cookieData"></div>
-				<div id="header" title=" - of - Header">
-					<!--     ^   Begin Dynamic and SVG styled Header  ^   --><object id="svgtitle" class="floatleft transparentback" title="Documents of - container" data="assets/css/masthead.php" type="image/svg+xml"> </object> </div><!-- $ END Dynamic and SVG HTML node ID#header $ -->
+				<div id="header" title=" - of - Header" class="alert-danger db">
+					<!--     ^   Begin Dynamic and SVG styled Header  ^   -->
+					<object id="svgtitle" class="floatleft transparentback" title="Documents of - container" data="assets/css/masthead.php" type="image/svg+xml"> </object> 
+
+				</div>
+				<!-- $ END Dynamic and SVG HTML node ID#header $ -->
 				<nav id="leftcol" class="navlist">
 					<ul id="navlist" class="navlist">
 						<li id="goUpItem" class="nav"><a title="Navigate to parent directory." href="///vps111">/vps111</a></li>
@@ -137,20 +137,7 @@
 						<!--    ^   id:mainFrameContainer   ^   -->
 						<div id="frameTitler">Frame:<span id="frameName"></span> </div> <!--    $   id:frameTitler  $   --><iframe title="frame content as selected in main navigation" src="index.phtml" id="mainFrame"> </iframe> </div> <!--    $   id:mainFrameContainer   $   -->
 				</div> <!--    $   id:maincol  $   -->
-				<div id="pageControls" class="test1">
-					<header id="pageControlHeader">Page Control</header>
-					<ul id="controList">
-						<li id="toTopJscon" class="material-symbols-outlined"> <a class="intraNav" href="#header"><span id="headerJumper">top</span> </a> </li>
-						<li id="leftColtrigger" onclick="collapseNav('leftcol')" class="material-symbols-outlined"> <span class="trigger"> <a title="Toggle show / hide HTML id:leftcol (the navigation at left)"> <span id="navTxt">toggle</span> nav </a> </span> </li>
-						<li class="material-symbols-outlined" id="pageCon_goBack"> <span class="handler" id="goBackHandler"><a title="JavaScript Function for history minus one" onclick="goBack()"> b()</a></span> </li>
-						<li class="material-symbols-outlined" id="toBottom"> <a class="intraNav" href="#footer"> <span id="footJumper">bottom</span> </a> </li>
-						<li id="frameControl" class="loader material-symbols-outlined"> <span id="lockFrameLoader" class="cssloader"><a id="lockFrameAnchor" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">Lock Iframe</a> </span> </li>
-						<li id="cssBoxFig" class="trigger material-symbols-outlined"> <span id="cssBox_Trigger" class="trigger" onclick="showHide('cssBox_Target')"><a title="Toggle show / hide CSS Box Model illustration"> CSS Box </a></span> </li>
-						<li id="fbloader" class="loader material-symbols-outlined"> <span class="loader"> <a title="Click to activate the portable Firebug Lite script embedded in my javascript container"><img src="assets/css/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16"> Firebug <em>Lite</em></a> </span> </li>
-						<li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a title="send frame to top">iFrame to Top</a></span></li>
-						<li id="js2index"></li>
-					</ul> <!-- temp note: moved css box model image to dochead for now -->
-				</div>
+
 			</div>
 			<hr class="hidden">
 			<div id="footer" class="container">
