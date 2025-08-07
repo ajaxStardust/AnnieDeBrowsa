@@ -41,7 +41,7 @@ $title = str_ireplace('var/www/', '', $pathOps);
     <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all" charset="utf-8">
     <link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
     <link  id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
-    <link id="style_chota" rel="stylesheet" href="assets/css/chota.min.css">
+    <!-- link id="style_chota" rel="stylesheet" href="assets/css/chota.min.css" -->
     <link rel="icon" type="<?= $favtype; ?>" href="<?= $favicon; ?>">
     <link rel="shortcut icon" type="<?= $favtype; ?>" href="<?= $favicon; ?>">
     <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -50,6 +50,7 @@ $title = str_ireplace('var/www/', '', $pathOps);
     <link rel="apple-touch-icon" href="favicon.ico">
     <meta name="msapplication-TileImage" content="<?php echo "https://".$_SERVER['DOCUMENT_ROOT'].'/public/assets/svg/tile-image.svg'; ?>">
     <!-- link rel="stylesheet" href="https://unpkg.com/chota@latest" -->
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css">
   <link href="assets/css/lightslider.css" rel="stylesheet">
   <style>.displaynone {display:none;}</style>
 

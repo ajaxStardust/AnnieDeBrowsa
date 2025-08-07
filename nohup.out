@@ -1,0 +1,10 @@
+
+** (phoenix-code:122106): WARNING **: 14:22:03.153: webkit_settings_set_enable_offline_web_application_cache is deprecated and does nothing.
+
+** (phoenix-code:122106): WARNING **: 14:22:03.160: webkit_settings_set_enable_offline_web_application_cache is deprecated and does nothing.
+
+** (phoenix-code:122106): WARNING **: 14:22:03.170: webkit_settings_set_enable_offline_web_application_cache is deprecated and does nothing.
+Appdata path is /home/jfedora/.local/share/io.phcode
+
+(phoenix-code:122106): Gtk-WARNING **: 14:23:50.036: Failed to measure available space: The specified location is not supported
+Error getting object manager client: Operation was cancelledError getting object manager client: Operation was cancelledError getting object manager client: Operation was cancelledError getting object manager client: Operation was cancelled

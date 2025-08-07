@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Config Editor</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 2em; background: #f0f0f0; }
+    table { border-collapse: collapse; width: 100%; max-width: 700px; margin-bottom: 1em;}
+    th, td { padding: 8px 12px; border: 1px solid #ccc; }
+    input[type=text], input[type=number] { width: 100%; padding: 6px; box-sizing: border-box; }
+    button { padding: 6px 12px; margin-top: 10px; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <h1>Config JSON Editor</h1>
+
+  <table v-if="home_urls.length">
+    <thead>
+      <tr>
+        <th>URL</th>
+        <th>Name</th>
+        <th>Visit Count</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="(item, index) in home_urls" :key="index">
+        <td><input type="text" v-model="item.url" /></td>
+        <td><input type="text" v-model="item.name" /></td>
+        <td><input type="number" min="0" v-model.number="item.count" /></td>
+        <td><button @click="removeItem(index)">Remove</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p v-else>No URLs found. Add one below!</p>
+
+  <button @click="addItem">Add New URL</button>
+  <button @click="saveConfig" :disabled="saving">{{ saving ? 'Saving...' : 'Save Changes' }}</button>
+
+  <p v-if="message" :style="{color: messageColor}">{{ message }}</p>
+</div>
+
+<script>
+const { createApp } = Vue;
+
+createApp({
+  data() {
+    return {
+      home_urls: [],
+      saving: false,
+      message: '',
+      messageColor: 'green'
+    }
+  },
+  methods: {
+    async fetchConfig() {
+      try {
+        const res = await fetch('api_config.php');
+        if (!res.ok) throw new Error('Failed to load config');
+        const data = await res.json();
+        this.home_urls = data.home_urls || [];
+      } catch (e) {
+        this.message = e.message;
+        this.messageColor = 'red';
+      }
+    },
+    addItem() {
+      this.home_urls.push({ url: '', name: '', data: 'visited:', count: 0 });
+    },
+    removeItem(index) {
+      this.home_urls.splice(index, 1);
+    },
+    async saveConfig() {
+      this.saving = true;
+      this.message = '';
+      try {
+        const payload = { home_urls: this.home_urls };
+        const res = await fetch('api_config.php', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const json = await res.json();
+        if (!res.ok || json.error) {
+          throw new Error(json.error || 'Failed to save config');
+        }
+        this.message = 'Config saved successfully!';
+        this.messageColor = 'green';
+      } catch (e) {
+        this.message = e.message;
+        this.messageColor = 'red';
+      } finally {
+        this.saving = false;
+      }
+    }
+  },
+  mounted() {
+    this.fetchConfig();
+  }
+}).mount('#app');
+</script>
+
+</body>
+</html>

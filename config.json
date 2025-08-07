@@ -1,31 +1,31 @@
 {
     "home_urls": [
         {
-            "url": "http://127.0.0.1:80/index.php",
-            "name": "127.0.0.1:80",
+            "url": "http:\/\/localhost:80\/index.php",
+            "name": "localhost:80",
             "data": "visited:",
             "count": 0
         },
         {
-            "url": "https://127.0.0.1:443/index.php",
-            "name": "127.0.0.1:443",
+            "url": "https:\/\/localhost:443\/index.php",
+            "name": "localhost:443",
             "data": "visited:",
             "count": 0
         },
         {
-            "url": "https://vps111",
+            "url": "https:\/\/vps111",
             "name": "vps111",
             "data": "visited:",
             "count": 0
         },
         {
-            "url": "http://bunsen:5000",
+            "url": "http:\/\/mxuni:5000",
             "name": ":5000",
             "data": "visited:",
             "count": 0
         },
         {
-            "url": "https://scout.click",
+            "url": "https:\/\/scout.click",
             "name": "Fedi-Search",
             "data": "visited:",
             "count": 0

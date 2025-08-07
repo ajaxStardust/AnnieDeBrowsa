@@ -1,57 +1,79 @@
 <?php
 namespace Adb\Model;
 
-use Adb\Model\Helpers as Helpers;
+use Adb\Model\Helpers;
 
-class Jsonconfigmanager extends Helpers
+class JsonConfigManager extends Helpers
 {
-    private $config;
-    private $jsonFile;
+    private array $config = [];
+    private ?string $jsonFile = null;
 
     public function __construct()
     {
-        if (!$this->config) {
-            // remove the .off from paths if needed
-            $configPaths = [];
-            $configPaths = [NS_ROOT . '/config.json',
-                '../config.json',
-                './config.json',
-                $_SERVER['DOCUMENT_ROOT'] . '/config.json',
-                TEST_DIRECTORY . '/config.json'];
-            foreach ($configPaths as $cKey => $config_path) {
-                $config_path = realpath($config_path);
-                if (file_exists($config_path)) {
-                    $this->config = json_decode(file_get_contents($config_path), true);
-                    if (!defined('JSONCONFIG')) {
-                    define('JSONCONFIG', $config_path);
+        if (empty($this->config)) {
+            $configPaths = [
+    __DIR__ . '/../../config.json',  // relative path from src/Model/
+    realpath(__DIR__ . '/../../../config.json'),
+    NS_ROOT . '/config.json',
+    '../config.json',
+    './config.json',
+    $_SERVER['DOCUMENT_ROOT'] . '/../config.json'  // one level above public
+];
+
+
+
+
+            foreach ($configPaths as $configPath) {
+                if (!$configPath) {
+                    continue;
+                }
+
+                if (file_exists($configPath)) {
+                    $realPath = realpath($configPath);
+                    if ($realPath !== false) {
+                        $this->jsonFile = $realPath;
+                        $jsonContent = file_get_contents($this->jsonFile);
+                        $this->config = json_decode($jsonContent, true) ?? [];
+                        
+                        if (!defined('JSONCONFIG')) {
+                            define('JSONCONFIG', $this->jsonFile);
+                        }
+                        break;
                     }
                 }
-            }
-        } else {
-            if (!defined('JSONCONFIG')) {
-                $this->config = json_decode(file_get_contents('config.json'), true);
-                define('JSONCONFIG', realpath($this->config));
             }
         }
     }
 
-    public function loadConfig()
+    public function loadConfig(): array
     {
         return $this->config;
     }
 
-    public function saveConfig($data)
+    public function saveConfig(array $data): bool
     {
         $this->config = $data;
-        file_put_contents($this->jsonFile, json_encode($this->config, JSON_PRETTY_PRINT));
+
+        $encoded = json_encode($this->config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        if ($encoded === false) {
+            throw new \RuntimeException("Failed to encode JSON: " . json_last_error_msg());
+        }
+
+        $result = file_put_contents($this->jsonFile, $encoded);
+
+        if ($result === false) {
+            throw new \RuntimeException("Failed to write to config file: {$this->jsonFile}");
+        }
+
+        return true;
     }
 
-    public function updateUrlCount($url)
+    public function updateUrlCount(string $url): string
     {
-        if (isset($this->config['home_urls'])) {
+        if (isset($this->config['home_urls']) && is_array($this->config['home_urls'])) {
             foreach ($this->config['home_urls'] as &$entry) {
-                if ($entry['url'] === $url) {
-                    $entry['count']++;
+                if (isset($entry['url']) && $entry['url'] === $url) {
+                    $entry['count'] = ($entry['count'] ?? 0) + 1;
                     $this->saveConfig($this->config);
                     return "Accessed $url. New count is {$entry['count']}.";
                 }
