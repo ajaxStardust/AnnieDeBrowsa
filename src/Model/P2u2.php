@@ -77,9 +77,12 @@ class P2u2
         $this->clean_chars['url_2_convert'] = $this->clean_chars['input_string'];
         $this->clean_chars['url_2_convert'] = str_ireplace('ftp(4000):', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = str_ireplace('file://', '', $this->clean_chars['url_2_convert']);
-        $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\Debian', '', $this->clean_chars['url_2_convert']);
-        $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\kali-rolling', '', $this->clean_chars['url_2_convert']);
+        $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\Debian', 'localhost', $this->clean_chars['url_2_convert']);
+        $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\kali-rolling', 'localhost', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\[DistroName]', '', $this->clean_chars['url_2_convert']);
+        // dev env specific note
+        $this->clean_chars['url_2_convert'] = str_ireplace('/media/wd2tb01', '', $this->clean_chars['url_2_convert']);        
+        $this->clean_chars['url_2_convert'] = str_ireplace('/opt/lampp/htdocs', 'localhost', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('@([\x5c\x2f]+)@', '/', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/"/', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/ /', '%20', $this->clean_chars['url_2_convert']);

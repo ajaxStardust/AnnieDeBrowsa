@@ -6,8 +6,7 @@
   font-family: "Material Symbols Outlined";
   font-style: normal;
   font-weight: 100 700;
-  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v179/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2)
-    format("woff2");
+  src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v179/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2) format("woff2");
 }
 
 .hide-show-element {
@@ -27,7 +26,7 @@
   padding: 0 0.3em;
   border-radius: 3px;
   /* border: .1em solid #ccc; */
-  /* line-height: 1.625; */
+  line-height: 1.625;
   font-size: 0.83em;
   font-family: inherit;
   background-color: #f7f7f7;
@@ -49,12 +48,12 @@
   content: "Show Controls";
 }
 
-.hide-show-element input:checked + label {
+.hide-show-element input:checked+label {
   background-color: none;
   color: #3a29bb;
 }
 
-.hide-show-element input:checked + label:after {
+.hide-show-element input:checked+label:after {
   content: "Hide Controls";
 }
 
@@ -68,7 +67,7 @@
   width: 0;
 }
 
-.hide-show-element input:checked ~ .test1 {
+.hide-show-element input:checked~.test1 {
   filter: grayscale(25%);
   opacity: 1;
   height: 200px;
@@ -331,13 +330,11 @@ li.webpicon {
   font-weight: 500;
 }
 
-li.webmicon,
 li.webmicon.material-symbols-outlined::before,
-li.webpicon,
 li.webpicon.material-symbols-outlined::before {
   font-family: "Material Symbols Outlined";
   color: #66cc91;
-  content: "";
+  content: "";
   margin-left: -3rem;
   padding-left: 0;
   white-space: pre;
@@ -719,7 +716,13 @@ ul#navlist li.phpicon a:hover {
 }
 
 .icoicon::before,
-li.webpicon::before {
+li.webpicon::before,
+li.webmicon::before {
+  margin-left: -3rem;
+  padding-left: 0;
+  white-space: pre;
+  font-size: 1.5rem;
+  float: left;
   text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
   list-style-image: none;
   content: "∠";
@@ -1087,6 +1090,9 @@ iframe {
   text-align: left;
   outline: 0.1em solid #f88;
   padding: unset;
+  max-width: 20rem;
+  min-width: 10rem;
+
 }
 
 #navlist li {
@@ -1097,7 +1103,7 @@ iframe {
   color: #000;
   list-style-position: outside;
   vertical-align: middle;
-  width: 110%;
+  width: 100%;
   font-size: 9pt;
   font-weight: 400;
 }
