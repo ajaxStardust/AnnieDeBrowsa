@@ -87,8 +87,8 @@ class P2u2
         $this->clean_chars['url_2_convert'] = preg_replace('/"/', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/ /', '%20', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = rtrim($this->clean_chars['url_2_convert']);
-        if (preg_match('/\/mxuni\/www\/([^\/]+)\//', $this->clean_chars['url_2_convert'], $matches)) {
-            $this->clean_chars['server_name'] = 'mxuni';  // Default server name
+        if (preg_match('/\/var\/www\/([^\/]+)\//', $this->clean_chars['url_2_convert'], $matches)) {
+            $this->clean_chars['server_name'] = 'localhost';  // Default server name
             $this->clean_chars['third_level_dir'] = $matches[1];
             $this->clean_chars['full_server_name'] = (
                 $this->clean_chars['third_level_dir'] !== $this->clean_chars['server_name']
@@ -101,7 +101,7 @@ class P2u2
             $this->clean_chars['url_2_convert'] = $this->clean_chars['processed_url'];
         }
 
-        $this->clean_chars['config_file'] = '/var/www/mxuni/config.json';
+        $this->clean_chars['config_file'] = './config.json';
         $this->clean_chars['config_data'] = file_get_contents($this->clean_chars['config_file']);
         $this->clean_chars['config_data'] = json_decode($this->clean_chars['config_data']);
         $this->clean_chars['config_data'] = json_encode($this->clean_chars['config_data']);

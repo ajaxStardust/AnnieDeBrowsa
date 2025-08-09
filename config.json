@@ -19,7 +19,11 @@
             "count": 0
         },
         {
+<<<<<<< HEAD
+            "url": "http:\/\/vps111:5000",
+=======
             "url": "http:\/\/bunsen:5000",
+>>>>>>> 15657131d55c05c690d70342275bd86135b9b2de
             "name": ":5000",
             "data": "visited:",
             "count": 0
