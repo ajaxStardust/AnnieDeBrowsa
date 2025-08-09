@@ -35,15 +35,27 @@ class Jsonconfigmanager extends Helpers
         }
     }
 
-    public function loadConfig()
+    public function loadConfig(): array
     {
         return $this->config;
     }
 
-    public function saveConfig($data)
+    public function saveConfig(array $data): bool
     {
         $this->config = $data;
-        file_put_contents($this->jsonFile, json_encode($this->config, JSON_PRETTY_PRINT));
+
+        $encoded = json_encode($this->config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        if ($encoded === false) {
+            throw new \RuntimeException("Failed to encode JSON: " . json_last_error_msg());
+        }
+
+        $result = file_put_contents($this->jsonFile, $encoded);
+
+        if ($result === false) {
+            throw new \RuntimeException("Failed to write to config file: {$this->jsonFile}");
+        }
+
+        return true;
     }
 
     public function updateUrlCount($url)

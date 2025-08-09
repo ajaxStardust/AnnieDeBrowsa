@@ -13,15 +13,15 @@ error_reporting(E_ALL);
         <!-- ^ id=pagewidth -->
         <div id="wrapper" class="unfloat">
             <!-- ^ id=wrapper ^ -->
-            <div class="content" id="cookieData"></div>
+            
 
-        <div id="header" title=" - of - Header">
-            <!--     ^   Begin Dynamic and SVG styled Header  ^   -->
+        <header id="header" title="viewing frame: ">
+        
             <object id="svgtitle" class="floatleft transparentback"
-                title="Documents of - container" data="assets/css/masthead.php"
+                title="path of" data="assets/css/masthead.php"
                 type="image/svg+xml">
             </object>
 
-        </div><!-- $ END Dynamic and SVG HTML node ID#header $ -->
+        </header>
 
 

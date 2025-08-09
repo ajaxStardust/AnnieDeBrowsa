@@ -29,6 +29,12 @@
             "name": "Fedi-Search",
             "data": "visited:",
             "count": 0
+        },
+        {
+            "url": "http:\/\/centrewebdesign.com",
+            "name": "CWD (mine)",
+            "data": "visited:",
+            "count": 0
         }
     ]
 }
