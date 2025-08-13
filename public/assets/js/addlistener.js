@@ -1,5 +1,5 @@
-﻿document.addEventListener('DOMContentLoaded', function () {
-    // Find the parent container of your navigation links (assuming it's a <ul> with id="navlist")
+document.addEventListener('DOMContentLoaded', function () {
+    // Find the parent navigation list id #NAVLIST
     const navlist = document.getElementById('navlist');
     const mainFrame = document.getElementById('mainFrame');
     const frameName = document.getElementById('frameName');
@@ -29,7 +29,7 @@
                 console.log("filePath: " + filePath);
                 console.log("baseURL: " + baseURL);
                 console.log("fileUrl: " + fileUrl);
-                console.log('baseURL+filePath!' + baseURL+"/"+filePath)
+                console.log('baseURL+filePath!' + baseURL+"/"+filePath);
 
                 // Update the iframe source and the frame name
                 mainFrame.src = llmDumb;

@@ -13,7 +13,7 @@ namespace Adb\View;
                     id="duckduckgo"
                     class="transparentback"
                     title="Search at DuckDuckGo.com"
-                    data="assets/css/duckduckgo-icon.svg"
+                    data="assets/svg/duckduckgo-icon.svg"
                     type="image/svg+xml"
                     height="32"
                     width="32">

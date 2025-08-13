@@ -28,38 +28,17 @@ class P2u2
         if(!is_array($this->path_comps)){
         $this->path_comps = [];
         }
-        // $this->path_comps['matches'] = [];
+
         $this->path_comps['html'] = (string) '';
 
         $this->path_comps['pattern'] = '/(?:^|\/)([^\/]+)/';
         if (is_array($this->component_path)) {
             preg_match_all($this->path_comps['pattern'], $this->component_path['url_2_convert'], $matches_lvl1);
-            //$loop_num = count($this->component_path);
-            
-            
-            //for ($loop = 0; $loop < $loop_num; $loop++) {
 
-                // foreach($this->component_path as $uKey => $uVal){
-                // $loop_print = $loop + 1;
-              /*  $this->path_comps['html'] .= '<div id="p2u2loop">
-                <h3>Loop #' . $loop_print . '</h3>
-                 <ol>
-                 <li>this->component_path[input_sting]: ' . $this->component_path['input_string'] . '</li>
-                 <li>this->component_path[url_2_convert]): ' . $this->component_path['url_2_convert'] . '</li>'; */
                 
                 
                 $this->path_comps['matches'] = $matches_lvl1[1];
                 $this->path_comps['count'] = count($this->path_comps['matches']);
-               //  echo '<p>match_count: '.$match_count.' - '. $this->path_comps['matches']. '</p>';
-                
-                    // echo '<br>matches_count: '.$match_count;
-                    // echo '<br>var_dump(matches): '.var_dump($matches_lvl1);
-                 //   break (1);
-                
-            //    echo '<br>var_dump(matches): '.var_dump($matches_lvl1);
-                // }
-            //}
-            //$this->path_comps['html'] .= '</ul></div><!-- END P2URL loop 2024 -->';
         }
         if(!is_array($this->p2_patches)){
             $this->p2_patches = $this->path_comps['matches'];
@@ -80,9 +59,10 @@ class P2u2
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\Debian', 'localhost', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\kali-rolling', 'localhost', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\[DistroName]', '', $this->clean_chars['url_2_convert']);
-        // dev env specific note
+        // dev env specific note where '/media/wd2tb01' is reference to where my development server is on LAN. 
+        // Learn from this here how to mod for your setup.
         $this->clean_chars['url_2_convert'] = str_ireplace('/media/wd2tb01', '', $this->clean_chars['url_2_convert']);        
-        $this->clean_chars['url_2_convert'] = str_ireplace('/opt/lampp/htdocs', 'localhost', $this->clean_chars['url_2_convert']);
+        $this->clean_chars['url_2_convert'] = str_ireplace('/opt/lampp/htdocs', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('@([\x5c\x2f]+)@', '/', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/"/', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/ /', '%20', $this->clean_chars['url_2_convert']);
