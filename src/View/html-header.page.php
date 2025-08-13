@@ -15,13 +15,13 @@ error_reporting(E_ALL);
             <!-- ^ id=wrapper ^ -->
             <div class="content" id="cookieData"></div>
 
-        <div id="header" title="on host <?= $display_dynamichost; ?>">
+        <header id="header" title="Header as SVG container">
             <!--     ^   Begin Dynamic and SVG styled Header  ^   -->
             <object id="svgtitle" class="floatleft transparentback"
                 title="Documents of - container" data="assets/css/masthead.php"
                 type="image/svg+xml">
             </object>
 <div id="headingTitle"></div>
-        </div><!-- $ END Dynamic and SVG HTML node ID#header $ -->
+        </header><!-- $ END Dynamic and SVG HTML node ID#header $ -->
 
 
