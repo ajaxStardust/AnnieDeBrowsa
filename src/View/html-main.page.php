@@ -131,7 +131,7 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
     <div id="mainFrameContainer">
 
         <!--    ^   id:mainFrameContainer   ^   -->
-        <div id="frameTitler">Frame:<span id="frameName"><?php print $defaultIframe; ?></span>
+        <div id="frameTitler">iframe.src: <span id="frameName"><?php print $defaultIframe; ?></span>
         </div>
         <!--    $   id:frameTitler  $   -->
         <iframe title="frame content as selected in main navigation" src="index.phtml" id="mainFrame">
