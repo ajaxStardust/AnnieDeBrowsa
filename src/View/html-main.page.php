@@ -66,61 +66,52 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
     // echo 'var_dump(target_html);';
     // var_dump($target_html);
 ?>
-</ul>
+    </ul>
 </nav>
 <div id="maincol">
     <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?php print $currentUrlPath; ?>
     </h2>
 
     <div class="hide-show-element">
-        <input type="checkbox" id="toggle" />
-        <label for="toggle"></label>
+  <input type="checkbox" id="toggle" />
+  <label for="toggle"></label>
         <div id="pageControls" class="test1">
-            <header id="pageControlHeader">Page Control</header>
-            <ul id="controList">
-                <li id="toTopJscon" class="material-symbols-outlined">
-                    <a class="intraNav" href="#header"><span id="headerJumper">top</span> </a>
-                </li>
-                <li id="leftColtrigger" onclick="collapseNav('leftcol')" class="material-symbols-outlined">
-                    <span class="trigger">
-                        <a title="Toggle show / hide HTML id:leftcol (the navigation at left)">
-                            <span id="navTxt">toggle</span> nav </a>
-                    </span>
-                </li>
-                <li class="material-symbols-outlined" id="pageCon_goBack">
-                    <span class="handler" id="goBackHandler"><a title="JavaScript Function for history minus one"
-                            onclick="goBack()"> b()</a></span>
-                </li>
-                <li class="material-symbols-outlined" id="toBottom">
-                    <a class="intraNav" href="#footer"> <span id="footJumper">bottom</span>
-                    </a>
-                </li>
-                <li id="frameControl" class="loader material-symbols-outlined"> <span id="lockFrameLoader"
-                        class="cssloader"><a id="lockFrameAnchor"
-                            title="Lock main iframe for easier viewing of large images or lengthy text"
-                            href="#mainFrameContainer">Lock Iframe</a> </span>
-                </li>
-                <li id="cssBoxFig" class="trigger material-symbols-outlined">
-                    <span id="cssBox_Trigger" class="trigger" onclick="showHide('cssBox_Target')"><a
-                            title="Toggle show / hide CSS Box Model illustration"> CSS Box </a></span>
-                </li>
-                <li id="fbloader" class="loader material-symbols-outlined">
-                    <span class="loader">
-                        <a
-                            title="Click to activate the portable Firebug Lite script embedded in my javascript container"><img
-                                src="assets/css/firebug_icon_oldver.png" alt="launch firebug lite" width="16"
-                                height="16"> Firebug <em>Lite</em></a>
-                    </span>
-                </li>
-                <li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a
-                            title="send frame to top">iFrame to Top</a></span></li>
-                <li id="js2index"><a href="index.php" title="index.php">Reload</a> [top]</li>
-            </ul>
-            <!-- temp note: moved css box model image to dochead for now -->
-
-        </div>
-    </div>
-    <hr class="hidden" />
+        <header id="pageControlHeader">Page Control</header>
+<ul id="controList">
+        <li id="toTopJscon" class="material-symbols-outlined">
+            <a class="intraNav" href="#header"><span id="headerJumper">top</span> </a>
+        </li>
+        <li id="leftColtrigger" onclick="collapseNav('leftcol')" class="material-symbols-outlined">
+            <span class="trigger">
+                <a title="Toggle show / hide HTML id:leftcol (the navigation at left)">
+                    <span id="navTxt">toggle</span> nav </a>
+            </span>
+        </li>
+        <li class="material-symbols-outlined" id="pageCon_goBack">
+            <span class="handler" id="goBackHandler"><a title="JavaScript Function for history minus one" onclick="goBack()"> b()</a></span>
+        </li>
+        <li class="material-symbols-outlined" id="toBottom">
+            <a class="intraNav" href="#footer"> <span id="footJumper">bottom</span>
+            </a>
+        </li>
+        <li id="frameControl" class="loader material-symbols-outlined"> <span id="lockFrameLoader" class="cssloader"><a id="lockFrameAnchor" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">Lock Iframe</a> </span>
+        </li>
+        <li id="cssBoxFig" class="trigger material-symbols-outlined">
+            <span id="cssBox_Trigger" class="trigger" onclick="showHide('cssBox_Target')"><a title="Toggle show / hide CSS Box Model illustration"> CSS Box </a></span>
+        </li>
+        <li id="fbloader" class="loader material-symbols-outlined">
+            <span class="loader">
+                <a title="Click to activate the portable Firebug Lite script embedded in my javascript container"><img src="assets/css/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16"> Firebug <em>Lite</em></a>
+            </span>
+        </li>
+        <li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a title="send frame to top">iFrame to Top</a></span></li>
+        <li id="js2index"><a href="index.php" title="index.php">Reload</a> [top]</li>
+    </ul>
+    <!-- temp note: moved css box model image to dochead for now -->
+    
+</div>
+ </div>
+<hr class="hidden" />
 
     <?php
 
@@ -133,7 +124,7 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
         echo $build_local_urls;
 
     ?>
-    <div id="quickChange" class="info">Modify <?= JSONCONFIG ?> <a href="config_editor.html">here</a></div>
+    <div id="quickChange" class="info">Change quick links in <?= JSONCONFIG ?> </div>
 
     <div id="mainFrameContainer">
 
