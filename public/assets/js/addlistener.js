@@ -3,12 +3,43 @@ document.addEventListener("DOMContentLoaded", function () {
     const navlist = document.getElementById("navlist");
     const mainFrame = document.getElementById("mainFrame");
     const frameName = document.getElementById("frameName");
+    const editJson = document.getElementById('jsoneditor_open');
 
     // Function to get the base URL
     function getBaseURL() {
         return window.location.origin;
     }
 
+    if (editJson) {
+        editJson.addEventListener("click", function (e) {
+            if (e.target && e.target.matches("a.json-edit-link")) {
+                e.preventDefault(); // Prevent the default link behavior
+                const filePath = e.target.getAttribute("data-filepath");
+                
+                // Construct the URL to the PHP script with the requested file
+                const baseURL = window.location.href.split("/").slice(0, -2).join("/");
+                const fileUrl = baseURL + "/public/file_loader.php?file=" + encodeURIComponent(filePath);
+                const llmDumb = baseURL + "/public/" + filePath;
+
+                // Debugging output
+                console.log("editPath: " + filePath);
+                console.log("editURL: " + baseURL);
+                console.log("editFileUrl: " + fileUrl);
+                console.log("editBaseURL+filePath!" + baseURL + "/" + filePath);
+
+                // Update the iframe source and the frame name
+                mainFrame.src = llmDumb;
+                console.log("setting mainFrame.src: " + mainFrame.src);
+                frameName.textContent = filePath;
+                const headingTitle = document.getElementById("headingTitle");
+                if (headingTitle) {
+                    headingTitle.textContent = filePath;
+                }
+                console.log("frameName.textContent -eq 'Currently Viewing [fileUrl]: '" + fileUrl);
+
+                
+        }
+    });
     // Check if navlist exists
     if (navlist) {
         // Delegate the click event to the parent <ul> element
@@ -51,4 +82,5 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
         console.error('Element with ID "navlist" not found.');
     }
+}
 });
