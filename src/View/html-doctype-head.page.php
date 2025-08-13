@@ -38,7 +38,7 @@ $title = str_ireplace('var/www/', '', $pathOps);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all" charset="utf-8">
+    <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all">
     <link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
     <link  id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
     <!-- link id="style_chota" rel="stylesheet" href="assets/css/chota.min.css" -->

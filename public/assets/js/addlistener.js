@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Update the iframe source and the frame name
                 mainFrame.src = llmDumb;
                 console.log("setting mainFrame.src: " + mainFrame.src);
-                frameName.textContent = "Currently Viewing [fileUrl]: " + fileUrl;
+                frameName.textContent = "iframe.src: " + filePath;
                 console.log("frameName.textContent -eq 'Currently Viewing [fileUrl]: '" + fileUrl);
 
                 // Optional: Add active state to clicked link

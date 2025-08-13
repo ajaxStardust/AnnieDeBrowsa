@@ -12,6 +12,8 @@ use Adb\Model\Iframe as Iframe;
 use Adb\Model\Navfactor as Navfactor;
 use Adb\Model\Urlprocessor as Urlprocessor;
 
+$display_dynamichost = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
+
 $Navfactor = new Navfactor(TEST_DIRECTORY);
 $Navcontroller = new Navcontroller(TEST_DIRECTORY);
 $buildNavController = $Navcontroller->displayNavigation();
@@ -69,7 +71,7 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
     </ul>
 </nav>
 <div id="maincol">
-    <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?php print $currentUrlPath; ?>
+    <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?php print $display_dynamichost.'/'.$currentUrlPath; ?>
     </h2>
 
     <div class="hide-show-element">
