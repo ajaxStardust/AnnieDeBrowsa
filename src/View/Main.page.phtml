@@ -64,20 +64,51 @@ $Functions = new Functions();
     <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico">
     <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    <!-- link ref="stylesheet" href="https://unpkg.com/tachyons@latest" -->
     <link href="assets/css/lightslider.css" rel="stylesheet">
-    <style>.displaynone {display:none;}</style>
 </head>
 
 <body>
     <div id="pagewidth" class="container">
         <!-- #HEADER -->
-        <section id="header">
+        <header id="header">
             <h1 class="bg-dark text-light text-end pe-3 h1"><?= $whatis['page_heading']; ?></h1>
-        </section>
+        </header>
         <section>
-            <div class="row  row-cols-1 row-cols-md-2 g-4">
+            <div class="row">
+                <div class="col">
+                    
+
+                        <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-heading">@ToDo</h3>
+                            <h4>Nav-go-up thing</h4>
+                            <p>The value derived here, set as goUp[url], should be placed as the first &lt;li&gt; item in the primary navigation list</p>
+                            <!-- php nav goup -->
+                            <ol id="navgoup_demo">
+                                <?php
+                                $goUpArray = $Functions->process_goup();
+                                foreach ($goUpArray as $goUpKey => $goUpVal) {
+                                    echo '<li class="navgoup_item">goUp[' . $goUpKey . ']: ' . $goUpVal . '</li>';
+                                }
+                                ?>
+                            </ol>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="col">
                     <div class="card">
+                        <div class="card-body">
+                            <?php
+                            include 'Form.page.phtml';
+                            ?>
+                        </div>
+                    </div>
+                </div><!-- col2 -->
+            </div>
+            <div class="row">
+                <div class="card">
                         <div class="card-body">
                             <h2>Processing Summary:</h2>
                             <div>
@@ -145,7 +176,7 @@ foreach ($process_location as $mKey => $mVal) {
 echo '<dl id="resulting_url_anchors">';
 echo '<dt>buildByComp (dynamic hostname)</dt><dd><a href="' . $buildByComp . '" target="_blank">' . $buildByComp . '</a></dd>';
 echo '<dt>concatThis</dt>
-    <dd><a href="'.$concatThis.'" target="_blank">' . rtrim($concatThis, '/') . '</a></dd>';
+    <dd><a id="concatThisAnchor" href="'.rtrim($concatThis,'/').'" target="_blank">' . rtrim($concatThis, '/') . '</a></dd>';
 
     echo '<dt>concatSwitch</dt><dd><a href="' . $concatSwitch . '" target="_blank">' . $concatSwitch . '</a></dd></dl>';
 /*  echo '<h4>buildUrl vals:</h4>';
@@ -159,38 +190,11 @@ echo '<dt>concatThis</dt>
                             </div>
                         </div>
 </div>
-<div>
-                        <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-heading">@ToDo</h3>
-                            <h4>Nav-go-up thing</h4>
-                            <p>The value derived here, set as goUp[url], should be placed as the first &lt;li&gt; item in the primary navigation list</p>
-                            <!-- php nav goup -->
-                            <ol id="navgoup_demo">
-                                <?php
-                                $goUpArray = $Functions->process_goup();
-                                foreach ($goUpArray as $goUpKey => $goUpVal) {
-                                    echo '<li class="navgoup_item">goUp[' . $goUpKey . ']: ' . $goUpVal . '</li>';
-                                }
-                                ?>
-                            </ol>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <?php
-                            include 'Form.page.phtml';
-                            ?>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </div> <!-- row -->
+            
         </section>
         
-        <section class="container">
+        <section id="server-section" class="container">
 
             <?php
             // require 'LateLogic.page.phtml';

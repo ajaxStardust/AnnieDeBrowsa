@@ -4,12 +4,22 @@ document.addEventListener("DOMContentLoaded", function () {
     const mainFrame = document.getElementById("mainFrame");
     const frameName = document.getElementById("frameName");
     const editJson = document.getElementById('jsoneditor_open');
+    const newItemInput = document.getElementById('newItemInput');
 
     // Function to get the base URL
     function getBaseURL() {
         return window.location.origin;
     }
-
+    
+    if (newItemInput) {
+        const thatText = getElementById("concatThisAnchor");
+        newItemInput.addEventListener("focus", function (e) {
+            e.preventDefault();
+            
+            newItemInput.value(thatText.innerText);
+            newItemInput.style.backgroundColor="yellow";
+        });
+    }
     if (editJson) {
         editJson.addEventListener("click", function (e) {
             if (e.target && e.target.matches("a.json-edit-link")) {

@@ -3,7 +3,6 @@
         {
             "url": "http:\/\/localhost:80\/index.php",
             "name": "localhost:80",
-            
             "data": "visited:",
             "count": 0
         },
@@ -27,7 +26,7 @@
             "count": 0
         },
         {
-            "url": "https:\/\/Presearch.com",
+            "url": "https:\/\/scout.click",
             "name": "Fedi-Search",
             "data": "visited:",
             "count": 0

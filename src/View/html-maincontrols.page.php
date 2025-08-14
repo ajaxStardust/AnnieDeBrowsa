@@ -42,7 +42,7 @@
         </li>
         <li id="fbloader" class="loader material-symbols-outlined">
             <span class="loader">
-                <a title="Click to activate the portable Firebug Lite script embedded in my javascript container"><img src="assets/css/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16" /> Firebug <em>Lite</em></a>
+                <a title="Click to activate the portable Firebug Lite script embedded in my javascript container"><img src="assets/images/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16" /> Firebug <em>Lite</em></a>
             </span>
         </li>
         <li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a title="send frame to top">iFrame to Top</a></span></li>
