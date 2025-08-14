@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 if (headingTitle) {
                     headingTitle.textContent = filePath;
                 }
-                console.log("frameName.textContent -eq 'Currently Viewing [fileUrl]: '" + fileUrl);
+                console.log("other thing path: '" + fileUrl);
 
                 
         }
