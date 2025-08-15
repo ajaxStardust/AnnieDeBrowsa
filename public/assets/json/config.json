@@ -22,12 +22,17 @@
             "url": "http:\/\/bunsen:5000",
             "name": ":5000",
             "data": "visited:",
-            "class": "json-edit-link",
             "count": 0
         },
         {
             "url": "https:\/\/scout.click",
             "name": "Fedi-Search",
+            "data": "visited:",
+            "count": 0
+        },
+        {
+            "url": "http:\/\/centrewebdesign.com",
+            "name": "CWD (mine)",
             "data": "visited:",
             "count": 0
         }

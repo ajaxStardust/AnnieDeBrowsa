@@ -54,7 +54,7 @@ $title = str_ireplace("var/www/", "", $pathOps);
     <link rel="apple-touch-icon" href="favicon.ico">
     <meta name="msapplication-TileImage" content="<?php echo "https://" .
         $_SERVER["DOCUMENT_ROOT"] .
-        "/public/assets/svg/tile-image.svg"; ?>">
+        "/public/assets/svg/public/assets/svg/cannibus_find_plainsvg2.svg"; ?>">
     
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css">
   <link href="assets/css/lightslider.css" rel="stylesheet">

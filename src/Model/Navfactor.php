@@ -338,7 +338,7 @@ class Navfactor
     {
         $this->htmlPrint[] = '<li id="navTotal">Objects found: ' . $this->fsObject . '</li>
         <li id="adb_small_logo"><img
-        src="assets/css/adb_logo_shadow.png"
+        src="assets/images/adb_logo_shadow.png"
         style="width:100px;height:80px;"
         class="floatLt" /></li>
     <li id="font_demo_serif">A QuIck Bit oF Valid TeXt bRiEfly</li>

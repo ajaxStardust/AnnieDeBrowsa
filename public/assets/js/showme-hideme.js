@@ -81,7 +81,7 @@ function collapseSection(sectionDiv) {
     var toggleTxt = document.getElementById('navTxt');
     var spacer;
 
-    if (navImage.src == ('assets/css/arrow-left.png' || 'assets/css/arrow-right.png')) {
+    if (navImage.src == ('assets/images/arrow-left.png' || 'assets/images/arrow-right.png')) {
         spacer = '../';
     } else {
         spacer = '';
@@ -91,12 +91,12 @@ function collapseSection(sectionDiv) {
         leftcol.style.display = 'none';
         maincol.style.width = '100%';
         maincol.style.paddingLeft = 0;
-        navImage.src = spacer + 'assets/css/arrow-right.png';
+        navImage.src = spacer + 'assets/images/arrow-right.png';
         toggleTxt.innerHTML = "show";
     } else {
         leftcol.style.display = 'block';
         maincol.style.width = '71%';
-        navImage.src = spacer + 'assets/css/arrow-left.png';
+        navImage.src = spacer + 'assets/images/arrow-left.png';
         toggleTxt.innerHTML = "collapse";
     }
 }
@@ -282,8 +282,8 @@ function scanCssLoaders() {
         unlockBool, lockLink, unlockLink, docLinksPrint, thisHref,
         mainFrameContainer, lockFrameAnchor;
 
-    const lockHandler = document.getElementById("lockFrameLoader");
-    // const lockHandler = document.getElementById("frameControl");
+    // const lockHandler = document.getElementById("lockFrameLoader");
+    const lockHandler = document.getElementById("frameControl");
     mainFrameContainer = document.getElementById("mainFrameContainer");
     lockFrameAnchor = document.getElementById("lockFrameAnchor");
 
@@ -330,6 +330,7 @@ function scanCssLoaders() {
         return;
     }
 
+    if(lockHandler) {
     lockHandler.onclick = function () {
         // docLinksPrint = document.getElementById("docLinks");
         for (dl = 0; dl < docLinks.length; dl = dl + 1) {
@@ -360,6 +361,7 @@ function scanCssLoaders() {
         }
 
     };
+        }
 
     // logic: check for locked or unlocked link ID.
     // remove existing link as appropriate and create the opposite
