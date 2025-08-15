@@ -127,7 +127,7 @@ echo '    </ul>
         echo $build_local_urls;
 
     ?>
-    <div id="quickChange" class="info">Change quick links in <?= JSONCONFIG ?> [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
+    <div id="quickChange" class="info">Change quick links [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
 
     <div id="mainFrameContainer">
 

@@ -66,6 +66,7 @@ $Functions = new Functions();
     <link rel="stylesheet" href="https://unpkg.com/chota@latest">
     <!-- link ref="stylesheet" href="https://unpkg.com/tachyons@latest" -->
     <link href="assets/css/lightslider.css" rel="stylesheet">
+    <style>.displaynone{display:none;}</style>
 </head>
 
 <body>
@@ -75,6 +76,17 @@ $Functions = new Functions();
             <h1 class="bg-dark text-light text-end pe-3 h1"><?= $whatis['page_heading']; ?></h1>
         </header>
         <section>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <?php
+                            include 'Form.page.phtml';
+                            ?>
+                        </div>
+                    </div>
+                </div><!-- col2 -->
+            </div>
             <div class="row">
                 <div class="col">
                     
@@ -97,99 +109,7 @@ $Functions = new Functions();
                     </div>
 
                 </div>
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <?php
-                            include 'Form.page.phtml';
-                            ?>
-                        </div>
-                    </div>
-                </div><!-- col2 -->
-            </div>
-            <div class="row">
-                <div class="card">
-                        <div class="card-body">
-                            <h2>Processing Summary:</h2>
-                            <div>
-                                <!-- new approach -->
-                                <dl>
-                    <dt class="pointer">Path <span class="thin">(three different ways)</span> <span class="normal blue pointer" id="show_g01"
-                            onclick="swap_text('show_g01','glossary_01') "> [details...]</span>
-                    </dt>
-                    <dd id="glossary_01" class="displaynone">
-                         <p>Using regular expressions and other syntax, the URL components which make up the path
-                                    are separated and stored in an array, "path[]". </p>
-                                <p><code>path[]</code> is derived from <code
-                                        class="php">$Eval->test_location($enterpathhere)['pb'];</code></p>
-                                <ul>
-                                    <li><code>buldByComp</code> uses _SERVER[], path[], to build the resulting HTTP url.
-                                    </li>
-                                    <li><code>concatThis</code> uses that info but first removes some standard known
-                                        paths in attempt to achive a more likely correct URL, and tends to be the most reliable of the three results.</li>
-                                    <li><code>concatSwitch</code> employs the use of a switch case logic. This is usually garbage for some reason. All in the spirit of playing with code.</li>
-                                </ul>
-                                <?php
-        $common_paths=[
-            '\/opt\/lampp\/htdocs',
-            '\/var\/www\/html',
-            '\/var\/www\/htdocs',
-            '\/var\/www\/public_html',
-            '\/var\/www\/htdocs\/public_html',
-            '\/var\/www\/wwwroot',
-            '\/home\/admin\/web'
-        ];
-// $trimmed_new_url = str_ireplace('/var/www/' . $contructNewMethod['_dynamichost'], '', $contructNewMethod['new_url_concat']);
-foreach($common_paths as $cpathKey => $cpathVal){
-    if(preg_match($cpathVal,$contructNewMethod['new_url_concat'])){
-    $trimmed_new_url = str_ireplace($cpathVal, '', $contructNewMethod['new_url_concat']);
-        
-    break;
-    }
-    
-}
 
-$buildByComp = $_SERVER['REQUEST_SCHEME'] . '://' . $contructNewMethod['_dynamichost'] . '/' . ltrim($trimmed_new_url, '/');
-$concatThis = $_SERVER['REQUEST_SCHEME'] . '://'. $contructNewMethod['_dynamichost'] .'/';
-$concatSwitch = $_SERVER['REQUEST_SCHEME'] . '://'. $contructNewMethod['_dynamichost'];
-foreach ($P2u2->path_comps['matches'] as $mKey => $mVal) {
-    echo '<br>path[' . $mKey . ']: ' . $mVal;
-    if ($mVal != 'var' && $mVal != 'www' && $mVal != 'admin' && $mVal != 'home' && $mVal != 'web') {
-        $mVal =  str_ireplace('public_html','',$mVal);
-        $mVal = str_ireplace('//','/',$mVal);
-        $concatThis .= ltrim($mVal, '/') . '/';
-        // $concatThis = str_ireplace($_SERVER['SERVER_NAME'],'/',$concatThis);
-    }
-}
-
-$process_location = $Eval->test_location($enterpathhere)['pb'];
-
-foreach ($process_location as $mKey => $mVal) {
-    echo '<br>path[' . $mKey . ']: ' . $mVal;
-    $concatSwitch .= str_ireplace('/', '', $mVal) . '/';
-}
-?>
-</dd>
-</dl>
-<?php
-// $concatThis = str_ireplace('//','/',$concatThis);
-echo '<dl id="resulting_url_anchors">';
-echo '<dt>buildByComp (dynamic hostname)</dt><dd><a href="' . $buildByComp . '" target="_blank">' . $buildByComp . '</a></dd>';
-echo '<dt>concatThis</dt>
-    <dd><a id="concatThisAnchor" href="'.rtrim($concatThis,'/').'" target="_blank">' . rtrim($concatThis, '/') . '</a></dd>';
-
-    echo '<dt>concatSwitch</dt><dd><a href="' . $concatSwitch . '" target="_blank">' . $concatSwitch . '</a></dd></dl>';
-/*  echo '<h4>buildUrl vals:</h4>';
-                       if(is_array($buildUrl)){
-                       foreach($buildUrl as $bKey => $bVal) {
-                        echo '<br>bVal['.$bKey.']: '.$bVal ;
-                       }
-                    } */
-
-?>
-                            </div>
-                        </div>
-</div>
                 </div> <!-- row -->
             
         </section>
