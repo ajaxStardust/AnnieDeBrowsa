@@ -44,7 +44,7 @@ class Localsites extends Helpers
 
              
 
-            $html .= '<a href="'. htmlspecialchars($site["url"]) . '" target="_blank" title="' . $site["name"] . '" rel="noopener noreferrer" class="link" data-url="' . htmlspecialchars($site['url']) . '" data-name="' . htmlspecialchars($site['name']) . '">';
+            $html .= '<a href="'. htmlspecialchars($site["url"]) . '" target="_blank" title="' . $site["name"] . '" rel="noopener noreferrer" class="link" data-url="' . htmlspecialchars($site['url']) . '" data-name="' . htmlspecialchars($site['name']) . '" data-filepath="'.htmlspecialchars($site["url"]).'">';
             
             $html .= htmlspecialchars($site['name']);
             $html .= '</a>

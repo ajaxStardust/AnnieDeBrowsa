@@ -183,7 +183,7 @@ class Htmldochead
     public function doctypeHead()
     {
         include 'public/views/html-doctype-head.page.php';
-        include 'public/views/html-body-top.page.php';
+        include 'public/views/html-header.page.php';
     }  // end doctypeHtmlHead
 
     public function bodySections()

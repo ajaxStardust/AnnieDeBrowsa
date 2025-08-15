@@ -27,7 +27,7 @@ function swap_text(oldText, notesText) {
     var toggleRegion = document.getElementById(notesText);
     if (swapText.innerHTML != "[collapse]") {
         swapText.innerHTML = "[collapse]";
-        toggleRegion.style.display = 'block'
+        toggleRegion.style.display = 'block';
         swapText.style.color = 'red';
         swapText.className.toggle('blog-header-logo');
         console.log(swapText);
@@ -79,23 +79,24 @@ function collapseSection(sectionDiv) {
     var maincol = document.getElementById('maincol');
     var navImage = document.getElementById('navControl');
     var toggleTxt = document.getElementById('navTxt');
+    var spacer;
 
-    if (navImage.src == ('assets/css/arrow-left.png' || 'assets/css/arrow-right.png')) {
-        var spacer = '../';
+    if (navImage.src == ('assets/images/arrow-left.png' || 'assets/images/arrow-right.png')) {
+        spacer = '../';
     } else {
-        var spacer = '';
+        spacer = '';
     }
 
     if (leftcol.style.display != 'none') {
         leftcol.style.display = 'none';
         maincol.style.width = '100%';
         maincol.style.paddingLeft = 0;
-        navImage.src = spacer + 'assets/css/arrow-right.png';
+        navImage.src = spacer + 'assets/images/arrow-right.png';
         toggleTxt.innerHTML = "show";
     } else {
         leftcol.style.display = 'block';
         maincol.style.width = '71%';
-        navImage.src = spacer + 'assets/css/arrow-left.png';
+        navImage.src = spacer + 'assets/images/arrow-left.png';
         toggleTxt.innerHTML = "collapse";
     }
 }
@@ -206,14 +207,17 @@ function initLoaders() {
     firebugLite = document.createElement('script');
     firebugLite.setAttribute('type', "text/javascript");
     firebugLite.setAttribute('src', 'assets/js/fbl/firebug-lite-debug.js');
-
+    if(fbloader){
     fbloader.onclick = function () {
         docHead.appendChild(firebugLite);
         if (firebug) {
             firebug.init();
         }
 
+    };    
     }
+
+    
 }
 
 function runStuff() {
@@ -260,7 +264,7 @@ function popUpTable(thisClick) {
     return false;
 }
 
-function jsControlsIndex() {
+/* function jsControlsIndex() {
     var indexNav, js2index = document.getElementById("js2index");
     if (document.getElementById("indexNav")) {
         indexNav = document.getElementById("indexNav");
@@ -268,17 +272,18 @@ function jsControlsIndex() {
     } else {
         js2index.innerHTML = '<a href="index.php" title="index.php">Reload</a> [top]';
     }
-}
+} */
 
 function scanCssLoaders() {
 
     var dh, dl, docHeads, docHead, docLinks, frameLocked, frameUnlocked,
         getHeadLock, headLock, linkMakeLock, getHeadUnlock, headUnlock,
-        linkMakeUnlock, lockHandler, thisDocHead, thisDocLink, lockBool,
+        linkMakeUnlock,  thisDocHead, thisDocLink, lockBool,
         unlockBool, lockLink, unlockLink, docLinksPrint, thisHref,
         mainFrameContainer, lockFrameAnchor;
 
-    lockHandler = document.getElementById("lockFrameLoader");
+    // const lockHandler = document.getElementById("lockFrameLoader");
+    const lockHandler = document.getElementById("frameControl");
     mainFrameContainer = document.getElementById("mainFrameContainer");
     lockFrameAnchor = document.getElementById("lockFrameAnchor");
 
@@ -325,6 +330,7 @@ function scanCssLoaders() {
         return;
     }
 
+    if(lockHandler) {
     lockHandler.onclick = function () {
         // docLinksPrint = document.getElementById("docLinks");
         for (dl = 0; dl < docLinks.length; dl = dl + 1) {
@@ -355,6 +361,7 @@ function scanCssLoaders() {
         }
 
     };
+        }
 
     // logic: check for locked or unlocked link ID.
     // remove existing link as appropriate and create the opposite
@@ -545,7 +552,7 @@ function onloadLoop(getFunky) {
 
 onloadLoop(initLoaders);
 // onloadLoop(frameLockMgt);
-onloadLoop(jsControlsIndex);
+// onloadLoop(jsControlsIndex);
 onloadLoop(scanCssLoaders);
 onloadLoop(runStuff);
 // onloadLoop(checkVisits);

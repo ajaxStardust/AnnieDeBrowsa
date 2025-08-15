@@ -12,6 +12,8 @@ use Adb\Model\Iframe as Iframe;
 use Adb\Model\Navfactor as Navfactor;
 use Adb\Model\Urlprocessor as Urlprocessor;
 
+$display_dynamichost = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : 'localhost';
+
 $Navfactor = new Navfactor(TEST_DIRECTORY);
 $Navcontroller = new Navcontroller(TEST_DIRECTORY);
 $buildNavController = $Navcontroller->displayNavigation();
@@ -65,18 +67,18 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
     }
     // echo 'var_dump(target_html);';
     // var_dump($target_html);
+echo '    </ul>
+</nav>';
 ?>
-    </ul>
-</nav>
+
 <div id="maincol">
-    <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?php print $currentUrlPath; ?>
+    <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?php print $display_dynamichost.'/'.$currentUrlPath; ?>
     </h2>
 
     <div class="hide-show-element">
   <input type="checkbox" id="toggle" />
   <label for="toggle"></label>
         <div id="pageControls" class="test1">
-        <header id="pageControlHeader">Page Control</header>
 <ul id="controList">
         <li id="toTopJscon" class="material-symbols-outlined">
             <a class="intraNav" href="#header"><span id="headerJumper">top</span> </a>
@@ -84,28 +86,29 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
         <li id="leftColtrigger" onclick="collapseNav('leftcol')" class="material-symbols-outlined">
             <span class="trigger">
                 <a title="Toggle show / hide HTML id:leftcol (the navigation at left)">
-                    <span id="navTxt">toggle</span> nav </a>
+                    <span id="navTxt">toggle</span> Nav </a>
             </span>
         </li>
         <li class="material-symbols-outlined" id="pageCon_goBack">
-            <span class="handler" id="goBackHandler"><a title="JavaScript Function for history minus one" onclick="goBack()"> b()</a></span>
+            <span class="handler" id="goBackHandler"><a title="JavaScript Function for history minus one" onclick="goBack()">back</a></span>
         </li>
         <li class="material-symbols-outlined" id="toBottom">
             <a class="intraNav" href="#footer"> <span id="footJumper">bottom</span>
             </a>
         </li>
-        <li id="frameControl" class="loader material-symbols-outlined"> <span id="lockFrameLoader" class="cssloader"><a id="lockFrameAnchor" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">Lock Iframe</a> </span>
+        <li id="frameControl" class="loader material-symbols-outlined"> <span id="lockFrameLoader" class="cssloader"><a id="lockFrameAnchor" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">Lock frame</a> </span>
         </li>
+            <li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a title="send frame to top">Pop frame</a></span></li>
         <li id="cssBoxFig" class="trigger material-symbols-outlined">
-            <span id="cssBox_Trigger" class="trigger" onclick="showHide('cssBox_Target')"><a title="Toggle show / hide CSS Box Model illustration"> CSS Box </a></span>
+            <span id="cssBox_Trigger" class="trigger" onclick="showHide('cssBox_Target')"><a title="Toggle show / hide CSS Box Model illustration"> Box </a></span>
         </li>
         <li id="fbloader" class="loader material-symbols-outlined">
             <span class="loader">
-                <a title="Click to activate the portable Firebug Lite script embedded in my javascript container"><img src="assets/css/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16"> Firebug <em>Lite</em></a>
+                <a title="Click to activate the portable Firebug Lite script embedded in my javascript container">Inspect <img src="assets/images/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16"></a>
             </span>
         </li>
-        <li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a title="send frame to top">iFrame to Top</a></span></li>
-        <li id="js2index"><a href="index.php" title="index.php">Reload</a> [top]</li>
+
+        <li id="js2index" class="reloadIcon"><a href="index.php" title="Reload top">Page</a></li>
     </ul>
     <!-- temp note: moved css box model image to dochead for now -->
     
@@ -124,12 +127,12 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
         echo $build_local_urls;
 
     ?>
-    <div id="quickChange" class="info">Change quick links in <?= JSONCONFIG ?> </div>
+    <div id="quickChange" class="info">Change quick links [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
 
     <div id="mainFrameContainer">
 
         <!--    ^   id:mainFrameContainer   ^   -->
-        <div id="frameTitler">Frame:<span id="frameName"><?php print $defaultIframe; ?></span>
+        <div id="frameTitler">iframe.src: <span id="frameName"><?php print $defaultIframe; ?></span>
         </div>
         <!--    $   id:frameTitler  $   -->
         <iframe title="frame content as selected in main navigation" src="index.phtml" id="mainFrame">
