@@ -32,19 +32,19 @@ I feel like it's pretty basic, and potentially useful to your production flow to
 **NOTE:** You must edit approx line 40 to set correct paths for variables used. Otherewise, you may discover it has created this "one-one-zero-one...one-one-zero-one!"
 
 > _Check lines 37-40 of the install.sh shell script._
-... or is it the _transform.sh_ script? Hmm... 
+... or is it the _i_am_become_url.sh_ script? Hmm... 
 
 ## Usage
 
 To use Annie DeBrowsa, simply run the following command:
 ```
-bash transform.sh <directory_name>
+bash i_am_become_url.sh <directory_name>
 ```
 
-> The idea is actually to copy the .sh script to /usr/local/bin/transform.sh
+> The idea is actually to copy the .sh script to /usr/local/bin/i_am_become_url.sh
 
 e.g. in .bashrc  add a line like 
-```alias 2url=/usr/local/bin/transform.sh ```
+```alias 2url=/usr/local/bin/i_am_become_url.sh ```
 
 so you can just type 
 2url ./index.html 
@@ -54,9 +54,9 @@ https://localhost/adb-logic-to-transform-something-whatever/
 
 this will print the URL that you can use to view your files in a browser.
 
-**Note** If you want to open the URL automatically in your browser, you can uncomment the `xdg-open` line in the `transform.sh` script.
+**Note** If you want to open the URL automatically in your browser, you can uncomment the `xdg-open` line in the `i_am_become_url.sh` script.
 
-For more details, refer to the [transform.sh script](https://raw.githubusercontent.com/ajaxStardust/AnnieDeBrowsa/refs/heads/master/i_am_become_url.sh).
+For more details, refer to the [i_am_become_url.sh script](https://raw.githubusercontent.com/ajaxStardust/AnnieDeBrowsa/refs/heads/master/i_am_become_url.sh).
 
 ## Demo
 
