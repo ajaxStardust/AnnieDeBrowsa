@@ -63,33 +63,34 @@ $Functions = new Functions();
     </title>
     <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
-    <!-- link ref="stylesheet" href="https://unpkg.com/tachyons@latest" -->
+    <!-- link rel="stylesheet" href="https://unpkg.com/chota@latest" -->
+    <link ref="stylesheet" href="https://unpkg.com/tachyons@latest">
+    <link rel="stylesheet" href="assets/css/tachyons.css">
     <link href="assets/css/lightslider.css" rel="stylesheet">
-    <style>.displaynone{display:none;}</style>
 </head>
 
 <body>
-    <div id="pagewidth" class="container">
+    <div id="pagewidth" class="container db">
         <!-- #HEADER -->
-        <header id="header">
-            <h1 class="bg-dark text-light text-end pe-3 h1"><?= $whatis['page_heading']; ?></h1>
+<header class="">
+    <h1 class="f2"><?= $whatis['page_heading']; ?></h1>
+            <?php
+                echo '<code class="mid-gray">__FILE__ info shown: ' . __FILE__.'</code>';
+                if (isset($Env->initialize_enviornment['abspathtml'])) {
+                    echo '<p class="f3 mid-gray lh-title><strong>ABSPATHHTML</strong>:' . $Env->initialize_enviornment['abspathtml'];
+                } else {
+                    echo '<p class="f3 mid-gray lh-title><strong class="red">$Env->initialize_enviornment[abspathtml] is not set</strong></p>';
+                }
+            ?>
         </header>
         <section>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
                             <?php
                             include 'Form.page.phtml';
                             ?>
-                        </div>
-                    </div>
-                </div><!-- col2 -->
-            </div>
+
             <div class="row">
                 <div class="col">
-                    
+
 
                         <div class="card">
                         <div class="card-body">
@@ -111,9 +112,9 @@ $Functions = new Functions();
                 </div>
 
                 </div> <!-- row -->
-            
+
         </section>
-        
+
         <section id="server-section" class="container">
 
             <?php
@@ -122,12 +123,6 @@ $Functions = new Functions();
             <div class="col">
                 <h3 class="card-heading">Server Info</h3>
                 <?php
-                echo '<br>__FILE__ info shown: ' . __FILE__;
-                if (isset($Env->initialize_enviornment['abspathtml'])) {
-                    echo '<p><strong>ABSPATHHTML</strong>:' . $Env->initialize_enviornment['abspathtml'];
-                } else {
-                    echo '<p><strong class="red">$Env->initialize_enviornment[abspathtml] is not set</strong></p>';
-                }
 
                 echo '<div class="container"><div class="bg-dark d-flex justify-content-between flex-wrap" id="info_container"><p class="bg-dark text-light">Served by: <span class="bg-dark text-warning">' . $Env->initialize_enviornment['serversoftware'] . '</span></p>
         <p class="bg-dark text-light">PHP Version: <span class="text-warning">' . phpversion() . '</span></p>
@@ -137,7 +132,7 @@ $Functions = new Functions();
                 ?>
             </div>
         </section> <!--    $   section   #general_notes  .container    $   -->
-        
+
         <section class="footer px-4">
             <!--    .FOOTER     -->
             <div class="row gx-5">
