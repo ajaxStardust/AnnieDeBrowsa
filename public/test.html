@@ -2,240 +2,168 @@
 <html lang="en">
 
 <head>
-    <title>/opt/lampp/htdocs/VerifyGit</title>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all">
-    <link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
-    <link id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+    <title>
+        /opt/lampp/htdocs/VerifyGit @ Environment.php </title>
     <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-    <link rel="icon" href="favicon.ico" sizes="32x32">
-    <link rel="icon" href="favicon.ico" sizes="192x192">
-    <link rel="icon" href="favicon.ico" sizes="16x16">
-    <link rel="apple-touch-icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css">
+    <link rel="stylesheet" href="assets/css/tachyons.css">
     <link href="assets/css/lightslider.css" rel="stylesheet">
-
 </head>
 
-<body id="index" style="background-color:#f5f5f5">
-    <figure id="cssBox_Target" class="target displaynone">
-        <!-- ^ cssBoxContainer ^ -->
-        <img src="assets/images/css-box.png" alt="CSS Box-model illustration" id="cssBoxImg">
-    </figure>
-    <!-- $ cssBoxContainer $ -->
-    <div id="pagewidth" style="background-color:#f5f5f5">
-        <!-- ^ id=pagewidth -->
-        <div id="wrapper" class="unfloat">
-            <!-- ^ id=wrapper ^ -->
-            <div class="content" id="cookieData"></div>
+<body>
+    <!-- edit classes here for pagewidth -->
+    <div id="pagewidth" class="sans-serif mw-90 ma db pv2 ph3">
+        <!-- ::before #HEADER -->
+        <header id="header-section" class="sans-serif ph5-ns">
+            <article class="sans-serif br3-ns pv1 w-75-ns ph6-ms bg-lightest-blue center">
+                <div class="sans-serif ph5-ns">
+                    <h1 class="sans-serif">Convert System Path to HTTP URL</h1>
+                    <h2 class="f4-l">ENV:</h2>
 
-            <header id="header" title="Header as SVG container">
-                <!--     ^   Begin Dynamic and SVG styled Header  ^   -->
-                <object id="svgtitle" class="floatleft transparentback" title="Documents of - container" data="assets/css/masthead.php" type="image/svg+xml">
-                </object>
-                <div id="headingTitle"></div>
-            </header><!-- $ END Dynamic and SVG HTML node ID#header $ -->
+                    <p class="black-70 measure lh-copy mv0"><strong>/opt/lampp/htdocs/VerifyGit/src/View/Main.page.phtml</strong>:</p>
+
+                    <p class="f3 mid-gray lh-title"><strong>ABSPATHHTML</strong>:<code class="info">/opt/lampp/htdocs/VerifyGit</code></p>
+                </div>
+            </article>
+        </header>
+
+        <!-- ^ Trypath.form.phtml -->
+        <section id="main-section" class="ph2 ph4-ns">
+
+            <div class="fl w-45">
+                <h2>Processing Summary:</h2>
+                <div class="bg-light-gray">
+                    <dl id="processingSummary">
+                        <dt class="pointer">Path <span class="thin">(three different ways)</span> <span class="normal blue pointer" id="show_g01" onclick="swap_text('show_g01','glossary_01') "> [details...]</span>
+                        </dt>
+                        <dd id="glossary_01" class="dn">
+                            <p>Using regular expressions and other syntax, the URL components which make up the path
+                                are separated and stored in an array, "path[]". </p>
+                            <p><code>path[]</code> is derived from <code class="php">$Eval-&gt;test_location($enterpathhere)['pb'];</code></p>
+                            <ul>
+                                <li><code>buldByComp</code> uses _SERVER[], path[], to build the resulting HTTP url.
+                                </li>
+                                <li><code>concatThis</code> uses that info but first removes some standard known
+                                    paths in attempt to achive a more likely correct URL, and tends to be the most reliable of the three results.</li>
+                                <li><code>concatSwitch</code> employs the use of a switch case logic. This is usually garbage for some reason. All in the spirit of playing with code.</li>
+                            </ul>
+                            <br>path[0]: VerifyGit
+                        </dd>
+                    </dl>
 
 
-            <nav id="leftcol" class="navlist">
-                <ul id="navlist" class="navlist">
-                    <li id="goUpItem" class="nav"><a title="Navigate to parent directory." href="///htdocs">/htdocs</a></li>
+                    <h2>Try fix</h2>
+                    <div clas="form-container pa2">
+                        <p>Enter system path / submit:</p>
+                        <h3 class="f3">Raw Path Used:</h3>
 
-                    <li onclick="showHide('ul_.')" id="li_._control" class="toggler"><span style="font-weight:bold;">.</span> [ view 5 ]
-                        <ul id="ul_." class="inner-list">
-                            <li class="navlist target giticon"><a data-filepath=".git" title="View .git in main iFrame" href="file_loader.php?file=.git" id="navAnchor_.git" class="iframe-nav-link">.<span class="bold red">git</span></a></li>
-                            <li class="navlist target gitignoreicon"><a data-filepath=".gitignore" title="View .gitignore in main iFrame" href="file_loader.php?file=.gitignore" id="navAnchor_.gitignore" class="iframe-nav-link">.<span class="bold red">gitignore</span></a></li>
-                            <li class="navlist target htaccessicon"><a data-filepath=".htaccess" title="View .htaccess in main iFrame" href="file_loader.php?file=.htaccess" id="navAnchor_.htaccess" class="iframe-nav-link">.<span class="bold red">htaccess</span></a></li>
-                            <li class="navlist target jsonicon"><a data-filepath=".phcode.json" title="View .phcode.json in main iFrame" href="file_loader.php?file=.phcode.json" id="navAnchor_.phcode.json" class="iframe-nav-link">.phcode.<span class="bold red">json</span></a></li>
-                            <li class="navlist target vscodeicon"><a data-filepath=".vscode" title="View .vscode in main iFrame" href="file_loader.php?file=.vscode" id="navAnchor_.vscode" class="iframe-nav-link">.<span class="bold red">vscode</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_R')" id="li_R_control" class="toggler"><span style="font-weight:bold;">R</span> [ view 1 ]
-                        <ul id="ul_R" class="inner-list">
-                            <li class="navlist target mdicon"><a data-filepath="README.md" title="View README.md in main iFrame" href="file_loader.php?file=README.md" id="navAnchor_README.md" class="iframe-nav-link">README.<span class="bold red">md</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_A')" id="li_A_control" class="toggler"><span style="font-weight:bold;">A</span> [ view 1 ]
-                        <ul id="ul_A" class="inner-list">
-                            <li class="navlist target phtmlicon"><a data-filepath="ajax.phtml" title="View ajax.phtml in main iFrame" href="file_loader.php?file=ajax.phtml" id="navAnchor_ajax.phtml" class="iframe-nav-link">ajax.<span class="bold red">phtml</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_B')" id="li_B_control" class="toggler"><span style="font-weight:bold;">B</span> [ view 1 ]
-                        <ul id="ul_B" class="inner-list">
-                            <li class="navlist target phtmlicon"><a data-filepath="bsdemo.phtml" title="View bsdemo.phtml in main iFrame" href="file_loader.php?file=bsdemo.phtml" id="navAnchor_bsdemo.phtml" class="iframe-nav-link">bsdemo.<span class="bold red">phtml</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_C')" id="li_C_control" class="toggler"><span style="font-weight:bold;">C</span> [ view 4 ]
-                        <ul id="ul_C" class="inner-list">
-                            <li class="navlist target phtmlicon"><a data-filepath="chota.phtml" title="View chota.phtml in main iFrame" href="file_loader.php?file=chota.phtml" id="navAnchor_chota.phtml" class="iframe-nav-link">chota.<span class="bold red">phtml</span></a></li>
-                            <li class="navlist target jsonicon"><a data-filepath="composer.json" title="View composer.json in main iFrame" href="file_loader.php?file=composer.json" id="navAnchor_composer.json" class="iframe-nav-link">composer.<span class="bold red">json</span></a></li>
-                            <li class="navlist target lockicon"><a data-filepath="composer.lock" title="View composer.lock in main iFrame" href="file_loader.php?file=composer.lock" id="navAnchor_composer.lock" class="iframe-nav-link">composer.<span class="bold red">lock</span></a></li>
-                            <li class="navlist target jsonicon"><a data-filepath="config.json" title="View config.json in main iFrame" href="file_loader.php?file=config.json" id="navAnchor_config.json" class="iframe-nav-link">config.<span class="bold red">json</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_E')" id="li_E_control" class="toggler"><span style="font-weight:bold;">E</span> [ view 1 ]
-                        <ul id="ul_E" class="inner-list">
-                            <li class="navlist target htmlicon"><a data-filepath="entities.html" title="View entities.html in main iFrame" href="file_loader.php?file=entities.html" id="navAnchor_entities.html" class="iframe-nav-link">entities.<span class="bold red">html</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_F')" id="li_F_control" class="toggler"><span style="font-weight:bold;">F</span> [ view 2 ]
-                        <ul id="ul_F" class="inner-list">
-                            <li class="navlist target icoicon"><a data-filepath="favicon.ico" title="View favicon.ico in main iFrame" href="file_loader.php?file=favicon.ico" id="navAnchor_favicon.ico" class="iframe-nav-link">favicon.<span class="bold red">ico</span></a></li>
-                            <li class="navlist target phpicon"><a data-filepath="file_loader.php" title="View file_loader.php in main iFrame" href="file_loader.php?file=file_loader.php" id="navAnchor_file_loader.php" class="iframe-nav-link">file_loader.<span class="bold red">php</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_I')" id="li_I_control" class="toggler"><span style="font-weight:bold;">I</span> [ view 4 ]
-                        <ul id="ul_I" class="inner-list">
-                            <li class="navlist target shicon"><a data-filepath="i_am_become_url.sh" title="View i_am_become_url.sh in main iFrame" href="file_loader.php?file=i_am_become_url.sh" id="navAnchor_i_am_become_url.sh" class="iframe-nav-link">i_am_become_url.<span class="bold red">sh</span></a></li>
-                            <li class="navlist target phpicon"><a data-filepath="index.php" title="View index.php in main iFrame" href="file_loader.php?file=index.php" id="navAnchor_index.php" class="iframe-nav-link">index.<span class="bold red">php</span></a></li>
-                            <li class="navlist target phtmlicon"><a data-filepath="index.phtml" title="View index.phtml in main iFrame" href="file_loader.php?file=index.phtml" id="navAnchor_index.phtml" class="iframe-nav-link">index.<span class="bold red">phtml</span></a></li>
-                            <li class="navlist target shicon"><a data-filepath="install.sh" title="View install.sh in main iFrame" href="file_loader.php?file=install.sh" id="navAnchor_install.sh" class="iframe-nav-link">install.<span class="bold red">sh</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_N')" id="li_N_control" class="toggler"><span style="font-weight:bold;">N</span> [ view 1 ]
-                        <ul id="ul_N" class="inner-list">
-                            <li class="navlist target outicon"><a data-filepath="nohup.out" title="View nohup.out in main iFrame" href="file_loader.php?file=nohup.out" id="navAnchor_nohup.out" class="iframe-nav-link">nohup.<span class="bold red">out</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_P')" id="li_P_control" class="toggler"><span style="font-weight:bold;">P</span> [ view 2 ]
-                        <ul id="ul_P" class="inner-list">
-                            <li class="navlist target phpicon"><a data-filepath="process.php" title="View process.php in main iFrame" href="file_loader.php?file=process.php" id="navAnchor_process.php" class="iframe-nav-link">process.<span class="bold red">php</span></a></li>
-                            <li class="navlist target  icon"><a data-filepath="public" title="View public in main iFrame" href="file_loader.php?file=public" id="navAnchor_public" class="iframe-nav-link">public.<span class="bold red"> </span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_S')" id="li_S_control" class="toggler"><span style="font-weight:bold;">S</span> [ view 1 ]
-                        <ul id="ul_S" class="inner-list">
-                            <li class="navlist target  icon"><a data-filepath="src" title="View src in main iFrame" href="file_loader.php?file=src" id="navAnchor_src" class="iframe-nav-link">src.<span class="bold red"> </span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_T')" id="li_T_control" class="toggler"><span style="font-weight:bold;">T</span> [ view 2 ]
-                        <ul id="ul_T" class="inner-list">
-                            <li class="navlist target phtmlicon"><a data-filepath="template.phtml" title="View template.phtml in main iFrame" href="file_loader.php?file=template.phtml" id="navAnchor_template.phtml" class="iframe-nav-link">template.<span class="bold red">phtml</span></a></li>
-                            <li class="navlist target shicon"><a data-filepath="transform2url.sh" title="View transform2url.sh in main iFrame" href="file_loader.php?file=transform2url.sh" id="navAnchor_transform2url.sh" class="iframe-nav-link">transform2url.<span class="bold red">sh</span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_V')" id="li_V_control" class="toggler"><span style="font-weight:bold;">V</span> [ view 1 ]
-                        <ul id="ul_V" class="inner-list">
-                            <li class="navlist target  icon"><a data-filepath="vendor" title="View vendor in main iFrame" href="file_loader.php?file=vendor" id="navAnchor_vendor" class="iframe-nav-link">vendor.<span class="bold red"> </span></a></li>
-                        </ul>
-                    </li>
-                    <li onclick="showHide('ul_X')" id="li_X_control" class="toggler"><span style="font-weight:bold;">X</span> [ view 1 ]
-                        <ul id="ul_X" class="inner-list">
-                            <li class="navlist target phtmlicon"><a data-filepath="xdebug.phtml" title="View xdebug.phtml in main iFrame" href="file_loader.php?file=xdebug.phtml" id="navAnchor_xdebug.phtml" class="iframe-nav-link">xdebug.<span class="bold red">phtml</span></a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
-            <div id="maincol">
-                <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename">localhost/VerifyGit </h2>
+                        <form id="p2u2top" method="GET" class="center-block">
+                            <label for="path2url" class="hidden">_GET['path2url']:</label>
+                            <input type="text" name="path2url" id="path2url" value="/opt/lampp/htdocs/VerifyGit">
+                            <button class="btn btn-primary" type="submit" name="submit">Submit path</button>
+                        </form>
+                    </div>
 
-                <div class="hide-show-element">
-                    <input type="checkbox" id="toggle">
-                    <label for="toggle"></label>
-                    <div id="pageControls" class="test1">
-                        <ul id="controList">
-                            <li id="toTopJscon" class="material-symbols-outlined">
-                                <a class="intraNav" href="#header"><span id="headerJumper">top</span> </a>
-                            </li>
-                            <li id="leftColtrigger" onclick="collapseNav('leftcol')" class="material-symbols-outlined">
-                                <span class="trigger">
-                                    <a title="Toggle show / hide HTML id:leftcol (the navigation at left)">
-                                        <span id="navTxt">toggle</span> Nav </a>
-                                </span>
-                            </li>
-                            <li class="material-symbols-outlined" id="pageCon_goBack">
-                                <span class="handler" id="goBackHandler"><a title="JavaScript Function for history minus one" onclick="goBack()">back</a></span>
-                            </li>
-                            <li class="material-symbols-outlined" id="toBottom">
-                                <a class="intraNav" href="#footer"> <span id="footJumper">bottom</span>
-                                </a>
-                            </li>
-                            <li id="frameControl" class="loader material-symbols-outlined"> <span id="lockFrameLoader" class="cssloader"><a id="lockFrameAnchor" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">Lock frame</a> </span>
-                            </li>
-                            <li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a title="send frame to top">Pop frame</a></span></li>
-                            <li id="cssBoxFig" class="trigger material-symbols-outlined">
-                                <span id="cssBox_Trigger" class="trigger" onclick="showHide('cssBox_Target')"><a title="Toggle show / hide CSS Box Model illustration"> Box </a></span>
-                            </li>
-                            <li id="fbloader" class="loader material-symbols-outlined">
-                                <span class="loader">
-                                    <a title="Click to activate the portable Firebug Lite script embedded in my javascript container">Inspect <img src="assets/images/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16"></a>
-                                </span>
-                            </li>
 
-                            <li id="js2index" class="reloadIcon"><a href="index.php" title="Reload top">Page</a></li>
-                        </ul>
-                        <!-- temp note: moved css box model image to dochead for now -->
+                    <dl id="tryfix-results"><dt class="b">buildByComp (dynamic hostname)</dt>
+                        <dd><a href="http://localhost/opt/lampp/htdocs/VerifyGit" target="_blank">http://localhost/opt/lampp/htdocs/VerifyGit</a></dd><dt class="b">concatThis</dt>
+                        <dd><a id="concatThisAnchor" href="http://VerifyGit" target="_blank">http://VerifyGit</a></dd><dt class="b">concatSwitch</dt>
+                        <dd><a href="http://localhost" target="_blank">http://localhost</a></dd>
+                    </dl>
+                </div> <!-- #processing-summary -->
+            </div> <!-- end float -->
 
+
+
+            <h3 class="card-heading">@ToDo</h3>
+            <h4>Nav-go-up thing</h4>
+            <p>The value derived here, set as goUp[url], should be placed as the first &lt;li&gt; item in the primary navigation list</p>
+            <!-- php nav goup -->
+            <ol id="navgoup_demo">
+                <li class="navgoup_item">goUp[subject]: /opt/lampp/htdocs/VerifyGit</li>
+                <li class="navgoup_item">goUp[replace]: </li>
+                <li class="navgoup_item">goUp[search]: @^(.*(/)(?=.*))@</li>
+                <li class="navgoup_item">goUp[result]: VerifyGit</li>
+                <li class="navgoup_item">goUp[url]: /htdocs/</li>
+                <li class="navgoup_item">goUp[depth]: 4</li>
+            </ol>
+
+
+        
+
+
+        
+            <h3>Twerkin Path</h3>
+            <div id="demos" class="ol-blue">
+                <p class="details attention">Leave Subdomain at [none] if none exists.</p>
+                <form id="fixtheurl" class="ol-green">
+                    <label for="prefix" class="ol-grey">subdomain</label>
+                    <div id="spaceinfo">
+                        <select id="prefix">
+                            <option value="">[none]</option>
+                            <option value="support">support</option>
+                            <option value="blog">blog</option>
+                            <option value="forum">forum</option>
+                            <option value="help">help</option>
+                            <option value="doc">doc</option>
+                            <option value="app">app</option>
+                        </select>
+                    </div>
+                    <label for="prefix">server_name</label>
+                    <div id="infospace">
+                        <select id="suffix">
+                            <option value="">[none]</option>
+                            <option value="localhost" selected="">localhost</option>
+                            <option value="127.0.0.1">127.0.0.1</option>
+                            <option value="example.org">example.org</option>
+                            <option value="github.com">github.com</option>
+                            <option value="vivaldi.net">vivaldi.net</option>
+                        </select>
+                    </div>
+                    <input type="text" id="newItemInput" placeholder="Twerkin path here">
+                    <button type="button" onclick="updateAppendedData()">Update [sub]Domain</button>
+                    <button type="button" onclick="appendSelectedValue()">Add Path (x2 for link)</button>
+
+                </form>
+                <div id="appendedData"></div>
+                <div id="oldAppendedData"></div>
+            </div><!-- :after Twerkin.form.phtml -->
+        
+
+            <div class="col fl">
+                <h3 class="card-heading">Server Info</h3>
+                <div class="container">
+                    <div class="bg-dark d-flex justify-content-between flex-wrap" id="info_container">
+                        <p class="bg-dark text-light">Served by: <span class="bg-dark text-warning">Apache/2.4.58 (Unix) OpenSSL/1.1.1w PHP/8.2.12</span></p>
+                        <p class="bg-dark text-light">PHP Version: <span class="text-warning">8.2.12</span></p>
+                        <p class="bg-dark text-light">Server Name: <span class="text-info">localhost</span></p>
+                        <p class="bg-dark text-light">Server Addr: <span class="text-info">127.0.0.1</span></p>
                     </div>
                 </div>
-                <hr class="hidden">
-
-                <div id="sytebuild_htmlbuild">
-                    <ol class="homeurl-list">
-                        <li class="homeurl-item" style="float:left; margin-right:10px;">
-                            <a href="http://localhost:80/index.php" target="_blank" title="localhost:80" rel="noopener noreferrer" class="link" data-url="http://localhost:80/index.php" data-name="localhost:80" data-filepath="http://localhost:80/index.php">localhost:80</a>
-                            <br>_ : visited:</li>
-                        <li class="homeurl-item" style="float:left; margin-right:10px;">
-                            <a href="https://localhost:443/index.php" target="_blank" title="localhost:443" rel="noopener noreferrer" class="link" data-url="https://localhost:443/index.php" data-name="localhost:443" data-filepath="https://localhost:443/index.php">localhost:443</a>
-                            <br>_ : visited:</li>
-                        <li class="homeurl-item" style="float:left; margin-right:10px;">
-                            <a href="https://vps111" target="_blank" title="vps111" rel="noopener noreferrer" class="link" data-url="https://vps111" data-name="vps111" data-filepath="https://vps111">vps111</a>
-                            <br>_ : visited:</li>
-                        <li class="homeurl-item" style="float:left; margin-right:10px;">
-                            <a href="http://bunsen:5000" target="_blank" title=":5000" rel="noopener noreferrer" class="link" data-url="http://bunsen:5000" data-name=":5000" data-filepath="http://bunsen:5000">:5000</a>
-                            <br>_ : visited:</li>
-                        <li class="homeurl-item" style="float:left; margin-right:10px;">
-                            <a href="https://scout.click" target="_blank" title="Fedi-Search" rel="noopener noreferrer" class="link" data-url="https://scout.click" data-name="Fedi-Search" data-filepath="https://scout.click">Fedi-Search</a>
-                            <br>_ : visited:</li>
-                        <li class="homeurl-item" style="float:left; margin-right:10px;">
-                            <a href="https://neutility.life" target="_blank" title="Neutility._" rel="noopener noreferrer" class="link" data-url="https://neutility.life" data-name="Neutility._" data-filepath="https://neutility.life">Neutility._</a>
-                            <br>Visited: 2<br>_ : Waving</li>
-                    </ol>
-                </div>
-                <div id="quickChange" class="info">Change quick links in /opt/lampp/htdocs/VerifyGit/config.json [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
-
-                <div id="mainFrameContainer">
-
-                    <!--    ^   id:mainFrameContainer   ^   -->
-                    <div id="frameTitler">iframe.src: <span id="frameName"></span>
-                    </div>
-                    <!--    $   id:frameTitler  $   -->
-                    <iframe title="frame content as selected in main navigation" src="index.phtml" id="mainFrame">
-                    </iframe>
-                </div>
-
-                <!--    $   id:mainFrameContainer   $   -->
             </div>
+        </section> <!--    $   section   #general_notes  .container    $   -->
 
-            <!--    $   id:maincol  $   -->
-            <div id="footer" class="container">
-                <!-- 	^	#footer 	^	-->
-
-                <div class="vertMid">
-                    <!--	^	.vertMid	^	-->
-                    <!-- p id="toTop" class="floatRt"></p -->
-                    <p id="searchrec">Search privately: <a href="https://duckduckgo.com/goodies" title="Search privately">Duck-Duck-Go for it!</a> </p>
-                    <object id="duckduckgo" class="transparentback" title="Search at DuckDuckGo.com" data="assets/svg/duckduckgo-icon.svg" type="image/svg+xml" height="32" width="32">
-                    </object>
-
-                </div> <!--	$	.vertMid	$	-->
-
+        <footer id="footer-section" class="footer px-4 cl">
+            <!--    .FOOTER     -->
+            <div class="row gx-5">
+                <div class="col">
+                    <div class="p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust" target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div>
+                </div>
+                <div class="col">
+                    <div class="p-3 border bg-light text-end"><kbd>Modified: Fri Aug 22 2025 12:37:25 EDT</kbd></div>
+                </div>
             </div>
-            <!-- 	$	#footer 	$	-->
-        </div>
-        <!-- end$ id: wrapper end$ -->
-    </div>
-    <!-- $  id:pagewidth    $ -->
-    <script type="text/javascript" src="assets/js/showme-hideme.js">
-    </script>
-    <script type="text/javascript" src="assets/js/addlistener.js">
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        </footer>
 
+</div> <!--    .content  -->    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="assets/js/showme-hideme.js"></script>
+    <script src="assets/js/lightslider.js"></script>
+    <script src="assets/js/p2u2.js"></script>
+    <script src="assets/js/dynamicdrop.js"></script>
 
 
 </body>
