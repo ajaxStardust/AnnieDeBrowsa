@@ -27,7 +27,13 @@
         },
         {
             "url": "https:\/\/scout.click",
-            "name": "FN Fedi-Search",
+            "name": "Search",
+            "data": "visited:",
+            "count": 0
+        },
+        {
+            "url": "http:\/\/mxuni:5000",
+            "name": "FlaskBlog",
             "data": "visited:",
             "count": 0
         }

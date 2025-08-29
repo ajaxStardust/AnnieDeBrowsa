@@ -62,7 +62,6 @@ class P2u2
         // dev env specific note where '/media/wd2tb01' is reference to where my development server is on LAN. 
         // Learn from this here how to mod for your setup.
         $this->clean_chars['url_2_convert'] = str_ireplace('/media/wd2tb01', '', $this->clean_chars['url_2_convert']);        
-        $this->clean_chars['url_2_convert'] = str_ireplace('/opt/lampp/htdocs', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('@([\x5c\x2f]+)@', '/', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/"/', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/ /', '%20', $this->clean_chars['url_2_convert']);
@@ -81,7 +80,7 @@ class P2u2
             $this->clean_chars['url_2_convert'] = $this->clean_chars['processed_url'];
         }
 
-        $this->clean_chars['config_file'] = '/var/www/mxuni/config.json';
+        $this->clean_chars['config_file'] = dirname($_SERVER['SCRIPT_FILENAME']) . '/config.json';
         $this->clean_chars['config_data'] = file_get_contents($this->clean_chars['config_file']);
         $this->clean_chars['config_data'] = json_decode($this->clean_chars['config_data']);
         $this->clean_chars['config_data'] = json_encode($this->clean_chars['config_data']);

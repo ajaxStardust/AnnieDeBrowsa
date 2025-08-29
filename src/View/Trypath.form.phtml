@@ -81,7 +81,8 @@ foreach ($process_location as $mKey => $mVal) {
 </form>
     </div>
     </div>
-    
+<div id="position-urls" class="w-50 bg-light-silver">
+    <h2 class="f3">Results</h2>
 <?php
 // $concatThis = str_ireplace('//','/',$concatThis);
 echo '<dl id="tryfix-results" class="ph2 pv1 cl">';
@@ -99,15 +100,9 @@ echo '<dt class="b">concatSwitch</dt><dd><a href="' .
     $concatSwitch .
     '" target="_blank">' .
     $concatSwitch .
-    "</a></dd></dl>";
-
-/*  echo '<h4>buildUrl vals:</h4>';
-if(is_array($buildUrl)){
-foreach($buildUrl as $bKey => $bVal) {
-echo '<br>bVal['.$bKey.']: '.$bVal ;
-}
-} */
+    "</a></dd></dl>"; 
 ?>
+    </div> <!-- POSITION URLS -->
 </div> <!-- #processing-summary -->
     </div> <!-- end trypath -->
 
