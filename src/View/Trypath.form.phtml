@@ -1,14 +1,15 @@
 <!-- ^ Trypath.form.phtml -->
-<section id="trypath-section" class="ph2 ph4-ns">
 
-<div class="fl w-45">
-<h2>Processing Summary:</h2>
-<div class="bg-light-gray">
-<dl id="processingSummary"> 
-<dt class="pointer">Path <span class="thin">(three different ways)</span> <span class="normal blue pointer" id="show_g01"
-onclick="swap_text('show_g01','glossary_01') "> [details...]</span>
+
+<div id="trypath-division" class="w-45 pa1 db">
+<h2 class="f4">Processing Summary</h2>
+<div class="bg-light-gray w-45 mw-30">
+    <div class="w-50 pv3">
+<dl id="processingSummary" class="fl pa2 db"> 
+<dt class="pointer b">Path <span class="thin">(three different ways)</span> <span class="normal blue pointer" id="show_g01"
+onclick="swap_text('show_g01','glossary_01') "> [collapse]</span>
 </dt>
-<dd id="glossary_01" class="dn">
+<dd id="glossary_01" class="bg-white ph2 pv1">
 <p>Using regular expressions and other syntax, the URL components which make up the path
 are separated and stored in an array, "path[]". </p>
 <p><code>path[]</code> is derived from <code
@@ -66,10 +67,10 @@ foreach ($process_location as $mKey => $mVal) {
 ?>
 </dd>
 </dl>
-    
-    
+    </div>    
+<div class="w6 left-2 relative">
 <h2>Try fix</h2>
-<div clas="form-container pa2">
+<div clas="form-container pv2 ph2">
 <p>Enter system path / submit:</p>
 <h3 class="f3">Raw Path Used:</h3> 
 
@@ -79,11 +80,11 @@ foreach ($process_location as $mKey => $mVal) {
 <button class="btn btn-primary" type="submit" name="submit">Submit path</button>
 </form>
     </div>
-    
+    </div>
     
 <?php
 // $concatThis = str_ireplace('//','/',$concatThis);
-echo '<dl id="tryfix-results">';
+echo '<dl id="tryfix-results" class="ph2 pv1 cl">';
 echo '<dt class="b">buildByComp (dynamic hostname)</dt><dd><a href="' .
     rtrim($buildByComp, "/") .
     '" target="_blank">' .
@@ -108,7 +109,7 @@ echo '<br>bVal['.$bKey.']: '.$bVal ;
 } */
 ?>
 </div> <!-- #processing-summary -->
-    </div> <!-- end float -->
+    </div> <!-- end trypath -->
 
-</section>
+
 <!--  Trypath.form.phtml $ -->

@@ -50,7 +50,6 @@ $contructNewMethod = $Newmethod->_construct_NewMethod;
 $Functions = new Functions();
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -90,17 +89,18 @@ $Functions = new Functions();
 </article>
 </header>
 
-                            <?php require 
-    "../src/View/Trypath.form.phtml"
-    ?>
+<?php 
+            require "../src/View/Trypath.form.phtml";
+            require "../src/View/Twerkin.form.phtml";
+?>
 
-<section id="todo-section">
-    
-                            <h3 class="card-heading">@ToDo</h3>
+
+    <div class="bg-light-pink w-75 cf dtc">
+                            <h3 class="">@ToDo</h3>
                             <h4>Nav-go-up thing</h4>
                             <p>The value derived here, set as goUp[url], should be placed as the first &lt;li&gt; item in the primary navigation list</p>
                             <!-- php nav goup -->
-                            <ol id="navgoup_demo">
+                            <ol id="navgoup_demo" class="db">
                                 <?php
                                 $goUpArray = $Functions->process_goup();
                                 foreach ($goUpArray as $goUpKey => $goUpVal) {
@@ -109,18 +109,11 @@ $Functions = new Functions();
                                 ?>
                             </ol>
     
+    </div>
     
-    </section>
     
 
-    <?php 
-    
-     include "Twerkin.form.phtml"; 
-    ?>
-        
 
-
-        <section id="server-section" class="container">
 
             <?php
             /** 
@@ -145,9 +138,9 @@ $Functions = new Functions();
                     '</span></p>
         </div></div>'; ?>
             </div>
-        </section> <!--    $   section   #general_notes  .container    $   -->
 
-        <section id="footer-section" class="footer px-4">
+
+        <footer id="footer-section" class="footer ph2 pv3">
             <!--    .FOOTER     -->
             <div class="row gx-5">
                 <div class="col">
@@ -158,7 +151,7 @@ $Functions = new Functions();
                     <div class="p-3 border bg-light text-end"><kbd><?php echo $whatis["lastMod"]; ?></kbd></div>
                 </div>
             </div>
-        </section>
+        </footer>
     </div> <!--    .content  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="assets/js/showme-hideme.js"></script>
