@@ -27,11 +27,12 @@ namespace Adb\View;
 <!-- end$ id: wrapper end$ -->
 </div>
 <!-- $  id:pagewidth    $ -->
-<script type="text/javascript" src="assets/js/showme-hideme.js">
+<script src="assets/js/showme-hideme.js">
 		</script>
-<script type="text/javascript" src="assets/js/addlistener.js">
+<script src="assets/js/addlistener.js">
 		</script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="assets/js/dynamicdrop.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </body>
 </html>
