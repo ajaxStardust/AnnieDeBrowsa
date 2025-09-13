@@ -75,12 +75,12 @@ $Functions = new Functions();
                         <h1 class="sans-serif"><?= $whatis["page_heading"] ?></h1>
             <h2 class="f4-l">ENV:</h2>
             
-        <p class="black-70 measure lh-copy mv0"><strong><?= __FILE__; ?></strong>:</p> 
+        <p class="black-70 measure lh-copy mv0"><strong>This file: </strong><code><?= __FILE__; ?></code></p> 
         
         <?php
             if (isset($Env->initialize_enviornment["abspathtml"])) {
-                echo '<p class="f3 mid-gray lh-title"><strong>ABSPATHHTML</strong>:' .
-                    $Env->initialize_enviornment["abspathtml"].'</p>';
+                echo '<p class="mid-gray lh-title"><strong>ABSPATHHTML</strong>:<code class="f5">' .
+                    $Env->initialize_enviornment["abspathtml"].'</code></p>';
             } else {
                 echo '<p class="f3 mid-gray lh-title"><strong class="ms monospace red">$Env-&#x3e;initialize_enviornment[abspathtml] is not set</strong></p>';
             }
@@ -95,7 +95,7 @@ $Functions = new Functions();
 ?>
 
 
-    <div class="bg-light-pink w-75 cf dtc">
+    <div id="todo-division" class="bg-light-pink w-75 cf dtc">
                             <h3 class="">@ToDo</h3>
                             <h4>Nav-go-up thing</h4>
                             <p>The value derived here, set as goUp[url], should be placed as the first &lt;li&gt; item in the primary navigation list</p>
@@ -110,19 +110,7 @@ $Functions = new Functions();
                             </ol>
     
     </div>
-    
-    
-
-
-
-            <?php
-            /** 
-             * developer note: i forget what this is
-             *  require 'LateLogic.page.phtml';
-             * pretty sure its been comment for a while
-             */
-            ?>
-            <div class="col">
+        <div id="serverinfo-division" class="bg-light-yellow">
                 <h3 class="card-heading">Server Info</h3>
                 <?php echo '<div class="container"><div class="bg-dark d-flex justify-content-between flex-wrap" id="info_container"><p class="bg-dark text-light">Served by: <span class="bg-dark text-warning">' .
                     $Env->initialize_enviornment["serversoftware"] .
@@ -137,9 +125,7 @@ $Functions = new Functions();
                     $Env->initialize_enviornment["server_addr"] .
                     '</span></p>
         </div></div>'; ?>
-            </div>
-
-
+        </div>
         <footer id="footer-section" class="footer ph2 pv3">
             <!--    .FOOTER     -->
             <div class="row gx-5">
