@@ -2,21 +2,27 @@
     "home_urls": [
         {
             "url": "http:\/\/localhost:80\/index.php",
-            "name": "localhost:80",
-            "data": "visited:",
-            "count": 0
+            "name": "localhost:80/index.php",
+            "data": "🙋",
+            "data2": "1"
         },
         {
-            "url": "http:\/\/localhost\/VerifyGit",
-            "name": "127.VerifyGit",
-            "data": "visited:",
-            "count": 0
+            "url": "https:\/\/127.0.0.1:443\/",
+            "name": "127.0.0.1:443/",
+            "data": "🙋",
+            "data2": "1"
         },
         {
-            "url": "https:\/\/vps111\/VerifyGit",
-            "name": "192.VerfifyGit",
-            "data": "visited:",
-            "count": 0
+            "url": "http:\/\/localhost\/AnnieDeBrowsa",
+            "name": "127.AnnieDeBrowsa",
+            "data": "🙋",
+            "data2": "1"
+        },
+        {
+            "url": "https:\/\/scout.click",
+            "name": "Scout[.click]",
+            "data": "🙋",
+            "data2": "0"
         }
     ]
 }

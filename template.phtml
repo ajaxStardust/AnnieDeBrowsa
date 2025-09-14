@@ -22,7 +22,7 @@
  */
 
 date_default_timezone_set('EST');
-$page_heading = 'Some Text Styles of &#x201c;Chota MicroCSS&#x201d; CSS';
+$page_heading = 'Some Text Styles of &#x201c;Bootstrap&#x201d; CSS';
 $title = 'TITLE ME PLEASE';
 $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
 ?>
@@ -38,27 +38,27 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
     </title>
     <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-    <!-- link href="assets/css/style.css" rel="stylesheet" -->
-    <!-- link href="assets/css/notes.css" rel="stylesheet" -->
-    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
-    <link href="assets/css/lightslider.css" rel="stylesheet">
-    <style>.displaynone {display:none;}</style>
-    <!-- link rel="stylesheet" href="public/assets/css/Chota MicroCSS.min.css" -->
-<style>
-    body.dark {
-      --bg-color: #000;
-      --bg-secondary-color: #131316;
-      --font-color: #f5f5f5;
-      --color-grey: #ccc;
-      --color-darkGrey: #777;
+
+    <style>
+    .tsw {
+        font-family: "source serif pro";
+        font-size: 1.2rem;
+        font-style: italic;
     }
-  </style>
-  <script>
-    if (window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark');
-    }
-  </script>
+        .displaynone {
+         display:none;   
+        }
+
+    /** if needed add style here
+                                ** NOTE THE NEW favICON code here:
+                                **
+                                */
+    </style>
+    <link rel="icon" href="./favicon.ico" sizes="32x32">
+    <link rel="icon" href="./favicon.ico" sizes="192x192">
+    <link rel="apple-touch-icon" href="./favicon.ico">
+    <meta name="msapplication-TileImage" content="<!-- http://.file./ -->">
+    <link rel="stylesheet" href="public/assets/css/bootstrap.min.css">
 </head>
 
 <body>
@@ -75,73 +75,42 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
         <section id="general_notes">
 
             <div class="notes">
-                <p>Examples from the Chota MicroCSS project website.</p>
+                <p>Examples from the Bootstrap project website.</p>
+
+
                 <dl>
-                    <dt class="keyTerms pointer">.text-[color]<span class="normal blue pointer" id="show_n01"
-                            onclick="swap_text('show_n01','chota-utilities_01') "> toggle... </span>
+                    <dt class="keyTerms pointer">bg-light <span class="normal blue pointer" id="show_n01"
+                            onclick="swap_text('show_n01','notes_01') ">[toggle...]</span>
                     </dt>
-                    <dd id="chota-utilities_01" class="displaynone">
+                    <dd id="notes_01" class="displaynone">
                         <!-- hidden then revealed -->
                         <p class="text-primary">.text-primary</p>
-                        <p class="text-light">.text-light</p>
-                        <p class="text-white">.text-white</p>
-                        <p class="text-dark">.text-dark</p>
-
-                        <p class="text-grey">.text-grey</p>
-                        <p class="text-error">.text-error</p>
+                        <p class="text-secondary">.text-secondary</p>
                         <p class="text-success">.text-success</p>
-                   </dd>
+                        <p class="text-danger">.text-danger</p>
 
-                    <dt class="keyTerms pointer">bg-[color]: <span class="normal blue pointer" id="show_n02"
-                            onclick="swap_text('show_n02','chota-utilities_02') "> toggle... </span>
+                        <p class="text-dark">.text-dark</p>
+                        <p class="text-body">.text-body</p>
+                        <p class="text-muted">.text-muted</p>
+
+                        <p class="text-black-50">.text-black-50</p>
+                    </dd>
+
+                    <dt class="keyTerms pointer">bg-dark: <span class="normal blue pointer" id="show_n02"
+                            onclick="swap_text('show_n02','notes_02') ">[toggle...]</span>
                     </dt>
-                    <dd id="chota-utilities_02" class="displaynone">
+                    <dd id="notes_02" class="displaynone">
                         <!-- hidden then revealed -->
-                        <p class="text-white bg-primary">.bg-primary .text-white</p>
-                        <p class="text-info bg-light">.bg-light .text-dark</p>
-                        <p class="text-light bg-dark">.bg-dark .text-light</p>
-                        <p class="text-white bg-grey">.bg-grey .text-white</p>
-                        <p class="text-light bg-error">.bg-error .text-light</p>
-                        <p class="text-dark bg-success">.bg-success .text-dark</p>
+                        <p class="text-warning bg-dark">.text-warning</p>
+                        <p class="text-info bg-dark">.text-info</p>
+                        <p class="text-light bg-dark">.text-light</p>
+                        <p class="text-white bg-dark">.text-white</p>
+                        <p class="text-white-50 bg-dark">.text-white-50</p>
                     </dd>
                 </dl>
-    <section class="content">
-<details><summary>
-Border Colors
-</summary>
-bd-primary - primary border
-bd-light - Light border
-bd-dark - Dark border
-bd-grey - Grey border
-bd-error - Error border
-bd-success - Success border
-</details>
-</section>
 
-<details>
-<summary>
-Text, Background, Border colors
-</summary>
-<pre>text-primary - Primary text
-text-light - Light text
-text-white - White text
-text-dark - Dark text
-text-grey - Grey text
-text-error - Error text
-text-success - Success text
-bg-primary - primary background
-bg-light - Light background
-bg-dark - Dark background
-bg-grey - Grey background
-bg-error - Error background
-bg-success - Success background
-bd-primary - primary border
-bd-light - Light border
-bd-dark - Dark border
-bd-grey - Grey border
-bd-error - Error border
-bd-success - Success border</pre>
-</details>
+                <!-- END NOTES -->
+                <!-- END NOTES -->
                 <!-- END NOTES -->
                 <!-- END NOTES -->
 
