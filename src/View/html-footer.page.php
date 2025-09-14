@@ -1,12 +1,9 @@
 <?php
 namespace Adb\View;
 ?>
-<div id="footer" class="container">
+<footer id="footer" class="pa3 bg-near-white">
     <!-- 	^	#footer 	^	-->
 
-    <div class="vertMid">
-        <!--	^	.vertMid	^	-->
-        <!-- p id="toTop" class="floatRt"></p -->
         <p id="searchrec">Search privately: <a href="https://duckduckgo.com/goodies"
                 title="Search privately">Duck-Duck-Go for it!</a> </p>
                 <object
@@ -18,10 +15,7 @@ namespace Adb\View;
                     height="32"
                     width="32">
         </object>
-
-    </div> <!--	$	.vertMid	$	-->
-
-</div>
+</footer>
 <!-- 	$	#footer 	$	-->
 </div>
 <!-- end$ id: wrapper end$ -->

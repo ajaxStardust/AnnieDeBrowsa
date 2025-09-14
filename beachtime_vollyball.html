@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tachyons Calculon N Jeff - Beachtime Vollyball</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css">
+    <link href="public/assets/css/tachyons.css" rel="stylesheet">
+    <link rel="icon" type="image/ico" href="favicon.ico">
+</head>
+
+<body class="bg-light-gray">
+
+    <figure id="cssBox_Target" class="dn">
+        <img src="assets/images/css-box.png" alt="CSS Box-model illustration" class="w-100">
+    </figure>
+
+    <div id="pagewidth" class="bg-light-gray">
+        <div id="wrapper" class="ph3 ph5-ns">
+
+            <header id="header" class="mb4">
+                <object id="svgtitle" class="dib" title="Documents container"
+                        data="assets/css/masthead.php" type="image/svg+xml"></object>
+                <div id="headingTitle" class="f4">favicon.ico</div>
+            </header>
+
+            <nav id="leftcol" class="mb4">
+                <ul id="navlist" class="list pl0">
+                    <!-- Example toggle -->
+                    <li onclick="showHide('ul_.')" id="li_._control" class="mb2">
+                        <span class="fw7">.</span> [ view 5 ]
+                        <ul id="ul_." class="list pl3 dn">
+                            <li class="mb1"><a href="file_loader.php?file=.git" class="link dim">.<span class="red">git</span></a></li>
+                            <li class="mb1"><a href="file_loader.php?file=.gitignore" class="link dim">.<span class="red">gitignore</span></a></li>
+                        </ul>
+                    </li>
+                    <!-- Additional nav items simplified for brevity -->
+                </ul>
+            </nav>
+
+            <main id="maincol" class="mb5">
+                <h2 id="doc_loc_href" class="f3 mb3">vps111/VerifyGit</h2>
+
+                <div class="hide-show-element w-third mb3">
+                    <input type="checkbox" id="toggle">
+                    <label for="toggle"></label>
+                    <div id="pageControls" class="pa3 bg-near-white br2 shadow-1">
+                        <ul id="controList" class="list pl0">
+                            <li class="mb2"><a href="#header" class="link dim">Top</a></li>
+                            <li class="mb2" onclick="collapseNav('leftcol')"><a class="link dim">Toggle Nav</a></li>
+                            <li class="mb2"><a onclick="goBack()" class="link dim">Back</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <hr class="dn">
+
+                <div id="sytebuild_htmlbuild">
+                    <ol class="list pl0 flex flex-wrap">
+                        <li class="mr3 mb2"><a href="http://localhost:80/index.php" target="_blank" class="link dim">localhost:80</a></li>
+                        <li class="mr3 mb2"><a href="https://localhost:443/index.php" target="_blank" class="link dim">localhost:443</a></li>
+                        <li class="mr3 mb2"><a href="https://vps111" target="_blank" class="link dim">vps111</a></li>
+                        <li class="mr3 mb2"><a href="http://bunsen:5000" target="_blank" class="link dim">:5000</a></li>
+                        <li class="mr3 mb2"><a href="https://scout.click" target="_blank" class="link dim">Fedi-Search</a></li>
+                    </ol>
+                </div>
+
+                <div id="mainFrameContainer" class="mt4">
+                    <div id="frameTitler" class="mb2">iframe.src: <span id="frameName">favicon.ico</span></div>
+                    <iframe title="frame content" src="https://vps111/VerifyGit/favicon.ico" id="mainFrame" class="w-100 h5"></iframe>
+                </div>
+            </main>
+
+            <footer id="footer" class="pa3 bg-near-white">
+                <p>Search privately: <a href="https://duckduckgo.com/goodies" class="link dim">DuckDuckGo</a></p>
+                <object id="duckduckgo" class="dib" title="DuckDuckGo Icon" data="assets/svg/duckduckgo-icon.svg" type="image/svg+xml" width="32" height="32"></object>
+            </footer>
+
+        </div>
+    </div>
+
+    <script src="assets/js/showme-hideme.js"></script>
+    <script src="assets/js/addlistener.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</body>
+</html>

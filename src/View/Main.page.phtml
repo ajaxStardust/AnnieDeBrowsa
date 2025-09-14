@@ -8,142 +8,123 @@ use P2u2\Model\Functions as Functions;
 use P2u2\Model\Newmethod as Newmethod;
 use P2u2\Model\P2u2 as P2u2;
 
+// Initialize environment
 $Env = new Env(NS2_ROOT);
 $initEnv = $Env->whatis(NS2_ROOT);
-// set Env variable array ver01
 $title = $Env->initialize_enviornment["title"];
 
-if (isset($_GET["path2url"])) {
-    $path2url = $_GET["path2url"];
-} else {
-    $path2url = NS2_ROOT;
-}
-
-// path sent to process
-$enterpathhere = isset($path2url) ? $path2url : $_SERVER["DOCUMENT_ROOT"] . "/index.php";
-// set Env vars based on enterpathhere
-// DIFF? whatis allows for path
+// Determine path to process
+$path2url = $_GET['path2url'] ?? NS2_ROOT;
+$enterpathhere = $path2url ?: ($_SERVER['DOCUMENT_ROOT'] . '/index.php');
 $whatis = $Env->whatis($enterpathhere);
 
-// P2u2()
+// Instantiate core classes
 $P2u2 = new P2u2($enterpathhere);
-// P2u2() filtered path to process
-$clean_url = $P2u2->clean_url_chars($enterpathhere);
-// P2u2()
-$extract_components = $P2u2->extract_path_components($P2u2->clean_url_chars($enterpathhere));
+$normalizedPath = $P2u2->normalizePath($enterpathhere);
+$strippedPath = $P2u2->stripBasePaths($normalizedPath);
+$fullUrl = $P2u2->buildUrl($enterpathhere);
 
-// Evalpath()
+// Extract components
+$extract_components = $P2u2->extractComponents($enterpathhere);
+
+// Evalpath
 $Eval = new Evalpath($enterpathhere);
-// Evalpath()
 $EvalPathHere = $Eval->test_location($enterpathhere);
 
-// Newmethod()
+// Newmethod
 $Newmethod = new Newmethod($enterpathhere);
-// Newmethod()
 $buildUrl = $Newmethod->buildUrl($enterpathhere);
-// Newmethod()
 $buildUrlLast = $Newmethod->buildUrlLast($enterpathhere);
-// Newmethod()
 $contructNewMethod = $Newmethod->_construct_NewMethod;
 
-// Functions()
+// Functions
 $Functions = new Functions();
+
 ?>
-
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?php print $whatis["title"]; ?>
-    </title>
+    <title><?= $whatis["title"] ?></title>
     <link rel="icon" type="image/ico" href="favicon.ico">
-    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
     <link rel="stylesheet" href="assets/css/tachyons.css">
-    <link href="assets/css/lightslider.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/lightslider.css">
 </head>
+<body class="bg-light-gray">
 
-    <body>
-        <!-- edit classes here for pagewidth -->
-        <div id="pagewidth" class="sans-serif mw-90 ma db pv2 ph3">
-            <!-- ::before #HEADER -->
-            <header id="header-section" class="sans-serif ph5-ns">
-                <article class="sans-serif br3-ns pv1 w-75-ns ph6-ms bg-lightest-blue center">
-                    <div class="sans-serif ph5-ns">
-                        <h1 class="sans-serif"><?= $whatis["page_heading"] ?></h1>
-            <h2 class="f4-l">ENV:</h2>
-            
-        <p class="black-70 measure lh-copy mv0"><strong>This file: </strong><code><?= __FILE__; ?></code></p> 
-        
-        <?php
-            if (isset($Env->initialize_enviornment["abspathtml"])) {
-                echo '<p class="mid-gray lh-title"><strong>ABSPATHHTML</strong>:<code class="f5">' .
-                    $Env->initialize_enviornment["abspathtml"].'</code></p>';
-            } else {
-                echo '<p class="f3 mid-gray lh-title"><strong class="ms monospace red">$Env-&#x3e;initialize_enviornment[abspathtml] is not set</strong></p>';
-            }
-            ?>
-</div>
-</article>
-</header>
+<div id="pagewidth" class="sans-serif mw-90 ma db pv2 ph3">
 
-<?php 
-            require "../src/View/Trypath.form.phtml";
-            require "../src/View/Twerkin.form.phtml";
-?>
+    <!-- HEADER -->
+    <header id="header-section" class="sans-serif ph5-ns">
+        <article class="sans-serif br3-ns pv1 w-75-ns ph6-ms bg-lightest-blue center">
+            <div class="sans-serif ph5-ns">
+                <h1><?= $whatis["page_heading"] ?></h1>
+                <h2 class="f4-l">ENV:</h2>
+                <p class="black-70 measure lh-copy mv0"><strong>This file: </strong><code><?= __FILE__; ?></code></p>
+                <?php if (!empty($Env->initialize_enviornment["abspathtml"])): ?>
+                    <p class="mid-gray lh-title"><strong>ABSPATHHTML</strong>:<code class="f5"><?= $Env->initialize_enviornment["abspathtml"] ?></code></p>
+                <?php else: ?>
+                    <p class="f3 mid-gray lh-title"><strong class="ms monospace red">$Env-&gt;initialize_enviornment[abspathtml] is not set</strong></p>
+                <?php endif; ?>
+            </div>
+        </article>
+    </header>
 
+    <!-- FORMS -->
+    <?php 
+        require "../src/View/Trypath.form.phtml";
+        require "../src/View/Twerkin.form.phtml";
+    ?>
 
+    <!-- TODO SECTION -->
     <div id="todo-division" class="bg-light-pink w-75 cf dtc">
-                            <h3 class="">@ToDo</h3>
-                            <h4>Nav-go-up thing</h4>
-                            <p>The value derived here, set as goUp[url], should be placed as the first &lt;li&gt; item in the primary navigation list</p>
-                            <!-- php nav goup -->
-                            <ol id="navgoup_demo" class="db">
-                                <?php
-                                $goUpArray = $Functions->process_goup();
-                                foreach ($goUpArray as $goUpKey => $goUpVal) {
-                                    echo '<li class="navgoup_item">goUp[' . $goUpKey . "]: " . $goUpVal . "</li>";
-                                }
-                                ?>
-                            </ol>
-    
+        <h3>@ToDo</h3>
+        <h4>Nav-go-up thing</h4>
+        <p>The value derived here, set as goUp[url], should be placed as the first &lt;li&gt; item in the primary navigation list</p>
+        <ol id="navgoup_demo" class="db">
+            <?php
+                $goUpArray = $Functions->process_goup();
+                foreach ($goUpArray as $goUpKey => $goUpVal) {
+                    echo '<li class="navgoup_item mb1">goUp['.$goUpKey.']: '.$goUpVal.'</li>';
+                }
+            ?>
+        </ol>
     </div>
-        <div id="serverinfo-division" class="bg-light-yellow">
-                <h3 class="card-heading">Server Info</h3>
-                <?php echo '<div class="container"><div class="bg-dark d-flex justify-content-between flex-wrap" id="info_container"><p class="bg-dark text-light">Served by: <span class="bg-dark text-warning">' .
-                    $Env->initialize_enviornment["serversoftware"] .
-                    '</span></p>
-        <p class="bg-dark text-light">PHP Version: <span class="text-warning">' .
-                    phpversion() .
-                    '</span></p>
-        <p class="bg-dark text-light">Server Name: <span class="text-info">' .
-                    $Env->initialize_enviornment["server_name"] .
-                    '</span></p>
-        <p class="bg-dark text-light">Server Addr: <span class="text-info">' .
-                    $Env->initialize_enviornment["server_addr"] .
-                    '</span></p>
-        </div></div>'; ?>
+
+    <!-- SERVER INFO -->
+    <div id="serverinfo-division" class="bg-light-yellow">
+        <h3 class="card-heading">Server Info</h3>
+        <div class="container">
+            <div class="bg-dark d-flex justify-content-between flex-wrap" id="info_container">
+                <p class="bg-dark text-light">Served by: <span class="bg-dark text-warning"><?= $Env->initialize_enviornment["serversoftware"] ?></span></p>
+                <p class="bg-dark text-light">PHP Version: <span class="text-warning"><?= phpversion() ?></span></p>
+                <p class="bg-dark text-light">Server Name: <span class="text-info"><?= $Env->initialize_enviornment["server_name"] ?></span></p>
+                <p class="bg-dark text-light">Server Addr: <span class="text-info"><?= $Env->initialize_enviornment["server_addr"] ?></span></p>
+            </div>
         </div>
-        <footer id="footer-section" class="footer ph2 pv3">
-            <!--    .FOOTER     -->
-            <div class="row gx-5">
-                <div class="col">
-                    <div class="p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust"
-                            target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div>
-                </div>
-                <div class="col">
-                    <div class="p-3 border bg-light text-end"><kbd><?php echo $whatis["lastMod"]; ?></kbd></div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="footer-section" class="footer ph2 pv3">
+        <div class="row gx-5">
+            <div class="col">
+                <div class="p-3 border bg-light">
+                    Based on Notes by <a href="https://github.com/ajaxStardust" target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:
                 </div>
             </div>
-        </footer>
-    </div> <!--    .content  -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="assets/js/showme-hideme.js"></script>
-    <script src="assets/js/lightslider.js"></script>
-    <script src="assets/js/p2u2.js"></script>
-    <script src="assets/js/dynamicdrop.js"></script>
-</body>
+            <div class="col">
+                <div class="p-3 border bg-light text-end"><kbd><?= $whatis["lastMod"] ?></kbd></div>
+            </div>
+        </div>
+    </footer>
+</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="assets/js/showme-hideme.js"></script>
+<script src="assets/js/lightslider.js"></script>
+<script src="assets/js/p2u2.js"></script>
+<script src="assets/js/dynamicdrop.js"></script>
+</body>
 </html>
