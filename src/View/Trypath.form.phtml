@@ -1,110 +1,108 @@
-<!-- ^ Trypath.form.phtml -->
-
+<!-- Trypath.form.phtml -->
 
 <div id="trypath-division" class="w-45 pa1 db">
-<h2 class="f4">Processing Summary</h2>
-<div class="bg-light-gray w-45 mw-30">
+  <h2 class="f4">Processing Summary</h2>
+  <div class="bg-light-gray w-45 mw-30">
     <div class="w-50 pv3">
-<dl id="processingSummary" class="fl pa2 db"> 
-<dt class="pointer b">Path <span class="thin">(three different ways)</span> <span class="normal blue pointer" id="show_g01"
-onclick="swap_text('show_g01','glossary_01') "> [collapse]</span>
-</dt>
-<dd id="glossary_01" class="bg-white ph2 pv1">
-<p>Using regular expressions and other syntax, the URL components which make up the path
-are separated and stored in an array, "path[]". </p>
-<p><code>path[]</code> is derived from <code
-    class="php">$Eval-&gt;test_location($enterpathhere)['pb'];</code></p>
-<ul>
-<li><code>buldByComp</code> uses _SERVER[], path[], to build the resulting HTTP url.
-</li>
-<li><code>concatThis</code> uses that info but first removes some standard known
-    paths in attempt to achive a more likely correct URL, and tends to be the most reliable of the three results.</li>
-<li><code>concatSwitch</code> employs the use of a switch case logic. This is usually garbage for some reason. All in the spirit of playing with code.</li>
-</ul>
-<?php
-$common_paths = [
-    "\/opt\/lampp\/htdocs",
-    "\/var\/www\/html",
-    "\/var\/www\/htdocs",
-    "\/var\/www\/public_html",
-    "\/var\/www\/htdocs\/public_html",
-    "\/var\/www\/wwwroot",
-    "\/home\/admin\/web",
-];
-$trimmed_new_url = str_ireplace(
-    "/var/www/" . $contructNewMethod["_dynamichost"],
-    "",
-    $contructNewMethod["new_url_concat"]
-);
-foreach ($common_paths as $cpathKey => $cpathVal) {
-    if (preg_match($cpathVal, $contructNewMethod["new_url_concat"])) {
-        $trimmed_new_url = str_ireplace($cpathVal, "", $contructNewMethod["new_url_concat"]);
+      <dl id="processingSummary" class="fl pa2 db"> 
+        <dt class="pointer b">
+          Path <span class="thin">(three different ways)</span>
+          <span class="normal blue pointer" id="show_g01"
+                onclick="swap_text('show_g01','glossary_01')"> [collapse]</span>
+        </dt>
+        <dd id="glossary_01" class="bg-white ph2 pv1">
+          <p>Using regular expressions and other syntax, the URL components which make up the path
+            are separated and stored in an array, <code>path[]</code>.</p>
+          <p><code>path[]</code> is derived from <code class="php">
+              $Eval->test_location($enterpathhere)['pb'];
+            </code>
+          </p>
+          <ul>
+            <li><code>buildByComp</code> uses _SERVER[], path[], to build the resulting HTTP url.</li>
+            <li><code>concatThis</code> uses that info but first removes some standard known
+              paths in attempt to achieve a more likely correct URL.</li>
+            <li><code>concatSwitch</code> employs switch case logic; usually less reliable.</li>
+          </ul>
 
-        break;
-    }
-}
+          <?php
+          $common_paths = [
+              "/opt/lampp/htdocs",
+              "/var/www/html",
+              "/var/www/htdocs",
+              "/var/www/public_html",
+              "/var/www/htdocs/public_html",
+              "/var/www/wwwroot",
+              "/home/admin/web",
+          ];
 
-$buildByComp =
-    $_SERVER["REQUEST_SCHEME"] . "://" . $contructNewMethod["_dynamichost"] . "/" . ltrim($trimmed_new_url, "/");
-$concatThis = $_SERVER["REQUEST_SCHEME"] . "://";
-$concatSwitch = $_SERVER["REQUEST_SCHEME"] . "://" . $contructNewMethod["_dynamichost"];
-foreach ($P2u2->path_comps["matches"] as $mKey => $mVal) {
-    echo "<br>path[" . $mKey . "]: " . $mVal;
-    if ($mVal != "var" && $mVal != "www" && $mVal != "admin" && $mVal != "home" && $mVal != "web") {
-        $mVal = str_ireplace("public_html", "", $mVal);
-        $mVal = str_ireplace("//", "/", $mVal);
-        $concatThis .= ltrim($mVal, "/") . "/";
-        // $concatThis = str_ireplace($_SERVER['SERVER_NAME'],'/',$concatThis);
-    }
-}
+          $trimmed_new_url = $contructNewMethod["new_url_concat"] ?? '';
 
-$process_location = $Eval->test_location($enterpathhere)["pb"];
+          foreach ($common_paths as $cpathVal) {
+              if (preg_match('@' . preg_quote($cpathVal, '@') . '@', $contructNewMethod["new_url_concat"])) {
+                  $trimmed_new_url = str_ireplace($cpathVal, "", $contructNewMethod["new_url_concat"]);
+                  break;
+              }
+          }
 
-foreach ($process_location as $mKey => $mVal) {
-    echo "<br>path[" . $mKey . "]: " . $mVal;
-    $concatSwitch .= str_ireplace("/", "", $mVal) . "/";
-}
-?>
-</dd>
-</dl>
+          $buildByComp = ($_SERVER["REQUEST_SCHEME"] ?? "http") . "://" .
+                         ($contructNewMethod["_dynamichost"] ?? "localhost") .
+                         "/" . ltrim($trimmed_new_url, "/");
+
+          $concatThis = $buildByComp; // Middle path, most reliable
+
+          $concatSwitch = ($_SERVER["REQUEST_SCHEME"] ?? "http") . "://" .
+                          ($contructNewMethod["_dynamichost"] ?? "localhost");
+
+          foreach (($P2u2->path_comps["matches"] ?? []) as $mVal) {
+              if (!in_array($mVal, ["var", "www", "admin", "home", "web"])) {
+                  $mVal = str_ireplace("public_html", "", $mVal);
+                  $mVal = str_ireplace("//", "/", $mVal);
+                  $concatThis .= ltrim($mVal, "/") . "/";
+              }
+          }
+
+          $process_location = $Eval->test_location($enterpathhere)["pb"] ?? [];
+
+          foreach ($process_location as $mVal) {
+              $concatSwitch .= str_ireplace("/", "", $mVal) . "/";
+          }
+          ?>
+
+          <!-- Hidden div for JS auto-fill -->
+          <div id="concatThisContainer" style="display:none;">
+            <?php echo rtrim($concatThis, "/"); ?>
+          </div>
+
+        </dd>
+      </dl>
     </div>    
-<div class="w6 left-2 relative">
-<h2>Try fix</h2>
-<div clas="form-container pv2 ph2">
-<p>Enter system path / submit:</p>
-<h3 class="f3">Raw Path Used:</h3> 
 
-<form id="p2u2top" method="GET" class="center-block">
-<label for="path2url" class="hidden">_GET['path2url']:</label>
-<input type="text" name="path2url" id="path2url" value="<?php print $enterpathhere; ?>">
-<button class="btn btn-primary" type="submit" name="submit">Submit path</button>
-</form>
+    <div class="w6 left-2 relative">
+      <h2>Try fix</h2>
+      <div class="form-container pv2 ph2">
+        <p>Enter system path / submit:</p>
+        <h3 class="f3">Raw Path Used:</h3> 
+
+        <form id="p2u2top" method="GET" class="center-block">
+          <label for="path2url" class="hidden">_GET['path2url']:</label>
+          <input type="text" name="path2url" id="path2url" value="<?php echo htmlspecialchars($enterpathhere); ?>">
+          <button class="btn btn-primary" type="submit" name="submit">Submit path</button>
+        </form>
+      </div>
     </div>
-    </div>
-<div id="position-urls" class="w-50 bg-light-silver">
-    <h2 class="f3">Results</h2>
-<?php
-// $concatThis = str_ireplace('//','/',$concatThis);
-echo '<dl id="tryfix-results" class="ph2 pv1 cl">';
-echo '<dt class="b">buildByComp (dynamic hostname)</dt><dd><a href="' .
-    rtrim($buildByComp, "/") .
-    '" target="_blank">' .
-    rtrim($buildByComp, "/") .
-    "</a></dd>";
-echo '<dt class="b">concatThis</dt><dd><a id="concatThisAnchor" href="' .
-    rtrim($concatThis, "/") .
-    '" target="_blank">' .
-    rtrim($concatThis, "/") .
-    "</a></dd>";
-echo '<dt class="b">concatSwitch</dt><dd><a href="' .
-    $concatSwitch .
-    '" target="_blank">' .
-    $concatSwitch .
-    "</a></dd></dl>"; 
-?>
+
+    <div id="position-urls" class="w-50 bg-light-silver">
+      <h2 class="f3">Results</h2>
+      <dl id="tryfix-results" class="ph2 pv1 cl">
+        <dt class="b">buildByComp (dynamic hostname)</dt>
+        <dd><a href="<?php echo rtrim($buildByComp, "/"); ?>" target="_blank"><?php echo rtrim($buildByComp, "/"); ?></a></dd>
+
+        <dt class="b">concatThis</dt>
+        <dd><a id="concatThisAnchor" href="<?php echo rtrim($concatThis, "/"); ?>" target="_blank"><?php echo rtrim($concatThis, "/"); ?></a></dd>
+
+        <dt class="b">concatSwitch</dt>
+        <dd><a href="<?php echo $concatSwitch; ?>" target="_blank"><?php echo $concatSwitch; ?></a></dd>
+      </dl>
     </div> <!-- POSITION URLS -->
-</div> <!-- #processing-summary -->
-    </div> <!-- end trypath -->
 
-
-<!--  Trypath.form.phtml $ -->
+</div> <!-- #trypath-division -->
