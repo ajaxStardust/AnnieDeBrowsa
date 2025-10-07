@@ -35,7 +35,7 @@ class Dirhandler
         }
 
         closedir($openDir);
-        sort($directoryContents);
+        sort($directoryContents, SORT_STRING | SORT_FLAG_CASE);
         $this->directoryContents = $directoryContents;
 
         return $this->directoryContents;
