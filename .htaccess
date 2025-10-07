@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(public/.*)$ - [L]
+RewriteRule ^(admin_media/.*)$ - [L]
+AddHandler php-script .phtml

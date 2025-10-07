@@ -1,0 +1,145 @@
+<?php
+
+namespace P2u2\View;
+
+use P2u2\Model\P2u2 as P2u2;
+use P2u2\Model\Environment as Env;
+use P2u2\Model\Functions as Functions;
+use P2u2\Model\Newmethod as Newmethod;
+use P2u2\Model\Evalpath as Evalpath;
+
+$Env = new Env(NS2_ROOT);
+$initEnv = $Env->whatis(NS2_ROOT);
+// set Env variable array ver01
+$title = $Env->initialize_enviornment['title'];
+
+
+if (isset($_GET['path2url'])) {
+    $path2url = $_GET['path2url'];
+} else {
+    $path2url = NS2_ROOT;
+}
+
+// path sent to process
+$enterpathhere = isset($path2url) ? $path2url : $_SERVER['DOCUMENT_ROOT'] . "/adbcollections/my_Notes/index.php";
+// set Env vars based on enterpathhere
+// DIFF? whatis allows for path
+$whatis = $Env->whatis($enterpathhere);
+
+// P2u2()
+$P2u2 = new P2u2($enterpathhere);
+// P2u2() filtered path to process
+$clean_url = $P2u2->clean_url_chars($enterpathhere);
+// P2u2()
+$extract_components = $P2u2->extract_path_components($P2u2->clean_url_chars($enterpathhere));
+
+// Evalpath()
+$Eval = new Evalpath($enterpathhere);
+// Evalpath()
+$EvalPathHere = $Eval->test_location($enterpathhere);
+
+// Newmethod()
+$Newmethod = new Newmethod($enterpathhere);
+// Newmethod()
+$buildUrl = $Newmethod->buildUrl($enterpathhere);
+// Newmethod()
+$buildUrlLast = $Newmethod->buildUrlLast($enterpathhere);
+// Newmethod()
+$contructNewMethod = $Newmethod->_construct_NewMethod;
+
+// Functions()
+$Functions = new Functions();
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <?php print $whatis['title']; ?>
+    </title>
+    <link rel="icon" type="image/ico" href="favicon.ico">
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css">
+    <!-- SPECTRE CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- BOOTSTRAP STYLE -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/notes.css" rel="stylesheet">
+    <link href="assets/css/lightslider.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="pagewidth" class="container">
+        <!-- #HEADER -->
+        <section id="header">
+            <h1 class="bg-dark text-light text-end pe-3 h1"><?= $whatis['page_heading']; ?></h1>
+        </section>
+        <section>
+  <h2>GPG Key Creation on Arch Linux — 2025-04-14</h2>
+  <blockquote>
+    <p><strong>User:</strong> I'm on Arch Linux. This is a new installation. I want to setup a GPG key via terminal, so the Desktop key manager will have it ready. Understand?</p>
+
+    <p><strong>Assistant:</strong> Perfect — looks good. You’re on GnuPG 2.4.7 with everything you’d need. The home directory is where expected:<br>
+    <code>/home/jsabarese/.gnupg</code><br>
+    So your GUI key manager should be reading from that same keyring once we populate it.</p>
+
+    <p><strong>Next Step: Generate the key</strong></p>
+    <pre>
+gpg --full-generate-key
+    </pre>
+    <p>And follow the prompts:</p>
+    <ul>
+      <li>Key type: 1 (RSA and RSA)</li>
+      <li>Key size: 4096</li>
+      <li>Expiration: up to you (1-2 years suggested)</li>
+      <li>Name</li>
+      <li>Email</li>
+      <li>Passphrase</li>
+    </ul>
+
+    <p>Once done, confirm:</p>
+    <pre>
+gpg --list-keys
+    </pre>
+
+    <p>If you crack open your key manager (like Seahorse on GNOME), it should show up under your personal keys.</p>
+
+    <p><strong>Optional but Recommended: Generate a Revocation Certificate</strong></p>
+    <pre>
+gpg --output ~/revocation-cert-yourname.asc --gen-revoke [YOUR-KEY-ID]
+    </pre>
+
+    <p>You’ll get asked for a reason and comments. Save this <code>.asc</code> file somewhere offline (like a USB drive or encrypted disk).</p>
+  </blockquote>
+</section>
+
+        <section class="footer px-4">
+            <!--    .FOOTER     -->
+            <div class="row gx-5">
+                <div class="col">
+                    <div class="p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust"
+                            target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div>
+                </div>
+                <div class="col">
+                    <div class="p-3 border bg-light text-end"><kbd><?php echo $whatis['lastMod']; ?></kbd></div>
+                </div>
+            </div>
+        </section>
+    </div> <!--    .content  -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="assets/js/lightslider.js"></script>
+    <script src="assets/js/p2u2.js"></script>
+    <script src="assets/js/dynamicdrop.js"></script>
+
+</body>
+
+</html>

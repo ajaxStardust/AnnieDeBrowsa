@@ -1,0 +1,40 @@
+{
+    "home_urls": [
+        {
+            "url": "http:\/\/localhost:80\/index.php",
+            "name": "localhost:80",
+            "data": "visited:",
+            "count": 0
+        },
+        {
+            "url": "https:\/\/localhost:443\/index.php",
+            "name": "localhost:443",
+            "data": "visited:",
+            "count": 0
+        },
+        {
+            "url": "https:\/\/vps111",
+            "name": "vps111",
+            "data": "visited:",
+            "count": 0
+        },
+        {
+            "url": "http:\/\/bunsen:5000",
+            "name": ":5000",
+            "data": "visited:",
+            "count": 0
+        },
+        {
+            "url": "https:\/\/scout.click",
+            "name": "Fedi-Search",
+            "data": "visited:",
+            "count": 0
+        },
+        {
+            "url": "http:\/\/centrewebdesign.com",
+            "name": "CWD (mine)",
+            "data": "visited:",
+            "count": 0
+        }
+    ]
+}
