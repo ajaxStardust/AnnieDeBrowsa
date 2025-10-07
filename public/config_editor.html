@@ -24,7 +24,6 @@
         <th>Name</th>
         <th>Visit Count</th>
                 <th>Data</th>
-        <th>Data2</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -34,7 +33,6 @@
         <td><input type="text" v-model="item.name" /></td>
         <td><input type="number" min="0" v-model.number="item.count" /></td>
                 <td><input type="text" v-model="item.data" /></td>
-        <td><input type="text" v-model="item.data2" /></td>
         <td><button @click="removeItem(index)">Remove</button></td>
       </tr>
     </tbody>
