@@ -8,3 +8,13 @@ Appdata path is /home/jfedora/.local/share/io.phcode
 
 (phoenix-code:122106): Gtk-WARNING **: 14:23:50.036: Failed to measure available space: The specified location is not supported
 Error getting object manager client: Operation was cancelledError getting object manager client: Operation was cancelledError getting object manager client: Operation was cancelledError getting object manager client: Operation was cancelled
+** (phcode:2545910): WARNING **: 04:52:42.988: webkit_settings_set_enable_offline_web_application_cache is deprecated and does nothing.
+
+** (phcode:2545910): WARNING **: 04:52:42.995: webkit_settings_set_enable_offline_web_application_cache is deprecated and does nothing.
+
+** (phcode:2545910): WARNING **: 04:52:43.024: webkit_settings_set_enable_offline_web_application_cache is deprecated and does nothing.
+Appdata path is /home/xiola/.local/share/io.phcode
+
+** (process:2545953): WARNING **: 04:54:20.614: Changed property '/org/gnome/desktop/background/picture-uri' not expected!
+
+** (process:2545936): WARNING **: 04:54:20.614: Changed property '/org/gnome/desktop/background/picture-uri' not expected!

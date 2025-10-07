@@ -56,7 +56,8 @@ $title = str_ireplace("var/www/", "", $pathOps);
         $_SERVER["DOCUMENT_ROOT"] .
         "/public/assets/svg/public/assets/svg/cannibus_find_plainsvg2.svg"; ?>">
     
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.9.0/css/tachyons.min.css">
+    
   <link href="assets/css/lightslider.css" rel="stylesheet">
+  <link id="tachyons" rel="stylesheet" href="assets/css/tachyons.css">
 
 </head>

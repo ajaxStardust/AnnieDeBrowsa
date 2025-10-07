@@ -20,9 +20,8 @@ class Localsites extends Helpers
         $home_urls_default['home_urls'][] = [
             "url" => "https://neutility.life",
             "name" => "Neutility._",
-            "data" => "Waving",
-            "count" => (int) "2",
-            "path" => 'https://neutility.life'
+            "data" => '🤣',
+            "count" => (int) "2"
         ];
         // Initialize HTML structure for the list
         $html = '<div id="sytebuild_htmlbuild">
@@ -53,10 +52,10 @@ class Localsites extends Helpers
     
             // Optionally, display the visit count or additional metadata
              if (!empty($site['count'])) {
-                $html .= '<br>meta[data1]: ' . intval($site['count']).'<br>';
+                $html .= '<br>meta[count]: ' . intval($site['count']).'<br>';
              }
              if (!empty($site['data'])) {
-                $html .= '<br>meta[data2]: ' . htmlspecialchars($site['data']).'<br>';
+                $html .= '<br>meta[data]: ' . htmlspecialchars($site['data']).'<br>';
              }
     
             $html .= '</li>
