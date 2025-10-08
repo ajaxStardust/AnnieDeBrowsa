@@ -1,6 +1,7 @@
 {
     "home_urls": [
         {
+<<<<<<< HEAD
             "url": "http:\/\/bunsen:80\/index.php",
             "name": ":80\/index.php",
             "data": "\ud83d\ude4b",
@@ -17,12 +18,35 @@
             "name": "ADB:80 (clone test)",
             "data": "\ud83d\ude4b",
             "count": "1"
+=======
+            "url": "http:\/\/localhost:80\/index.php",
+            "name": "localhost:80/index.php",
+            "data": "🙋",
+            "data2": "1"
+        },
+        {
+            "url": "https:\/\/127.0.0.1:443\/",
+            "name": "127.0.0.1:443/",
+            "data": "🙋",
+            "data2": "1"
+        },
+        {
+            "url": "http:\/\/localhost\/AnnieDeBrowsa",
+            "name": "127.AnnieDeBrowsa",
+            "data": "🙋",
+            "data2": "1"
+>>>>>>> 0e25e3bfb504a2e99fbd26c708759fca59e12c97
         },
         {
             "url": "https:\/\/scout.click",
             "name": "Scout[.click]",
+<<<<<<< HEAD
             "data": "\ud83d\ude4b",
             "count": "0"
+=======
+            "data": "🙋",
+            "data2": "0"
+>>>>>>> 0e25e3bfb504a2e99fbd26c708759fca59e12c97
         }
     ]
 }
