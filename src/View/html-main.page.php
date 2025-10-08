@@ -82,11 +82,14 @@ echo '    </ul>
 <ul id="controList">
         <li id="toTopJscon" class="material-symbols-outlined">
             <a class="intraNav" href="#header"><span id="headerJumper" class="mh1 ph1 f3">top</span> </a>
+<<<<<<< HEAD
+=======
 =======
 <ul id="controList" class="list pl0>
         <li id="toTopJscon" class="material-symbols-outlined mb2">
             <a class="intraNav" href="#header"><span id="headerJumper">top</span> </a>
 >>>>>>> 0e25e3bfb504a2e99fbd26c708759fca59e12c97
+>>>>>>> master
         </li>
         <li id="leftColtrigger" onclick="collapseNav('leftcol')" class="material-symbols-outlined mb2">
             <span class="trigger">
@@ -94,6 +97,22 @@ echo '    </ul>
                     <span id="navTxt">toggle</span> Nav </a>
             </span>
         </li>
+<<<<<<< HEAD
+        <li class="material-symbols-outlined mh1 ph1 f3" id="pageCon_goBack">
+            <span class="handler" id="goBackHandler"><a class="f3" title="JavaScript Function for history minus one" onclick="goBack()">back</a></span>
+        </li>
+        <li class="material-symbols-outlined mh1 ph1 f3" id="toBottom">
+            <a class="f3" class="intraNav" href="#footer"> <span id="footJumper">bottom</span>
+            </a>
+        </li>
+        <li id="frameControl" class="loader material-symbols-outlined mh1 ph1 f3"> <span id="lockFrameLoader" class="cssloader"><a id="lockFrameAnchor" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">Lock frame</a> </span>
+        </li>
+            <li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a class="f3" title="send frame to top">iFrame</a></span></li>
+        <li id="cssBoxFig" class="trigger material-symbols-outlined mh1 ph1 f3">
+            <span id="cssBox_Trigger" class="trigger" onclick="showHide('cssBox_Target')"><a class="f3" title="Toggle show / hide CSS Box Model illustration"> Box </a></span>
+        </li>
+        <li id="fbloader" class="loader material-symbols-outlined mh1 ph1 f3">
+=======
 <<<<<<< HEAD
         <li class="material-symbols-outlined mh1 ph1 f3" id="pageCon_goBack">
             <span class="handler" id="goBackHandler"><a class="f3" title="JavaScript Function for history minus one" onclick="goBack()">back</a></span>
@@ -125,6 +144,7 @@ echo '    </ul>
         </li>
         <li id="fbloader" class="loader material-symbols-outlined mb2">
 >>>>>>> 0e25e3bfb504a2e99fbd26c708759fca59e12c97
+>>>>>>> master
             <span class="loader">
                 <a class="f3" title="Click to activate the portable Firebug Lite script embedded in my javascript container">Inspect <img src="assets/images/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16"></a>
             </span>
@@ -133,8 +153,12 @@ echo '    </ul>
 <<<<<<< HEAD
         <li id="js2index" class="reloadIcon"><a class="f3" href="index.php" title="Reload top">Reload</a></li>
 =======
+<<<<<<< HEAD
+        <li id="js2index" class="reloadIcon"><a class="f3" href="index.php" title="Reload top">Reload</a></li>
+=======
         <li id="js2index" class="reloadIcon mb2"><a href="index.php" title="Reload top">Page</a></li>
 >>>>>>> 0e25e3bfb504a2e99fbd26c708759fca59e12c97
+>>>>>>> master
     </ul>
     <!-- temp note: moved css box model image to dochead for now -->
     
