@@ -1,7 +1,7 @@
 {
     "livePreviewUseDevServer": true,
-    "livePreviewServerURL": "http://localhost:80/VerifyGit/",
+    "livePreviewServerURL": "http://vps111:80/VerifyGit",
     "livePreviewServerProjectPath": "/",
-    "livePreviewHotReloadSupported": true,
+    "livePreviewHotReloadSupported": false,
     "livePreviewFramework": "Custom"
 }

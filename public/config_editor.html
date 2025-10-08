@@ -23,6 +23,7 @@
         <th>URL</th>
         <th>Name</th>
         <th>Visit Count</th>
+                <th>Data</th>
         <th>Actions</th>
       </tr>
     </thead>
@@ -31,6 +32,7 @@
         <td><input type="text" v-model="item.url" /></td>
         <td><input type="text" v-model="item.name" /></td>
         <td><input type="number" min="0" v-model.number="item.count" /></td>
+                <td><input type="text" v-model="item.data" /></td>
         <td><button @click="removeItem(index)">Remove</button></td>
       </tr>
     </tbody>

@@ -11,16 +11,16 @@ use P2u2\Model\P2u2 as P2u2;
 $Env = new Env(NS2_ROOT);
 $initEnv = $Env->whatis(NS2_ROOT);
 // set Env variable array ver01
-$title = $Env->initialize_enviornment['title'];
+$title = $Env->initialize_enviornment["title"];
 
-if (isset($_GET['path2url'])) {
-    $path2url = $_GET['path2url'];
+if (isset($_GET["path2url"])) {
+    $path2url = $_GET["path2url"];
 } else {
     $path2url = NS2_ROOT;
 }
 
 // path sent to process
-$enterpathhere = isset($path2url) ? $path2url : $_SERVER['DOCUMENT_ROOT'] . '/index.php';
+$enterpathhere = isset($path2url) ? $path2url : $_SERVER["DOCUMENT_ROOT"] . "/index.php";
 // set Env vars based on enterpathhere
 // DIFF? whatis allows for path
 $whatis = $Env->whatis($enterpathhere);
@@ -48,10 +48,8 @@ $contructNewMethod = $Newmethod->_construct_NewMethod;
 
 // Functions()
 $Functions = new Functions();
-
 ?>
 
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -59,86 +57,90 @@ $Functions = new Functions();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        <?php print $whatis['title']; ?>
+        <?php print $whatis["title"]; ?>
     </title>
     <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
-    <!-- link ref="stylesheet" href="https://unpkg.com/tachyons@latest" -->
+    <link rel="stylesheet" href="assets/css/tachyons.css">
     <link href="assets/css/lightslider.css" rel="stylesheet">
-    <style>.displaynone{display:none;}</style>
 </head>
 
-<body>
-    <div id="pagewidth" class="container">
-        <!-- #HEADER -->
-        <header id="header">
-            <h1 class="bg-dark text-light text-end pe-3 h1"><?= $whatis['page_heading']; ?></h1>
-        </header>
-        <section>
-            <div class="row">
-                <div class="col">
-                    <div class="card">
-                        <div class="card-body">
-                            <?php
-                            include 'Form.page.phtml';
-                            ?>
-                        </div>
-                    </div>
-                </div><!-- col2 -->
-            </div>
-            <div class="row">
-                <div class="col">
-                    
+    <body>
+        <!-- edit classes here for pagewidth -->
+        <div id="pagewidth" class="sans-serif mw-90 ma db pv2 ph3">
+            <!-- ::before #HEADER -->
+            <header id="header-section" class="sans-serif ph5-ns">
+                <article class="sans-serif br3-ns pv1 w-75-ns ph6-ms bg-lightest-blue center">
+                    <div class="sans-serif ph5-ns">
+                        <h1 class="sans-serif"><?= $whatis["page_heading"] ?></h1>
+            <h2 class="f4-l">ENV:</h2>
+            
+        <p class="black-70 measure lh-copy mv0"><strong><?= __FILE__; ?></strong>:</p> 
+        
+        <?php
+            if (isset($Env->initialize_enviornment["abspathtml"])) {
+                echo '<p class="f3 mid-gray lh-title"><strong>ABSPATHHTML</strong>:' .
+                    $Env->initialize_enviornment["abspathtml"].'</p>';
+            } else {
+                echo '<p class="f3 mid-gray lh-title"><strong class="ms monospace red">$Env-&#x3e;initialize_enviornment[abspathtml] is not set</strong></p>';
+            }
+            ?>
+</div>
+</article>
+</header>
 
-                        <div class="card">
-                        <div class="card-body">
-                            <h3 class="card-heading">@ToDo</h3>
+<?php 
+            require "../src/View/Trypath.form.phtml";
+            require "../src/View/Twerkin.form.phtml";
+?>
+
+
+    <div class="bg-light-pink w-75 cf dtc">
+                            <h3 class="">@ToDo</h3>
                             <h4>Nav-go-up thing</h4>
                             <p>The value derived here, set as goUp[url], should be placed as the first &lt;li&gt; item in the primary navigation list</p>
                             <!-- php nav goup -->
-                            <ol id="navgoup_demo">
+                            <ol id="navgoup_demo" class="db">
                                 <?php
                                 $goUpArray = $Functions->process_goup();
                                 foreach ($goUpArray as $goUpKey => $goUpVal) {
-                                    echo '<li class="navgoup_item">goUp[' . $goUpKey . ']: ' . $goUpVal . '</li>';
+                                    echo '<li class="navgoup_item">goUp[' . $goUpKey . "]: " . $goUpVal . "</li>";
                                 }
                                 ?>
                             </ol>
-                        </div>
-                    </div>
+    
+    </div>
+    
+    
 
-                </div>
 
-                </div> <!-- row -->
-            
-        </section>
-        
-        <section id="server-section" class="container">
 
             <?php
-            // require 'LateLogic.page.phtml';
+            /** 
+             * developer note: i forget what this is
+             *  require 'LateLogic.page.phtml';
+             * pretty sure its been comment for a while
+             */
             ?>
             <div class="col">
                 <h3 class="card-heading">Server Info</h3>
-                <?php
-                echo '<br>__FILE__ info shown: ' . __FILE__;
-                if (isset($Env->initialize_enviornment['abspathtml'])) {
-                    echo '<p><strong>ABSPATHHTML</strong>:' . $Env->initialize_enviornment['abspathtml'];
-                } else {
-                    echo '<p><strong class="red">$Env->initialize_enviornment[abspathtml] is not set</strong></p>';
-                }
-
-                echo '<div class="container"><div class="bg-dark d-flex justify-content-between flex-wrap" id="info_container"><p class="bg-dark text-light">Served by: <span class="bg-dark text-warning">' . $Env->initialize_enviornment['serversoftware'] . '</span></p>
-        <p class="bg-dark text-light">PHP Version: <span class="text-warning">' . phpversion() . '</span></p>
-        <p class="bg-dark text-light">Server Name: <span class="text-info">' . $Env->initialize_enviornment['server_name'] . '</span></p>
-        <p class="bg-dark text-light">Server Addr: <span class="text-info">' . $Env->initialize_enviornment['server_addr'] . '</span></p>
-        </div></div>';
-                ?>
+                <?php echo '<div class="container"><div class="bg-dark d-flex justify-content-between flex-wrap" id="info_container"><p class="bg-dark text-light">Served by: <span class="bg-dark text-warning">' .
+                    $Env->initialize_enviornment["serversoftware"] .
+                    '</span></p>
+        <p class="bg-dark text-light">PHP Version: <span class="text-warning">' .
+                    phpversion() .
+                    '</span></p>
+        <p class="bg-dark text-light">Server Name: <span class="text-info">' .
+                    $Env->initialize_enviornment["server_name"] .
+                    '</span></p>
+        <p class="bg-dark text-light">Server Addr: <span class="text-info">' .
+                    $Env->initialize_enviornment["server_addr"] .
+                    '</span></p>
+        </div></div>'; ?>
             </div>
-        </section> <!--    $   section   #general_notes  .container    $   -->
-        
-        <section class="footer px-4">
+
+
+        <footer id="footer-section" class="footer ph2 pv3">
             <!--    .FOOTER     -->
             <div class="row gx-5">
                 <div class="col">
@@ -146,10 +148,10 @@ $Functions = new Functions();
                             target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div>
                 </div>
                 <div class="col">
-                    <div class="p-3 border bg-light text-end"><kbd><?php echo $whatis['lastMod']; ?></kbd></div>
+                    <div class="p-3 border bg-light text-end"><kbd><?php echo $whatis["lastMod"]; ?></kbd></div>
                 </div>
             </div>
-        </section>
+        </footer>
     </div> <!--    .content  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="assets/js/showme-hideme.js"></script>
