@@ -53,12 +53,9 @@ class Localsites extends Helpers
             // Optionally, display the visit count or additional metadata
              if (!empty($site['count'])) {
                 $html .= '<br>meta[count]: ' . intval($site['count']).'<br>';
-                
              }
              if (!empty($site['data'])) {
                 $html .= '<br>meta[data]: ' . htmlspecialchars($site['data']).'<br>';
-
-                
              }
     
             $html .= '</li>

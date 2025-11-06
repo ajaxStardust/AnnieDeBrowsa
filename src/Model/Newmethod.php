@@ -6,72 +6,134 @@ use P2u2\Model\P2u2;
 
 class Newmethod
 {
-    private P2u2 $p2u2;
-    public array $processingResults = [];
-    public string $pathPassed;
 
-    public function __construct(?string $pathPassed = null)
+    public $_construct_NewMethod;
+    public $pathPassed;
+
+    public function __construct($pathPassed = null)
     {
-        $this->pathPassed = $pathPassed ?? $_SERVER['DOCUMENT_ROOT'];
-        $this->p2u2 = new P2u2($this->pathPassed);
+        if (!is_array($this->_construct_NewMethod)) {
+            $this->_construct_NewMethod = [];
+        }
+        if (!empty($pathPassed)) {
+            $this->pathPassed = $pathPassed;
+        } else {
+            $this->pathPassed = INSTALLED_LOCATION;
+        }
     }
 
-    /**
-     * Build URL processing results
-     * Returns an array suitable for rendering in Trypath/Twerkin forms
-     */
-    public function buildUrl(?string $enterPath = null): array
+    public function buildUrl($enterpathhere = null)
     {
-        $enterPath = $enterPath ?? $this->pathPassed;
+        $P2 = new P2u2($enterpathhere);
+        if (!isset($_dynamichost)) {
+            $_dynamichost = $_SERVER['HTTP_HOST'];
+        }
+        if (!isset($enterpathhere)) {
+            $this->_construct_NewMethod['enterpathhere'] = $enterpathhere = isset($_GET['path2url']) ? $_GET['path2url'] : $_SERVER['DOCUMENT_ROOT'];
+        }
+        $this->_construct_NewMethod['_dynamichost'] = $_dynamichost ??= 'localhost';
+        $this->_construct_NewMethod['prep_extract_path'] = $prep_extract_path = $P2->clean_url_chars($enterpathhere)['url_2_convert'];
+        $this->_construct_NewMethod['extracted_components'] = $extracted_components = $P2->extract_path_components($prep_extract_path);
+        $this->_construct_NewMethod['new_url_concat'] = $new_url_concat = '';
+        $this->_construct_NewMethod['extracted_comps_html'] = '<br>extracted_components[html]: ' . $extracted_components['html'];
+        $this->_construct_NewMethod['feloop'] = $feloop = 0;
+        $this->_construct_NewMethod['_dynamichost'] = $_dynamichost = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_dynamichost;
+        foreach ($extracted_components as $nUrlKey => $nUrlVal) {
 
-        // 1. Normalize path
-        $normalized = $this->p2u2->normalizePath($enterPath);
-        $this->processingResults['normalized'] = $normalized;
+            if (!$nUrlKey == 'component') {
 
-        // 2. Extract components
-        $components = $this->p2u2->extractComponents($normalized);
-        $this->processingResults['components'] = $components;
+                $this->_construct_NewMethod['nurlLoop'] =         $nurlLoop = '<br>counting values of nUrlVal (key n val, if is array):<br>';
+                if (is_array($nUrlVal)) {
+                    foreach ($nUrlVal as $this_key => $this_component) {
+                        $this->_construct_NewMethod['this_component'] = $this_component;
+                        $this->_construct_NewMethod['nurlLoop'] = $nurlLoop .= 'this_component: ' . $this_component . '<br>';
+                        if (preg_match('/\w:/', $this_component)) {
+                            $this->_construct_NewMethod['tc']               = $tc = $this_component;
 
-        // 3. Build URLs
-        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-        $scheme = $_SERVER['REQUEST_SCHEME'] ?? 'http';
+                            $this->_construct_NewMethod['_dynamichost']     = $_dynamichost ??= 'localhost';
+                            $this->_construct_NewMethod['new_url_concat']   = $new_url_concat .= '/' . $this_component . '/';
+                        } elseif ($this_key < 2) {
+                            $this->_construct_NewMethod['tc']               = $tc = $this_component;
+                            $this->_construct_NewMethod['_dynamichost']     = $_dynamichost ??= 'localhost';
 
-        // Build the three types of URLs for display
-        // a) buildByComp: direct concatenation of components
-        $buildByComp = $this->p2u2->buildUrl($enterPath, $host, $scheme);
-        $this->processingResults['buildByComp'] = $buildByComp;
+                            $this->_construct_NewMethod['new_url_concat']   = $new_url_concat .= '/' . $this_component . '/';
+                            break;
+                        }
+                        if ($this_key > 2) {
+                            $this->_construct_NewMethod['tc']               = $tc = $this_component;
+                            $this->_construct_NewMethod['new_url_concat']   =     $new_url_concat .= '/' . $this->_construct_NewMethod['this_component']  . '/';
+                        }
+                    }
+                } elseif (isset($nUrlVal)) {
 
-        // b) concatThis: strip common base paths for relative URL
-        $commonPaths = [
-            '/opt/lampp/htdocs',
-            '/var/www/html',
-            '/var/www/htdocs',
-            '/var/www/public_html',
-            '/var/www/htdocs/public_html',
-            '/var/www/wwwroot',
-            '/home/admin/web',
+                    $this->_construct_NewMethod['urlConcatArray']           = $urlConcatArray = [];
+                    if ($feloop < 1) {
+                        $this->_construct_NewMethod['urlConcatArray'][]       = $urlConcatArray[] = $this->_construct_NewMethod['this_component'] ;
+                        $this->_construct_NewMethod['nurlLoop']             = $nurlLoop .= '<br>nUrlVal: @' . __LINE__ . ' == ' . $nUrlVal . ' is concat to new_url_concat.';
+                        $this->_construct_NewMethod['new_url_concat']       = $new_url_concat .= $nUrlVal;
+                    } else {
+                        $this->_construct_NewMethod['nurlLoop']             = $nurlLoop .=  '<br>nUrlVal: @' . __LINE__ . ' == ' . $nUrlVal . ' is concat to new_url_concat.';
+                        $this->_construct_NewMethod['urlConcatArray'][]       = $urlConcatArray[] = $nUrlVal['url_2_convert'];
+                        //$get_comp = count($nUrlVal) -1;
+                        $this->_construct_NewMethod['new_url_concat']       = $new_url_concat .= $nUrlVal;
+                    }
+                }
+            }
+            $this->_construct_NewMethod['feloop'] = $feloop++;
+        }
+        return $this->_construct_NewMethod;
+    }
+
+    public function buildUrlLast($pathPassed)
+    {
+        $new_url_concat = $pathPassed;
+        if (!isset($_dynamichost)) {
+            $_dynamichost = $_SERVER['HTTP_HOST'];
+            $tc = $this->_construct_NewMethod['component'];
+        }
+        
+        $nurlLoop = $this->_construct_NewMethod["extracted_comps_html"];
+        $new_url_concat = rtrim($new_url_concat, '/');
+        
+        $common_paths=[
+            '\/var\/www\/html',
+            '\/var\/www\/htdocs',
+            '\/var\/www\/public_html',
+            '\/var\/www\/htdocs\/public_html',
+            '\/var\/www\/wwwroot',
+            '\/home\/admin\/web'
         ];
-        $relativePath = $this->p2u2->stripBasePaths($normalized, $commonPaths);
-        $concatThis = rtrim($scheme . '://' . $host . '/' . $relativePath, '/');
-        $this->processingResults['concatThis'] = $concatThis;
 
-        // c) concatSwitch: just scheme + host
-        $concatSwitch = $scheme . '://' . $host . '/';
-        $this->processingResults['concatSwitch'] = $concatSwitch;
-
-        return $this->processingResults;
+foreach($common_paths as $pathSubject) {
+    if(preg_match('/'.$pathSubject.'/',$new_url_concat)){
+        $pathSubject = str_ireplace('\/','/',$pathSubject);
+        $this->_construct_NewMethod['new_url_concat'] = str_ireplace($pathSubject, '', $new_url_concat);
+        $this->_construct_NewMethod['new_url_concat'] = str_ireplace('public_html', '', $this->_construct_NewMethod['new_url_concat']);
+        // echo $this->_construct_NewMethod['new_url_concat'] . ', because: '. $pathSubject.'<br>';
+        $break = 1;
+        /* sorry. brain damage */
+        
+    }
+    else {
+        if($break == 1){
+         break;
+        }
+        else {
+            $pathSubject = str_ireplace('\/','/',$pathSubject);
+            $this->_construct_NewMethod['new_url_concat'] = str_ireplace($pathSubject, '', $new_url_concat);
+           //  echo 'No because because $pathSubject is '.$pathSubject.', so the result is: '. $this->_construct_NewMethod['new_url_concat'].'<br>';
+        }
     }
 
-    /**
-     * Optionally, build the last URL for display purposes
-     */
-    public function buildUrlLast(string $path): string
-    {
-        $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
-        $scheme = $_SERVER['REQUEST_SCHEME'] ?? 'http';
-        $relativePath = $this->p2u2->stripBasePaths($path);
-        $url = $scheme . '://' . $host . '/' . $relativePath;
-        $this->processingResults['lastUrl'] = $url;
-        return $url;
+
+}
+        $nurlLoop = $nurlLoop . '<p>new_url_concat: ' . $new_url_concat . '</p>
+    <p>New URL Construct:<br> _SERVER[REQUEST_SCHEME] . :// . _SERVER[HTTP_HOST] . new_url_concat ==</p>
+    <p><a href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_dynamichost . '/' . $this->_construct_NewMethod['new_url_concat'] . '" target="_blank">'
+            . $_SERVER['REQUEST_SCHEME'] . '://' . $_dynamichost . '/' . $this->_construct_NewMethod['new_url_concat']  . '</a></p>
+    </div>';
+        $this->_construct_NewMethod['nurlLoop'] = $nurlLoop;
+
+        return $this->_construct_NewMethod;
     }
 }

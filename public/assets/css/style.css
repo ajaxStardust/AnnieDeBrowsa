@@ -2611,8 +2611,3 @@ li#js2index::before {
 .displaynone {
     display: none;
 }
-
-ul#controList li span a, ul#controList li a {
-  padding-left: 0.7rem;
-}
-

@@ -4,37 +4,51 @@ namespace P2u2\Model;
 
 class P2u2
 {
-    public string $pathPassed;
-    public array $pathComponents = [];
-    public array $cleanedData = [];
 
-    public function __construct(string $pathPassed = null)
+    public $pathPassed;
+    public $clean_chars;
+    public $path_comps;
+    public $component_path;
+
+    public $p2_patches;
+    
+    
+    
+    public function __construct($pathPassed = null)
     {
-        // Default to DOCUMENT_ROOT if no path provided
-        $this->pathPassed = $pathPassed ?? $_SERVER['DOCUMENT_ROOT'];
+        if ($pathPassed == null) {
+            $pathPassed = ADBLOCTN;
+        }
+        $this->pathPassed = $pathPassed;
     }
 
-    /**
-     * Normalize the input path:
-     * - Convert backslashes to slashes
-     * - Trim spaces
-     * - Replace spaces with %20
-     */
-    public function normalizePath(string $path): string
+    public function extract_path_components($url = null)
     {
-        $path = str_replace('\\', '/', $path);       // Windows -> Unix style
-        $path = trim($path);                          // Remove leading/trailing whitespace
-        $path = preg_replace('/\s+/', '%20', $path); // Spaces -> %20
-        return rtrim($path, '/');                     // Remove trailing slash
+        $this->component_path = $url;
+        if(!is_array($this->path_comps)){
+        $this->path_comps = [];
+        }
+
+        $this->path_comps['html'] = (string) '';
+
+        $this->path_comps['pattern'] = '/(?:^|\/)([^\/]+)/';
+        if (is_array($this->component_path)) {
+            preg_match_all($this->path_comps['pattern'], $this->component_path['url_2_convert'], $matches_lvl1);
+
+                
+                
+                $this->path_comps['matches'] = $matches_lvl1[1];
+                $this->path_comps['count'] = count($this->path_comps['matches']);
+        }
+        if(!is_array($this->p2_patches)){
+            $this->p2_patches = $this->path_comps['matches'];
+        }
+
+        return $this->path_comps;
     }
 
-    /**
-     * Strip base paths (DOCUMENT_ROOT or optional array of base paths)
-     * Returns path relative to web root
-     */
-    public function stripBasePaths(string $path, array $basePaths = []): string
+    public function clean_url_chars($url_2_convert)
     {
-<<<<<<< HEAD
         if(!is_array($this->clean_chars)){
             $this->clean_chars = [];
         }
@@ -87,43 +101,14 @@ class P2u2
                     break;
                 }
                 $fes++;
-=======
-        // Always include DOCUMENT_ROOT as the first base
-        array_unshift($basePaths, $_SERVER['DOCUMENT_ROOT']);
-        foreach ($basePaths as $base) {
-            $base = $this->normalizePath($base);
-            if (str_starts_with($path, $base)) {
-                $path = substr($path, strlen($base));
-                break;
->>>>>>> 0e25e3bfb504a2e99fbd26c708759fca59e12c97
             }
         }
-        return ltrim($path, '/'); // Remove leading slash
+
+        return $this->clean_chars;
     }
 
-    /**
-     * Extract components from a path
-     * Returns array of segments
-     */
-    public function extractComponents(string $path): array
+    public function chop_varwww($regexsearch, $replaceref, $strirep)
     {
-        $path = $this->normalizePath($path);
-        $path = $this->stripBasePaths($path);
-        $components = array_filter(explode('/', $path), fn($seg) => $seg !== '');
-        $this->pathComponents = array_values($components);
-        return $this->pathComponents;
-    }
-
-    /**
-     * Build an HTTP URL from a system path
-     * Optional $host and $scheme, default to current server
-     */
-    public function buildUrl(string $path, ?string $host = null, ?string $scheme = null): string
-    {
-        $host = $host ?? ($_SERVER['HTTP_HOST'] ?? 'localhost');
-        $scheme = $scheme ?? ($_SERVER['REQUEST_SCHEME'] ?? 'http');
-
-        $relativePath = $this->stripBasePaths($this->normalizePath($path));
-        return $scheme . '://' . $host . '/' . $relativePath;
+        return preg_replace($regexsearch, '$4', $strirep);
     }
 }
