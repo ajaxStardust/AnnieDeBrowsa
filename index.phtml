@@ -5,10 +5,11 @@ $uri = urldecode(
 );
 
 if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
-    require_once __DIR__.'/public/index.phtml';
+	header('Location: ./public/index.phtml');
+
 }
 else {
-	header('Location: ./public/index.phtml');
+    require_once __DIR__.'/public/index.phtml';
 }
 
 ?>
