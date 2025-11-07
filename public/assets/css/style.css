@@ -959,7 +959,11 @@ dl dl * dt {
 }
 
 #headingTitle {
-    color: darkgreen;
+    color: #31319166;
+    font-family:serif;
+    text-shadow: 1px 1px 1px #33333399;
+    font-size:1.4rem;
+    font-weight:bold;
 }
 
 dl dd code,
