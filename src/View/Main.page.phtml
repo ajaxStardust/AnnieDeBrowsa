@@ -67,16 +67,18 @@ $Functions = new Functions();
 
     <body>
         <!-- edit classes here for pagewidth -->
-        <div id="pagewidth" class="sans-serif mw-90 ma db pv2 ph3">
+        <div id="pagewidth" class="sans-serif mw-90 ma1 db pv1 ph5">
             <!-- ::before #HEADER -->
-            <header id="header-section" class="sans-serif ph5-ns">
-                <article class="sans-serif br3-ns pv1 w-75-ns ph6-ms bg-lightest-blue center">
+            <header id="header-section" class="sans-serif ph1 mv1">
+                <article class="sans-serif br3-ns pv1 w-90 ph1 bg-lightest-blue center">
                     <div class="sans-serif ph5-ns">
                         <h1 class="sans-serif"><?= $whatis["page_heading"] ?></h1>
             <h2 class="f4-l">ENV:</h2>
             
-        <p class="black-70 measure lh-copy mv0"><strong><?= __FILE__; ?></strong>:</p> 
-        
+        <!-- WARNING: exposes system path which you wouldnt want in production most likely       
+        --> 
+        <!-- p class="black-70 measure lh-copy mv0"><strong><?= __FILE__; ?></strong>:</p -->
+        <!-- instead this php bit is a little test to see if maybe displaying the path is okay -->
         <?php
             if (isset($Env->initialize_enviornment["abspathtml"])) {
                 echo '<p class="f3 mid-gray lh-title"><strong>ABSPATHHTML</strong>:' .
