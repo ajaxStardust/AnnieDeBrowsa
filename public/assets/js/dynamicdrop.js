@@ -41,6 +41,9 @@ function appendSelectedValue() {
     appendedData.innerHTML = '';
     appendedData.appendChild(anchor);
 
+    // show transient success toast
+    showActionToast('Added path');
+
     const childsOfAppend    = appendedData.childNodes;
     const childsOfOldAppend = oldAppended.childNodes;
     oldAppended.innerHTML  = appendedData.innerHTML;
@@ -108,4 +111,45 @@ function updateAppendedData() {
 
     appendedData.innerHTML = '';
     appendedData.appendChild(anchor);
+
+    // show transient success toast
+    showActionToast('Domain updated');
+}
+
+
+// Small helper to show a transient toast near the top-right of the page
+function showActionToast(message, timeout = 2200) {
+    try {
+        let toast = document.getElementById('adb-action-toast');
+        if (!toast) {
+            toast = document.createElement('div');
+            toast.id = 'adb-action-toast';
+            Object.assign(toast.style, {
+                position: 'fixed',
+                right: '16px',
+                top: '16px',
+                background: 'rgba(0,0,0,0.78)',
+                color: 'white',
+                padding: '8px 12px',
+                borderRadius: '6px',
+                zIndex: 99999,
+                fontSize: '13px',
+                boxShadow: '0 4px 10px rgba(0,0,0,0.2)'
+            });
+            document.body.appendChild(toast);
+        }
+        toast.textContent = message;
+        toast.style.opacity = '1';
+        // fade and remove after timeout
+        setTimeout(() => {
+            toast.style.transition = 'opacity 300ms ease';
+            toast.style.opacity = '0';
+        }, timeout - 300);
+        setTimeout(() => {
+            if (toast && toast.parentNode) toast.parentNode.removeChild(toast);
+        }, timeout + 60);
+    } catch (e) {
+        // silently ignore in environments where DOM isn't available
+        console.debug('showActionToast failed', e);
+    }
 }
