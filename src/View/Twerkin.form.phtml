@@ -1,38 +1,49 @@
 <!-- :before Twerkin.form.phtml -->
-<div id="twerkin-division" class="w-50 ma ph2 pv1 v-mid-l hover-bg-hot-pink fl bg-animate">    
-<h3>Twerkin Path</h3>
-<div id="demos" class="outline-l">
-<p class="f6">Leave Subdomain at [none] if none exists.</p>
-<form id="fixtheurl" class="ol-green">
-<label for="prefix" class="ol-grey">subdomain</label>
-<div id="spaceinfo">
-<select id="prefix">
-<option value="">[none]</option>
-<option value="support">support</option>
-<option value="blog">blog</option>
-<option value="forum">forum</option>
-<option value="help">help</option>
-<option value="doc">doc</option>
-<option value="app">app</option>
-</select>
-</div>
-<label for="prefix">server_name</label>
-<div id="infospace">
-<select id="suffix">
-<option value="">[none]</option>
-<option value="localhost" selected>localhost</option>
-<option value="127.0.0.1">127.0.0.1</option>
-<option value="example.org">example.org</option>
-<option value="github.com">github.com</option>
-<option value="vivaldi.net">vivaldi.net</option>
-</select>
-</div>
-<input type="text" id="newItemInput"  placeholder="Twerkin path here">
-<button type="button" onclick="updateAppendedData()">Update [sub]Domain</button>
-<button type="button" onclick="appendSelectedValue()">Add Path (x2 for link)</button>
+<div id="twerkin-division" class="mb4">
+    <h2 class="section-title f3 fw7 mv3">Domain Configuration</h2>
+    <div class="card pa4 mt3">
+        <!-- Preset Quick-Select -->
+        <div id="presetContainer" class="mb4"></div>
 
-</form>
-<div id="appendedData"></div>
-<div id="oldAppendedData"></div>
-        </div><!-- :after Twerkin.form.phtml -->
-</div>
+        <form id="fixtheurl" class="mb3">
+            <div class="mb3">
+                <label for="subdomainSelect" class="db mb1 f6 fw6">Subdomain</label>
+                <p class="ma0 mb2 f6 gray">Select subdomain or leave at [none]</p>
+                <select id="subdomainSelect" class="input-reset pa2 ba b--light-gray br1 f6 w-100">
+                    <option value="">[none]</option>
+                    <option value="support">support</option>
+                    <option value="blog">blog</option>
+                    <option value="forum">forum</option>
+                    <option value="help">help</option>
+                    <option value="doc">doc</option>
+                    <option value="app">app</option>
+                </select>
+            </div>
+            <div class="mb3">
+                <label for="serverSelect" class="db mb1 f6 fw6">Server Name</label>
+                <select id="serverSelect" class="input-reset pa2 ba b--light-gray br1 f6 w-100">
+                    <option value="">[none]</option>
+                    <option value="localhost" selected>localhost</option>
+                    <option value="127.0.0.1">127.0.0.1</option>
+                    <option value="example.org">example.org</option>
+                    <option value="github.com">github.com</option>
+                    <option value="vivaldi.net">vivaldi.net</option>
+                </select>
+            </div>
+            <div class="mb3">
+                <label for="newItemInput" class="db mb1 f6 fw6">Selected URL</label>
+                <p class="ma0 mb2 f6 gray">Auto-populated from Conversion Results selection above</p>
+                <input type="text" id="newItemInput" placeholder="Select a conversion result above..."
+                    class="input-reset w-100 pa2 ba b--light-gray br1 f6">
+            </div>
+            <div class="flex gap2">
+                <button type="button" onclick="updateAppendedData()"
+                    class="pv2 ph3 bg-blue white bn br1 pointer f6 fw6">Update Domain</button>
+                <button type="button" onclick="appendSelectedValue()"
+                    class="pv2 ph3 bg-green white bn br1 pointer f6 fw6">Add Path</button>
+            </div>
+        </form>
+        <div id="appendedData" class="mt3"></div>
+        <div id="oldAppendedData" class="mt3"></div>
+    </div>
+</div><!-- :after Twerkin.form.phtml -->

@@ -51,14 +51,21 @@ if [ $# -eq 0 ]; then
 
         # Check if HOSTNAME is set in the SYSTEM ENV and valid. Uncomment next line to define HOSTNAME here instead. tweak with MYHostname
         # HOSTNAME='example.org'
-        MYHOSTNAME='vps111/VerifyGit' #OR WHATEVER you want it to be here is where you can define
+        MYHOSTNAME='centrewebdesign.com' #OR WHATEVER you want it to be here is where you can define
+        ADBPATH='anniedebrowsa' #eg the developer setup default
+
+        if [ -z "$ADBPATH" ]; then 
+            ADBPATH='AnnieDeBrowsa'
+        fi
         if [ -z "$HOSTNAME" ]; then
             # If HOSTNAME is not set, default to 'localhost' (the default MYHOSTNAME)
                 HOSTNAME=$MYHOSTNAME
+        
+        HOSTNAME=${HOSTNAME}"/"${ADBPATH}
                     printf "%s\n" "${RED}No HOSTNAME set, using default: ${HOSTNAME}${RESET}"
                     else
                         printf "%s\n" "${CYAN}Using system HOSTNAME: ${HOSTNAME}${RESET}"
-                        fi
+        fi                
 
                         # Construct the URL and ensure it is properly formatted
                         URL="http://${HOSTNAME}/public/index.phtml?path2url=${FULL_PATH}"

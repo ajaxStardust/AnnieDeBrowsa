@@ -1,0 +1,18 @@
+{
+    "domain_presets": [
+        {
+            "id": "ai-anon-tachyons",
+            "name": "ai-anon_tachyons",
+            "subdomain": "",
+            "server_name": "localhost",
+            "description": ""
+        },
+        {
+            "id": "y-omain-tachy",
+            "name": "My Domain tachy",
+            "subdomain": "",
+            "server_name": "localhost",
+            "description": "adaf"
+        }
+    ]
+}

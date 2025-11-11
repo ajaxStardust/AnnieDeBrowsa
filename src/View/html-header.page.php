@@ -3,7 +3,7 @@ namespace Adb\View;
 error_reporting(E_ALL);
 ?>
 
-<body id="index" style="background-color:#f5f5f5">
+<body id="index" class="bg-light-corn-animated">
     <figure id="cssBox_Target" class="target displaynone">
         <!-- ^ cssBoxContainer ^ -->
         <img src="assets/images/css-box.png" alt="CSS Box-model illustration" id="cssBoxImg">

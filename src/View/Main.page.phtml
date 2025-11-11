@@ -50,6 +50,7 @@ $contructNewMethod = $Newmethod->_construct_NewMethod;
 $Functions = new Functions();
 ?>
 
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -61,105 +62,175 @@ $Functions = new Functions();
     </title>
     <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-    <link rel="stylesheet" href="assets/css/tachyons.css">
+    <link rel="stylesheet" href="assets/css/tachyons-extended.css">
     <link href="assets/css/lightslider.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .card {
+            background: white;
+            border-radius: 0.375rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.2s ease;
+        }
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        .todo-item {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.25rem;
+        }
+        .server-badge {
+            display: inline-block;
+            background: #ffe0b2;
+            color: #e65100;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        input, select, textarea {
+            font-size: 1rem;
+        }
+        .input-reset {
+            font: inherit;
+            border: 1px solid #ccc;
+        }
+        .break-word {
+            word-break: break-all;
+        }
+        .gap2 {
+            gap: 0.5rem;
+        }
+        .gap3 {
+            gap: 1rem;
+        }
+    </style>
 </head>
 
-    <body>
-        <!-- edit classes here for pagewidth -->
-        <div id="pagewidth" class="sans-serif mw-90 ma1 db pv1 ph5">
-            <!-- ::before #HEADER -->
-            <header id="header-section" class="sans-serif ph1 mv1">
-                <article class="sans-serif br3-ns pv1 w-90 ph1 bg-lightest-blue center">
-                    <div class="sans-serif ph5-ns">
-                        <h1 class="sans-serif"><?= $whatis["page_heading"] ?></h1>
-            <h2 class="f4-l">ENV:</h2>
-            
-        <!-- WARNING: exposes system path which you wouldnt want in production most likely       
-        --> 
-        <!-- p class="black-70 measure lh-copy mv0"><strong><?= __FILE__; ?></strong>:</p -->
-        <!-- instead this php bit is a little test to see if maybe displaying the path is okay -->
-        <?php
-            if (isset($Env->initialize_enviornment["abspathtml"])) {
-                echo '<p class="f3 mid-gray lh-title"><strong>ABSPATHHTML</strong>:' .
-                    $Env->initialize_enviornment["abspathtml"].'</p>';
-            } else {
-                echo '<p class="f3 mid-gray lh-title"><strong class="ms monospace red">$Env-&#x3e;initialize_enviornment[abspathtml] is not set</strong></p>';
-            }
-            ?>
-</div>
-</article>
-</header>
+<body class="bg-light-gray">
+    <div class="w-100">
+        <!-- Header -->
+        <header class="bg-dark-blue white pv4 ph3">
+            <div class="mw9 center">
+                <h1 class="ma0 mb2 f2 fw7"><?= $whatis["page_heading"] ?></h1>
+                <p class="ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Debug Interface</p>
+            </div>
+        </header>
 
-<?php 
-            require "../src/View/Trypath.form.phtml";
-            require "../src/View/Twerkin.form.phtml";
-?>
+        <!-- Environment Info -->
+        <section class="bg-white-60 pv3 ph3 bt b--light-gray">
+            <div class="mw9 center">
+                <div class="grid-2">
+                    <div>
+                        <p class="ma0 f6 gray">Location:</p>
+                        <p class="ma0 f5 mono"><?= __FILE__; ?></p>
+                    </div>
+                    <div>
+                        <p class="ma0 f6 gray">Base Path:</p>
+                        <p class="ma0 f5 mono"><?php echo isset($Env->initialize_enviornment["abspathtml"]) ? $Env->initialize_enviornment["abspathtml"] : 'Not set'; ?></p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-
-    <div class="bg-light-pink w-75 cf dtc">
-                            <h3 class="">@ToDo</h3>
-                            <h4>Nav-go-up thing</h4>
-                            <p>The value derived here, set as goUp[url], should be placed as the first &lt;li&gt; item in the primary navigation list</p>
-                            <!-- php nav goup -->
-                            <ol id="navgoup_demo" class="db">
-                                <?php
+        <!-- Main Content -->
+        <main class="pv4 ph3">
+            <div class="mw9 center">
+                <?php 
+                    require "Trypath.form.phtml";
+                    require "Twerkin.form.phtml";
+                ?>
+                <!-- Navigation Go-Up Section -->
+                <div class="mb4">
+                    <h2 class="section-title f3 fw7 mv3">Navigation Traversal</h2>
+                    <div class="card pa4 mt3">
+                        <h3 class="mt0 mb3 f6 fw6">Parent Directory Navigation</h3>
+                        <p class="mb3 f6 gray">The "go up" URL should appear as the first navigation item:</p>
+                        <ol id="navgoup_demo" class="db pa0 ml3">
+                            <?php
                                 $goUpArray = $Functions->process_goup();
                                 foreach ($goUpArray as $goUpKey => $goUpVal) {
-                                    echo '<li class="navgoup_item">goUp[' . $goUpKey . "]: " . $goUpVal . "</li>";
+                                    echo '<li class="navgoup_item todo-item mb2">goUp[' . $goUpKey . "]: " . $goUpVal . "</li>";
                                 }
-                                ?>
-                            </ol>
-    
-    </div>
-    
-    
-
-
-
-            <?php
-            /** 
-             * developer note: i forget what this is
-             *  require 'LateLogic.page.phtml';
-             * pretty sure its been comment for a while
-             */
-            ?>
-            <div class="col">
-                <h3 class="card-heading">Server Info</h3>
-                <?php echo '<div class="container"><div class="bg-dark d-flex justify-content-between flex-wrap" id="info_container"><p class="bg-dark text-light">Served by: <span class="bg-dark text-warning">' .
-                    $Env->initialize_enviornment["serversoftware"] .
-                    '</span></p>
-        <p class="bg-dark text-light">PHP Version: <span class="text-warning">' .
-                    phpversion() .
-                    '</span></p>
-        <p class="bg-dark text-light">Server Name: <span class="text-info">' .
-                    $Env->initialize_enviornment["server_name"] .
-                    '</span></p>
-        <p class="bg-dark text-light">Server Addr: <span class="text-info">' .
-                    $Env->initialize_enviornment["server_addr"] .
-                    '</span></p>
-        </div></div>'; ?>
-            </div>
-
-
-        <footer id="footer-section" class="footer ph2 pv3">
-            <!--    .FOOTER     -->
-            <div class="row gx-5">
-                <div class="col">
-                    <div class="p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust"
-                            target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div>
+                            ?>
+                        </ol>
+                    </div>
                 </div>
-                <div class="col">
-                    <div class="p-3 border bg-light text-end"><kbd><?php echo $whatis["lastMod"]; ?></kbd></div>
-                </div>
+
+
+
+
+
+                <!-- Server Information Section -->
+                <section class="mb4">
+                    <h2 class="section-title f3 fw7 mv3">Server Information</h2>
+                    <div class="card pa4 mt3">
+                        <div class="grid-2-ns gap3">
+                            <div class="server-badge">
+                                <strong>Server:</strong> <?php echo $Env->initialize_enviornment["serversoftware"]; ?>
+                            </div>
+                            <div class="server-badge">
+                                <strong>PHP:</strong> <?php echo phpversion(); ?>
+                            </div>
+                            <div class="server-badge">
+                                <strong>Host:</strong> <?php echo $Env->initialize_enviornment["server_name"]; ?>
+                            </div>
+                            <div class="server-badge">
+                                <strong>IP:</strong> <?php echo $Env->initialize_enviornment["server_addr"]; ?>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
+        </main>
+
+
+        <footer class="bg-dark-blue white pa3 tc">
+            <p class="ma0 f6">Project by <a href="https://github.com/ajaxStardust" class="white fw6">@ajaxStardust</a> • <?php echo $whatis["lastMod"]; ?></p>
         </footer>
-    </div> <!--    .content  -->
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="assets/js/showme-hideme.js"></script>
     <script src="assets/js/lightslider.js"></script>
     <script src="assets/js/p2u2.js"></script>
     <script src="assets/js/dynamicdrop.js"></script>
+    <script src="assets/js/domain-presets.js"></script>
+    <script>
+        // Auto-populate Twerkin path field when URL selection changes
+        function updateTwerkinPath() {
+            const selectedRadio = document.querySelector('input[name="selectedUrl"]:checked');
+            if (selectedRadio) {
+                document.getElementById('newItemInput').value = selectedRadio.value;
+            }
+        }
+        
+        // Initialize on page load with default selection
+        document.addEventListener('DOMContentLoaded', function() {
+            updateTwerkinPath();
+        });
+    </script>
 </body>
 
 </html>
