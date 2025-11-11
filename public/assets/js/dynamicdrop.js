@@ -5,8 +5,8 @@ function appendSelectedValue() {
     @param prefixSelect dropdown
     @param suffixSelect html dropdown
     */
-    const prefixSelect      = document.getElementById('prefix');
-    const suffixSelect      = document.getElementById('suffix');
+    const prefixSelect      = document.getElementById('subdomainSelect');
+    const suffixSelect      = document.getElementById('serverSelect');
     const newItemInput      = document.getElementById('newItemInput');
     const appendedData   = document.getElementById('appendedData');
     const oldAppended       = document.getElementById('oldAppendedData');
@@ -14,19 +14,38 @@ function appendSelectedValue() {
     let appdedChildsList = appendedData.childNodes;
     let oldAppdedChildsList = oldAppended.childNodes;
 
+    // Safety check - ensure elements exist to avoid null dereference
+    if (!prefixSelect || !suffixSelect || !newItemInput || !appendedData) {
+        console.error('Missing form elements in appendSelectedValue:', { prefixSelect, suffixSelect, newItemInput, appendedData });
+        return;
+    }
+
+    // If appendedData already has a link, use its href as base; otherwise build from prefix/suffix
+    let baseHref = '';
+    if (appdedChildsList && appdedChildsList.length > 0 && appdedChildsList[0] && appdedChildsList[0].href) {
+        baseHref = appdedChildsList[0].href;
+    } else {
+        // construct base from prefix/suffix
+        const prefix = prefixSelect ? prefixSelect.value : '';
+        const suffix = suffixSelect ? suffixSelect.value : '';
+        baseHref = 'https://';
+        if (prefix && prefix.length) baseHref += prefix + '.' + suffix + '/';
+        else baseHref += suffix + '/';
+    }
+
     const anchor = document.createElement('a');
-    anchor.href = appdedChildsList[0].href;
-    anchor.textContent = appdedChildsList[0].href;
+    anchor.href = baseHref;
+    anchor.textContent = baseHref;
     anchor.target = '_blank';
 
     appendedData.innerHTML = '';
     appendedData.appendChild(anchor);
 
     const childsOfAppend    = appendedData.childNodes;
-    const childsOfOldAppend =     oldAppended.childNodes;
-    oldAppended.innherHTML  = appendedData.innerHTML;
+    const childsOfOldAppend = oldAppended.childNodes;
+    oldAppended.innerHTML  = appendedData.innerHTML;
     childsOfAppend.forEach(anchor => {
-        anchor.href = appendedData.textContent;
+        if (anchor && anchor.href) anchor.href = appendedData.textContent;
     });
     const selectedPrefix = prefixSelect.value;
     const existingAnchor = appendedData;
@@ -56,17 +75,21 @@ function appendSelectedValue() {
 }
 
 function updateAppendedData() {
-    const prefixSelect = document.getElementById('prefix');
-    const suffixSelect = document.getElementById('suffix');
-    const demos = document.getElementById('demos');
+    const prefixSelect = document.getElementById('subdomainSelect');
+    const suffixSelect = document.getElementById('serverSelect');
     const appendedData = document.getElementById('appendedData');
     const oldAppended = document.getElementById('oldAppendedData');
-    const childsOfAppend = appendedData.childNodes;
-    const childsOfOldAppend = oldAppended.childNodes;
-    oldAppended.innherHTML = appendedData.innerHTML;
-    childsOfAppend.forEach(anchor => {
-        anchor.href = appendedData.textContent;
-    });
+    
+    // Safety check - ensure elements exist
+    if (!prefixSelect || !suffixSelect || !appendedData) {
+        console.error('Missing form elements:', { prefixSelect, suffixSelect, appendedData });
+        return;
+    }
+    
+    // Preserve old appended data
+    if (appendedData.innerHTML) {
+        oldAppended.innerHTML = appendedData.innerHTML;
+    }
 
     const prefix = prefixSelect.value;
     const suffix = suffixSelect.value;
