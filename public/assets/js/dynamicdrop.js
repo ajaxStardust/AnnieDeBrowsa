@@ -15,22 +15,22 @@ function appendSelectedValue() {
     let oldAppdedChildsList = oldAppended.childNodes;
 
     // Safety check - ensure elements exist to avoid null dereference
-    if (!prefixSelect || !suffixSelect || !newItemInput || !appendedData) {
+    /* if (!prefixSelect || !suffixSelect || !newItemInput || !appendedData) {
         console.error('Missing form elements in appendSelectedValue:', { prefixSelect, suffixSelect, newItemInput, appendedData });
         return;
-    }
+    } */
 
     // Ensure we have a valid base anchor; if not, create/update it from selects
     let anchor = appendedData.querySelector('a');
-    if (!anchor) {
+    if (!newItemInput.value) {
         // build base href from selects
         const prefix = prefixSelect.value || '';
         const suffix = suffixSelect.value || '';
-        if (!suffix) {
+        /* if (!suffix) {
             console.error('No server selected to build base URL');
             return;
-        }
-        let baseHref = 'https://';
+        } */
+        let baseHref = 'http://';
         if (prefix) baseHref += prefix + '.' + suffix;
         else baseHref += suffix;
         // ensure trailing slash for base
@@ -40,18 +40,19 @@ function appendSelectedValue() {
         anchor.href = baseHref;
         anchor.textContent = baseHref;
         anchor.target = '_blank';
-        appendedData.innerHTML = '';
+        updateAppendedData.innerHTML = 'newItemInput.value';
+        appendedData.innerHTML = 'newItemInput.value';
         appendedData.appendChild(anchor);
         // preserve a copy in oldAppended
         oldAppended.innerHTML = appendedData.innerHTML;
     }
 
     const newItemValue = newItemInput.value.trim();
-    if (!newItemValue) {
+    /* if (!newItemValue) {
         // nothing to append; just ensure anchor exists
         showActionToast('Base URL ready');
         return;
-    }
+    }*/
 
     // Build final href by joining base and new path
     try {
@@ -80,6 +81,15 @@ function appendSelectedValue() {
     }
 }
 
+function clearForm()    {
+    const newItemInput = document.getElementById('newItemInput');
+    const appendedData = document.getElementById('appendedData');
+    const oldAppended = document.getElementById('oldAppendedData');
+    appendedData.innerHTML = '';
+    oldAppended.innerHTML = '';
+    newItemInput.value = '';
+}
+
 function updateAppendedData() {
     const prefixSelect = document.getElementById('subdomainSelect');
     const suffixSelect = document.getElementById('serverSelect');
@@ -100,10 +110,10 @@ function updateAppendedData() {
     const prefix = (prefixSelect && prefixSelect.value) ? prefixSelect.value : '';
     const suffix = (suffixSelect && suffixSelect.value) ? suffixSelect.value : '';
 
-    if (!suffix) {
+    /* if (!suffix) {
         console.error('No server selected to update domain');
         return;
-    }
+    } */
 
     let href = 'https://';
     if (prefix) href += prefix + '.' + suffix;
