@@ -25,20 +25,5 @@
             "count": "0"
         }
     ],
-    "domain_presets": [
-        {
-            "id": "local-dev",
-            "name": "Local Dev",
-            "subdomain": "",
-            "server_name": "localhost",
-            "description": "Default local development server"
-        },
-        {
-            "id": "local-ip",
-            "name": "Local IP",
-            "subdomain": "",
-            "server_name": "127.0.0.1",
-            "description": "Local loopback address"
-        }
-    ]
+    "domain_presets": []
 }

@@ -1,0 +1,53 @@
+{
+    "domain_presets": [
+        {
+            "id": "local-dev",
+            "name": "Local Dev",
+            "subdomain": "",
+            "server_name": "localhost",
+            "description": "Default local development server"
+        },
+        {
+            "id": "local-ip",
+            "name": "Local IP",
+            "subdomain": "",
+            "server_name": "127.0.0.1",
+            "description": "Local loopback address"
+        },
+        {
+            "id": "cli-test",
+            "name": "cli-test",
+            "subdomain": "test",
+            "server_name": "example.test",
+            "description": "cli test"
+        },
+        {
+            "id": "tachyons",
+            "name": "tachyons",
+            "subdomain": "",
+            "server_name": "localhost",
+            "description": "tachyons"
+        },
+        {
+            "id": "tachyons-6914edcd36619",
+            "name": "tachyons",
+            "subdomain": "",
+            "server_name": "localhost",
+            "description": "tachyons"
+        },
+        {
+            "id": "tach",
+            "name": "tach",
+            "subdomain": "support",
+            "server_name": "localhost",
+            "description": "tach"
+        },
+        {
+            "id": "tach-6914eeb47dc8e",
+            "name": "tach",
+            "subdomain": "support",
+            "server_name": "localhost",
+            "description": "tach"
+        }
+    ]
+}

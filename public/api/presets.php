@@ -23,7 +23,7 @@ require_once dirname(dirname(__DIR__)) . '/vendor/autoload.php';
 
 use Adb\Controller\PresetsApi;
 
-$configPath = dirname(__DIR__) . '/config.json';
+$configPath = dirname(dirname(__DIR__)) . '/presets.json';
 $api = new PresetsApi($configPath);
 
 $method = $_SERVER['REQUEST_METHOD'];

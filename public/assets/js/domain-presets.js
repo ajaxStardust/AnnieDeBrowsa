@@ -31,6 +31,7 @@ class DomainPresetsManager {
             if (!response.ok) throw new Error('Failed to load presets');
 
             const data = await response.json();
+            console.debug('[DomainPresets] loadPresets() response:', data);
             this.presets = data.presets || [];
             this.renderPresetUI();
         } catch (error) {
@@ -117,6 +118,7 @@ class DomainPresetsManager {
             });
 
             const result = await response.json();
+            console.debug('[DomainPresets] savePreset() result:', result);
 
             if (result.error) {
                 this.showError(result.error);
@@ -147,9 +149,20 @@ class DomainPresetsManager {
 
         this.showSuccess(`Applied preset: ${preset.name}`);
 
-        // Trigger path update if needed
-        if (window.updateTwerkinPath) {
-            updateTwerkinPath();
+        // Reflect preset in the Selected URL text input (use host as a starting value)
+        const newItemInput = document.getElementById('newItemInput');
+        if (newItemInput) {
+            const host = (preset.subdomain ? preset.subdomain + '.' : '') + preset.server_name;
+            // Put a sensible default (host with trailing slash) into the input so user can edit path
+            newItemInput.value = host + '/';
+        }
+
+        // Trigger UI update: create/update the clickable anchor under the form
+        if (typeof updateAppendedData === 'function') {
+            try { updateAppendedData(); } catch (e) { console.error('updateAppendedData failed', e); }
+        } else if (typeof updateTwerkinPath === 'function') {
+            // fallback to the older helper which may populate the input
+            try { updateTwerkinPath(); } catch (e) { /* ignore */ }
         }
     }
 
@@ -213,6 +226,7 @@ class DomainPresetsManager {
             });
 
             const result = await response.json();
+            console.debug('[DomainPresets] deletePreset() result:', result);
 
             if (result.error) {
                 this.showError(result.error);

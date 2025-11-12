@@ -1,0 +1,63 @@
+{
+  "console": [
+    {
+      "type": "debug",
+      "text": "[DomainPresets] loadPresets() response: JSHandle@object"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "error",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+    },
+    {
+      "type": "debug",
+      "text": "[DomainPresets] savePreset() result: JSHandle@object"
+    },
+    {
+      "type": "debug",
+      "text": "[DomainPresets] savePreset() result: JSHandle@object"
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://ai-anon.local/public/api/presets.php",
+      "postData": null
+    },
+    {
+      "method": "POST",
+      "url": "http://ai-anon.local/public/api/presets.php",
+      "postData": "{\"name\":\"puppeteer-test-1762978957194\",\"subdomain\":\"\",\"server_name\":\"localhost\",\"description\":\"puppeteer-test-1762978957194\"}"
+    },
+    {
+      "method": "POST",
+      "url": "http://ai-anon.local/public/api/presets.php",
+      "postData": "{\"name\":\"puppeteer-test-1762978957194\",\"subdomain\":\"\",\"server_name\":\"localhost\",\"description\":\"puppeteer-test-1762978957194\"}"
+    },
+    {
+      "method": "GET",
+      "url": "http://ai-anon.local/public/api/presets.php",
+      "postData": null
+    }
+  ],
+  "responses": [
+    {
+      "status": 200,
+      "url": "http://ai-anon.local/public/api/presets.php",
+      "body": "{\"presets\":[{\"id\":\"local-dev\",\"name\":\"Local Dev\",\"subdomain\":\"\",\"server_name\":\"localhost\",\"description\":\"Default local development server\"},{\"id\":\"local-ip\",\"name\":\"Local IP\",\"subdomain\":\"\",\"server_name\":\"127.0.0.1\",\"description\":\"Local loopback address\"}]}"
+    },
+    {
+      "status": 400,
+      "url": "http://ai-anon.local/public/api/presets.php",
+      "body": "{\"error\":\"Failed to save configuration\"}"
+    },
+    {
+      "status": 400,
+      "url": "http://ai-anon.local/public/api/presets.php",
+      "body": "{\"error\":\"Failed to save configuration\"}"
+    }
+  ]
+}

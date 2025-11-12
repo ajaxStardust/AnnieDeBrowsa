@@ -8,11 +8,18 @@
             "description": ""
         },
         {
-            "id": "y-omain-tachy",
-            "name": "My Domain tachy",
+            "id": "vps111-local",
+            "name": "vps111.local",
             "subdomain": "",
             "server_name": "localhost",
-            "description": "adaf"
+            "description": "vps111.local"
+        },
+        {
+            "id": "scgl-local",
+            "name": "scgl.local",
+            "subdomain": "",
+            "server_name": "localhost",
+            "description": "scgl..local"
         }
     ]
 }

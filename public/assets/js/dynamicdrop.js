@@ -20,60 +20,63 @@ function appendSelectedValue() {
         return;
     }
 
-    // If appendedData already has a link, use its href as base; otherwise build from prefix/suffix
-    let baseHref = '';
-    if (appdedChildsList && appdedChildsList.length > 0 && appdedChildsList[0] && appdedChildsList[0].href) {
-        baseHref = appdedChildsList[0].href;
-    } else {
-        // construct base from prefix/suffix
-        const prefix = prefixSelect ? prefixSelect.value : '';
-        const suffix = suffixSelect ? suffixSelect.value : '';
-        baseHref = 'https://';
-        if (prefix && prefix.length) baseHref += prefix + '.' + suffix + '/';
-        else baseHref += suffix + '/';
+    // Ensure we have a valid base anchor; if not, create/update it from selects
+    let anchor = appendedData.querySelector('a');
+    if (!anchor) {
+        // build base href from selects
+        const prefix = prefixSelect.value || '';
+        const suffix = suffixSelect.value || '';
+        if (!suffix) {
+            console.error('No server selected to build base URL');
+            return;
+        }
+        let baseHref = 'https://';
+        if (prefix) baseHref += prefix + '.' + suffix;
+        else baseHref += suffix;
+        // ensure trailing slash for base
+        if (!baseHref.endsWith('/')) baseHref += '/';
+
+        anchor = document.createElement('a');
+        anchor.href = baseHref;
+        anchor.textContent = baseHref;
+        anchor.target = '_blank';
+        appendedData.innerHTML = '';
+        appendedData.appendChild(anchor);
+        // preserve a copy in oldAppended
+        oldAppended.innerHTML = appendedData.innerHTML;
     }
 
-    const anchor = document.createElement('a');
-    anchor.href = baseHref;
-    anchor.textContent = baseHref;
-    anchor.target = '_blank';
-
-    appendedData.innerHTML = '';
-    appendedData.appendChild(anchor);
-
-    // show transient success toast
-    showActionToast('Added path');
-
-    const childsOfAppend    = appendedData.childNodes;
-    const childsOfOldAppend = oldAppended.childNodes;
-    oldAppended.innerHTML  = appendedData.innerHTML;
-    childsOfAppend.forEach(anchor => {
-        if (anchor && anchor.href) anchor.href = appendedData.textContent;
-    });
-    const selectedPrefix = prefixSelect.value;
-    const existingAnchor = appendedData;
-
-    const prefix = prefixSelect.value;
-    const suffix = suffixSelect.value;
     const newItemValue = newItemInput.value.trim();
+    if (!newItemValue) {
+        // nothing to append; just ensure anchor exists
+        showActionToast('Base URL ready');
+        return;
+    }
 
-    if (newItemValue) {
-        const userAdded = newItemValue;
-        let stringTest = appendedData.textContent;
-        let StringLength = stringTest.length;
-        if (StringLength > 1) {
-            existingAnchor.textContent = stringTest;
-        }
+    // Build final href by joining base and new path
+    try {
+        let base = anchor.href || '';
+        // remove any surrounding whitespace
+        base = base.trim();
+        // ensure exactly one slash between base and path
+        const path = newItemValue.replace(/^\/+/, '');
+        let final = base;
+        if (!final.endsWith('/')) final += '/';
+        final = final + path;
 
-        const appendedValue = stringTest + userAdded;
+        // update anchor
+        anchor.href = final;
+        anchor.textContent = final;
 
-        newItemInput.value = ''; // Clear input field
+        // copy to oldAppended for history
+        oldAppended.innerHTML = appendedData.innerHTML;
 
-        const appendedDataInner = appendedData.textContent;
-        appendedData.textContent = appendedValue;
-        childsOfAppend.forEach(anchor => {
-            anchor.href = appendedData.textContent;
-        });
+        // clear input
+        newItemInput.value = '';
+
+        showActionToast('Added path');
+    } catch (e) {
+        console.error('Failed to append path:', e);
     }
 }
 
@@ -89,30 +92,35 @@ function updateAppendedData() {
         return;
     }
     
-    // Preserve old appended data
+    // Preserve previous
     if (appendedData.innerHTML) {
         oldAppended.innerHTML = appendedData.innerHTML;
     }
 
-    const prefix = prefixSelect.value;
-    const suffix = suffixSelect.value;
+    const prefix = (prefixSelect && prefixSelect.value) ? prefixSelect.value : '';
+    const suffix = (suffixSelect && suffixSelect.value) ? suffixSelect.value : '';
 
-    let href = 'https://';
-    if (prefix !== '') {
-        href = href + prefix + '.' + suffix + '/';
-    } else {
-        href = href + suffix + '/';
+    if (!suffix) {
+        console.error('No server selected to update domain');
+        return;
     }
 
-    const anchor = document.createElement('a');
+    let href = 'https://';
+    if (prefix) href += prefix + '.' + suffix;
+    else href += suffix;
+    if (!href.endsWith('/')) href += '/';
+
+    // Create or update anchor
+    let anchor = appendedData.querySelector('a');
+    if (!anchor) {
+        anchor = document.createElement('a');
+        anchor.target = '_blank';
+        appendedData.innerHTML = '';
+        appendedData.appendChild(anchor);
+    }
     anchor.href = href;
     anchor.textContent = href;
-    anchor.target = '_blank';
 
-    appendedData.innerHTML = '';
-    appendedData.appendChild(anchor);
-
-    // show transient success toast
     showActionToast('Domain updated');
 }
 

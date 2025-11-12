@@ -160,5 +160,5 @@ class PresetsTester
 }
 
 // Run tests
-$tester = new PresetsTester(__DIR__ . '/config.json');
+$tester = new PresetsTester(__DIR__ . '/presets.json');
 $tester->run();
