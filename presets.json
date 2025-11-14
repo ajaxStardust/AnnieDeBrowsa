@@ -29,21 +29,7 @@
             "description": "tachyons"
         },
         {
-            "id": "tachyons-6914edcd36619",
-            "name": "tachyons",
-            "subdomain": "",
-            "server_name": "localhost",
-            "description": "tachyons"
-        },
-        {
             "id": "tach",
-            "name": "tach",
-            "subdomain": "support",
-            "server_name": "localhost",
-            "description": "tach"
-        },
-        {
-            "id": "tach-6914eeb47dc8e",
             "name": "tach",
             "subdomain": "support",
             "server_name": "localhost",

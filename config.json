@@ -1,28 +1,46 @@
 {
     "home_urls": [
         {
-            "url": "http://localhost:80/index.php",
-            "name": ":80/index.php",
+            "url": "http://whatsonyourbrain.local",
+            "name": "whatsonyourbrain.local",
             "data": "\ud83d\ude4b",
             "count": "1"
         },
         {
-            "url": "https://127.0.0.1:443/",
-            "name": ":443/ (test slash)",
+            "url": "https://statecollegeguitarlessons.local",
+            "name": "SCGL.local",
             "data": "\ud83d\ude4b",
             "count": 2
         },
         {
-            "url": "http://localhost/AnnieDeBrowsa",
-            "name": "ADB:80 (clone test)",
+            "url": "http://centrewebdesign.local",
+            "name": "CWD.local",
             "data": "\ud83d\ude4b",
             "count": 5
         },
         {
-            "url": "https://scout.click",
-            "name": "Scout[.click]",
+            "url": "http://vps111.local/tainers/tainers",
+            "name": "VPS111 Tainer",
             "data": "\ud83d\ude4b",
             "count": "0"
+        },
+        {
+        	"url": "http://wpc.local",
+        	"name": "wpc.local",
+        	"data": "\ud83d\ude4b",
+        	"count": "0"
+        },
+        {
+        	"url": "http://ai-anon.local",
+        	"name": "ai-anon.local",
+        	"data": "\ud83d\ude4b",
+        	"count": "0"
+        },
+        {
+        	"url": "http://hestiacp.ai-anon.local:8083",
+        	"name": "HESTIA:8083",
+        	"data": "\ud83d\ude4b",
+        	"count": "0"
         }
     ],
     "domain_presets": []
