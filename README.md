@@ -38,7 +38,8 @@ I feel like it's pretty basic, and potentially useful to your production flow to
 
 To use Annie DeBrowsa, simply run the following command:
 ```
-bash transform.sh <directory_name>
+cd /var/www/html/annie-de-browsa-this-dir-example
+bash i_am_become_url.sh ./<desired_file_path_to_transform>
 ```
 
 > The idea is actually to copy the .sh script to /usr/local/bin/transform.sh
