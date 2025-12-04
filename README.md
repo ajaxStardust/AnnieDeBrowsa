@@ -39,8 +39,10 @@ I feel like it's pretty basic, and potentially useful to your production flow to
 To use Annie DeBrowsa, simply run the following command:
 ```
 cd /var/www/html/annie-de-browsa-this-dir-example
-bash i_am_become_url.sh ./<desired_file_path_to_transform>
+bash ./i_am_become_url.sh ./<desired_file_path_to_transform>
 ```
+Using the dot slash method on the command line above, the expression is executed on objects in the current directory.
+E.g. the dot, ".", would be analogous to executing: `$> pwd` (print working dir).
 
 > The idea is actually to copy the .sh script to /usr/local/bin/transform.sh
 
