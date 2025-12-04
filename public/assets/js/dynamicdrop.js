@@ -1,4 +1,16 @@
-function appendSelectedValue() {
+/* mostly relevant to Twerkin.form.phtml page */
+
+function clearForm()    {
+    const newItemInput = document.getElementById('newItemInput');
+    const dataHref01 = document.getElementById('dataHref01');
+    const dataHref02 = document.getElementById('dataHref02');
+    dataHref01.innerHTML = '';
+    dataHref02.innerHTML = '';
+    newItemInput.value = '';
+}
+
+
+function appendDataHref01() {
     /*
     initialize primary symbols */
     /*
@@ -8,20 +20,20 @@ function appendSelectedValue() {
     const prefixSelect      = document.getElementById('subdomainSelect');
     const suffixSelect      = document.getElementById('serverSelect');
     const newItemInput      = document.getElementById('newItemInput');
-    const appendedData   = document.getElementById('appendedData');
-    const oldAppended       = document.getElementById('oldAppendedData');
+    const dataHref01        = document.getElementById('dataHref01');
+    const dataHref02        = document.getElementById('dataHref02');
     const currentHref = window.location.href;
-    let appdedChildsList = appendedData.childNodes;
-    let oldAppdedChildsList = oldAppended.childNodes;
+    let appdedChildsList = dataHref01.childNodes;
+    let oldAppdedChildsList = dataHref02.childNodes;
 
     // Safety check - ensure elements exist to avoid null dereference
-    /* if (!prefixSelect || !suffixSelect || !newItemInput || !appendedData) {
-        console.error('Missing form elements in appendSelectedValue:', { prefixSelect, suffixSelect, newItemInput, appendedData });
+    /* if (!prefixSelect || !suffixSelect || !newItemInput || !dataHref01) {
+        console.error('Missing form elements in appendSelectedValue:', { prefixSelect, suffixSelect, newItemInput, dataHref01 });
         return;
     } */
 
     // Ensure we have a valid base anchor; if not, create/update it from selects
-    let anchor = appendedData.querySelector('a');
+    let anchor = dataHref01.querySelector('a');
     if (!newItemInput.value) {
         // build base href from selects
         const prefix = prefixSelect.value || '';
@@ -40,11 +52,11 @@ function appendSelectedValue() {
         anchor.href = baseHref;
         anchor.textContent = baseHref;
         anchor.target = '_blank';
-        updateAppendedData.innerHTML = 'newItemInput.value';
-        appendedData.innerHTML = 'newItemInput.value';
-        appendedData.appendChild(anchor);
-        // preserve a copy in oldAppended
-        oldAppended.innerHTML = appendedData.innerHTML;
+        updateDataHref01.innerHTML = 'newItemInput.value';
+        dataHref01.innerHTML = 'newItemInput.value';
+        dataHref01.appendChild(anchor);
+        // preserve a copy in dataHref02
+        dataHref02.innerHTML = dataHref01.innerHTML;
     }
 
     const newItemValue = newItemInput.value.trim();
@@ -69,11 +81,11 @@ function appendSelectedValue() {
         anchor.href = final;
         anchor.textContent = final;
 
-        // copy to oldAppended for history
-        oldAppended.innerHTML = appendedData.innerHTML;
+        // copy to dataHref02 for history
+        dataHref02.innerHTML = dataHref01.innerHTML;
 
         // clear input
-        newItemInput.value = '';
+        // newItemInput.value = '';
 
         showActionToast('Added path');
     } catch (e) {
@@ -81,30 +93,21 @@ function appendSelectedValue() {
     }
 }
 
-function clearForm()    {
-    const newItemInput = document.getElementById('newItemInput');
-    const appendedData = document.getElementById('appendedData');
-    const oldAppended = document.getElementById('oldAppendedData');
-    appendedData.innerHTML = '';
-    oldAppended.innerHTML = '';
-    newItemInput.value = '';
-}
-
-function updateAppendedData() {
+function updateDataHref01() {
     const prefixSelect = document.getElementById('subdomainSelect');
     const suffixSelect = document.getElementById('serverSelect');
-    const appendedData = document.getElementById('appendedData');
-    const oldAppended = document.getElementById('oldAppendedData');
+    const dataHref01 = document.getElementById('dataHref01');
+    const dataHref02 = document.getElementById('dataHref02');
     
     // Safety check - ensure elements exist
-    if (!prefixSelect || !suffixSelect || !appendedData) {
-        console.error('Missing form elements:', { prefixSelect, suffixSelect, appendedData });
+    if (!prefixSelect || !suffixSelect || !dataHref01) {
+        console.error('Missing form elements:', { prefixSelect, suffixSelect, dataHref01 });
         return;
     }
     
     // Preserve previous
-    if (appendedData.innerHTML) {
-        oldAppended.innerHTML = appendedData.innerHTML;
+    if (dataHref01.innerHTML) {
+        dataHref02.innerHTML = dataHref01.innerHTML;
     }
 
     const prefix = (prefixSelect && prefixSelect.value) ? prefixSelect.value : '';
@@ -121,12 +124,12 @@ function updateAppendedData() {
     if (!href.endsWith('/')) href += '/';
 
     // Create or update anchor
-    let anchor = appendedData.querySelector('a');
+    let anchor = dataHref01.querySelector('a');
     if (!anchor) {
         anchor = document.createElement('a');
         anchor.target = '_blank';
-        appendedData.innerHTML = '';
-        appendedData.appendChild(anchor);
+        dataHref01.innerHTML = '';
+        dataHref01.appendChild(anchor);
     }
     anchor.href = href;
     anchor.textContent = href;

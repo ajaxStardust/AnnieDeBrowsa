@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="path/to/tachyons.min.css">
+    <style>
+        .bg-animate {
+            transition: background-color 1.5s ease;
+        }
+        .bg-highlight {
+            background-color: #ffeb3b; /* Highlight color */
+        }
+        .bg-normal {
+            background-color: inherit; /* Normal color */
+        }
+        .block-a, .block-b, .block-c {
+            margin: 10px;
+        }
+    </style>
+    <title>Animation Example</title>
+</head>
+<body>
+    <div class="block-a bg-light-gray ph3 pv4">Block A</div>
+    <div class="block-b bg-light-gray ph3 pv4">Block B</div>
+    <div class="block-c bg-light-gray ph3 pv4">Block C</div>
+
+    <script>
+        window.onload = function() {
+            const blockA = document.querySelector('.block-a');
+            const blockB = document.querySelector('.block-b');
+            const blockC = document.querySelector('.block-c');
+
+            setTimeout(() => {
+                blockC.classList.add('bg-highlight'); // Animate Block C
+            }, 200);
+            setTimeout(() => {
+                blockC.classList.remove('bg-highlight'); // Animate Block C
+            }, 300);
+
+            setTimeout(() => {
+                blockB.classList.add('bg-highlight'); // Animate Block B
+            }, 400);
+            setTimeout(() => {
+                blockB.classList.remove('bg-highlight'); // Animate Block B
+            }, 500);
+
+            setTimeout(() => {
+                blockA.classList.add('bg-highlight'); // Animate Block A
+            }, 600);
+            setTimeout(() => {
+                blockA.classList.remove('bg-highlight'); // Animate Block A
+            }, 700);
+        };
+    </script>
+</body>
+</html>
