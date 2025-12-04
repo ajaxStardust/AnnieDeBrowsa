@@ -45,7 +45,7 @@ $title = str_ireplace("var/www/", "", $pathOps);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all">
     <link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
-    <link  id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+    <link id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
     <link rel="icon" type="<?= $favtype ?>" href="<?= $favicon ?>">
     <link rel="shortcut icon" type="<?= $favtype ?>" href="<?= $favicon ?>">
     <link rel="icon" href="favicon.ico" sizes="32x32">
@@ -55,9 +55,9 @@ $title = str_ireplace("var/www/", "", $pathOps);
     <meta name="msapplication-TileImage" content="<?php echo "https://" .
         $_SERVER["DOCUMENT_ROOT"] .
         "/public/assets/svg/public/assets/svg/cannibus_find_plainsvg2.svg"; ?>">
-    
-    
-  <link href="assets/css/lightslider.css" rel="stylesheet">
-  <link id="tachyons" rel="stylesheet" href="assets/css/tachyons.css">
+
+
+    <link href="assets/css/lightslider.css" rel="stylesheet">
+    <link id="tachyons" rel="stylesheet" href="assets/css/tachyons-extended.css">
 
 </head>

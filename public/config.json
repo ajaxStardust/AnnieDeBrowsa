@@ -1,0 +1,25 @@
+{
+    "domain_presets": [
+        {
+            "id": "ai-anon-tachyons",
+            "name": "ai-anon_tachyons",
+            "subdomain": "",
+            "server_name": "localhost",
+            "description": ""
+        },
+        {
+            "id": "vps111-local",
+            "name": "vps111.local",
+            "subdomain": "",
+            "server_name": "localhost",
+            "description": "vps111.local"
+        },
+        {
+            "id": "scgl-local",
+            "name": "scgl.local",
+            "subdomain": "",
+            "server_name": "localhost",
+            "description": "scgl..local"
+        }
+    ]
+}
