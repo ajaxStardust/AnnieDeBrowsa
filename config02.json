@@ -1,43 +1,43 @@
 {
     "home_urls": [
         {
-            "url": "http:\/\/ai-anon.local\/",
-            "name": "ai-anon.local",
+            "url": "http:\/\/ai-anon.lan\/",
+            "name": "ai-anon.lan",
             "data": "\ud83d\ude4b",
             "count": "1"
         },
         {
-            "url": "http:\/\/centrewebdesign.local\/",
-            "name": "centrewebdesign.local",
+            "url": "http:\/\/centrewebdesign.lan\/",
+            "name": "centrewebdesign.lan",
             "data": "\ud83e\uddb1",
             "count": 2
         },
         {
-            "url": "http:\/\/dufospy.local\/",
-            "name": "dufospy.local",
+            "url": "http:\/\/dufospy.lan\/",
+            "name": "dufospy.lan",
             "data": "\ud83d\ude4b",
             "count": 5
         },
         {
-            "url": "http:\/\/neutility.local",
+            "url": "http:\/\/neutility.lan",
             "name": "neutility.life",
             "data": "\ud83e\uddb1",
             "count": "0"
         },
         {
-            "url": "http:\/\/outfit.local",
+            "url": "http:\/\/outfit.lan",
             "name": "outfit.gold",
             "data": "\ud83d\ude4b",
             "count": "0"
         },
         {
-            "url": "http:\/\/statecollegeguitarlessons.local",
+            "url": "http:\/\/statecollegeguitarlessons.lan",
             "name": "statecollegeguitarlessons.site",
             "data": "\ud83d\udc11",
             "count": "0"
         },
         {
-            "url": "http:\/\/vps111.local",
+            "url": "http:\/\/vps111.lan",
             "name": "vps111.heliohost.us",
             "data": "\ud83d\ude4b",
             "count": "0"
@@ -49,8 +49,8 @@
             "count": 0
         },
         {
-            "url": "http:\/\/whatsonyourbrain.local",
-            "name": "whatsonyourbrain.local",
+            "url": "http:\/\/whatsonyourbrain.lan",
+            "name": "whatsonyourbrain.lan",
             "data": "\ud83d\udc12",
             "count": 0
         }
