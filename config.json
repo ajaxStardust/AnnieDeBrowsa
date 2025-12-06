@@ -1,47 +1,58 @@
 {
     "home_urls": [
         {
-            "url": "http://whatsonyourbrain.local",
-            "name": "whatsonyourbrain.local",
+            "url": "http:\/\/ai-anon.local\/",
+            "name": "ai-anon.local",
             "data": "\ud83d\ude4b",
             "count": "1"
         },
         {
-            "url": "https://statecollegeguitarlessons.local",
-            "name": "SCGL.local",
-            "data": "\ud83d\ude4b",
+            "url": "http:\/\/centrewebdesign.local\/",
+            "name": "centrewebdesign.local",
+            "data": "\ud83e\uddb1",
             "count": 2
         },
         {
-            "url": "http://centrewebdesign.local",
-            "name": "CWD.local",
+            "url": "http:\/\/dufospy.local\/",
+            "name": "dufospy.local",
             "data": "\ud83d\ude4b",
             "count": 5
         },
         {
-            "url": "http://vps111.local/tainers/tainers",
-            "name": "VPS111 Tainer",
+            "url": "http:\/\/neutility.local",
+            "name": "neutility.life",
+            "data": "\ud83e\uddb1",
+            "count": "0"
+        },
+        {
+            "url": "http:\/\/outfit.local",
+            "name": "outfit.gold",
             "data": "\ud83d\ude4b",
             "count": "0"
         },
         {
-        	"url": "http://wpc.local",
-        	"name": "wpc.local",
-        	"data": "\ud83d\ude4b",
-        	"count": "0"
+            "url": "http:\/\/statecollegeguitarlessons.local",
+            "name": "statecollegeguitarlessons.site",
+            "data": "\ud83d\udc11",
+            "count": "0"
         },
         {
-        	"url": "http://ai-anon.local",
-        	"name": "ai-anon.local",
-        	"data": "\ud83d\ude4b",
-        	"count": "0"
+            "url": "http:\/\/vps111.local",
+            "name": "vps111.heliohost.us",
+            "data": "\ud83d\ude4b",
+            "count": "0"
         },
         {
-        	"url": "http://hestiacp.ai-anon.local:8083",
-        	"name": "HESTIA:8083",
-        	"data": "\ud83d\ude4b",
-        	"count": "0"
+            "url": "http:\/\/vps111.heliohost.us:8083",
+            "name": "helio:8083",
+            "data": "\ud83c\udfb1",
+            "count": 0
+        },
+        {
+            "url": "http:\/\/whatsonyourbrain.local",
+            "name": "whatsonyourbrain.local",
+            "data": "\ud83d\udc12",
+            "count": 0
         }
-    ],
-    "domain_presets": []
+    ]
 }

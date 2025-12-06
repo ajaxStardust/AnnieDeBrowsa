@@ -48,6 +48,27 @@ $contructNewMethod = $Newmethod->_construct_NewMethod;
 
 // Functions()
 $Functions = new Functions();
+
+$resultsWithDescriptions = [
+    [
+        'id' => 'url_buildByComp',
+        'value' => 'http://ai-anon.local/home/hestia/web/ai-anon.local/public_html',
+        'label' => 'BuildByComp',
+        'description' => 'Direct hostname construction'
+    ],
+    [
+        'id' => 'url_concatThis',
+        'value' => 'http://hestia/ai-anon.local',
+        'label' => 'ConcatThis',
+        'description' => 'Filtered paths (most reliable)'
+    ],
+    [
+        'id' => 'url_concatSwitch',
+        'value' => 'http://ai-anon.local',
+        'label' => 'ConcatSwitch',
+        'description' => 'Switch-case logic (experimental)'
+    ]
+];
 ?>
 
 <!DOCTYPE html>
@@ -135,7 +156,7 @@ $Functions = new Functions();
         <header class="bg-dark-blue white pv4 ph3">
             <div class="mw9 center">
                 <h1 class="ma0 mb2 f2 fw7"><?= $whatis["page_heading"] ?></h1>
-                <p class="ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Debug Interface</p>
+                <p class="ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Tranform URL</p>
             </div>
         </header>
 
@@ -163,21 +184,7 @@ $Functions = new Functions();
                     require "Twerkin.form.phtml";
                 ?>
                 <!-- Navigation Go-Up Section -->
-                <div class="mb4">
-                    <h2 class="section-title f3 fw7 mv3">Navigation Traversal</h2>
-                    <div class="card pa4 mt3">
-                        <h3 class="mt0 mb3 f6 fw6">Parent Directory Navigation</h3>
-                        <p class="mb3 f6 gray">The "go up" URL should appear as the first navigation item:</p>
-                        <ol id="navgoup_demo" class="db pa0 ml3">
-                            <?php
-                                $goUpArray = $Functions->process_goup();
-                                foreach ($goUpArray as $goUpKey => $goUpVal) {
-                                    echo '<li class="navgoup_item todo-item mb2">goUp[' . $goUpKey . "]: " . $goUpVal . "</li>";
-                                }
-                            ?>
-                        </ol>
-                    </div>
-                </div>
+                
 
 
 
@@ -212,25 +219,15 @@ $Functions = new Functions();
         </footer>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="assets/js/showme-hideme.js"></script>
-    <script src="assets/js/lightslider.js"></script>
-    <script src="assets/js/p2u2.js"></script>
-    <script src="assets/js/dynamicdrop.js"></script>
-    <script src="assets/js/domain-presets.js"></script>
-    <script>
-        // Auto-populate Twerkin path field when URL selection changes
-        function updateTwerkinPath() {
-            const selectedRadio = document.querySelector('input[name="selectedUrl"]:checked');
-            if (selectedRadio) {
-                document.getElementById('newItemInput').value = selectedRadio.value;
-            }
-        }
-        
-        // Initialize on page load with default selection
-        document.addEventListener('DOMContentLoaded', function() {
-            updateTwerkinPath();
-        });
-    </script>
+    <script src="public/assets/js/showme-hideme.js"></script>
+    <script src="public/assets/js/lightslider.js"></script>
+    <script src="public/assets/js/p2u2.js"></script>
+    
+    
+    
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script src="public/assets/js/vue/app.js"></script>
 </body>
 
 </html>
