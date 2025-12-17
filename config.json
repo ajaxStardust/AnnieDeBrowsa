@@ -1,56 +1,50 @@
 {
     "home_urls": [
         {
-            "url": "http:\/\/ai-anon.local\/",
-            "name": "ai-anon.local",
+            "url": "http:\/\/ai-anon.com\/",
+            "name": "ai-anon.com",
             "data": "\ud83d\ude4b",
             "count": "1"
         },
         {
-            "url": "http:\/\/centrewebdesign.local\/",
-            "name": "centrewebdesign.local",
+            "url": "http:\/\/centrewebdesign.com\/",
+            "name": "centrewebdesign.com",
             "data": "\ud83e\uddb1",
             "count": 2
         },
         {
-            "url": "http:\/\/dufospy.local\/",
-            "name": "dufospy.local",
+            "url": "http:\/\/dufospy.com\/",
+            "name": "dufospy.com",
             "data": "\ud83d\ude4b",
             "count": 5
         },
         {
-            "url": "http:\/\/neutility.local",
-            "name": "neutility.life",
-            "data": "\ud83e\uddb1",
-            "count": "0"
-        },
-        {
-            "url": "http:\/\/outfit.local",
+            "url": "http:\/\/outfit.gold",
             "name": "outfit.gold",
             "data": "\ud83d\ude4b",
             "count": "0"
         },
         {
-            "url": "http:\/\/statecollegeguitarlessons.local",
+            "url": "http:\/\/statecollegeguitarlessons.site",
             "name": "statecollegeguitarlessons.site",
             "data": "\ud83d\udc11",
             "count": "0"
         },
         {
-            "url": "http:\/\/vps111.local",
+            "url": "http:\/\/vps111.heliohost.us",
             "name": "vps111.heliohost.us",
             "data": "\ud83d\ude4b",
             "count": "0"
         },
         {
-            "url": "http:\/\/vps111.heliohost.us:8083",
-            "name": "helio:8083",
-            "data": "\ud83c\udfb1",
+            "url": "http:\/\/whatsonyourbrain.com",
+            "name": "whatsonyourbrain.com",
+            "data": "\ud83d\udc12",
             "count": 0
         },
         {
-            "url": "http:\/\/whatsonyourbrain.local",
-            "name": "whatsonyourbrain.local",
+            "url": "https:\/\/scout.click",
+            "name": "Scout",
             "data": "\ud83d\udc12",
             "count": 0
         }

@@ -49,7 +49,7 @@ if [ $# -eq 0 ]; then
         # Display the filename only
         printf "%s\n"
 
-        printf "%s\n" "${CYAN}Object name to transform.sh: ${RESET}${BOLD}${FILENAME_ONLY}${RESET}"
+        printf "%s\n" "${CYAN}Object selected to transform.sh: ${RESET}${BOLD}${FILENAME_ONLY}${RESET}"
         sleep 3
 
         # Check if HOSTNAME is set in the SYSTEM ENV and valid. Uncomment next line to define HOSTNAME here instead. tweak with MYHostname

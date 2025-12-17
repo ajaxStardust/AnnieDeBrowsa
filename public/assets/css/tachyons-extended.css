@@ -2699,9 +2699,9 @@ code,
 }
 
 .bg-light-corn-animated {
-  background: radial-gradient(circle at center, #858e67 0%, #dfe8c0 100%); 
-background-size: 400% 400%;
-animation: animationName 59s ease infinite;
+  background: radial-gradient(circle at center, #4e496d 0%, #07071d 100%); 
+background-size: 100% 100%;
+animation: animationName 30s ease infinite;
                 
 @keyframes animationName {
                     

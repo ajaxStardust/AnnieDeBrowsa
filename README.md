@@ -63,7 +63,7 @@ For more details, refer to the [transform.sh script](https://raw.githubuserconte
 
 ## Demo
 
-View a [live demo here](https://adb.statecollegeguitarlessons.site).
+View a [live demo here](https://whatsonyourbrain.com/adb).
 
 ## Support
 
