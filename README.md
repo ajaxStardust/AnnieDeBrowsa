@@ -1,6 +1,6 @@
 # Annie DeBrowsa (ADB) - Any Dir Browser
+[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api/pin/?username=ajaxStardust&repo=AnnieDeBrowsa&show_owner=true)](https://github.com/anuraghazra/github-readme-stats)
 
-[![Status](https://github-readme-stats.vercel.app/api/pin/?username=ajaxStardust&repo=AnnieDeBrowsa&show_owner=true)](https://github-readme-stats.vercel.app)
 
 ## Description
 This project was started in the late 2000s out of my desire to have a means of previewing old website projects stored on a development server. Consider it a "static content management system" — not a file manager.
