@@ -24,7 +24,7 @@ class Iframe
     {
         /**
          * @logic ( iframe src=??? )`
-         *    :if   HTTP_REQUEST param "path2url" exists then src=urlpatchcheck.phtml
+         *    :if   HTTP_REQUEST param "path2url" exists then src=urlpatchcheck.php
          *    :else test for match on various common web dir index filenames
          * ~~~~~~~~~~~~~~~~~~~~~~~~~~
          *  @param ->defaultIframe stri`ng:
@@ -32,7 +32,7 @@ class Iframe
          */
         $this->defaultIframe = '';
         if (isset($_GET['path2url'])) {
-            $this->defaultIframe = './p2u2.phtml?path2url=' . $_GET['path2url'];
+            $this->defaultIframe = './p2u2.php?path2url=' . $_GET['path2url'];
         } else {
             /*
              * *  @var defaultFrameArray array
@@ -42,8 +42,8 @@ class Iframe
              * *  the priority.
              */
             $defaultFrameArray = array(
-                'index.phtml',
-                'p2u2.phtml',
+                'index.php',
+                'p2u2.php',
                 'tree.html',
                 'https://bunsen/p2u2.phhtml'
             );

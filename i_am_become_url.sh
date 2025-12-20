@@ -71,7 +71,7 @@ if [ $# -eq 0 ]; then
         fi
 
                         # Construct the URL and ensure it is properly formatted
-                        URL="http://${HOSTNAME}/public/index.phtml?path2url=${FULL_PATH}"
+                        URL="http://${HOSTNAME}/public/index.php?path2url=${FULL_PATH}"
 
                         # Open browser with the constructed URL
 #                        printf "%s\n" "${YELLOW}Open browser (using xdg-open alias):${RESET}"

@@ -45,13 +45,13 @@
   - [x] Valid JSON structure
   - [x] Readable by PHP
 
-- [x] **Twerkin.form.phtml** enhanced
+- [x] **Twerkin.form.php** enhanced
   - [x] Added presetContainer div
   - [x] Updated select IDs (subdomainSelect, serverSelect)
   - [x] Added helper text
   - [x] Maintains existing functionality
 
-- [x] **Main.page.phtml** updated
+- [x] **Main.page.php** updated
   - [x] Added domain-presets.js script tag
   - [x] Script positioned correctly before </body>
   - [x] No conflicts with existing scripts
@@ -214,8 +214,8 @@
 
 - [x] **File Modification**
   - [x] config.json updated
-  - [x] src/View/Twerkin.form.phtml updated
-  - [x] src/View/Main.page.phtml updated
+  - [x] src/View/Twerkin.form.php updated
+  - [x] src/View/Main.page.php updated
 
 - [x] **Line Count Verification**
   - [x] PresetsApi.php: 160 lines

@@ -135,7 +135,7 @@ echo '    </ul>
         <div id="frameTitler">iframe.src: <span id="frameName"><?php print $defaultIframe; ?></span>
         </div>
         <!--    $   id:frameTitler  $   -->
-        <iframe title="frame content as selected in main navigation" src="index.phtml" id="mainFrame">
+        <iframe title="frame content as selected in main navigation" src="index.php" id="mainFrame">
         </iframe>
     </div>
 

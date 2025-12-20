@@ -57,12 +57,12 @@ config.json
   - Backward compatible (home_urls unchanged)
   - Default presets: local-dev, local-ip
 
-src/View/Twerkin.form.phtml
+src/View/Twerkin.form.php
   - Added <div id="presetContainer"> for dynamic UI injection
   - Updated select IDs: subdomainSelect, serverSelect (was prefix, suffix)
   - Added helper text explaining auto-population
 
-src/View/Main.page.phtml
+src/View/Main.page.php
   - Added <script src="assets/js/domain-presets.js"></script>
   - Positioned before closing </body> tag
   - Activates preset manager on page load

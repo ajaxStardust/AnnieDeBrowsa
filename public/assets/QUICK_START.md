@@ -106,10 +106,10 @@ Expected output:
 /config.json
   └─ Persistent storage (auto-updated)
 
-/src/View/Twerkin.form.phtml
+/src/View/Twerkin.form.php
   └─ Enhanced form with preset container
 
-/src/View/Main.page.phtml
+/src/View/Main.page.php
   └─ Includes domain-presets.js script
 ```
 

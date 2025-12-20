@@ -2,7 +2,7 @@
 <?php
 
 /*
- * adb_simplest/template.phtml
+ * adb_simplest/template.php
  *
  * Copyright 2023 @ajaxStardust <flux@mx23>
  *
