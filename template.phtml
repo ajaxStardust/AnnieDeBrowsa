@@ -252,22 +252,16 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
         <!-- END NOTES -->
 
 
-    </div> <!-- $ end .notes div -->
-    <section>
+    
+    <section class="w-75 mx-auto">
         <!-- :begin #_GLOSSARY  -->
         <div>
-            <h2>Glossary:</h2>
-            <h3>Key Terms about <?php print $page_heading; ?></h3>
-            <dl>
-                <dt class="pointer">Show Glossary<span class="normal blue pointer" id="show_g01"
-                        onclick="swap_text('show_g01','glossary_01') ">[toggle...]</span>
-                </dt>
-                <dd id="glossary_01" class="displaynone">
-                    <p>Maybe this is a note about a framework&apos;s folder structure...</p>
-                    <details>
-            <summary>
-                Text, Background, Border colors (c/p easier from &#x31c;pre&#x31e;)
-            </summary>
+            <section class="content">
+                <details>
+                    <summary class="text-smallcaps">
+                        Glossary:
+                    </summary>
+                    <strong>Key Terms about <?php print $page_heading; ?></strong>
             <pre>text-primary - Primary text
 text-light - Light text
 text-white - White text
@@ -287,16 +281,23 @@ bd-dark - Dark border
 bd-grey - Grey border
 bd-error - Error border
 bd-success - Success border</pre>
-        </details>
-                    <p>Remember: There are tools, such as the Linux command line tool, <code>tree</code> which can
-                        generate the
-                        tree in various formats including <strong>JSON and HTML</strong>. E.g. <code>tree -J</code>
-                        or <code>tree -H http://path/of/dir</code></p>
+                    <p>Use tools, such as the Linux command line tool, <code>tree</code> which can                         generate the directory tree in various formats including <strong>JSON and HTML</strong>. E.g. <code>tree -J</code>                         or <code>tree -H http://path/of/dir</code>
+                    </p>
+
                     <p><kbd>apt install tree</kbd></p>
-                </dd>
-            </dl>
-        </div> <!-- $ :end #_glossary -->
-    </section>
+                    <p>JSON (JavaScript Object Notation) and HTML (Hypertext Markup Language) are both
+                        data formats, but they serve different purposes and have distinct characteristics.</p>
+                    <p>Leverage the power of the Linux command line tool, <code>TREE</code>! </p>
+        </details>
+            </section>
+
+        <section class="content">
+            
+
+        </section> <!-- $ :end #_glossary -->
+    </section> <!-- $ :end #_glossary -->
+    </div> <!-- $ :end #_glossary -->
+
     <footer class="footer px-4">
         <!--    .FOOTER     -->
         <div class="row gx-5">

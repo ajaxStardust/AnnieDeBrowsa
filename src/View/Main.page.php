@@ -150,8 +150,9 @@ $resultsWithDescriptions = [
     </style>
 </head>
 
-<body class="bg-light-gray">
-    <div class="w-100">
+<body class="center px2 ph3">
+    <div class="center backgroundblue">
+    <div class="w-75  bg-light-gray">
         <!-- Header -->
         <header class="bg-dark-blue white pv4 ph3">
             <div class="mw9 center">
@@ -172,6 +173,14 @@ $resultsWithDescriptions = [
                         <p class="ma0 f6 gray">Base Path:</p>
                         <p class="ma0 f5 mono"><?php echo isset($Env->initialize_enviornment["abspathtml"]) ? $Env->initialize_enviornment["abspathtml"] : 'Not set'; ?></p>
                     </div>
+                    <div>
+                        <p class="ma0 f6 gray">Server:</p>
+                        <p class="ma0 f5 mono"><?= $_SERVER["SERVER_NAME"]; ?></p>
+                    </div>
+                    <div>
+                        <p class="ma0 f6 gray">ADB Main Page:</p>
+                        <p class="ma0 f5 mono"><a href="../">Go Home</a></p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -190,7 +199,7 @@ $resultsWithDescriptions = [
 
 
 <div id="app">
-  <h2>Domain Configuration</h2>
+  <h2 class="text-white" >Domain Configuration</h2>
 
   <div class="card pa4 mt3">
     <label>Selected URL</label>
@@ -216,7 +225,7 @@ $resultsWithDescriptions = [
 
         </div>
     </main>
-
+    </div>
 <script src="assets/js/showme-hideme.js"></script>
     <script src="assets/js/dynamicdrop.js"></script>
     <script>
