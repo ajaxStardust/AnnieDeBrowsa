@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 
 /*
@@ -26,7 +27,6 @@ $page_heading = 'Some Text Styles of &#x201c;Chota MicroCSS&#x201d; CSS';
 $title = 'TITLE ME PLEASE';
 $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
 ?>
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -38,27 +38,29 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
     </title>
     <link rel="icon" type="image/ico" href="favicon.ico">
     <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-    <!-- link href="assets/css/style.css" rel="stylesheet" -->
-    <!-- link href="assets/css/notes.css" rel="stylesheet" -->
-    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    <!-- link rel="stylesheet" href="https://unpkg.com/chota@latest" -->
     <link href="assets/css/lightslider.css" rel="stylesheet">
-    <style>.displaynone {display:none;}</style>
-    <!-- link rel="stylesheet" href="public/assets/css/Chota MicroCSS.min.css" -->
-<style>
-    body.dark {
-      --bg-color: #000;
-      --bg-secondary-color: #131316;
-      --font-color: #f5f5f5;
-      --color-grey: #ccc;
-      --color-darkGrey: #777;
-    }
-  </style>
-  <script>
-    if (window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.body.classList.add('dark');
-    }
-  </script>
+    <style>
+        .displaynone {
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="public/assets/css/extra/chota.min.css">
+    <style>
+        body.dark {
+            --bg-color: #000;
+            --bg-secondary-color: #131316;
+            --font-color: #f5f5f5;
+            --color-grey: #ccc;
+            --color-darkGrey: #777;
+        }
+    </style>
+    <script>
+        if (window.matchMedia &&
+            window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark');
+        }
+    </script>
 </head>
 
 <body>
@@ -68,7 +70,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
 
         <section id="header">
             <!-- #HEADER -->
-            <h1 class="bg-dark text-light text-center pe-3">
+            <h1 class="text-center text-primary text-4 text-bold">
                 <?php print $page_heading; ?>
             </h1>
         </section>
@@ -90,7 +92,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
                         <p class="text-grey">.text-grey</p>
                         <p class="text-error">.text-error</p>
                         <p class="text-success">.text-success</p>
-                   </dd>
+                    </dd>
 
                     <dt class="keyTerms pointer">bg-[color]: <span class="normal blue pointer" id="show_n02"
                             onclick="swap_text('show_n02','chota-utilities_02') "> toggle... </span>
@@ -105,24 +107,168 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
                         <p class="text-dark bg-success">.bg-success .text-dark</p>
                     </dd>
                 </dl>
-    <section class="content">
-<details><summary>
-Border Colors
-</summary>
-bd-primary - primary border
-bd-light - Light border
-bd-dark - Dark border
-bd-grey - Grey border
-bd-error - Error border
-bd-success - Success border
-</details>
-</section>
+            </div> <!-- $ end .notes div -->
+        </section>
+        <section class="content">
+            <details>
+                <summary>Border Colors Table</summary>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Class</th>
+                            <th>Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>bd-primary</td>
+                            <td><span class="bd-primary">Primary Border</span></td>
+                        </tr>
+                        <tr>
+                            <td>bd-light</td>
+                            <td><span class="bd-light">Light Border</span></td>
+                        </tr>
+                        <tr>
+                            <td>bd-dark</td>
+                            <td><span class="bd-dark">Dark Border</span></td>
+                        </tr>
+                        <tr>
+                            <td>bd-grey</td>
+                            <td><span class="bd-grey">Grey Border</span></td>
+                        </tr>
+                        <tr>
+                            <td>bd-error</td>
+                            <td><span class="bd-error">Error Border</span></td>
+                        </tr>
+                        <tr>
+                            <td>bd-success</td>
+                            <td><span class="bd-success">Success Border</span></td>
+                        </tr>
+                    </tbody>
+        </table>
+            </details>
+        </section>
+        <section>
 
-<details>
-<summary>
-Text, Background, Border colors
-</summary>
-<pre>text-primary - Primary text
+        <details>
+            <summary>
+                Text, Background, Border colors
+            </summary>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>text-primary</td>
+                        <td><span class="text-primary">Primary Text</span></td>
+                    </tr>
+                    <tr>
+                        <td>text-light</td>
+                        <td><span class="text-light">Light Text</span></td>
+                    </tr>
+                    <tr>
+                        <td>text-white</td>
+                        <td><span class="text-white">White Text</span></td>
+                    </tr>
+                    <tr>
+                        <td>text-dark</td>
+                        <td><span class="text-dark">Dark Text</span></td>
+                    </tr>
+                    <tr>
+                        <td>text-grey</td>
+                        <td><span class="text-grey">Grey Text</span></td>
+                    </tr>
+                    <tr>
+                        <td>text-error</td>
+                        <td><span class="text-error">Error Text</span></td>
+                    </tr>
+                    <tr>
+                        <td>text-success</td>
+                        <td><span class="text-success">Success Text</span></td>
+                    </tr>
+                </tbody>
+                <tbody class="table table-striped">
+
+                    <tbody>
+                        <tr>
+                            <td>bg-primary</td>
+                            <td><span class="text-white bg-primary">Primary Background</span></td>
+                        </tr>
+                        <tr>
+                            <td>bg-light</td>
+                            <td><span class="text-dark bg-light">Light Background</span></td>
+                        </tr>
+                        <tr>
+                            <td>bg-dark</td>
+                            <td><span class="text-light bg-dark">Dark Background</span></td>
+                        </tr>
+                        <tr>
+                            <td>bg-grey</td>
+                            <td><span class="text-white bg-grey">Grey Background</span></td>
+                        </tr>
+                        <tr>
+                            <td>bg-error</td>
+                            <td><span class="text-light bg-error">Error Background</span></td>
+                        </tr>
+                        <tr>
+                            <td>bg-success</td>
+                            <td><span class="text-dark bg-success">Success Background</span></td>
+                        </tr>
+                    </tbody>
+                    <tbody>
+                        <tr>
+                            <td>bd-primary</td>
+                            <td><span class="bd-primary">Primary Border</span></td>
+                        </tr>
+                        <tr>
+                            <td>bd-light</td>
+                            <td><span class="bd-light">Light Border</span></td> <!-- light border -->
+                        </tr>   <!-- light border -->
+                        <tr>
+                            <td>bd-dark</td>
+                            <td><span class="bd-dark">Dark Border</span></td>   <!-- dark border -->
+                        </tr>   <!-- dark border -->    <!-- dark border -->
+                        <tr>
+                            <td>bd-grey</td>
+                            <td><span class="bd-grey">Grey Border</span></td>   <!-- grey border -->    <!-- grey border -->
+                        </tr>   <!-- grey border -->    <!-- grey border -->    <!-- grey border -->
+
+                        <tr>
+                            <td>bd-success</td>
+                            <td><span class="bd-success">Success Border</span></td>   <!-- success border -->    <!-- success border -->
+                        </tr>   <!-- success border -->    <!-- success border -->
+                    </tbody>
+            </table>
+            </details>
+        </section>
+        
+        
+        
+        <!-- END NOTES -->
+        <!-- END NOTES -->
+
+
+    </div> <!-- $ end .notes div -->
+    <section>
+        <!-- :begin #_GLOSSARY  -->
+        <div>
+            <h2>Glossary:</h2>
+            <h3>Key Terms about <?php print $page_heading; ?></h3>
+            <dl>
+                <dt class="pointer">Show Glossary<span class="normal blue pointer" id="show_g01"
+                        onclick="swap_text('show_g01','glossary_01') ">[toggle...]</span>
+                </dt>
+                <dd id="glossary_01" class="displaynone">
+                    <p>Maybe this is a note about a framework&apos;s folder structure...</p>
+                    <details>
+            <summary>
+                Text, Background, Border colors (c/p easier from &#x31c;pre&#x31e;)
+            </summary>
+            <pre>text-primary - Primary text
 text-light - Light text
 text-white - White text
 text-dark - Dark text
@@ -141,55 +287,31 @@ bd-dark - Dark border
 bd-grey - Grey border
 bd-error - Error border
 bd-success - Success border</pre>
-</details>
-                <!-- END NOTES -->
-                <!-- END NOTES -->
-
-
-            </div> <!-- $ end .notes div -->
-        </section>
-        <section>
-            <!-- :begin #_GLOSSARY  -->
-            <div>
-                <h2>Glossary:</h2>
-                <h3>Key Terms about <?php print $page_heading; ?></h3>
-                <dl>
-                    <dt class="pointer">Show Glossary<span class="normal blue pointer" id="show_g01"
-                            onclick="swap_text('show_g01','glossary_01') ">[toggle...]</span>
-                    </dt>
-                    <dd id="glossary_01" class="displaynone">
-                        <p>Maybe this is a note about a framework&apos;s folder structure...</p>
-                        <pre>#       /var/www/html/framework_name/
-#       |-- some.file.name
-#       |-- some.ts
-#       |-- some.json
-#       |-- some.js</pre>
-                        <p>Remember: There are tools, such as the Linux command line tool, <code>tree</code> which can
-                            generate the
-                            tree in various formats including <strong>JSON and HTML</strong>. E.g. <code>tree -J</code>
-                            or <code>tree -H http://path/of/dir</code></p>
-                        <p><kbd>apt install tree</kbd></p>
-                    </dd>
-                </dl>
-            </div> <!-- $ :end #_glossary -->
-        </section>
-        <footer class="footer px-4">
-            <!--    .FOOTER     -->
-            <div class="row gx-5">
-                <div class="col">
-                    <div class="p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust"
-                            target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div>
-                </div>
-                <div class="col">
-                    <div class="p-3 border bg-light text-end"><kbd>
-                            <?php echo $lastMod; ?>
-                        </kbd></div>
-                </div>
+        </details>
+                    <p>Remember: There are tools, such as the Linux command line tool, <code>tree</code> which can
+                        generate the
+                        tree in various formats including <strong>JSON and HTML</strong>. E.g. <code>tree -J</code>
+                        or <code>tree -H http://path/of/dir</code></p>
+                    <p><kbd>apt install tree</kbd></p>
+                </dd>
+            </dl>
+        </div> <!-- $ :end #_glossary -->
+    </section>
+    <footer class="footer px-4">
+        <!--    .FOOTER     -->
+        <div class="row gx-5">
+            <div class="col">
+                <div class="p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust"
+                        target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div>
             </div>
-        </footer>
-    </div><!--    $ :end    END class.content (former id.maincol)    $    -->
+            <div class="col">
+                <div class="p-3 border bg-light text-end"><kbd>
+                        <?php echo $lastMod; ?>
+                    </kbd></div>
+            </div>
+        </div>
+    </footer>
+    </body> <!--    $ :end    END class.content (former id.maincol)    $    -->
     <script src="public/assets/js/showme-hideme.js"></script>
-
-</body>
 
 </html>
