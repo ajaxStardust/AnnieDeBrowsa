@@ -1,18 +1,18 @@
 <!-- ^ Trypath.form.php -->
 
-<div id="app" class="mb4">
-    <h2 class="section-title f3 fw7 mv3">Path Processing Summary</h2>
-    <div class="card pa4 mt3">
-        <dl id="processingSummary" class="mb3">
-            <dt class="pointer b f6">Path Processing Methods <span class="thin f6">(three approaches)</span> <span
-                    class="normal blue pointer f6" id="show_g01" onclick="swap_text('show_g01','glossary_01') ">
+<div id="app" class="sans-serif mb4">
+    <h2 class="sans-serif section-title f3 fw7 mv3">Path Processing Summary</h2>
+    <div class="sans-serif card pa4 mt3">
+        <dl id="processingSummary" class="sans-serif mb3">
+            <dt class="sans-serif pointer b f6">Path Processing Methods <span class="sans-serif thin f6">(three approaches)</span> <span
+                    class="sans-serif normal blue pointer f6" id="show_g01" onclick="swap_text('show_g01','glossary_01') ">
                     [details]</span>
             </dt>
-            <dd id="glossary_01" class="bg-light-gray pa2 pv2 mt2 br2 dn">
+            <dd id="glossary_01" class="sans-serif bg-light-gray pa2 pv2 mt2 br2 dn">
                     <p>Using regular expressions and other syntax, the URL components which make up the path
                         are separated and stored in an array, "path[]". </p>
                     <p><code>path[]</code> is derived from <code
-                            class="php">$Eval-&gt;test_location($enterpathhere)['pb'];</code></p>
+                            class="sans-serif php">$Eval-&gt;test_location($enterpathhere)['pb'];</code></p>
                     <ul>
                         <li><code>buldByComp</code> uses _SERVER[], path[], to build the resulting HTTP url.
                         </li>
@@ -67,18 +67,18 @@ foreach ($process_location as $mKey => $mVal) {
 }
 ?>
         <!-- Header -->
-        <header class="bg-dark-blue white pv4 ph3">
-            <div class="mw9 center">
-                <h1 class="ma0 mb2 f2 fw7">Convert System Path to HTTP URL</h1>
-                <p class="ma0 mt2 f4 fw4 o-80"><br /></p>
+        <header class="sans-serif bg-dark-blue white pv4 ph3">
+            <div class="sans-serif mw9 center">
+                <h1 class="sans-serif ma0 mb2 f2 fw7">Convert System Path to HTTP URL</h1>
+                <p class="sans-serif ma0 mt2 f4 fw4 o-80"><br /></p>
             </div>
         </header>
-        <main class="pv4 ph3">
+        <main class="sans-serif pv4 ph3">
              <!-- Conversion Results -->
-        <div id="app-duped" class="mt4 pt3 bt b--light-gray">
-            <h3 class="f5 fw6 mb3">Conversion Results</h3>
-            <p class="f6 gray mb3">Select a result to use in the Domain Configuration below:</p>
-            <div class="grid-3-ns gap3">
+        <div id="app-duped" class="sans-serif mt4 pt3 bt b--light-gray">
+            <h3 class="sans-serif f5 fw6 mb3">Conversion Results</h3>
+            <p class="sans-serif f6 gray mb3">Select a result to use in the Domain Configuration below:</p>
+            <div class="sans-serif grid-3-ns gap3">
             <?php
                     $results = [
                         'buildByComp' => rtrim($buildByComp, "/"),
@@ -91,19 +91,19 @@ foreach ($process_location as $mKey => $mVal) {
                         'concatThis' => 'Filtered paths (most reliable)',
                         'concatSwitch' => 'Switch-case logic (experimental)'
                     ];
-                    echo '<div class="card pa3 br2 ba b--light-gray">';
-                    echo '<div class="mb2 flex items-center">';
+                    echo '<div class="sans-serif card pa3 br2 ba b--light-gray">';
+                    echo '<div class="sans-serif mb2 flex items-center">';
                     echo '<select>';
                     
                     foreach ($results as $method => $url) {
-                        echo '<option id="' . htmlspecialchars($method, ENT_QUOTES) . '" class="section-title" value="' . htmlspecialchars($url, ENT_QUOTES) . '">' . ucfirst(htmlspecialchars($method)) . '</option>';
+                        echo '<option id="' . htmlspecialchars($method, ENT_QUOTES) . '" class="sans-serif section-title" value="' . htmlspecialchars($url, ENT_QUOTES) . '">' . ucfirst(htmlspecialchars($method)) . '</option>';
                     }
                     echo '</select>';
                     echo '</div>';
 
                     foreach ($results as $method => $url) {
-                        echo '<p class="mt1 mb2 f6 gray">' . htmlspecialchars($descriptions[$method]) . '</p>';
-                        echo '<p class="mb0 f6 break-word mono bg-light-gray pa2 br1"><a href="' . htmlspecialchars($url, ENT_QUOTES) . '" target="_blank" class="blue hover-dark-blue">' . htmlspecialchars($url) . '</a></p>';
+                        echo '<p class="sans-serif mt1 mb2 f6 gray">' . htmlspecialchars($descriptions[$method]) . '</p>';
+                        echo '<p class="sans-serif mb0 f6 break-word mono bg-light-gray pa2 br1"><a href="' . htmlspecialchars($url, ENT_QUOTES) . '" target="_blank" class="sans-serif blue hover-dark-blue">' . htmlspecialchars($url) . '</a></p>';
                     }
                     ?>
 
@@ -111,22 +111,22 @@ foreach ($process_location as $mKey => $mVal) {
 
             </div>
 
-                                <div class="card pa3 br2 ba b--light-gray">
-                                    <div class="mb2 flex items-center">
-                                        <p class="mt1 mb2 f6 gray">Direct hostname construction (most sloppy)</p>
-                                        <p class="mt1 mb2 f6 gray">Filtered paths (most reliable)</p>
-                                        <p class="mt1 mb2 f6 gray">Switch-case logic (experimental)</p>
+                                <div class="sans-serif card pa3 br2 ba b--light-gray">
+                                    <div class="sans-serif mb2 flex items-center">
+                                        <p class="sans-serif mt1 mb2 f6 gray">Direct hostname construction (most sloppy)</p>
+                                        <p class="sans-serif mt1 mb2 f6 gray">Filtered paths (most reliable)</p>
+                                        <p class="sans-serif mt1 mb2 f6 gray">Switch-case logic (experimental)</p>
                                         <form>
                                             
                                         </form>
 
 
                                     </div>
-                                    <div class="card pa3 br2 ba b--light-gray">
-                                        <div class="mb2 flex items-center">
+                                    <div class="sans-serif card pa3 br2 ba b--light-gray">
+                                        <div class="sans-serif mb2 flex items-center">
                                         </div>
-                                        <div class="card pa3 br2 ba b--light-gray">
-                                            <div class="mb2 flex items-center">
+                                        <div class="sans-serif card pa3 br2 ba b--light-gray">
+                                            <div class="sans-serif mb2 flex items-center">
                                             </div>
 
                                         </div>

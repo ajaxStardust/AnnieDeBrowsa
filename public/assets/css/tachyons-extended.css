@@ -1,47 +1,63 @@
 /* MIGRATED STYLES **/
 
 #header {
-	background-image: url('../images/head_bg_2022.png');
-	background-position: center bottom;
-	clear: both;
-	color: #ffe;
-	font-family: Impact, "charcoal", fantasy, sans-serif;
-	height: 10rem;
-	text-align: center;
-	text-shadow: 0.08em 0.08em 0.06rem;
-	z-index: 20;
-	border-bottom: 20px solid lightseagreen;
-	position: relative;
-	bottom: -10px;
+  background-image: url('../images/head_bg_2022.png');
+  background-position: center bottom;
+  clear: both;
+  color: #ffe;
+  font-family: Impact, "charcoal", fantasy, sans-serif;
+  height: 10rem;
+  text-align: center;
+  text-shadow: 0.08em 0.08em 0.06rem;
+  z-index: 20;
+  border-bottom: 20px solid lightseagreen;
+  position: relative;
+  bottom: -10px;
 }
 
-#navlist, #navlist li, .bottomsmaller::first-line {
-	font-variant: small-caps;
-	display: list-item;
+#navlist,
+#navlist li,
+.bottomsmaller::first-line {
+  font-variant: small-caps;
+  display: list-item;
 }
 
 #navlist {
-	background-color: rgba(217, 217, 217, 0.5);
-	color: #aaa;
-	font-size: 0.9rem;
-	margin-top: 1rem;
-	text-align: left;
-	outline: 0.1em solid #f88;
-	padding: unset;
-	max-width: 20rem;
-	min-width: 10rem;
+  background-color: rgba(217, 217, 217, 0.5);
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  text-align: left;
+  outline: 0.1em solid #f88;
+  padding: unset;
+  max-width: 20rem;
+  min-width: 10rem;
 }
 
 .navlist {
-	list-style-position: outside;
-	padding-top: 1px;
-	padding-bottom: 1px;
-	line-height: 1.3rem;
+  list-style-position: outside;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  line-height: 1.3rem;
 }
 
 .backgroundblue {
-	background-color: #00005F;
+  background-color: #00005F;
 }
+
+#headingTitle {
+  color: #31319166;
+  font-family: serif;
+  text-shadow: 1px 1px 1px #33333399;
+  font-size: 1.4rem;
+  font-weight: bold;
+  background-color: #efefef;
+  width: 10rem;
+  height: 3rem;
+  margin: 0 auto;
+  position: relative;
+}
+
 /*! TACHYONS v4.11.1 | http://tachyons.io */
 /*
  *
@@ -464,8 +480,8 @@ input[type="url"],
  *
  * Example:
  *
- * <div class="aspect-ratio aspect-ratio--16x9">
- *  <iframe class="aspect-ratio--object"></iframe>
+ * <div class="sans-serif aspect-ratio aspect-ratio--16x9">
+ *  <iframe class="sans-serif aspect-ratio--object"></iframe>
  * </div>
  *
  * */
@@ -2702,19 +2718,25 @@ code,
 }
 
 .bg-light-corn-animated {
-  background: radial-gradient(circle at center, #4e496d 0%, #07071d 100%); 
-background-size: 100% 100%;
-animation: animationName 30s ease infinite;
-                
-@keyframes animationName {
-                    
-  0% { background-position: 0% 50%; }
-                    
-  50% { background-position: 100% 50%; }
-                    
-  100% { background-position: 0% 50%; }
-                  
-}
+  background: radial-gradient(circle at center, #4e496d 0%, #07071d 100%);
+  background-size: 100% 100%;
+  animation: animationName 30s ease infinite;
+
+  @keyframes animationName {
+
+    0% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+
+    100% {
+      background-position: 0% 50%;
+    }
+
+  }
 
 }
 
@@ -4840,11 +4862,11 @@ animation: animationName 30s ease infinite;
   Put the hide-child class on a parent element and any nested element with the
   child class will be hidden and displayed on hover or focus.
 
-  <div class="hide-child">
-    <div class="child"> Hidden until hover or focus </div>
-    <div class="child"> Hidden until hover or focus </div>
-    <div class="child"> Hidden until hover or focus </div>
-    <div class="child"> Hidden until hover or focus </div>
+  <div class="sans-serif hide-child">
+    <div class="sans-serif child"> Hidden until hover or focus </div>
+    <div class="sans-serif child"> Hidden until hover or focus </div>
+    <div class="sans-serif child"> Hidden until hover or focus </div>
+    <div class="sans-serif child"> Hidden until hover or focus </div>
   </div>
 */
 .hide-child .child {

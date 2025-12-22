@@ -98,19 +98,19 @@ $Functions = new Functions();
     </style>
 </head>
 
-<body class="bg-light-gray">
-    <div class="w-100">
+<body class="sans-serif bg-light-gray">
+    <div class="sans-serif w-100">
         <!-- Header -->
-        <header class="bg-dark-blue white pv4 ph3">
-            <div class="mw9 center">
-                <h1 class="ma0 mb2 f2 fw7"><?= $whatis['page_heading']; ?></h1>
-                <p class="ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Notes</p>
+        <header class="sans-serif bg-dark-blue white pv4 ph3">
+            <div class="sans-serif mw9 center">
+                <h1 class="sans-serif ma0 mb2 f2 fw7"><?= $whatis['page_heading']; ?></h1>
+                <p class="sans-serif ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Notes</p>
             </div>
         </header>
 
         <!-- Content -->
-        <main class="pv4 ph3">
-            <div class="mw9 center card pa4">
+        <main class="sans-serif pv4 ph3">
+            <div class="sans-serif mw9 center card pa4">
   <h2>GPG Key Creation on Arch Linux — 2025-04-14</h2>
   <blockquote>
     <p><strong>User:</strong> I'm on Arch Linux. This is a new installation. I want to setup a GPG key via terminal, so the Desktop key manager will have it ready. Understand?</p>
@@ -153,8 +153,8 @@ gpg --output ~/revocation-cert-yourname.asc --gen-revoke [YOUR-KEY-ID]
         </main>
 
         <!-- Footer -->
-        <footer class="bg-dark-blue white pa3 tc">
-            <p class="ma0 f6">Project by <a href="https://github.com/ajaxStardust" class="white fw6">@ajaxStardust</a> • <?php echo $whatis['lastMod']; ?></p>
+        <footer class="sans-serif bg-dark-blue white pa3 tc">
+            <p class="sans-serif ma0 f6">Project by <a href="https://github.com/ajaxStardust" class="sans-serif white fw6">@ajaxStardust</a> • <?php echo $whatis['lastMod']; ?></p>
         </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js">

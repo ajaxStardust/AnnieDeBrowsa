@@ -212,39 +212,39 @@ class Auxx
                 $switchFilename = strtolower($this->cleanBasename);
                 switch ($switchFilename) {
                     case 'inc':
-                        $this->childItems[$objNmbr] = '<!-- li class="forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
+                        $this->childItems[$objNmbr] = '<!-- li class="sans-serif forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
                         break;
                     case 'class':
-                        $this->childItems[$objNmbr] = '<!-- li class="forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
+                        $this->childItems[$objNmbr] = '<!-- li class="sans-serif forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
                         break;
                     case 'error_log':
-                        $this->childItems[$objNmbr] = '<!-- li class="forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
+                        $this->childItems[$objNmbr] = '<!-- li class="sans-serif forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
                         break;
                     case 'css':
-                        $this->childItems[$objNmbr] = '<!-- li class="forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
+                        $this->childItems[$objNmbr] = '<!-- li class="sans-serif forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
                         break;
                     case 'js':
-                        $this->childItems[$objNmbr] = '<!-- li class="forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
+                        $this->childItems[$objNmbr] = '<!-- li class="sans-serif forbidden" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
                         break;
                     case '.settings':
-                        $this->childItems[$objNmbr] = '<!-- li class="hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
+                        $this->childItems[$objNmbr] = '<!-- li class="sans-serif hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
                         break;
                     case '.svn':
-                        $this->childItems[$objNmbr] = '<!-- li class="hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
+                        $this->childItems[$objNmbr] = '<!-- li class="sans-serif hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
                         break;
                     case '.buildpath':
-                        $this->childItems[$objNmbr] = '<!-- li class="hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
+                        $this->childItems[$objNmbr] = '<!-- li class="sans-serif hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
                         break;
                     case 'images':
-                        $this->childItems[$objNmbr] = '<li class="hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li>' . "\n";
+                        $this->childItems[$objNmbr] = '<li class="sans-serif hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li>' . "\n";
                         break;
                     case 'resources':
-                        $this->childItems[$objNmbr] = '<!-- li class="hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
+                        $this->childItems[$objNmbr] = '<!-- li class="sans-serif hiddenitem" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '" title="' . $this->cleanBasename . '">' . $this->cleanBasename . '</a></li -->' . "\n";
                         break;
                     case 'htaccess':
                         $this->childItems[$objNmbr] = '';
                     default:
-                        $this->childItems[$objNmbr] = '<li class="navnobull" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '"><!-- ' . __METHOD__ . ' at line ' . __LINE__ . ' -->' . $this->cleanBasename . '</a></li>' . "\n";
+                        $this->childItems[$objNmbr] = '<li class="sans-serif navnobull" title="' . $this->cleanBasename . '"><a href="' . $this->cleanBasename . '"><!-- ' . __METHOD__ . ' at line ' . __LINE__ . ' -->' . $this->cleanBasename . '</a></li>' . "\n";
                 }
             }
         }
@@ -286,7 +286,7 @@ class Auxx
         $basename = $pathInfo['basename'] ?? '';
 
         // Use null coalescing operator to avoid warnings
-        $this->arrayObjectAnchors[] = '<li id="' . $filename . '" class="'
+        $this->arrayObjectAnchors[] = '<li id="' . $filename . '" class="sans-serif '
             . ($this->specialExtn ?? 'adb') . '"><a href="' . $pathOps . '">'
             . $basename . '</a></li>';
 

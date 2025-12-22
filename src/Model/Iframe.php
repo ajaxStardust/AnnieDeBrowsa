@@ -32,7 +32,7 @@ class Iframe
          */
         $this->defaultIframe = '';
         if (isset($_GET['path2url'])) {
-            $this->defaultIframe = './p2u2.php?path2url=' . $_GET['path2url'];
+            $this->defaultIframe = './default.php?path2url=' . $_GET['path2url'];
         } else {
             /*
              * *  @var defaultFrameArray array
@@ -42,10 +42,10 @@ class Iframe
              * *  the priority.
              */
             $defaultFrameArray = array(
-                'index.php',
-                'p2u2.php',
-                'tree.html',
-                'https://bunsen/p2u2.phhtml'
+                'template.php',
+                'default.php',
+                'index.html',
+                'https://transformative.click'
             );
 
             foreach ($defaultFrameArray as $thisIframe) {
@@ -56,7 +56,7 @@ class Iframe
                 }
             }
             if (!file_exists($this->defaultIframe)) {
-                $this->defaultIframe = 'https://bunsen/p2u2.phhtml';
+                $this->defaultIframe = 'https://transformative.click';
             }
         }
 

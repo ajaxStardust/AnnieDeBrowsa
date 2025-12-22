@@ -13,7 +13,7 @@ $server_name = $_SERVER['SERVER_NAME'] ? $_SERVER['SERVER_NAME'] : $_SERVER['SER
 $server_addr = $_SERVER['SERVER_ADDR'] ? $_SERVER['SERVER_ADDR'] : $_SERVER['SERVER_NAME'];
 $servername = $server_name;
 if (preg_match('@10\.0\.0\.\d+|192\.\d\.\d\.\d+|127\.\d\.\d\.\d+@', $server_addr)) {
-    $abspath = '<code class="info">' . $abspath . '</code>';
+    $abspath = '<code class="sans-serif info">' . $abspath . '</code>';
 } else {
     $abspath = 'is simply a PHP value which relies on server variables<code>define( ABSOLUTELOCATION , rtrim(dirname(__FILE__), inc))</code>';
 }
@@ -100,35 +100,35 @@ $imgNumber = $cwThumbsClass->thumbsCount;
   </style>
 </head>
 
-<body class="bg-light-gray">
+<body class="sans-serif bg-light-gray">
 
-  <div class="w-100">
+  <div class="sans-serif w-100">
  
     <!-- Header -->
-    <header class="bg-dark-blue white pv4 ph3">
-      <div class="mw9 center">
-        <h1 class="ma0 mb2 f2 fw7"><?php print $page_heading; ?></h1>
-        <p class="ma0 mt2 f4 fw4 o-80">Screenshots & Image Gallery</p>
+    <header class="sans-serif bg-dark-blue white pv4 ph3">
+      <div class="sans-serif mw9 center">
+        <h1 class="sans-serif ma0 mb2 f2 fw7"><?php print $page_heading; ?></h1>
+        <p class="sans-serif ma0 mt2 f4 fw4 o-80">Screenshots & Image Gallery</p>
       </div>
     </header>
 
     <!-- Content -->
-    <main class="pv4 ph3">
-      <div class="mw9 center">
+    <main class="sans-serif pv4 ph3">
+      <div class="sans-serif mw9 center">
           <?php
                           if(isset($notice_of_images)) {
                     echo $notice_of_images;
                 }  
-        echo '<div class="mt-2 col text-center" id="info_container"><p class="bg-dark text-light">Served by: <span class="bg-dark text-warning">' . $serversoftware . '</span></p>
-                <p class="bg-dark text-light">PHP Version: <span class="text-warning">' . phpversion() . '</span></p>
-                <p class="bg-dark text-light">Server Name: <span class="text-info">' . $servername . '</span></p>
-                <p class="bg-dark text-light">Server Addr: <span class="text-info">' . $server_addr . '</span></p>
+        echo '<div class="sans-serif mt-2 col text-center" id="info_container"><p class="sans-serif bg-dark text-light">Served by: <span class="sans-serif bg-dark text-warning">' . $serversoftware . '</span></p>
+                <p class="sans-serif bg-dark text-light">PHP Version: <span class="sans-serif text-warning">' . phpversion() . '</span></p>
+                <p class="sans-serif bg-dark text-light">Server Name: <span class="sans-serif text-info">' . $servername . '</span></p>
+                <p class="sans-serif bg-dark text-light">Server Addr: <span class="sans-serif text-info">' . $server_addr . '</span></p>
                 </div>'; 
                 ?>                         
         <dl id="outerDL">
          
-        <dt class="pointer">Show Image Contact Sheet: <span class="normal blue pointer" id="morehd2" onclick="showHide('moreinfo2')">[click...]</span></dt>
-        <dd id="moreinfo2" class="displaynone">
+        <dt class="sans-serif pointer">Show Image Contact Sheet: <span class="sans-serif normal blue pointer" id="morehd2" onclick="showHide('moreinfo2')">[click...]</span></dt>
+        <dd id="moreinfo2" class="sans-serif displaynone">
         <?php
             $contactSheet = "<ul id=\"imgShow\"> \n";
             if(isset($cwThumbs) && is_array($cwThumbs)){
@@ -140,7 +140,7 @@ $imgNumber = $cwThumbsClass->thumbsCount;
                 }
             }
             else{
-                $contactSheet .= '<li class="bold nobull noBull">Sorry, but there is an error in the source, specific to the image resources contact-sheet previews. <br />Specifically, the ADB PHP-class, <em>cwThumbs</em> fails the logical condition of <br /><pre>
+                $contactSheet .= '<li class="sans-serif bold nobull noBull">Sorry, but there is an error in the source, specific to the image resources contact-sheet previews. <br />Specifically, the ADB PHP-class, <em>cwThumbs</em> fails the logical condition of <br /><pre>
 
                  does not exists, is not an array, is has not been properly set.</li>'."\n";
             }
@@ -150,8 +150,8 @@ $imgNumber = $cwThumbsClass->thumbsCount;
             print " \n <hr id=\"clearImgShow\" /> \n";
         ?>
                 </dd>
-            <dt class="pointer">Change Image Directory: <span class="normal black pointer" id="morehd1" onclick="showHide('moreinfo1')">[click...]</span></dt>
-        <dd id="moreinfo1" class="displaynone">
+            <dt class="sans-serif pointer">Change Image Directory: <span class="sans-serif normal black pointer" id="morehd1" onclick="showHide('moreinfo1')">[click...]</span></dt>
+        <dd id="moreinfo1" class="sans-serif displaynone">
             <form id="changeImageForm" method="post" action="<?php print $_SERVER['PHP_SELF']; ?>">
                 <input type="text" id="imgDirSearch" name="imgDirSearch" value="" /><br />
                 <input type="submit" id="SendImgDir" name="SendImgDir" value="Get New Images!" />
@@ -165,10 +165,10 @@ $imgNumber = $cwThumbsClass->thumbsCount;
  <?php echo '<p>ABSOLUTELOCATION of this script file: <br><strong><code>' . $abspath . '</code></strong></p>'; ?>
 </div>                                        <!--    .notes      -->
     </section>
-    <section class="footer px-4">                   <!--    .FOOTER     -->
-        <div class="row gx-5">
-            <div class="col"><div class="p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust" target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div></div>
-            <div class="col"><div class="p-3 border bg-light text-end"><kbd><?php echo $lastMod; ?></kbd></div></div>
+    <section class="sans-serif footer px-4">                   <!--    .FOOTER     -->
+        <div class="sans-serif row gx-5">
+            <div class="sans-serif col"><div class="sans-serif p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust" target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div></div>
+            <div class="sans-serif col"><div class="sans-serif p-3 border bg-light text-end"><kbd><?php echo $lastMod; ?></kbd></div></div>
         </div>
     </section>      
   </div>                                            <!--    .content  -->

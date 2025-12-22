@@ -212,9 +212,9 @@ class Navfactor
     {
         $this->goUp = $this->prepareGoUpUrl(NS_ROOT);
         $this->htmlPrint = [];
-        $this->htmlPrint[] = '<nav id="leftcol" class="navlist">
-        <ul id="navlist" class="navlist">
-        <li id="goUpItem" class="nav"><a title="Navigate to parent directory." href="//' . $this->goUp['url'] . '">' . $this->goUp['url'] . '</a></li>
+        $this->htmlPrint[] = '<nav id="leftcol" class="sans-serif navlist">
+        <ul id="navlist" class="sans-serif navlist">
+        <li id="goUpItem" class="sans-serif nav"><a title="Navigate to parent directory." href="//' . $this->goUp['url'] . '">' . $this->goUp['url'] . '</a></li>
             ';
         
         return $this->htmlPrint;
@@ -249,7 +249,7 @@ class Navfactor
         $directoryContents = $Dirhandler->directoryContents;
         if ($this->alphaNumVal && strlen($this->alphaNumVal) > 2) {
             $objByChar =  count($directoryContents);
-            $this->htmlPrint["$this->firstChar"] = '<li onclick="showHide(\'ul_' . $this->firstChar . '\')" id="li_' . $this->firstChar . '" class="toggler"><span style="font-weight:bold;">' . $this->firstChar . '</span>:';
+            $this->htmlPrint["$this->firstChar"] = '<li onclick="showHide(\'ul_' . $this->firstChar . '\')" id="li_' . $this->firstChar . '" class="sans-serif toggler"><span style="font-weight:bold;">' . $this->firstChar . '</span>:';
             $this->htmlPrint["$this->firstChar"] .= ' [ view ' . $objByChar . ' ]';
             $objectsHtmlArray = $Dirhandler->createCharacterArray($Dirhandler->directoryContents);
             $this->objectsHtmlArray = $objectsHtmlArray;
@@ -266,7 +266,7 @@ class Navfactor
     private function processEmptyAlphaNum($object)
     {
         if (isset($this->htmlPrint["$this->firstChar"])) {
-            @$this->htmlPrint["$this->firstChar"] .= '<ul id="items-of_' . $this->firstChar . '" class="navchilds-top">';
+            @$this->htmlPrint["$this->firstChar"] .= '<ul id="items-of_' . $this->firstChar . '" class="sans-serif navchilds-top">';
         } else {
             @$this->htmlPrint["$this->firstChar"] .= $this->groupTogglerReturn;
         }
@@ -279,7 +279,7 @@ class Navfactor
         // If it's not an array, use it as the file name (as expected)
         $valueString = $this->alphaNumVal;
 
-        $this->htmlPrint["$this->firstChar"] .= '<li id="item_' . $this->firstChar . $this->alphaNumKey . '" class="navlist-item target-fix"> target: ' . htmlspecialchars($this->firstChar) . ' &#x3d;&#x3e; ' . htmlspecialchars($object) . '</li>
+        $this->htmlPrint["$this->firstChar"] .= '<li id="item_' . $this->firstChar . $this->alphaNumKey . '" class="sans-serif navlist-item target-fix"> target: ' . htmlspecialchars($this->firstChar) . ' &#x3d;&#x3e; ' . htmlspecialchars($object) . '</li>
         ';
         $this->htmlPrint["$this->firstChar"] .= '</ul>';
     }
@@ -340,7 +340,7 @@ class Navfactor
         <li id="adb_small_logo"><img
         src="assets/images/adb_logo_shadow.png"
         style="width:100px;height:80px;"
-        class="floatLt" /></li>
+        class="sans-serif floatLt" /></li>
     <li id="font_demo_serif">A QuIck Bit oF Valid TeXt bRiEfly</li>
     <li id="font_demo_sans">A QuIck Bit oF Valid TeXt bRiEfly</li>
         </ul>
