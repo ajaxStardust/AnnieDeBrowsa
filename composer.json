@@ -1,5 +1,5 @@
 {
-    "name": "ajaxStardust/AnnieDeBrowsa",
+    "name": "ajaxStardust/annie-de-browsa",
     "description": "PHP Static Flat File CMS with system path to URL conversion function. aka transformative.click",
     "require-dev": {
         "phpstan/phpstan": "^2.1"
@@ -8,5 +8,6 @@
         "classmap": ["src/Model", "src/View", "src/Controller"]
     }
 }
+
 
 
