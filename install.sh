@@ -35,11 +35,11 @@ echo -e "${CYAN}Requires PHP running on a local HTTP server (e.g., LAMP stack)${
 sleep 1
 
 # Define Paths
-HTDOCS='/nobody_has_a_folder_like_this/path/public_html' # for EXAMPLE
-HOSTNAME='example.localhost'
+HTDOCS='/nobody_has_a_folder_like_this/path/public_html' # for EXAMPLE 
+HOSTNAME='example.localhost' 
 MY_PROJECT_DIR='one_level_under_htdocs'
 MY_PROJECT=$HTDOCS/$MY_PROJECT_DIR
-# IMPORTANT! PLEASE SEE LINE 57 before continuing.
+# IMPORTANT! PLEASE SEE LINE 57 before continuing. 
 # NOTE: the command MKDIR does create MY_PROJECT dir at line 58
 
 echo -e "\n${BOLD}Step 1: Preparing Environment...${RESET}"
@@ -96,4 +96,4 @@ echo -e "\n${YELLOW}=================================================${RESET}"
 echo -e "${BOLD}Deployment Complete!${RESET}"
 echo -e "${YELLOW}=================================================${RESET}\n"
 echo -e "${GREEN}✔ Access your app at:${RESET}"
-echo -e "${CYAN}https://${HOSTNAME}/${MY_PROJECT_DIR}/public/default.php${RESET}\n"
+echo -e "${CYAN}https://${HOSTNAME}/${MY_PROJECT_DIR}/public/index.phtml${RESET}\n"

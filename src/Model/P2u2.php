@@ -2,6 +2,8 @@
 
 namespace P2u2\Model;
 
+error_reporting(0);
+
 class P2u2
 {
 
