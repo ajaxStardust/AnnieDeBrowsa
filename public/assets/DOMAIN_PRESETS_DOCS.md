@@ -85,7 +85,7 @@ The **Domain Presets** system enables users to save, manage, and quickly apply c
   ├─ Handles user interactions
   └─ Shows toast notifications
 
-/src/View/Twerkin.form.php
+/src/View/Twerkin.form.phtml
   ├─ Enhanced with preset container div (#presetContainer)
   ├─ Updated select IDs: subdomainSelect, serverSelect
   └─ Preset UI injected dynamically by JavaScript
@@ -386,8 +386,8 @@ php -r "echo json_encode(json_decode(file_get_contents('config.json'), true), JS
 
 ✅ **Modified:**
 - `/config.json` - Added `domain_presets` array
-- `/src/View/Twerkin.form.php` - Added preset container + updated select IDs
-- `/src/View/Main.page.php` - Added script tag for domain-presets.js
+- `/src/View/Twerkin.form.phtml` - Added preset container + updated select IDs
+- `/src/View/Main.page.phtml` - Added script tag for domain-presets.js
 
 ## Testing Checklist
 

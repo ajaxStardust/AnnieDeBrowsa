@@ -207,8 +207,8 @@ input[type="tel"], input[type="text"], input[type="url"], .border-box { box-sizi
  *
  * Example:
  *
- * <div class="sans-serif aspect-ratio aspect-ratio--16x9">
- *  <iframe class="sans-serif aspect-ratio--object"></iframe>
+ * <div class="aspect-ratio aspect-ratio--16x9">
+ *  <iframe class="aspect-ratio--object"></iframe>
  * </div>
  *
  * */
@@ -1852,11 +1852,11 @@ code, .code { font-family: Consolas, monaco, monospace; }
   Put the hide-child class on a parent element and any nested element with the
   child class will be hidden and displayed on hover or focus.
 
-  <div class="sans-serif hide-child">
-    <div class="sans-serif child"> Hidden until hover or focus </div>
-    <div class="sans-serif child"> Hidden until hover or focus </div>
-    <div class="sans-serif child"> Hidden until hover or focus </div>
-    <div class="sans-serif child"> Hidden until hover or focus </div>
+  <div class="hide-child">
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
+    <div class="child"> Hidden until hover or focus </div>
   </div>
 */
 .hide-child .child { opacity: 0; transition: opacity .15s ease-in; }

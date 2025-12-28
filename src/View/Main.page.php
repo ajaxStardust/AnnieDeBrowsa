@@ -150,44 +150,44 @@ $resultsWithDescriptions = [
     </style>
 </head>
 
-<body class="sans-serif center px2 ph3">
-    <div class="sans-serif center backgroundblue">
-    <div class="sans-serif w-75  bg-light-gray">
+<body class="center px2 ph3">
+    <div class="center backgroundblue">
+    <div class="w-75  bg-light-gray">
         <!-- Header -->
-        <header class="sans-serif bg-dark-blue white pv4 ph3">
-            <div class="sans-serif mw9 center">
-                <h1 class="sans-serif ma0 mb2 f2 fw7"><?= $whatis["page_heading"] ?></h1>
-                <p class="sans-serif ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Tranform URL</p>
+        <header class="bg-dark-blue white pv4 ph3">
+            <div class="mw9 center">
+                <h1 class="ma0 mb2 f2 fw7"><?= $whatis["page_heading"] ?></h1>
+                <p class="ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Tranform URL</p>
             </div>
         </header>
 
         <!-- Environment Info -->
-        <section class="sans-serif bg-white-60 pv3 ph3 bt b--light-gray">
-            <div class="sans-serif mw9 center">
-                <div class="sans-serif grid-2">
+        <section class="bg-white-60 pv3 ph3 bt b--light-gray">
+            <div class="mw9 center">
+                <div class="grid-2">
                     <div>
-                        <p class="sans-serif ma0 f6 gray">Location:</p>
-                        <p class="sans-serif ma0 f5 mono"><?= __FILE__; ?></p>
+                        <p class="ma0 f6 gray">Location:</p>
+                        <p class="ma0 f5 mono"><?= __FILE__; ?></p>
                     </div>
                     <div>
-                        <p class="sans-serif ma0 f6 gray">Base Path:</p>
-                        <p class="sans-serif ma0 f5 mono"><?php echo isset($Env->initialize_enviornment["abspathtml"]) ? $Env->initialize_enviornment["abspathtml"] : 'Not set'; ?></p>
+                        <p class="ma0 f6 gray">Base Path:</p>
+                        <p class="ma0 f5 mono"><?php echo isset($Env->initialize_enviornment["abspathtml"]) ? $Env->initialize_enviornment["abspathtml"] : 'Not set'; ?></p>
                     </div>
                     <div>
-                        <p class="sans-serif ma0 f6 gray">Server:</p>
-                        <p class="sans-serif ma0 f5 mono"><?= $_SERVER["SERVER_NAME"]; ?></p>
+                        <p class="ma0 f6 gray">Server:</p>
+                        <p class="ma0 f5 mono"><?= $_SERVER["SERVER_NAME"]; ?></p>
                     </div>
                     <div>
-                        <p class="sans-serif ma0 f6 gray">ADB Main Page:</p>
-                        <p class="sans-serif ma0 f5 mono"><a href="../">Go Home</a></p>
+                        <p class="ma0 f6 gray">ADB Main Page:</p>
+                        <p class="ma0 f5 mono"><a href="../">Go Home</a></p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Main Content -->
-        <main class="sans-serif pv4 ph3">
-            <div class="sans-serif mw9 center">
+        <main class="pv4 ph3">
+            <div class="mw9 center">
                 <?php
                     require "Trypath.form.php";
                   //  require "Twerkin.form.php";
@@ -199,25 +199,25 @@ $resultsWithDescriptions = [
 
 
 <div id="app">
-  <h2 class="sans-serif text-white" >Domain Configuration</h2>
+  <h2 class="text-white" id="appHeading">Domain Configuration</h2>
 
-  <div class="sans-serif card pa4 mt3">
+  <div class="card pa4 mt3">
     <label>Selected URL</label>
-    <input type="text" v-model="selectedUrl" placeholder="Type or select a URL..." class="sans-serif w-100 pa2 ba b--gray br1">
+    <input type="text" v-model="selectedUrl" placeholder="Type or select a URL..." class="w-100 pa2 ba b--gray br1">
 
-    <div class="sans-serif mt2">
+    <div class="mt2">
       <strong>Preview:</strong> {{ selectedUrl }}
       <p><a v-bind:href="selectedUrl">{{ selectedUrl }}</a></p>
     </div>
 
-    <div class="sans-serif mt3 grid-3-ns gap3">
-      <div class="sans-serif card pa2 br2 ba b--light-gray" v-for="url in urlOptions" :key="url.name" @click="selectUrl(url.value)" :class="sans-serif {'bg-highlight': highlightUrl === url.value}">
+    <div class="mt3 grid-3-ns gap3">
+      <div class="card pa2 br2 ba b--light-gray" v-for="url in urlOptions" :key="url.name" @click="selectUrl(url.value)" :class="{'bg-highlight': highlightUrl === url.value}">
         <p>{{ url.name }}</p>
-        <p class="sans-serif mono">{{ url.value }}</p>
+        <p class="mono">{{ url.value }}</p>
       </div>
     </div>
 
-    <button @click="clearForm" class="sans-serif mt3 bg-green white pv2 ph3 br1">Clear Form</button>
+    <button @click="clearForm" class="mt3 bg-green white pv2 ph3 br1">Clear Form</button>
   </div>
 </div>
         </div><!-- :after Twerkin.form.php -->

@@ -147,7 +147,7 @@ class Backlinks
 
         if ($results != '')
             $backlinksHtml = '<div id="hanseltrail">H&#xe4;nsel trail: ' . $results . 
-        '<hr class="sans-serif clear clearboth clearBoth hidden"></div>';
+        '<hr class="clear clearboth clearBoth hidden"></div>';
         return $backlinksHtml;
     }
 }

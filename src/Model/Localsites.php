@@ -26,7 +26,7 @@ class Localsites extends Helpers
         // Initialize HTML structure for the list
         $html = '<div id="sytebuild_htmlbuild">
         ';
-        $html .= '<ol class="sans-serif list pl0 flex flex-wrap">
+        $html .= '<ol class="list pl0 flex flex-wrap">
         ';
         $num = 0;
         $json_urls = array_merge($json_urls,$home_urls_default['home_urls']);
@@ -35,7 +35,7 @@ class Localsites extends Helpers
             if(is_array($site)){
                 // var_dump($site);
             // Create each list item
-            $html .= '<li class="sans-serif mr3 mb2">
+            $html .= '<li class="mr3 mb2">
             ';
     
             // Generate the link with the site name and URL
@@ -43,7 +43,7 @@ class Localsites extends Helpers
 
              
 
-            $html .= '<a href="'. htmlspecialchars($site["url"]) . '" target="_blank" title="' . $site["name"] . '" rel="noopener noreferrer" class="sans-serif link dim" data-url="' . htmlspecialchars($site['url']) . '" data-name="' . htmlspecialchars($site['name']) . '" data-filepath="'.htmlspecialchars($site["url"]).'">';
+            $html .= '<a href="'. htmlspecialchars($site["url"]) . '" target="_blank" title="' . $site["name"] . '" rel="noopener noreferrer" class="link dim" data-url="' . htmlspecialchars($site['url']) . '" data-name="' . htmlspecialchars($site['name']) . '" data-filepath="'.htmlspecialchars($site["url"]).'">';
             
             $html .= htmlspecialchars($site['name']);
             $html .= '</a>

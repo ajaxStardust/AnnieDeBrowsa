@@ -24,7 +24,7 @@ class Iframe
     {
         /**
          * @logic ( iframe src=??? )`
-         *    :if   HTTP_REQUEST param "path2url" exists then src=urlpatchcheck.php
+         *    :if   HTTP_REQUEST param "path2url" exists then src=urlpatchcheck.phtml
          *    :else test for match on various common web dir index filenames
          * ~~~~~~~~~~~~~~~~~~~~~~~~~~
          *  @param ->defaultIframe stri`ng:
@@ -32,7 +32,7 @@ class Iframe
          */
         $this->defaultIframe = '';
         if (isset($_GET['path2url'])) {
-            $this->defaultIframe = './default.php?path2url=' . $_GET['path2url'];
+            $this->defaultIframe = './p2u2.phtml?path2url=' . $_GET['path2url'];
         } else {
             /*
              * *  @var defaultFrameArray array
@@ -42,10 +42,10 @@ class Iframe
              * *  the priority.
              */
             $defaultFrameArray = array(
-                'template.php',
                 'default.php',
-                'index.html',
-                'https://transformative.click'
+                'p2u2.phtml',
+                'tree.html',
+                'https://bunsen/p2u2.phhtml'
             );
 
             foreach ($defaultFrameArray as $thisIframe) {
@@ -56,7 +56,7 @@ class Iframe
                 }
             }
             if (!file_exists($this->defaultIframe)) {
-                $this->defaultIframe = 'https://transformative.click';
+                $this->defaultIframe = 'https://bunsen/p2u2.phhtml';
             }
         }
 

@@ -58,9 +58,9 @@ class Environment
         $this->initialize_enviornment['server_addr'] = $server_addr = $_SERVER['SERVER_ADDR'] ? $_SERVER['SERVER_ADDR'] : $_SERVER['SERVER_NAME'];
         $this->initialize_enviornment['servername'] = $servername = $server_name;
         if (preg_match('@::1|10\.0+\.0+\.\d+|192\.\d+\.\d+\.\d+|127\.\d+\.\d+\.\d+@', $server_addr)) {
-            $this->initialize_enviornment['abspathtml'] = $abspathtml = '<code class="sans-serif info">' . $abspathtml . '</code>';
+            $this->initialize_enviornment['abspathtml'] = $abspathtml = '<code class="info">' . $abspathtml . '</code>';
         } else {
-            $this->initialize_enviornment['abspathtml'] = $abspathtml = '<div class="sans-serif info">Uses  PHP Variables like <code>define( INSTALLED_LOCATION , dirname(__FILE__))</code>. E.g. See ABSPATH in WordPress.</div>';
+            $this->initialize_enviornment['abspathtml'] = $abspathtml = '<div class="info">Uses  PHP Variables like <code>define( INSTALLED_LOCATION , dirname(__FILE__))</code>. E.g. See ABSPATH in WordPress.</div>';
         }
         return $this->initialize_enviornment;
     }

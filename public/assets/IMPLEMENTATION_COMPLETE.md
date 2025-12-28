@@ -95,7 +95,7 @@ The **Domain Presets** feature has been successfully implemented with full CRUD 
 ```
 **Impact**: ✅ Backward compatible (existing `home_urls` untouched)
 
-### 2. `/src/View/Twerkin.form.php`
+### 2. `/src/View/Twerkin.form.phtml`
 **Changes**:
 - Added `<div id="presetContainer" class="mb4"></div>` for dynamic UI injection
 - Updated select IDs: `subdomainSelect` and `serverSelect` (was `prefix` and `suffix`)
@@ -103,7 +103,7 @@ The **Domain Presets** feature has been successfully implemented with full CRUD 
 
 **Impact**: ✅ Form functionality unchanged, enhanced with preset support
 
-### 3. `/src/View/Main.page.php`
+### 3. `/src/View/Main.page.phtml`
 **Changes**:
 - Added script tag: `<script src="assets/js/domain-presets.js"></script>`
 - Placed after existing scripts, before closing `</body>`

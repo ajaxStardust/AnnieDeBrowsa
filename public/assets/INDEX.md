@@ -63,7 +63,7 @@ Source Code:
 
 Configuration:
   ├─ config.json                         (Preset storage)
-  └─ src/View/Twerkin.form.php        (UI form)
+  └─ src/View/Twerkin.form.phtml        (UI form)
 
 Tests:
   └─ test-presets-api.php                (Integration tests)
@@ -273,8 +273,8 @@ A: Ensure file exists and run `composer dump-autoload`
 | IMPLEMENTATION_COMPLETE.md | 372 | Technical details | ✅ Complete |
 | CHANGELOG.md | ~250 | Version history | ✅ Complete |
 | config.json | - | Preset storage | ✅ Updated |
-| Twerkin.form.php | - | UI form | ✅ Updated |
-| Main.page.php | - | Main view | ✅ Updated |
+| Twerkin.form.phtml | - | UI form | ✅ Updated |
+| Main.page.phtml | - | Main view | ✅ Updated |
 
 ## ✨ Success Criteria - All Met! ✅
 

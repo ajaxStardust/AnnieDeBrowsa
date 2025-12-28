@@ -61,13 +61,13 @@ class P2u2
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\[DistroName]', '', $this->clean_chars['url_2_convert']);
         // dev env specific note where '/media/wd2tb01' is reference to where my development server is on LAN. 
         // Learn from this here how to mod for your setup.
-        $this->clean_chars['url_2_convert'] = str_ireplace('/www/wwwroot', '', $this->clean_chars['url_2_convert']);        
+        $this->clean_chars['url_2_convert'] = str_ireplace('/media/wd2tb01', '', $this->clean_chars['url_2_convert']);        
         $this->clean_chars['url_2_convert'] = preg_replace('@([\x5c\x2f]+)@', '/', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/"/', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/ /', '%20', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = rtrim($this->clean_chars['url_2_convert']);
-        if (preg_match('/\/var\/www\/([^\/]+)\//', $this->clean_chars['url_2_convert'], $matches)) {
-            $this->clean_chars['server_name'] = 'localhost';  // Default server name
+        if (preg_match('/\/mxuni\/www\/([^\/]+)\//', $this->clean_chars['url_2_convert'], $matches)) {
+            $this->clean_chars['server_name'] = 'mxuni';  // Default server name
             $this->clean_chars['third_level_dir'] = $matches[1];
             $this->clean_chars['full_server_name'] = (
                 $this->clean_chars['third_level_dir'] !== $this->clean_chars['server_name']

@@ -2,7 +2,7 @@
 <?php
 
 /*
- * adb_simplest/template.php
+ * adb_simplest/template.phtml
  *
  * Copyright 2023 @ajaxStardust <flux@mx23>
  *
@@ -65,54 +65,54 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
 
 <body>
 
-    <div id="pagewidth" class="sans-serif container">
+    <div id="pagewidth" class="container">
         <!--    :begin    class:content        -->
 
         <section id="header">
             <!-- #HEADER -->
-            <h1 class="sans-serif text-center text-primary text-4 text-bold">
+            <h1 class="text-center text-primary text-4 text-bold">
                 <?php print $page_heading; ?>
             </h1>
         </section>
         <section id="general_notes">
 
-            <div class="sans-serif notes">
+            <div class="notes">
                 <p>Examples from the Chota MicroCSS project website.</p>
                 <dl>
-                    <dt class="sans-serif keyTerms pointer">.text-[color]<span class="sans-serif normal blue pointer" id="show_n01"
+                    <dt class="keyTerms pointer">.text-[color]<span class="normal blue pointer" id="show_n01"
                             onclick="swap_text('show_n01','chota-utilities_01') "> toggle... </span>
                     </dt>
-                    <dd id="chota-utilities_01" class="sans-serif displaynone">
+                    <dd id="chota-utilities_01" class="displaynone">
                         <!-- hidden then revealed -->
-                        <p class="sans-serif text-primary">.text-primary</p>
-                        <p class="sans-serif text-light">.text-light</p>
-                        <p class="sans-serif text-white">.text-white</p>
-                        <p class="sans-serif text-dark">.text-dark</p>
+                        <p class="text-primary">.text-primary</p>
+                        <p class="text-light">.text-light</p>
+                        <p class="text-white">.text-white</p>
+                        <p class="text-dark">.text-dark</p>
 
-                        <p class="sans-serif text-grey">.text-grey</p>
-                        <p class="sans-serif text-error">.text-error</p>
-                        <p class="sans-serif text-success">.text-success</p>
+                        <p class="text-grey">.text-grey</p>
+                        <p class="text-error">.text-error</p>
+                        <p class="text-success">.text-success</p>
                     </dd>
 
-                    <dt class="sans-serif keyTerms pointer">bg-[color]: <span class="sans-serif normal blue pointer" id="show_n02"
+                    <dt class="keyTerms pointer">bg-[color]: <span class="normal blue pointer" id="show_n02"
                             onclick="swap_text('show_n02','chota-utilities_02') "> toggle... </span>
                     </dt>
-                    <dd id="chota-utilities_02" class="sans-serif displaynone">
+                    <dd id="chota-utilities_02" class="displaynone">
                         <!-- hidden then revealed -->
-                        <p class="sans-serif text-white bg-primary">.bg-primary .text-white</p>
-                        <p class="sans-serif text-info bg-light">.bg-light .text-dark</p>
-                        <p class="sans-serif text-light bg-dark">.bg-dark .text-light</p>
-                        <p class="sans-serif text-white bg-grey">.bg-grey .text-white</p>
-                        <p class="sans-serif text-light bg-error">.bg-error .text-light</p>
-                        <p class="sans-serif text-dark bg-success">.bg-success .text-dark</p>
+                        <p class="text-white bg-primary">.bg-primary .text-white</p>
+                        <p class="text-info bg-light">.bg-light .text-dark</p>
+                        <p class="text-light bg-dark">.bg-dark .text-light</p>
+                        <p class="text-white bg-grey">.bg-grey .text-white</p>
+                        <p class="text-light bg-error">.bg-error .text-light</p>
+                        <p class="text-dark bg-success">.bg-success .text-dark</p>
                     </dd>
                 </dl>
             </div> <!-- $ end .notes div -->
         </section>
-        <section class="sans-serif content">
+        <section class="content">
             <details>
                 <summary>Border Colors Table</summary>
-                <table class="sans-serif table table-striped">
+                <table class="table table-striped">
                     <thead>
                         <tr>
                             <th>Class</th>
@@ -122,27 +122,27 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
                     <tbody>
                         <tr>
                             <td>bd-primary</td>
-                            <td><span class="sans-serif bd-primary">Primary Border</span></td>
+                            <td><span class="bd-primary">Primary Border</span></td>
                         </tr>
                         <tr>
                             <td>bd-light</td>
-                            <td><span class="sans-serif bd-light">Light Border</span></td>
+                            <td><span class="bd-light">Light Border</span></td>
                         </tr>
                         <tr>
                             <td>bd-dark</td>
-                            <td><span class="sans-serif bd-dark">Dark Border</span></td>
+                            <td><span class="bd-dark">Dark Border</span></td>
                         </tr>
                         <tr>
                             <td>bd-grey</td>
-                            <td><span class="sans-serif bd-grey">Grey Border</span></td>
+                            <td><span class="bd-grey">Grey Border</span></td>
                         </tr>
                         <tr>
                             <td>bd-error</td>
-                            <td><span class="sans-serif bd-error">Error Border</span></td>
+                            <td><span class="bd-error">Error Border</span></td>
                         </tr>
                         <tr>
                             <td>bd-success</td>
-                            <td><span class="sans-serif bd-success">Success Border</span></td>
+                            <td><span class="bd-success">Success Border</span></td>
                         </tr>
                     </tbody>
         </table>
@@ -154,7 +154,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
             <summary>
                 Text, Background, Border colors
             </summary>
-            <table class="sans-serif table table-striped">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th>Class</th>
@@ -164,82 +164,82 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
                 <tbody>
                     <tr>
                         <td>text-primary</td>
-                        <td><span class="sans-serif text-primary">Primary Text</span></td>
+                        <td><span class="text-primary">Primary Text</span></td>
                     </tr>
                     <tr>
                         <td>text-light</td>
-                        <td><span class="sans-serif text-light">Light Text</span></td>
+                        <td><span class="text-light">Light Text</span></td>
                     </tr>
                     <tr>
                         <td>text-white</td>
-                        <td><span class="sans-serif text-white">White Text</span></td>
+                        <td><span class="text-white">White Text</span></td>
                     </tr>
                     <tr>
                         <td>text-dark</td>
-                        <td><span class="sans-serif text-dark">Dark Text</span></td>
+                        <td><span class="text-dark">Dark Text</span></td>
                     </tr>
                     <tr>
                         <td>text-grey</td>
-                        <td><span class="sans-serif text-grey">Grey Text</span></td>
+                        <td><span class="text-grey">Grey Text</span></td>
                     </tr>
                     <tr>
                         <td>text-error</td>
-                        <td><span class="sans-serif text-error">Error Text</span></td>
+                        <td><span class="text-error">Error Text</span></td>
                     </tr>
                     <tr>
                         <td>text-success</td>
-                        <td><span class="sans-serif text-success">Success Text</span></td>
+                        <td><span class="text-success">Success Text</span></td>
                     </tr>
                 </tbody>
-                <tbody class="sans-serif table table-striped">
+                <tbody class="table table-striped">
 
                     <tbody>
                         <tr>
                             <td>bg-primary</td>
-                            <td><span class="sans-serif text-white bg-primary">Primary Background</span></td>
+                            <td><span class="text-white bg-primary">Primary Background</span></td>
                         </tr>
                         <tr>
                             <td>bg-light</td>
-                            <td><span class="sans-serif text-dark bg-light">Light Background</span></td>
+                            <td><span class="text-dark bg-light">Light Background</span></td>
                         </tr>
                         <tr>
                             <td>bg-dark</td>
-                            <td><span class="sans-serif text-light bg-dark">Dark Background</span></td>
+                            <td><span class="text-light bg-dark">Dark Background</span></td>
                         </tr>
                         <tr>
                             <td>bg-grey</td>
-                            <td><span class="sans-serif text-white bg-grey">Grey Background</span></td>
+                            <td><span class="text-white bg-grey">Grey Background</span></td>
                         </tr>
                         <tr>
                             <td>bg-error</td>
-                            <td><span class="sans-serif text-light bg-error">Error Background</span></td>
+                            <td><span class="text-light bg-error">Error Background</span></td>
                         </tr>
                         <tr>
                             <td>bg-success</td>
-                            <td><span class="sans-serif text-dark bg-success">Success Background</span></td>
+                            <td><span class="text-dark bg-success">Success Background</span></td>
                         </tr>
                     </tbody>
                     <tbody>
                         <tr>
                             <td>bd-primary</td>
-                            <td><span class="sans-serif bd-primary">Primary Border</span></td>
+                            <td><span class="bd-primary">Primary Border</span></td>
                         </tr>
                         <tr>
                             <td>bd-light</td>
-                            <td><span class="sans-serif bd-light">Light Border</span></td> <!-- light border -->
+                            <td><span class="bd-light">Light Border</span></td> <!-- light border -->
                         </tr>   <!-- light border -->
                         <tr>
                             <td>bd-dark</td>
-                            <td><span class="sans-serif bd-dark">Dark Border</span></td>   <!-- dark border -->
+                            <td><span class="bd-dark">Dark Border</span></td>   <!-- dark border -->
                         </tr>   <!-- dark border -->    <!-- dark border -->
                         <tr>
                             <td>bd-grey</td>
-                            <td><span class="sans-serif bd-grey">Grey Border</span></td>   <!-- grey border -->    <!-- grey border -->
+                            <td><span class="bd-grey">Grey Border</span></td>   <!-- grey border -->    <!-- grey border -->
                         </tr>   <!-- grey border -->    <!-- grey border -->    <!-- grey border -->
 
                         <tr>
                             <td>bd-success</td>
-                            <td><span class="sans-serif bd-success">Success Border</span></td>   <!-- success border -->    <!-- success border -->
+                            <td><span class="bd-success">Success Border</span></td>   <!-- success border -->    <!-- success border -->
                         </tr>   <!-- success border -->    <!-- success border -->
                     </tbody>
             </table>
@@ -253,12 +253,12 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
 
 
     
-    <section class="sans-serif w-75 mx-auto">
+    <section class="w-75 mx-auto">
         <!-- :begin #_GLOSSARY  -->
         <div>
-            <section class="sans-serif content">
+            <section class="content">
                 <details>
-                    <summary class="sans-serif text-smallcaps">
+                    <summary class="text-smallcaps">
                         Glossary:
                     </summary>
                     <strong>Key Terms about <?php print $page_heading; ?></strong>
@@ -291,22 +291,22 @@ bd-success - Success border</pre>
         </details>
             </section>
 
-        <section class="sans-serif content">
+        <section class="content">
             
 
         </section> <!-- $ :end #_glossary -->
     </section> <!-- $ :end #_glossary -->
     </div> <!-- $ :end #_glossary -->
 
-    <footer class="sans-serif footer px-4">
+    <footer class="footer px-4">
         <!--    .FOOTER     -->
-        <div class="sans-serif row gx-5">
-            <div class="sans-serif col">
-                <div class="sans-serif p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust"
+        <div class="row gx-5">
+            <div class="col">
+                <div class="p-3 border bg-light"> Based on Notes by <a href="https://github.com/ajaxStardust"
                         target="_blank" title="View original">@ajaxStardust</a> <em>Laravel</em> notes:</div>
             </div>
-            <div class="sans-serif col">
-                <div class="sans-serif p-3 border bg-light text-end"><kbd>
+            <div class="col">
+                <div class="p-3 border bg-light text-end"><kbd>
                         <?php echo $lastMod; ?>
                     </kbd></div>
             </div>

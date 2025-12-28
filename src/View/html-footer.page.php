@@ -1,17 +1,17 @@
 <?php
 namespace Adb\View;
 ?>
-<div id="footer" class="sans-serif container">
+<div id="footer" class="container">
     <!-- 	^	#footer 	^	-->
 
-    <div class="sans-serif vertMid">
+    <div class="vertMid">
         <!--	^	.vertMid	^	-->
-        <!-- p id="toTop" class="sans-serif floatRt"></p -->
+        <!-- p id="toTop" class="floatRt"></p -->
         <p id="searchrec">Search privately: <a href="https://duckduckgo.com/goodies"
                 title="Search privately">Duck-Duck-Go for it!</a> </p>
                 <object
                     id="duckduckgo"
-                    class="sans-serif transparentback"
+                    class="transparentback"
                     title="Search at DuckDuckGo.com"
                     data="assets/svg/duckduckgo-icon.svg"
                     type="image/svg+xml"

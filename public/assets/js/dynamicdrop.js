@@ -1,4 +1,4 @@
-/* mostly relevant to Twerkin.form.php page */
+/* mostly relevant to Twerkin.form.phtml page */
 
 function clearForm()    {
     const newItemInput = document.getElementById('newItemInput');
