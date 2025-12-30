@@ -65,19 +65,13 @@ if [ $# -eq 0 ]; then
                 HOSTNAME=$MYHOSTNAME
 
         HOSTNAME=${HOSTNAME}"/"${ADBPATH}
-<<<<<<< HEAD
-        printf "%s\n" 
-                    printf "%s\n" "${RED}Sending to MYHOSTNAME: ${YELLOW}${HOSTNAME}${RESET}"
-                    else
-                    printf "%s\n" 
-=======
         printf "%s\n"
                     printf "%s\n" "${RED}Sending to MYHOSTNAME: ${YELLOW}${HOSTNAME}${RESET}"
                     else
                     printf "%s\n"
->>>>>>> 2c91b42 (adminvps)
                         printf "%s\n" "${CYAN}Sending to HOSTNAME:${GREEN}${HOSTNAME}${RESET}"
         fi
+sleep 3
 sleep 3
                         # Construct the URL and ensure it is properly formatted
                         URL="http://${HOSTNAME}/public/default.php?path2url=${FULL_PATH}"
@@ -85,28 +79,17 @@ sleep 3
                         # Open browser with the constructed URL
 #                        printf "%s\n" "${YELLOW}Open browser (using xdg-open alias):${RESET}"
 #                        printf "%s\n" "${CYAN}The PHP app AnnieDeBrowsa should be at path eg. /var/www/html/anniedebrowsa${RESET}"
-<<<<<<< HEAD
-                       
-=======
 
->>>>>>> 2c91b42 (adminvps)
 #                        printf "%s\n" "${YELLOW}Confirm your environment is correct at line 40 in transform.sh${RESET}"
+#                     sleep 3
 #                     sleep 3
 
                         # Use xdg-open to open the URL in the default browser
-<<<<<<< HEAD
-     
-
-                        # Show the variables used
-#                        sleep 5
-printf "%s\n" 
-=======
 
 
                         # Show the variables used
 #                        sleep 5
 printf "%s\n"
->>>>>>> 2c91b42 (adminvps)
                         printf "%s\n" "${CYAN}Variables used include:${RESET}"
                         printf "%s\n"
                         printf "%s\n" "${YELLOW}PWD:${RESET} ${GREEN}$PWD${RESET}"
