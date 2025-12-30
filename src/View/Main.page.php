@@ -173,8 +173,12 @@ $resultsWithDescriptions = [
                         <p class="ma0 f6 gray">Base Path:</p>
                         <p class="ma0 f5 mono"><?php echo isset($Env->initialize_enviornment["abspathtml"]) ? $Env->initialize_enviornment["abspathtml"] : 'Not set'; ?></p>
                     </div>
+            <div>
+                        <p class="ma0 f6 gray">Server Type:</p>
+                        <p class="ma0 f5 mono"><?= $_SERVER["SERVER_SOFTWARE"]; ?></p>
+                    </div>
                     <div>
-                        <p class="ma0 f6 gray">Server:</p>
+                        <p class="ma0 f6 gray">Server Name:</p>
                         <p class="ma0 f5 mono"><?= $_SERVER["SERVER_NAME"]; ?></p>
                     </div>
                     <div>
@@ -199,7 +203,7 @@ $resultsWithDescriptions = [
 
 
 <div id="app">
-  <h2 class="text-white" id="appHeading">Domain Configuration</h2>
+  <h2 class="text-white" id="appHeading">Transformative.Click</h2>
 
   <div class="card pa4 mt3">
     <label>Selected URL</label>

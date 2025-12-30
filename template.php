@@ -245,14 +245,14 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
             </table>
             </details>
         </section>
-        
-        
-        
+
+
+
         <!-- END NOTES -->
         <!-- END NOTES -->
 
 
-    
+
     <section class="w-75 mx-auto">
         <!-- :begin #_GLOSSARY  -->
         <div>
@@ -292,7 +292,7 @@ bd-success - Success border</pre>
             </section>
 
         <section class="content">
-            
+
 
         </section> <!-- $ :end #_glossary -->
     </section> <!-- $ :end #_glossary -->
