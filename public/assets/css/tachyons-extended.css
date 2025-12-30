@@ -9,7 +9,7 @@
     height: 10rem;
     text-align: center;
     text-shadow: 0.08em 0.08em 0.06rem;
-    z-index: 20;
+    z-index: 00;
     border-bottom: 20px solid lightseagreen;
     position: relative;
     bottom: -10px;
@@ -65,6 +65,43 @@
     text-overflow: ellipsis;
     text-shadow: 1px 1px 3px #003300aa;
 }
+
+#pageControls {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: rgba(0,0,0,0.9) !important; /* black background */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transform: translateY(-150%);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  z-index: 1000;
+}
+
+#pageControls li {
+    background-color: rgba(0,0,0,0.9); /* black background */
+}
+
+#toggle:checked ~ #pageControls {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
+#pageControls li a:hover {
+  text-decoration: underline;
+} 
+
+#pageControls li a {
+    display: inline-block;
+    color: black;
+      text-decoration: none;
+}
+
+
 /*! TACHYONS v4.11.1 | http://tachyons.io */
 /*
  *
