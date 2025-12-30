@@ -1,14 +1,27 @@
 {
     "name": "ajaxstardust/annie-de-browsa",
     "description": "PHP Static Flat File CMS with System Path-to-URL Conversion Tool. Live demo at www.transformative.click",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeffrey Sabarese",
+            "email": "jsabarese@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0"
+    },
     "require-dev": {
         "phpstan/phpstan": "^2.1"
     },
     "autoload": {
-        "classmap": ["src/Model", "src/View", "src/Controller"]
-    }
+        "classmap": [
+            "src/Model",
+            "src/View",
+            "src/Controller"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
-
-
-
-
