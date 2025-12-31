@@ -33,8 +33,10 @@ I feel like it's pretty basic, and potentially useful to your production flow to
 > _Check lines 37-40 of the i_am_become_url.sh if you want to tweak the URL converter thing to point to your dev server for example instead of mine at transformative.click, as it is. You may use that for testing if you wish ..._
 
 ## Usage
+Use case tutorial type video on YouTube about [AnnieDeBrowsa](https://www.youtube.com/watch?v=6Aup8_JgBsY)
+Pay attention to the part where the file path is copied to the clipboard, and pasted to the terminal in VS Code. 
 
-To use Annie DeBrowsa, simply run the following command:
+To use Annie DeBrowsa, simply run the following command.:
 ```
 cd /var/www/html/annie-de-browsa-this-dir-example
 bash ./i_am_become_url.sh ./<desired_file_path_to_transform>
