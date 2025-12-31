@@ -1,26 +1,29 @@
-# Annie DeBrowsa (ADB) - Any Dir Browser
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api/pin/?username=ajaxStardust&repo=AnnieDeBrowsa&show_owner=true)](https://github.com/anuraghazra/github-readme-stats)
+# Annie DeBrowsa (ADB) — Any-Dir Browser
 
+[![Packagist](https://img.shields.io/packagist/v/ajaxstardust/annie-de-browsa)](https://packagist.org/packages/ajaxstardust/annie-de-browsa)
+[![License](https://img.shields.io/packagist/l/ajaxstardust/annie-de-browsa)](https://packagist.org/packages/ajaxstardust/annie-de-browsa)
 
 ## Description
-This project was started in the late 2000s out of my desire to have a means of previewing old website projects stored on a development server. Consider it a "static content management system" — not a file manager.
+
+Annie DeBrowsa (ADB) is a lightweight, web-based directory browser designed to preview static website projects directly from a development server.
+
+This project originated in the late 2000s as a way to browse and preview archived web projects without deploying or re-hosting them. It is best described as a **static content preview tool**, not a file manager.
+
+## Requirements
+
+- PHP (no framework required)
+- A local or remote HTTP server (Apache, Nginx, etc.)
+- Shell access (optional, for URL helper script)
 
 ## Installation
-Clone it into your HTTP server document root, or any directory where you want to preview your files without leaving your web browser.
+
+### Recommended (via Composer / Packagist)
 
 ```bash
-git clone https://github.com/ajaxStardust/AnnieDeBrowsa.git
-```
-
-If you prefer using a single command for quick installation, you can run: 
+composer require ajaxstardust/annie-de-browsa
 
 ```
-curl -o- https://gist.githubusercontent.com/ajaxStardust/674b5d86f1f4386e72937a607e263608/raw/install.sh > ~/install_adb_by_ajaxStardust.sh
-chmod 755 ~/install_adb_by_ajaxStardust.sh
-nano ~/install_adb_by_ajaxStardust.sh
-cd /var/www/html
-~/install_adb_by_ajaxStardust.sh
-```
+
 The files and folders will be deployed as if it were set by the dude who wanted you to try this project and make it ready for you to use, as shown:
 The crux of it is the file that processes system URL paths, and then the part that lets you browse your http server content. 
 
