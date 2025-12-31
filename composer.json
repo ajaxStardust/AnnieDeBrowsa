@@ -1,7 +1,7 @@
 {
     "name": "ajaxstardust/annie-de-browsa",
-    "description": "PHP Static Flat File CMS with System Path-to-URL Conversion Tool. Live demo at www.transformative.click",
-    "type": "library",
+    "description": "PHP Static Flat File CMS with System Path-to-URL Conversion Tool. Live demo at https://www.transformative.click",
+    "type": "project",
     "license": "MIT",
     "authors": [
         {
@@ -23,10 +23,10 @@
         ]
     },
     "minimum-stability": "dev",
-    "prefer-stable": false,
+    "prefer-stable": true,
     "extra": {
         "branch-alias": {
-            "dev-adminvps": "0.1.x-dev"
+            "dev-master": "0.1.x-dev"
         }
     }
 }
