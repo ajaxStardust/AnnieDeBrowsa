@@ -42,7 +42,7 @@ class Iframe
              * *  the priority.
              */
             $defaultFrameArray = array(
-                'index.phtml',
+                'default.php',
                 'p2u2.phtml',
                 'tree.html',
                 'https://bunsen/p2u2.phhtml'

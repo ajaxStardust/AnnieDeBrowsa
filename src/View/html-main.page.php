@@ -49,13 +49,13 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
     $initNav = $Navfactor->initNav();
     echo $initNav[0];
     $Navfactor->groupTogglerReturn;
-    
+
     foreach ($htmlCharacterArray as $key => $value) {
         if(is_array($value)) {
-            
+
             $many = count($value);
             echo '
-            <li onclick="showHide(\'ul_' . $key . '\')" id="li_' . $key . '_control" class="toggler"><span style="font-weight:bold;">' . $key . '</span> [ view ' . $many . ' ] 
+            <li onclick="showHide(\'ul_' . $key . '\')" id="li_' . $key . '_control" class="toggler"><span style="font-weight:bold;">' . $key . '</span> [ view ' . $many . ' ]
             <ul id="ul_'.$key.'" class="inner-list">';
             foreach($value as $target_html){
                 // echo '<br>TEMP<br>'. $target_html;
@@ -65,8 +65,6 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
         }
 
     }
-    // echo 'var_dump(target_html);';
-    // var_dump($target_html);
 echo '    </ul>
 </nav>';
 ?>
@@ -111,7 +109,7 @@ echo '    </ul>
         <li id="js2index" class="reloadIcon"><a class="f3" href="index.php" title="Reload top">Reload</a></li>
     </ul>
     <!-- temp note: moved css box model image to dochead for now -->
-    
+
 </div>
  </div>
 <hr class="hidden" />
@@ -123,10 +121,17 @@ echo '    </ul>
         $Backlinks = json_decode(json_encode($Backlinks));
     */
 
-   
-        echo $build_local_urls;
-
     ?>
+<section class="content">
+                <details>
+                    <summary class="text-smallcaps">
+                        Off-site Links, see config.json
+                    </summary>
+                    <?= $build_local_urls ?>
+        </details>
+            </section>
+
+
     <div id="quickChange" class="info">Change quick links [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
 
     <div id="mainFrameContainer">
@@ -135,7 +140,7 @@ echo '    </ul>
         <div id="frameTitler">iframe.src: <span id="frameName"><?php print $defaultIframe; ?></span>
         </div>
         <!--    $   id:frameTitler  $   -->
-        <iframe title="frame content as selected in main navigation" src="index.phtml" id="mainFrame">
+        <iframe title="frame content as selected in main navigation" src="default.php" id="mainFrame">
         </iframe>
     </div>
 

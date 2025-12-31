@@ -16,63 +16,47 @@ class Localsites extends Helpers
     }
 
     public function getSites($json_urls) {
-        $home_urls_default = [];
-        $home_urls_default['home_urls'][] = [
-            "url" => "https://neutility.life",
-            "name" => "Neutility._",
-            "data" => '🤣',
-            "count" => (int) "2"
-        ];
-        // Initialize HTML structure for the list
-        $html = '<div id="sytebuild_htmlbuild">
-        ';
-        $html .= '<ol class="list pl0 flex flex-wrap">
-        ';
-        $num = 0;
-        $json_urls = array_merge($json_urls,$home_urls_default['home_urls']);
-        foreach ($json_urls as $index => $site) {
-            
-            if(is_array($site)){
-                // var_dump($site);
-            // Create each list item
-            $html .= '<li class="mr3 mb2">
-            ';
-    
-            // Generate the link with the site name and URL
-             if (!empty($site['url'])) {
+    // Add default home URLs
+    $home_urls_default = [];
+    $home_urls_default['home_urls'][] = [
+        "url" => "https://neutility.life",
+        "name" => "Neutility._",
+        "data" => '🤣',
+        "count" => 2
+    ];
 
-             
+    // Merge JSON config with default URLs
+    $json_urls = array_merge($json_urls, $home_urls_default['home_urls']);
 
-            $html .= '<a href="'. htmlspecialchars($site["url"]) . '" target="_blank" title="' . $site["name"] . '" rel="noopener noreferrer" class="link dim" data-url="' . htmlspecialchars($site['url']) . '" data-name="' . htmlspecialchars($site['name']) . '" data-filepath="'.htmlspecialchars($site["url"]).'">';
-            
-            $html .= htmlspecialchars($site['name']);
-            $html .= '</a>
-            ';
-        }
+    // Initialize container
+    $html = '<div id="sytebuild_htmlbuild">
+        <div class="flex flex-wrap">';
     
-            // Optionally, display the visit count or additional metadata
-             if (!empty($site['count'])) {
-                $html .= '<br>meta[count]: ' . intval($site['count']).'<br>';
-             }
-             if (!empty($site['data'])) {
-                $html .= '<br>meta[data]: ' . htmlspecialchars($site['data']).'<br>';
-             }
-    
-            $html .= '</li>
-            ';
+    // Loop through each link and generate card
+    foreach ($json_urls as $site) {
+        if (is_array($site) && !empty($site['url'])) {
+            $html .= '<div class="ba b--light-gray br2 pa3 mr3 mb3 w-100 w-50-m w-25-l">
+                <a href="'. htmlspecialchars($site["url"]) . '" target="_blank" title="' . htmlspecialchars($site["name"]) . '" rel="noopener noreferrer" class="link dim f5 blue mb1 db" data-url="' . htmlspecialchars($site['url']) . '" data-name="' . htmlspecialchars($site['name']) . '">'
+                . htmlspecialchars($site['name']) .
+                '</a>';
+
+            // Emoji/data
+            if (!empty($site['data'])) {
+                $html .= '<div class="f3 mb1">' . htmlspecialchars($site['data']) . '</div>';
             }
-            else {
-            $html .= $site . '</li>
-            ';
+
+            // Count metadata
+            if (!empty($site['count'])) {
+                $html .= '<div class="f7 gray">Visits: ' . intval($site['count']) . '</div>';
+            }
+
+            $html .= '</div>'; // close card div
         }
-        }
-    
-        $html .= '</ol>
-        ';
-        $html .= '</div>
-        ';
-        // var_dump(\get_defined_vars());
-        // Return the generated HTML
-        return $html;
     }
+
+    // Close container
+    $html .= '</div></div>';
+
+    return $html;
+}
 }
