@@ -1,6 +1,6 @@
 # Annie DeBrowsa (ADB) — Any-Dir Browser
 
-[![Packagist](https://img.shields.io/packagist/v/ajaxstardust/annie-de-browsa)](https://packagist.org/packages/ajaxstardust/annie-de-browsa)
+[![Latest Version](https://img.shields.io/packagist/v/ajaxstardust/annie-de-browsa)](https://packagist.org/packages/ajaxstardust/annie-de-browsa)
 [![License](https://img.shields.io/packagist/l/ajaxstardust/annie-de-browsa)](https://packagist.org/packages/ajaxstardust/annie-de-browsa)
 
 ## Description
