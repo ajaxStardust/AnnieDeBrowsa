@@ -63,7 +63,7 @@ For more details, refer to the [transform.sh script](https://raw.githubuserconte
 
 ## Demo
 
-View a [live demo here](https://whatsonyourbrain.com/adb).
+View a live demo at [transformative.click](https://transformative.click).
 
 ## Support
 
