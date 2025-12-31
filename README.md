@@ -30,12 +30,7 @@ The crux of it is the file that processes system URL paths, and then the part th
 **Try it out!** 
 I feel like it's pretty basic, and potentially useful to your production flow tool chain. I've done my best to make it pretty from 2009. 
 
-![image](https://github.com/user-attachments/assets/91be341f-5dc0-4289-8bc0-aa1c82030300)
-
-**NOTE:** You must edit approx line 40 to set correct paths for variables used. Otherewise, you may discover it has created this "one-one-zero-one...one-one-zero-one!"
-
-> _Check lines 37-40 of the install.sh shell script._
-... or is it the _transform.sh_ script? Hmm... 
+> _Check lines 37-40 of the i_am_become_url.sh if you want to tweak the URL converter thing to point to your dev server for example instead of mine at transformative.click, as it is. You may use that for testing if you wish ..._
 
 ## Usage
 
