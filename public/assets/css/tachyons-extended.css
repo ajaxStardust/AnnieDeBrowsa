@@ -120,7 +120,7 @@ display: inline-block;
 
 #brand {
   height: 100px;
-  left: 50rem;
+  left: 65%;
   position: relative;
   bottom: 11rem;
 }
@@ -128,7 +128,7 @@ display: inline-block;
 #svgtitle {
     width: 75%;
     position: relative;
-	right: 20rem;
+	right: 25%;
 }
 
 /*! TACHYONS v4.11.1 | http://tachyons.io */
