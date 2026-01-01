@@ -20,7 +20,7 @@ function saveConfig($data) {
     $json = json_encode($data, JSON_PRETTY_PRINT);
     if (file_put_contents(CONFIG_FILE, $json) === false) {
         http_response_code(500);
-        echo json_encode(['error' => 'Failed to write config file']);
+        echo json_encode(['error' => 'Failed. CHMOD to write to config.json']);
         exit;
     }
 }
