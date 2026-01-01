@@ -19,9 +19,10 @@ This project originated in the late 2000s as a way to browse and preview archive
 ## Installation
 
 ### Recommended (via Composer / Packagist)
+ADB is designed as a standalone preview tool, **not a library** to be embedded. That is, `composer require` has not been tested anywhere. The proper and intended installation method is `composer create-project`, like so:
 
 ```bash
-composer require ajaxstardust/annie-de-browsa
+composer create-project ajaxstardust/annie-de-browsa <directory> dev-master
 
 ```
 
