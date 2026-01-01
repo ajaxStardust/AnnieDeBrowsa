@@ -8,7 +8,7 @@
 
 Annie DeBrowsa (ADB) is a lightweight, web-based directory browser designed to preview static website projects directly from a development server.
 
-This project originated in the late 2000s as a way to browse and preview archived web projects without deploying or re-hosting them. It is best described as a **static content preview tool**, not a file manager.
+This project originated in the late 2000s as a way to browse and preview archived web projects without deploying or re-hosting them. Annie DeBrowsa is primarily a content preview tool that can render both static files and server-side scripted documents (e.g., PHP) directly in the browser, making it easy to browse and test your projects without deploying them elsewhere. It is not intended as a file manager.
 
 ## Requirements
 
