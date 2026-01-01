@@ -13,9 +13,9 @@ class P2u2
     public $component_path;
 
     public $p2_patches;
-    
-    
-    
+
+
+
     public function __construct($pathPassed = null)
     {
         if ($pathPassed == null) {
@@ -37,8 +37,8 @@ class P2u2
         if (is_array($this->component_path)) {
             preg_match_all($this->path_comps['pattern'], $this->component_path['url_2_convert'], $matches_lvl1);
 
-                
-                
+
+
                 $this->path_comps['matches'] = $matches_lvl1[1];
                 $this->path_comps['count'] = count($this->path_comps['matches']);
         }
@@ -61,9 +61,11 @@ class P2u2
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\Debian', 'localhost', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\kali-rolling', 'localhost', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\[DistroName]', '', $this->clean_chars['url_2_convert']);
-        // dev env specific note where '/media/wd2tb01' is reference to where my development server is on LAN. 
-        // Learn from this here how to mod for your setup.
-        $this->clean_chars['url_2_convert'] = str_ireplace('/media/wd2tb01', '', $this->clean_chars['url_2_convert']);        
+        /* dev env specific note where '/www/wwwroot' is reference to where my development server is on LAN.
+        Learn from this ratchet logic how to mod for your setup. */
+
+        // use the following to remove your default server path:
+        $this->clean_chars['url_2_convert'] = str_ireplace('/www/wwwroot', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('@([\x5c\x2f]+)@', '/', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/"/', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/ /', '%20', $this->clean_chars['url_2_convert']);

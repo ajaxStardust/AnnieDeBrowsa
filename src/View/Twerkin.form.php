@@ -1,10 +1,10 @@
 <div id="app">
   <h2>Domain Configuration</h2>
-  
+
   <div class="card pa4 mt3">
-    <label>Selected URL</label>
+    <label>Resulting URL</label>
     <input type="text" v-model="selectedUrl" placeholder="Type or select a URL..." class="w-100 pa2 ba b--gray br1">
-    
+
     <div class="mt2">
       <strong>Preview:</strong> {{ selectedUrl }}
     </div>
@@ -16,7 +16,7 @@
       </div>
     </div>
 
-    <button @click="clearForm" class="mt3 bg-green white pv2 ph3 br1">Clear Form</button>
+
   </div>
 </div>
 

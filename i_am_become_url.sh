@@ -53,8 +53,8 @@ if [ $# -eq 0 ]; then
         sleep 3
 
         # Check if HOSTNAME is set in the SYSTEM ENV and valid. Uncomment next line to define HOSTNAME here instead. tweak with MYHostname
-        HOSTNAME='transformative.click'
-        # MYHOSTNAME='centrewebdesign.lan' #OR WHATEVER you want it to be here is where you can define
+        HOSTNAME='adbtest.jori'
+        # MYHOSTNAME='transformative.click' #OR WHATEVER you want it to be here is where you can define
         # ADBPATH='anniedebrowsa' #eg the developer setup default
 
         if [ -z "$ADBPATH" ]; then

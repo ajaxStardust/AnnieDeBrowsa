@@ -15,14 +15,17 @@ error_reporting(E_ALL);
             <!-- ^ id=wrapper ^ -->
             <div class="content" id="cookieData"></div>
 
-        <header id="header" title="Header Element contains object with SVG">
-            <!--     ^ Begin SVG object   -->
-            <object id="svgtitle" class="floatleft transparentback"
-                title="Documents of - container" data="assets/css/masthead.php"
-                type="image/svg+xml">
-            </object>
-            <div id="headingTitle" class="green bg-animate bg-near-white"></div>
-        </header>
-        <!-- end #header (svg object) $ -->
 
 
+            <header id="adb-header" title="Header Element contains object with SVG">
+                <object id="svgtitle" class="floatleft transparentback"
+                               title="Documents of - container" data="assets/css/masthead.php"
+                               type="image/svg+xml">
+                           </object>
+                <div id="headingTitle" class="green bg-animate bg-near-white"></div>
+                    <img id="brand" src="/public/assets/images/brand.png" alt="ADB Brand Logo">
+
+
+
+            </header>
+            <!-- end #header (svg object) $ -->

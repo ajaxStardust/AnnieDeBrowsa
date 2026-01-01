@@ -93,7 +93,7 @@
 
 #pageControls li a:hover {
   text-decoration: underline;
-} 
+}
 
 #pageControls li a {
     display: inline-block;
@@ -101,6 +101,28 @@
       text-decoration: none;
 }
 
+#adb-header {
+	display: block;
+	/* align-items: center; */
+	/* gap: 15px; */
+	height: 15rem;
+}
+
+#brand {
+	margin-left: 80%;
+	height: 150px;
+	/* box-shadow: 1rem; */
+	/* left: 20%; */
+	position: relative;
+	bottom: 150px;
+	/* float: right; */
+}
+
+#svgtitle {
+	width: 75%;
+	position: relative;
+	left: -20rem;
+}
 
 /*! TACHYONS v4.11.1 | http://tachyons.io */
 /*

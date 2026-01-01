@@ -206,22 +206,17 @@ $resultsWithDescriptions = [
   <h2 class="text-white" id="appHeading">Transformative.Click</h2>
 
   <div class="card pa4 mt3">
-    <label>Selected URL</label>
-    <input type="text" v-model="selectedUrl" placeholder="Type or select a URL..." class="w-100 pa2 ba b--gray br1">
+    <label class="b red mb2 f3">Resulting URL</label>
+    <input type="text" v-model="selectedUrl" placeholder="Type or select a URL..." class="w-100 pa2 mt2 ba b--gray br2">
 
     <div class="mt2">
-      <strong>Preview:</strong> {{ selectedUrl }}
-      <p><a v-bind:href="selectedUrl">{{ selectedUrl }}</a></p>
+      <p>Powered by <strong>Vue3 v-bind</strong>. Edit the URL if necessary.</p>
+      <p>Choose a radio-button from the available results to place that URL here.</p>
+      <p><strong><a v-bind:href="selectedUrl">{{ selectedUrl }}</a></strong></p>
     </div>
 
-    <div class="mt3 grid-3-ns gap3">
-      <div class="card pa2 br2 ba b--light-gray" v-for="url in urlOptions" :key="url.name" @click="selectUrl(url.value)" :class="{'bg-highlight': highlightUrl === url.value}">
-        <p>{{ url.name }}</p>
-        <p class="mono">{{ url.value }}</p>
-      </div>
-    </div>
 
-    <button @click="clearForm" class="mt3 bg-green white pv2 ph3 br1">Clear Form</button>
+
   </div>
 </div>
         </div><!-- :after Twerkin.form.php -->
