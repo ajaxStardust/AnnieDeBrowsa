@@ -2,6 +2,7 @@
 
 [![Latest Version](https://img.shields.io/packagist/v/ajaxstardust/annie-de-browsa)](https://packagist.org/packages/ajaxstardust/annie-de-browsa)
 [![License](https://img.shields.io/packagist/l/ajaxstardust/annie-de-browsa)](https://packagist.org/packages/ajaxstardust/annie-de-browsa)
+[![View on YouTube](https://img.shields.io/badge/YouTube-View%20Demo-red?logo=youtube)](https://www.youtube.com/watch?v=6Aup8_JgBsY)
 
 ## Description
 
