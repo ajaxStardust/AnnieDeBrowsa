@@ -8,26 +8,25 @@
 
 Annie DeBrowsa (ADB) is a lightweight, web-based directory browser designed to preview static website projects directly from a development server.
 
-This project originated in the late 2000s as a way to browse and preview archived web projects without deploying or re-hosting them. Annie DeBrowsa is primarily a content preview tool that can render both static files and server-side scripted documents (e.g., PHP) directly in the browser, making it easy to browse and test your projects without deploying them elsewhere. It is not intended as a file manager.
+This project originated in the late 2000s as a way to browse and preview archived web projects without deploying or re-hosting them. Annie DeBrowsa is primarily a content preview tool that can render both static files and server-side scripted documents (e.g., PHP) directly in the browser, making it easy to browse and test your projects without deploying them elsewhere. It is **not intended as a file manager**.
 
-## Requirements
+### Requirements
 
-- PHP (no framework required)
-- A local or remote HTTP server (Apache, Nginx, etc.)
-- Shell access (optional, for URL helper script)
+*   PHP (no framework required)
 
-## Installation
+*   A local or remote HTTP server (Apache, Nginx, etc.)
 
-### Recommended (via Composer / Packagist)
-ADB is designed as a standalone preview tool, **not a library** to be embedded. That is, `composer require` has not been tested anywhere. The proper and intended installation method is `composer create-project`, like so:
+*   Shell access (optional, for URL helper script)
+
+### Installation (Recommended)
+
+ADB is designed as a **standalone preview tool**, not a library to be embedded. The recommended way to install it is via:
 
 ```bash
 composer create-project ajaxstardust/annie-de-browsa <directory> dev-master
 
 ```
-
-The files and folders will be deployed as if it were set by the dude who wanted you to try this project and make it ready for you to use, as shown:
-The crux of it is the file that processes system URL paths, and then the part that lets you browse your http server content. 
+This will create a full project in the specified <directory>, ready to browse both static and server-side content. The core functionality handles system path-to-URL conversion and provides browser-based navigation of your HTTP server content.
 
 **Try it out!** 
 I feel like it's pretty basic, and potentially useful to your production flow tool chain. I've done my best to make it pretty from 2009. 
