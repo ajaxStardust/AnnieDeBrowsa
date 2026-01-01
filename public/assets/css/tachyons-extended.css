@@ -103,25 +103,32 @@
 
 #adb-header {
 	display: block;
-	/* align-items: center; */
-	/* gap: 15px; */
+	align-items: center;
+	gap: 15px;
 	height: 15rem;
 }
 
+#headingTitle {
+display: inline-block;
+  text-align: center;
+  width: 30%;
+  position: relative;
+  bottom: 20rem;
+  font-size: xx-large;
+  font-family: orbitron, sans-serif;
+}
+
 #brand {
-	margin-left: 80%;
-	height: 150px;
-	/* box-shadow: 1rem; */
-	/* left: 20%; */
-	position: relative;
-	bottom: 150px;
-	/* float: right; */
+  height: 100px;
+  left: 50rem;
+  position: relative;
+  bottom: 11rem;
 }
 
 #svgtitle {
-	width: 75%;
-	position: relative;
-	left: -20rem;
+    width: 75%;
+    position: relative;
+	right: 20rem;
 }
 
 /*! TACHYONS v4.11.1 | http://tachyons.io */

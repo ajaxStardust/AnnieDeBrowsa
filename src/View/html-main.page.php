@@ -70,8 +70,7 @@ echo '    </ul>
 ?>
 
 <div id="maincol">
-    <h2 id="doc_loc_href" title="currentUrlPath.pathInfoBasename"><?= $display_dynamichost; ?>/<span class="green"><?= $currentUrlPath; ?>
-    </h2>
+    <h2 id="doc_loc_href" class="green sans-serif" title="currentUrlPath.pathInfoBasename"><?= $currentUrlPath; ?></h2>
 
     <div class="hide-show-element">
   <input type="checkbox" id="toggle" />
