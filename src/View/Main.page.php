@@ -212,7 +212,7 @@ $resultsWithDescriptions = [
     <div class="mt2">
       <p>Powered by <span class="bg-lightest-blue">Vue3 v-bind</span>. Edit the URL if necessary.</p>
       <p><strong class="bg-yellow">Choose a radio-button</strong> from the available results to place that URL here.</p>
-      <p><strong><a v-bind:href="selectedUrl">{{ selectedUrl }}</a></strong></p>
+      <p><strong><a target="_blank" v-bind:href="selectedUrl">{{ selectedUrl }}</a></strong></p>
       <div class="mt2">
         <details>
             <summary>Details</summary>

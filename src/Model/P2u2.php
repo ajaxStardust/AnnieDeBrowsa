@@ -99,7 +99,7 @@ class P2u2
                     $this->clean_chars['full_server_name'] = ($this->clean_chars['third_level_dir'] !== $this->clean_chars['server_name']) ? $this->clean_chars['third_level_dir'] . '.' . $this->clean_chars['server_name'] : $this->clean_chars['server_name'];
                     // Extract the filename and construct the processed URL
                     $this->clean_chars['basename'] = basename($this->clean_chars['url_2_convert']);
-                    $this->clean_chars['processed_url'] = 'https://' . $this->clean_chars['full_server_name'] . '/' . $this->clean_chars['basename'];
+                    $this->clean_chars['processed_url'] = 'http://' . $this->clean_chars['full_server_name'] . '/' . $this->clean_chars['basename'];
                     $this->clean_chars['url_2_convert'] = $this->clean_chars['processed_url'];
                     // No need to continue matching if a match is found
                     break;
