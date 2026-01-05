@@ -60,21 +60,17 @@ if [ $# -eq 0 ]; then
         if [ -z "$ADBPATH" ]; then
             ADBPATH='public'
         fi
-        if [ -z "$HOSTNAME" ]; then
+        if [ "$MYHOSTNAME" ]; then
             # If HOSTNAME is not set, default to 'localhost' (the default MYHOSTNAME)
                 HOSTNAME=$MYHOSTNAME
-
-        HOSTNAME=${HOSTNAME}"/"${ADBPATH}
-        printf "%s\n"
-                    printf "%s\n" "${RED}Sending to MYHOSTNAME: ${YELLOW}${HOSTNAME}${RESET}"
-                    else
-                    printf "%s\n"
-                        printf "%s\n" "${CYAN}Sending to HOSTNAME:${GREEN}${HOSTNAME}${RESET}"
         fi
-sleep 3
-sleep 3
+        HOSTNAME=${HOSTNAME}
+        printf "%s\n"
+        printf "%s\n" "${CYAN}Trying to serve ${FILENAME_ONLY} on ${GREEN}${HOSTNAME}${RESET}."
+
+sleep 1
                         # Construct the URL and ensure it is properly formatted
-                        URL="http://${HOSTNAME}/public/default.php?path2url=${FULL_PATH}"
+                        URL="http://${HOSTNAME}/${ADBPATH}/default.php?path2url=${FULL_PATH}"
 
                         # Open browser with the constructed URL
 #                        printf "%s\n" "${YELLOW}Open browser (using xdg-open alias):${RESET}"
@@ -89,6 +85,8 @@ sleep 3
 
                         # Show the variables used
 #                        sleep 5
+printf "%s\n${WHITE}At line 88 in of ${RED}${BOLD} i_am_become_url.sh${RESET}"
+# sleep 2
 printf "%s\n"
                         printf "%s\n" "${CYAN}Variables used include:${RESET}"
                         printf "%s\n"
