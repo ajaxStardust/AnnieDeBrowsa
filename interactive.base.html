@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Interactive Guitar Fretboard</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<h2>Guitar Fretboard — Nut + String Names</h2>
+
+<div id="controls">
+  <div>
+    <label for="parent-key-select"><strong>Parent Key:</strong></label>
+    <select id="parent-key-select">
+      <option>C</option><option>C#</option><option>D</option><option>D#</option>
+      <option>E</option><option>F</option><option>F#</option><option>G</option>
+      <option>G#</option><option>A</option><option>A#</option><option>B</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="mode-select"><strong>Mode:</strong></label>
+    <select id="mode-select">
+      <option>Ionian</option><option>Dorian</option><option>Phrygian</option>
+      <option>Lydian</option><option>Mixolydian</option><option>Aeolian</option>
+      <option>Locrian</option>
+    </select>
+  </div>
+
+  <div id="view-control">
+    <strong>View:</strong>
+    <label class="switch">
+      <input id="view-toggle" type="checkbox">
+      <span id="view-label">Mode</span>
+    </label>
+  </div>
+
+  <div id="tonic-container">
+    <strong>Tonic:</strong>
+    <div id="tonic-radios"></div>
+  </div>
+</div>
+
+<!-- Fretboard area: left = string names (separate component), right = fretboard SVG (ends at nut) -->
+<div class="fretboard-wrapper">
+  <div id="string-names" class="string-names" aria-hidden="true"></div>
+  <svg id="fretboard" class="guitar-fretboard" width="840" height="200" role="img" aria-label="Fretboard"></svg>
+</div>
+
+<!-- Keyboard reference -->
+<div id="keyboard" class="keyboard"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

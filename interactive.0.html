@@ -1,0 +1,290 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interactive Guitar Fretboard — Mode/Chord Slider</title>
+<style>
+body { font-family:sans-serif; padding:20px; background:#f9f9f9; }
+h2 { margin-bottom:12px; }
+.fretboard-wrapper { display:flex; align-items:flex-start; gap:10px; margin-top:16px; }
+.guitar-fretboard { border:1px solid #ccc; }
+.open-notes { display:flex; flex-direction:column; justify-content:flex-start; }
+.open-notes div { height:24px; line-height:24px; font-weight:bold; text-align:right; padding-right:4px; }
+#controls { display:flex; gap:20px; margin-bottom:16px; flex-wrap:wrap; }
+label { margin-right:4px; }
+select:disabled { opacity:0.5; }
+
+/* Faux slider CSS */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+}
+.switch input {display:none;}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top:0; left:0; right:0; bottom:0;
+  background-color: #ccc;
+  border-radius: 24px;
+  transition: 0.4s;
+}
+.slider:before {
+  position: absolute;
+  content:"";
+  height:20px; width:20px;
+  left:2px; bottom:2px;
+  background-color:white;
+  border-radius:50%;
+  transition:0.4s;
+}
+input:checked + .slider {background-color:#4CAF50;}
+input:checked + .slider:before {transform:translateX(26px);}
+</style>
+</head>
+<body>
+
+<h2>Guitar Fretboard — Tonic, Mode/Chord, Sharp/Flat</h2>
+
+<div id="controls">
+  <!-- Mode/Chord Slider -->
+  <div id="mode-chord-toggle-wrapper" style="display:flex; align-items:center; gap:10px;">
+    <strong>View:</strong>
+    <label class="switch">
+      <input type="checkbox" id="mode-chord-toggle">
+      <span class="slider"></span>
+    </label>
+    <span id="mode-chord-label">Mode</span>
+  </div>
+
+  <!-- Tonic Selection -->
+  <div id="tonic-selector">
+    <strong>Tonic:</strong>
+    <label><input type="radio" name="tonic" value="G" checked>G</label>
+    <label><input type="radio" name="tonic" value="A">A</label>
+    <label><input type="radio" name="tonic" value="B">B</label>
+    <label><input type="radio" name="tonic" value="C">C</label>
+    <label><input type="radio" name="tonic" value="D">D</label>
+    <label><input type="radio" name="tonic" value="E">E</label>
+    <label><input type="radio" name="tonic" value="F#">F#</label>
+  </div>
+
+  <!-- Mode Dropdown -->
+  <div>
+    <label for="mode-select"><strong>Mode:</strong></label>
+    <select id="mode-select">
+      <option value="Ionian">Ionian</option>
+      <option value="Dorian">Dorian</option>
+      <option value="Phrygian">Phrygian</option>
+      <option value="Lydian">Lydian</option>
+      <option value="Mixolydian">Mixolydian</option>
+      <option value="Aeolian">Aeolian</option>
+      <option value="Locrian">Locrian</option>
+    </select>
+  </div>
+
+  <!-- Chord Dropdown -->
+  <div>
+    <label for="chord-select"><strong>Chord:</strong></label>
+    <select id="chord-select">
+      <option value="">—select—</option>
+    </select>
+  </div>
+
+  <!-- Sharp/Flat Toggle -->
+  <div>
+    <label><input type="checkbox" id="accidental-toggle"> Use Flats</label>
+  </div>
+</div>
+
+<div class="fretboard-wrapper">
+  <div class="open-notes" id="open-notes"></div>
+  <guitar-fretboard class="guitar-fretboard" frets="12"></guitar-fretboard>
+</div>
+
+<div id="note-panel"></div>
+
+<script type="module">
+// --- Constants ---
+const SHARP_NOTES = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+const FLAT_NOTES  = ['C','D♭','D','E♭','E','F','G♭','G','A♭','A','B♭','B'];
+let USE_FLATS = false;
+
+const STRINGS = ['E','B','G','D','A','E'].reverse();
+const FRETS = 12;
+const PARENT_SCALE = ['G','A','B','C','D','E','F#'];
+const CHORDS_BY_TONIC = {
+  'G':['Maj','Maj7'],
+  'A':['Min','Min7'],
+  'B':['Min','Min7'],
+  'C':['Maj','Maj7'],
+  'D':['Dom7'],
+  'E':['Min','Min7'],
+  'F#':['Min','Min7']
+};
+
+// --- Render open string labels ---
+const openNotesDiv = document.getElementById('open-notes');
+function renderOpenNotes(){
+  openNotesDiv.innerHTML='';
+  STRINGS.forEach(note=>{
+    const d = document.createElement('div');
+    d.textContent = USE_FLATS ? toFlat(note) : note;
+    openNotesDiv.appendChild(d);
+  });
+}
+function toFlat(note){
+  const index = SHARP_NOTES.indexOf(note);
+  return FLAT_NOTES[index] || note;
+}
+
+// --- GuitarFretboard element ---
+class GuitarFretboard extends HTMLElement{
+  constructor(){
+    super();
+    this.attachShadow({mode:'open'});
+    this.strings=STRINGS;
+    this.frets=FRETS;
+    this.svgNS="http://www.w3.org/2000/svg";
+    this.render();
+  }
+
+  render(){
+    const fretGap=40;
+    const stringGap=24;
+    const bottomPadding=40;
+    const svgHeight = this.strings.length*stringGap + bottomPadding;
+    const svgWidth = this.frets*fretGap;
+    const svg=document.createElementNS(this.svgNS,'svg');
+    svg.setAttribute('width',svgWidth);
+    svg.setAttribute('height',svgHeight);
+
+    for(let s=0;s<this.strings.length;s++){
+      const y=10+s*stringGap;
+      const line=document.createElementNS(this.svgNS,'line');
+      line.setAttribute('x1',0); line.setAttribute('y1',y);
+      line.setAttribute('x2',this.frets*fretGap); line.setAttribute('y2',y);
+      line.setAttribute('stroke','#000'); line.setAttribute('stroke-width',1.5);
+      svg.appendChild(line);
+
+      let openNoteIndex=SHARP_NOTES.indexOf(this.strings[s]);
+      for(let f=0; f<this.frets; f++){
+        const note = SHARP_NOTES[(openNoteIndex+f)%12];
+        const circle=document.createElementNS(this.svgNS,'circle');
+        circle.setAttribute('cx',f*fretGap+fretGap/2);
+        circle.setAttribute('cy',y);
+        circle.setAttribute('r',10);
+        circle.setAttribute('fill','white');
+        circle.setAttribute('stroke','#000');
+        circle.dataset.note=note;
+        svg.appendChild(circle);
+      }
+    }
+
+    const markerFrets=[3,5,7,9,12];
+    const markerY = 10 + (this.strings.length-1)*stringGap + 24;
+    markerFrets.forEach(f=>{
+      const text=document.createElementNS(this.svgNS,'text');
+      text.setAttribute('x',f*fretGap+fretGap/2);
+      text.setAttribute('y',markerY);
+      text.setAttribute('text-anchor','middle');
+      text.setAttribute('font-size','14');
+      text.setAttribute('fill','#000');
+      text.textContent=f;
+      svg.appendChild(text);
+    });
+
+    this.shadowRoot.innerHTML='';
+    this.shadowRoot.appendChild(svg);
+  }
+
+  updateHighlights(allowedNotes){
+    const svg=this.shadowRoot.querySelector('svg');
+    svg.querySelectorAll('circle').forEach(c=>{
+      const note = USE_FLATS ? toFlat(c.dataset.note) : c.dataset.note;
+      c.setAttribute('fill', allowedNotes.includes(note) ? 'gold' : 'white');
+    });
+  }
+}
+
+customElements.define('guitar-fretboard',GuitarFretboard);
+
+// --- Logic ---
+const fretboard = document.querySelector('guitar-fretboard');
+const tonicRadios = document.querySelectorAll('input[name="tonic"]');
+const modeSelect = document.getElementById('mode-select');
+const chordSelect = document.getElementById('chord-select');
+const accidentalToggle = document.getElementById('accidental-toggle');
+const modeChordToggle = document.getElementById('mode-chord-toggle');
+const modeChordLabel = document.getElementById('mode-chord-label');
+
+function getModeNotes(tonic, mode){
+  const tonicIndex = PARENT_SCALE.indexOf(tonic);
+  const modeIntervals = {
+    'Ionian':[0,2,4,5,7,9,11],
+    'Dorian':[0,2,3,5,7,9,10],
+    'Phrygian':[0,1,3,5,7,8,10],
+    'Lydian':[0,2,4,6,7,9,11],
+    'Mixolydian':[0,2,4,5,7,9,10],
+    'Aeolian':[0,2,3,5,7,8,10],
+    'Locrian':[0,1,3,5,6,8,10]
+  };
+  return modeIntervals[mode].map(interval=>{
+    const parentNote = SHARP_NOTES[(SHARP_NOTES.indexOf(tonic)+interval)%12];
+    return USE_FLATS ? toFlat(parentNote) : parentNote;
+  });
+}
+
+function updateChordDropdown(tonic){
+  chordSelect.innerHTML='';
+  CHORDS_BY_TONIC[tonic].forEach(c=>{
+    const opt=document.createElement('option');
+    opt.value=c; opt.textContent=c;
+    chordSelect.appendChild(opt);
+  });
+}
+
+function updateHighlights(){
+  const tonic = document.querySelector('input[name="tonic"]:checked').value;
+  const isChordMode = modeChordToggle.checked;
+  if(!isChordMode){
+    chordSelect.disabled=true;
+    const mode = modeSelect.value;
+    fretboard.updateHighlights(getModeNotes(tonic,mode));
+  } else {
+    modeSelect.disabled=true;
+    const chord = chordSelect.value;
+    // For simplicity, highlight all notes in parent scale for chords
+    fretboard.updateHighlights(PARENT_SCALE.map(n=>USE_FLATS?toFlat(n):n));
+  }
+  renderOpenNotes();
+}
+
+// --- Event listeners ---
+tonicRadios.forEach(r=>{
+  r.addEventListener('change',()=>{
+    updateChordDropdown(r.value);
+    updateHighlights();
+  });
+});
+
+modeSelect.addEventListener('change',updateHighlights);
+chordSelect.addEventListener('change',updateHighlights);
+
+accidentalToggle.addEventListener('change',()=>{
+  USE_FLATS = accidentalToggle.checked;
+  updateHighlights();
+});
+
+modeChordToggle.addEventListener('change',()=>{
+  updateHighlights();
+  modeChordLabel.textContent = modeChordToggle.checked ? 'Chord' : 'Mode';
+});
+
+// --- Initialize ---
+const defaultTonic = document.querySelector('input[name="tonic"]:checked').value;
+updateChordDropdown(defaultTonic);
+updateHighlights();
+</script>
+</body>
+</html>

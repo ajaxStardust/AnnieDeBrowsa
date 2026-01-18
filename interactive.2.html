@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Guitar Fretboard Trainer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header>
+  <h2>Guitar Fretboard Trainer</h2>
+
+  <div id="controls">
+    <!-- Mode / Chord slider -->
+    <div class="control-group">
+      <strong>View</strong>
+      <label class="switch">
+        <input type="checkbox" id="viewToggle">
+        <span class="slider"></span>
+      </label>
+      <span id="viewLabel">Mode</span>
+    </div>
+
+    <!-- Parent Key -->
+    <div class="control-group">
+      <strong>Parent Key</strong>
+      <select id="parentKey"></select>
+    </div>
+
+    <!-- Tonic radios -->
+    <div class="control-group" id="tonicGroup">
+      <strong>Tonic</strong>
+      <div id="tonicRadios"></div>
+    </div>
+
+    <!-- Mode selector -->
+    <div class="control-group">
+      <strong>Mode</strong>
+      <select id="modeSelect">
+        <option>Ionian</option>
+        <option>Dorian</option>
+        <option>Phrygian</option>
+        <option>Lydian</option>
+        <option>Mixolydian</option>
+        <option>Aeolian</option>
+        <option>Locrian</option>
+      </select>
+    </div>
+
+    <!-- Accidentals -->
+    <div class="control-group">
+      <label>
+        <input type="checkbox" id="accToggle">
+        Use Flats
+      </label>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="neck-wrap">
+    <svg id="fretboard" viewBox="0 0 1200 300"></svg>
+  </div>
+
+  <div id="keyboard"></div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
