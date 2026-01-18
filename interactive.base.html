@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
+<meta charset="UTF-8">
 <title>Interactive Guitar Fretboard</title>
-<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 <h2>Guitar Fretboard — Nut + String Names</h2>
 
 <div id="controls">
@@ -42,15 +41,12 @@
   </div>
 </div>
 
-<!-- Fretboard area: left = string names (separate component), right = fretboard SVG (ends at nut) -->
 <div class="fretboard-wrapper">
   <div id="string-names" class="string-names" aria-hidden="true"></div>
   <svg id="fretboard" class="guitar-fretboard" width="840" height="200" role="img" aria-label="Fretboard"></svg>
 </div>
 
-<!-- Keyboard reference -->
 <div id="keyboard" class="keyboard"></div>
-
 <script src="script.js"></script>
 </body>
 </html>

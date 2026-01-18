@@ -1,6 +1,6 @@
 const SHARP_NOTES = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
 const FLAT_NOTES  = ['C','Db','D','Eb','E','F','Gb','G','Ab','A','Bb','B'];
-const STRINGS = ['E','B','G','D','A','E']; // low E bottom, high E top
+const STRINGS = ['E','B','G','D','A','E'].reverse();
 const FRETS = 12;
 
 let USE_FLATS = false;
@@ -23,7 +23,7 @@ function toFlat(note) {
 // --- Render String Names (Nut area) ---
 function renderStringNames() {
   stringNamesDiv.innerHTML = '';
-  STRINGS.slice().reverse().forEach(s => { // reverse for correct visual top-to-bottom
+  STRINGS.forEach(s => {
     const div = document.createElement('div');
     div.textContent = s;
     stringNamesDiv.appendChild(div);
@@ -64,9 +64,8 @@ function renderFretboard() {
 
   fretboardSvg.innerHTML = '';
 
-  STRINGS.slice().reverse().forEach((s, sIdx) => { // reverse to render top-to-bottom
+  STRINGS.forEach((s, sIdx) => {
     const y = 10 + sIdx * stringGap;
-
     // String line
     const line = document.createElementNS("http://www.w3.org/2000/svg","line");
     line.setAttribute('x1',0); line.setAttribute('y1',y);
@@ -74,7 +73,7 @@ function renderFretboard() {
     line.setAttribute('stroke','#000'); line.setAttribute('stroke-width',1.5);
     fretboardSvg.appendChild(line);
 
-    // Fret circles (fret 1..FRETS)
+    // Fret circles
     let openIdx = SHARP_NOTES.indexOf(s);
     for(let f=1; f<=FRETS; f++){
       const note = SHARP_NOTES[(openIdx+f)%12];
