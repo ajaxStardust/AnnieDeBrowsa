@@ -46,6 +46,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
         }
     </style>
     <link rel="stylesheet" href="public/assets/css/extra/chota.min.css">
+        <link href="public/assets/css/tachyons-extended.css" rel="stylesheet">
     <style>
         body.dark {
             --bg-color: #000;
