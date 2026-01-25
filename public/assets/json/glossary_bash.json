@@ -1,0 +1,164 @@
+{
+  "variables": {
+    "PWD": {
+      "variable_name": "PWD",
+      "description": "The current working directory",
+      "used_for": "To reference the current directory in a script"
+    },
+    "OLDPWD": {
+      "variable_name": "OLDPWD",
+      "description": "The previous working directory",
+      "used_for": "To reference the previous directory in a script"
+    },
+    "HOME": {
+      "variable_name": "HOME",
+      "description": "The user's home directory",
+      "used_for": "To reference the user's home directory in a script"
+    },
+    "USER": {
+      "variable_name": "USER",
+      "description": "The username of the current user",
+      "used_for": "To reference the username in a script"
+    },
+    "HOSTNAME": {
+      "variable_name": "HOSTNAME",
+      "description": "The hostname of the machine",
+      "used_for": "To reference the hostname in a script"
+    },
+    "SHELL": {
+      "variable_name": "SHELL",
+      "description": "The path to the current user's shell",
+      "used_for": "To reference the user's shell in a script"
+    },
+    "PATH": {
+      "variable_name": "PATH",
+      "description": "The list of directories where executable files are located",
+      "used_for": "To specify the search path for executable files in a script"
+    },
+    "TERM": {
+      "variable_name": "TERM",
+      "description": "The type of terminal being used",
+      "used_for": "To determine the terminal type in a script"
+    },
+    "LANG": {
+      "variable_name": "LANG",
+      "description": "The current locale setting",
+      "used_for": "To determine the language and character encoding settings in a script"
+    },
+    "RANDOM": {
+      "variable_name": "RANDOM",
+      "description": "A random integer between 0 and 32767",
+      "used_for": "To generate random numbers in a script"
+    },
+    "UID": {
+      "variable_name": "UID",
+      "description": "The user ID of the current user",
+      "used_for": "To reference the user ID in a script"
+    },
+    "EUID": {
+      "variable_name": "EUID",
+      "description": "The effective user ID of the current user",
+      "used_for": "To reference the effective user ID in a script"
+    },
+    "BASH_VERSION": {
+      "variable_name": "BASH_VERSION",
+      "description": "The version number of the Bash shell",
+      "used_for": "To check the version of Bash in a script"
+    },
+    "BASH": {
+      "variable_name": "BASH",
+      "description": "The path to the Bash executable",
+      "used_for": "To specify the Bash executable in a script"
+    },
+    "BASH_VERSINFO": {
+      "variable_name": "BASH_VERSINFO",
+      "description": "An array containing version information for Bash",
+      "used_for": "To access detailed version information about Bash in a script"
+    },
+    "IFS": {
+      "variable_name": "IFS",
+      "description": "Internal Field Separator, determines how Bash splits words and lines",
+      "used_for": "Parsing input and splitting strings in loops or read commands"
+    },
+    "PS1": {
+      "variable_name": "PS1",
+      "description": "Primary shell prompt string",
+      "used_for": "Customizing the appearance of your terminal prompt"
+    },
+    "PS2": {
+      "variable_name": "PS2",
+      "description": "Secondary shell prompt string (for multi-line commands)",
+      "used_for": "Indicating continuation of a multi-line command"
+    },
+    "EDITOR": {
+      "variable_name": "EDITOR",
+      "description": "The default text editor for shell operations",
+      "used_for": "Invoked by commands like crontab -e or git commit"
+    },
+    "PAGER": {
+      "variable_name": "PAGER",
+      "description": "The default pager program, e.g., less or more",
+      "used_for": "Displaying long output one screen at a time"
+    },
+    "sed": {
+      "variable_name": "sed",
+      "description": "Stream editor for filtering and transforming text",
+      "used_for": "Pattern-based search, replace, and text transformations in pipelines"
+    },
+    "awk": {
+      "variable_name": "awk",
+      "description": "Pattern scanning and text processing language",
+      "used_for": "Extracting columns, performing calculations, and formatting text"
+    },
+    "find": {
+      "variable_name": "find",
+      "description": "Search for files and directories recursively",
+      "used_for": "Locating files with specific names, types, or properties"
+    },
+    "grep": {
+      "variable_name": "grep",
+      "description": "Search text using regular expressions",
+      "used_for": "Filtering command output or files for matching lines"
+    },
+    "cut": {
+      "variable_name": "cut",
+      "description": "Extract sections from each line of input",
+      "used_for": "Selecting specific fields or characters from text"
+    },
+    "tr": {
+      "variable_name": "tr",
+      "description": "Translate or delete characters from input",
+      "used_for": "Simple text transformations or character replacement"
+    },
+    "xargs": {
+      "variable_name": "xargs",
+      "description": "Build and execute command lines from standard input",
+      "used_for": "Passing output from one command as arguments to another"
+    },
+    "tee": {
+      "variable_name": "tee",
+      "description": "Read from standard input and write to standard output and files",
+      "used_for": "Duplicating pipeline output for logging while continuing processing"
+    },
+    "sleep": {
+      "variable_name": "sleep",
+      "description": "Pause execution for a specified number of seconds",
+      "used_for": "Delaying commands or creating timed loops"
+    },
+    "date": {
+      "variable_name": "date",
+      "description": "Displays or formats the current date and time",
+      "used_for": "Timestamps, logs, or scheduling scripts"
+    },
+    "hostname": {
+      "variable_name": "hostname",
+      "description": "Print or set the system hostname",
+      "used_for": "Identifying the machine or network node"
+    },
+    "uptime": {
+      "variable_name": "uptime",
+      "description": "Shows how long the system has been running and load averages",
+      "used_for": "Monitoring system status"
+    }
+  }
+}

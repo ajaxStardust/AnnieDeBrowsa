@@ -81,10 +81,31 @@ $resultsWithDescriptions = [
     <title>
         <?php print $whatis["title"]; ?>
     </title>
-    <link rel="icon" type="image/ico" href="favicon.ico">
-    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+    <meta name="description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:url" content="https://transformative.click">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Transformative.Click">
+    <meta property="og:description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
+    <meta property="og:image" content="https://transformative.click/plaidicon.png">
+    <meta property="og:image:width" content="680">
+    <meta property="og:image:height" content="680">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="transformative.click">
+    <meta property="twitter:url" content="https://transformative.click">
+    <meta name="twitter:title" content="Transformative.Click">
+    <meta name="twitter:description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
+    <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
+    <link rel="shortcut icon" type="image/png" href="favicon.png">
+    <!-- Meta Tags Generated via https://opengraph.dev -->
+
     <link rel="stylesheet" href="assets/css/tachyons-extended.css">
     <link href="assets/css/lightslider.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -154,13 +175,19 @@ $resultsWithDescriptions = [
     <div class="center backgroundblue">
     <div class="w-75  bg-light-gray">
         <!-- Header -->
-        <header class="bg-dark-blue white pv4 ph3">
+        <header class="bg-silver white pv4 ph3">
             <div class="mw9 center">
                 <h1 class="ma0 mb2 f2 fw7"><?= $whatis["page_heading"] ?></h1>
                 <p class="ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Tranform URL</p>
             </div>
         </header>
+        <!-- CARD: AnnieDeBrowsa SAP Preview Tool  --
 
+        <?php 
+		include 'html-card-github.php'; 
+		?>
+		
+		<!-- END CARD: AnnieDeBrowsa SAP Preview Tool  --
         <!-- Environment Info -->
         <section class="bg-white-60 pv3 ph3 bt b--light-gray">
             <div class="mw9 center">
@@ -233,6 +260,7 @@ $resultsWithDescriptions = [
         </div>
     </main>
     </div>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "476605b5cfe44956a453fb886673520f"}'></script><!-- End Cloudflare Web Analytics -->
 <script src="assets/js/showme-hideme.js"></script>
     <script src="assets/js/dynamicdrop.js"></script>
     <script>

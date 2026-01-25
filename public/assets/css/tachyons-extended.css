@@ -3,6 +3,28 @@
     background: #ffeccd;
 }
 
+#pagewidth {
+    background-color: transparent;
+}
+
+#frameTitler    {
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin: 0.5rem;
+    outline: 0.1em solid #000000aa;
+    border-radius: 2rem;
+    float: right;
+    clear: both;
+}
+
+#wrapper {
+    background-color: transparent;
+    width: 100%;
+    border: 1em solid silver;
+    border-radius: 2em;
+    overflow: auto;
+}
+
 #header {
     background-image: url("../images/head_bg_2022.png");
     background-position: center bottom;
@@ -80,61 +102,78 @@
     text-shadow: 1px 1px 3px #003300aa;
 }
 
+figure#header-icon {
+    max-width: 30%;
+    min-height: 0.1px;
+}
+
 #pageControls {
-  position: fixed;
-  top: 1rem;
-  right: 1rem;
-  background-color: rgba(0,0,0,0.9) !important; /* black background */
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transform: translateY(-150%);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  opacity: 0;
-  z-index: 1000;
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    /* black background */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transform: translateY(-150%);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+    z-index: 1000;
 }
 
 #pageControls li {
+<<<<<<< HEAD
     background-color: rgba(126, 126, 126, 0.9); /* black background */
+=======
+    background-color: rgba(0, 0, 0, 0.9);
+    /* black background */
+>>>>>>> 4bf4a9e (adminvps jaruda wi6)
 }
 
-#toggle:checked ~ #pageControls {
-  transform: translateY(0);
-  opacity: 1;
+#toggle:checked~#pageControls {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 
 #pageControls li a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 #pageControls li a {
     display: inline-block;
     color: black;
     text-decoration: none;
+<<<<<<< HEAD
     font-variant: small-caps;
     width:100%;
     background-color:seashell;
+=======
+>>>>>>> 4bf4a9e (adminvps jaruda wi6)
 }
 
 #adb-header {
-	display: block;
-	align-items: center;
-	gap: 15px;
-	height: 15rem;
+    display: block;
+    align-items: center;
+    gap: 15px;
+    display:flex;
+}
+
+#svg-header-title {
+float: left;
+width: 30em;
 }
 
 #headingTitle {
-display: inline-block;
-  text-align: center;
-  width: 30%;
-  position: relative;
-  bottom: 20rem;
-  font-size: xx-large;
-  font-family: orbitron, sans-serif;
+/* text-align: center; */
+    width: 100%;
+    font-size: xx-large;
+    font-family: orbitron, sans-serif;
 }
 
+<<<<<<< HEAD
 /* #brand {
   height: 100px;
   position: relative;
@@ -160,6 +199,172 @@ iframe#mainFrame {
     position: relative;
     right: 1rem;
     background: white;
+=======
+#brand {
+    height: 100px;
+
+    position: relative;
+
+}
+
+#svg-header-title {
+    position: relative;
+}
+
+figure {
+    overflow: visible;
+    /* padding: 1rem; */
+}
+
+
+figure#header-icon {
+    overflow: visible;
+
+}
+
+
+img#header-icon-media {
+    max-width: 20em;
+    border: 0;
+        height:15em;
+}
+
+
+img#header-icon-media {
+
+    border: 0;
+    height:15em;
+}
+
+summary:first-letter {
+    font-size: 2rem;
+    color:#533;
+}
+
+/* Force Page Tools visible once scrolled */
+.page-tools.force-visible #pageControls {
+  display: block !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+#mainFrameContainer {
+
+height: 100vh;
+}
+
+#mainFrameContainer {
+
+height: 100vh;
+}
+
+#adb-card-github {
+    width: 100%;
+    padding: 1em;
+    margin:0 auto;
+}
+
+/** EXTENDS TACHYONS **/
+.bg-light-corn {
+    background-color: hsl(76, 85%, 82%);
+}
+
+.hide-show-element {
+    width: 10rem;
+}
+
+.hide-show-element label:hover {
+    color: #d00;
+}
+
+.hide-show-element input[type="checkbox"] {
+    display: none;
+}
+
+.hide-show-element label {
+    padding: 0 0.3em;
+    border-radius: 3px;
+    line-height: 1.625;
+    font-size: 0.83em;
+    font-family: inherit;
+    background-color: #f7f7f7;
+    box-shadow:
+        0 0.1em 0 rgba(0, 0, 0, 0.2),
+        0 0 0 0.2em #fff inset;
+    color: #e8e6ff;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    transition-duration: 0.5s;
+    margin: 0;
+    text-shadow: 0.06rem 0.06rem 0.1rem #33333355;
+}
+
+.hide-show-element label:after {
+    display: block;
+    content: "Show Controls";
+}
+
+.hide-show-element input:checked + label {
+    background-color: none;
+    color: #3a29bb;
+}
+
+.hide-show-element input:checked + label:after {
+    content: "Hide Controls";
+}
+
+.test1 {
+    opacity: 0;
+    position: relative;
+    height: 0;
+    transform: rotate(135deg);
+    top: 20%;
+    transition-duration: 0.6s;
+    width: 0;
+}
+
+.hide-show-element input:checked ~ .test1 {
+    filter: grayscale(25%);
+    opacity: 1;
+    height: 200px;
+    transform: rotate(0);
+    width: 8rem;
+    z-index: 999;
+}
+
+.randomimage {
+    display: inline-block;
+    max-width: 1024;
+    max-height: 768;
+}
+
+#jsaffect {
+    display: inline-block;
+    flex-direction: unset;
+    border: 0.01rem solid #7fd5ff;
+}
+
+.condiment-regular,
+.header,
+.heading {
+    font-family: "Condiment", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+details#adb-card-github {
+    max-width: 29%;
+}
+
+#wrapper {
+    background-color: #f5f4f3;
+    width: 100%;
+    border: 1em solid silver;
+    border-radius: 2em;
+    overflow: auto;
+>>>>>>> 4bf4a9e (adminvps jaruda wi6)
 }
 
 /*! TACHYONS v4.11.1 | http://tachyons.io */
@@ -5195,13 +5400,13 @@ code,
     list-style-type: none;
 }
 
-.nested-copy-indent p + p {
+.nested-copy-indent p+p {
     text-indent: 1em;
     margin-top: 0;
     margin-bottom: 0;
 }
 
-.nested-copy-separator p + p {
+.nested-copy-separator p+p {
     margin-top: 1.5em;
 }
 
@@ -5311,27 +5516,19 @@ code,
 
 */
 .debug-grid {
-    background: transparent
-        url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=)
-        repeat top left;
+    background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAFElEQVR4AWPAC97/9x0eCsAEPgwAVLshdpENIxcAAAAASUVORK5CYII=) repeat top left;
 }
 
 .debug-grid-16 {
-    background: transparent
-        url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=)
-        repeat top left;
+    background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAMklEQVR4AWOgCLz/b0epAa6UGuBOqQHOQHLUgFEDnAbcBZ4UGwDOkiCnkIhdgNgNxAYAiYlD+8sEuo8AAAAASUVORK5CYII=) repeat top left;
 }
 
 .debug-grid-8-solid {
-    background: white
-        url(data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==)
-        repeat top left;
+    background: white url(data:image/gif;base64,R0lGODdhCAAIAPEAAADw/wDx/////wAAACwAAAAACAAIAAACDZQvgaeb/lxbAIKA8y0AOw==) repeat top left;
 }
 
 .debug-grid-16-solid {
-    background: white
-        url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7)
-        repeat top left;
+    background: white url(data:image/gif;base64,R0lGODdhEAAQAPEAAADw/wDx/xXy/////ywAAAAAEAAQAAACIZyPKckYDQFsb6ZqD85jZ2+BkwiRFKehhqQCQgDHcgwEBQA7) repeat top left;
 }
 
 /* Uncomment out the line below to help debug layout issues */

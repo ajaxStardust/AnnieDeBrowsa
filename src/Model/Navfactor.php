@@ -216,7 +216,7 @@ class Navfactor
         <ul id="navlist" class="navlist">
         <li id="goUpItem" class="nav"><a title="Navigate to parent directory." href="//' . $this->goUp['url'] . '">' . $this->goUp['url'] . '</a></li>
             ';
-        
+
         return $this->htmlPrint;
     }
 
@@ -293,14 +293,14 @@ class Navfactor
         }else {
             $this->goUp['subject'] = $this->nav_pathInfo['dirname'];
         }
-        
+
         $this->goUp['replace'] = '';
         $this->goUp['search'] = '@^(.*(?=(/).*))@';
         $this->goUp['result'] = preg_replace($this->goUp['search'], $this->goUp['replace'], $this->goUp['subject']);
         $this->goUp['url'] = str_ireplace($this->goUp['result'], $this->goUp['replace'], $this->goUp['subject']);
         $this->goUp['url'] = preg_replace('/([^\/]+\/)+([^\/]+)/', '$2', $this->goUp['url']);
         // $this->goUp['url'] = filter_path($_SERVER['DOCUMENT_ROOT'],$servername,$server_addr);
-        
+
         return $this->goUp;
     }
 

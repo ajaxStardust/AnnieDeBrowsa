@@ -66,6 +66,7 @@ $processDirectoryStructure = $Navfactor->makeTogglesReturn;
 
     }
 echo '    </ul>
+
 </nav>';
 ?>
 
@@ -96,9 +97,7 @@ echo '    </ul>
         <li id="frameControl" class="loader material-symbols-outlined mh1 ph1 f3"> <span id="lockFrameLoader" class="cssloader"><a id="lockFrameAnchor" title="Lock main iframe for easier viewing of large images or lengthy text" href="#mainFrameContainer">Lock frame</a> </span>
         </li>
             <li id="iframe2top"><span class="trigger" id="send2top" onclick="frame2top()"><a class="f3" title="send frame to top">iFrame</a></span></li>
-        <li id="cssBoxFig" class="trigger material-symbols-outlined mh1 ph1 f3">
-            <span id="cssBox_Trigger" class="trigger" onclick="showHide('cssBox_Target')"><a class="f3" title="Toggle show / hide CSS Box Model illustration"> Box </a></span>
-        </li>
+
         <li id="fbloader" class="loader material-symbols-outlined mh1 ph1 f3">
             <span class="loader">
                 <a class="f3" title="Click to activate the portable Firebug Lite script embedded in my javascript container">Inspect <img src="assets/images/firebug_icon_oldver.png" alt="launch firebug lite" width="16" height="16"></a>
@@ -134,7 +133,21 @@ echo '    </ul>
     <div id="quickChange" class="info">Change quick links [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
 
 
+<<<<<<< HEAD
     
+=======
+        <!--    ^   id:mainFrameContainer   ^   -->
+
+
+        <div id="frameTitler">Send &#x3c;<span class="trigger" id="send2top" onclick="frame2top()"><a class="f3" title="send frame to top">iframe</a></span>&#x3e; to main view. current src: <span id="frameName"><?php print $defaultIframe; ?></span>
+        </div>
+        <!--    $   id:frameTitler  $   -->
+        <iframe title="frame content as selected in main navigation" src="default.php" id="mainFrame">
+        </iframe>
+    </div>
+
+    <!--    $   id:mainFrameContainer   $   -->
+>>>>>>> 4bf4a9e (adminvps jaruda wi6)
 </div>
 
 <!--    $   id:maincol  $   -->

@@ -1,34 +1,104 @@
-[
-		{"term": "ROUTING AND RESPONSES",
-			"definition": "<a href=\"#routing\">ROUTING</a> Where we load our views, controllers, etc. \\n #       /laragigs/routes/ \\n #       |-- api.php #       |-- channels.php #       |-- controls.php #       |-- web.php"
-		},
-		{
-			"term": "DIE, DUMP (AND DEBUG)",
-			"definition": "Place either of these in the code to return debugging info: dd($val) or ddd($val)"
-		},
-		{
-			"term": "WILDCARDS",
-			"definition": "using double curly-braces {{ }} we can return the value of a variable. E.g. {{$variable}}"
-		},
-		{
-			"term": "BLADE TEMPLATES (MVC)",
-			"definition": "Allow for the use of {{ }} curly braces in the HTML "
-		},
-		{
-			"term": "DIRECTIVES",
-			"definition": "#       /laragigs/app/Models/ "
-		},
-		{
-			"term": "MIGRATIONS",
-			"definition": "Files that can be executed to create database tables etc. Credentials can be stored in the ENV file. All migrations are a class{} with an up() and a down() method."
-		},
-        {
-            "term": "MODELS (MVC)",
-            "definition": "with User.php, user functionality is built-in to Laravel."
-        },
-        {               
-            "term": "CONTROLLERS (MVC)",
-            "definition": "php artisan make:controller controller_name - creates a file such as ./app/Http/Controllers/ListingController.php"
-        }
-
-]
+{
+  "terms": {
+    "ROUTING_AND_RESPONSES": {
+      "variable_name": "ROUTING_AND_RESPONSES",
+      "description": "<a href=\"#routing\">ROUTING</a> Where we load our views, controllers, etc. \\n #       /laragigs/routes/ \\n #       |-- api.php #       |-- channels.php #       |-- controls.php #       |-- web.php",
+      "used_for": "Understanding routing and response configuration in Laravel"
+    },
+    "DIE_DUMP_AND_DEBUG": {
+      "variable_name": "DIE_DUMP_AND_DEBUG",
+      "description": "Place either of these in the code to return debugging info: dd($val) or ddd($val)",
+      "used_for": "Quick debugging in Laravel code"
+    },
+    "WILDCARDS": {
+      "variable_name": "WILDCARDS",
+      "description": "Using double curly-braces {{ }} we can return the value of a variable. E.g. {{$variable}}",
+      "used_for": "Displaying dynamic data in Blade templates"
+    },
+    "BLADE_TEMPLATES_MVC": {
+      "variable_name": "BLADE_TEMPLATES_MVC",
+      "description": "Allow for the use of {{ }} curly braces in the HTML",
+      "used_for": "Rendering dynamic content in MVC views"
+    },
+    "DIRECTIVES": {
+      "variable_name": "DIRECTIVES",
+      "description": "#       /laragigs/app/Models/",
+      "used_for": "Special Blade template instructions"
+    },
+    "MIGRATIONS": {
+      "variable_name": "MIGRATIONS",
+      "description": "Files that can be executed to create database tables etc. Credentials can be stored in the ENV file. All migrations are a class{} with an up() and a down() method.",
+      "used_for": "Database schema versioning and management"
+    },
+    "MODELS_MVC": {
+      "variable_name": "MODELS_MVC",
+      "description": "With User.php, user functionality is built-in to Laravel.",
+      "used_for": "Defining data and business logic in MVC"
+    },
+    "CONTROLLERS_MVC": {
+      "variable_name": "CONTROLLERS_MVC",
+      "description": "php artisan make:controller controller_name - creates a file such as ./app/Http/Controllers/ListingController.php",
+      "used_for": "Handling incoming requests and returning responses"
+    },
+    "MIDDLEWARE": {
+      "variable_name": "MIDDLEWARE",
+      "description": "Middleware filters HTTP requests entering your application, e.g., auth checks or logging.",
+      "used_for": "Controlling access and processing requests before they reach controllers"
+    },
+    "ELOQUENT_MODELS": {
+      "variable_name": "ELOQUENT_MODELS",
+      "description": "Laravel's ORM system. Each model corresponds to a database table and provides query builder methods.",
+      "used_for": "Managing database records through PHP objects instead of raw SQL"
+    },
+    "SEEDERS": {
+      "variable_name": "SEEDERS",
+      "description": "Classes used to populate the database with initial or test data using php artisan db:seed.",
+      "used_for": "Bootstrapping application data for development or testing"
+    },
+    "FACTORIES": {
+      "variable_name": "FACTORIES",
+      "description": "Define how fake records are generated for models, used with seeders or testing.",
+      "used_for": "Easily creating large sets of test data"
+    },
+    "ENVIRONMENT_FILE": {
+      "variable_name": "ENVIRONMENT_FILE",
+      "description": "The .env file stores environment-specific configuration like DB credentials, cache drivers, or app debug mode.",
+      "used_for": "Managing application configuration per environment"
+    },
+    "SERVICE_PROVIDERS": {
+      "variable_name": "SERVICE_PROVIDERS",
+      "description": "Classes that bootstrap application services. All custom services are registered here.",
+      "used_for": "Initializing services, bindings, and event listeners"
+    },
+    "CONFIG_FILES": {
+      "variable_name": "CONFIG_FILES",
+      "description": "Located in /config, these PHP files configure caching, logging, database connections, queues, etc.",
+      "used_for": "Centralized application configuration management"
+    },
+    "ARTISAN_COMMANDS": {
+      "variable_name": "ARTISAN_COMMANDS",
+      "description": "Command-line interface for Laravel. Examples: php artisan route:list, migrate, make:controller, tinker.",
+      "used_for": "Executing maintenance, scaffolding, and administrative tasks"
+    },
+    "EVENTS_AND_LISTENERS": {
+      "variable_name": "EVENTS_AND_LISTENERS",
+      "description": "Events allow you to decouple code. Listeners respond to events when they are fired.",
+      "used_for": "Implementing reactive and decoupled architecture"
+    },
+    "QUEUES": {
+      "variable_name": "QUEUES",
+      "description": "Deferred execution system. Jobs can be pushed to queues and processed asynchronously.",
+      "used_for": "Handling background tasks efficiently, like emails or notifications"
+    },
+    "VALIDATION": {
+      "variable_name": "VALIDATION",
+      "description": "Laravel provides rules and custom validation for request inputs.",
+      "used_for": "Ensuring data integrity before storing or processing"
+    },
+    "POLICIES": {
+      "variable_name": "POLICIES",
+      "description": "Authorization logic that determines if a user can perform an action on a given model.",
+      "used_for": "Access control in a structured and reusable way"
+    }
+  }
+}

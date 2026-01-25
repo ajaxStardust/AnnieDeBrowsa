@@ -207,7 +207,7 @@ class DomainPresetsManager {
             <div style="background: white; padding: 20px; border-radius: 8px; max-width: 600px; width: 90%;">
                 <h3 style="margin-top: 0;">Manage Domain Presets</h3>
                 ${html}
-                <button onclick="document.getElementById('presetManagerModal').remove()" class="mt3 ph3 pv2 bg-dark-blue white br2 pointer">Close</button>
+                <button onclick="document.getElementById('presetManagerModal').remove()" class="mt3 ph3 pv2 bg-silver white br2 pointer">Close</button>
             </div>
         `;
 

@@ -67,7 +67,7 @@ foreach ($process_location as $mKey => $mVal) {
 }
 ?>
         <!-- Header -->
-        <header class="bg-dark-blue white pv4 ph3">
+        <header class="bg-silver white pv4 ph3">
             <div class="mw9 center">
                 <h1 class="ma0 mb2 f2 fw7">Convert System Path to HTTP URL</h1>
                 <p class="ma0 mt2 f4 fw4 o-80"><br /></p>

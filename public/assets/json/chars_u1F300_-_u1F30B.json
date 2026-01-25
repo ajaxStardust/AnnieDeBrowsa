@@ -1,0 +1,14 @@
+[
+  { "glyph": "🌀", "name": "Cyclone", "code": "1F300" },
+  { "glyph": "🌁", "name": "Foggy", "code": "1F301" },
+  { "glyph": "🌂", "name": "Closed Umbrella", "code": "1F302" },
+  { "glyph": "🌃", "name": "Night with Stars", "code": "1F303" },
+  { "glyph": "🌄", "name": "Sunrise Over Mountains", "code": "1F304" },
+  { "glyph": "🌅", "name": "Sunrise", "code": "1F305" },
+  { "glyph": "🌆", "name": "Cityscape at Dusk", "code": "1F306" },
+  { "glyph": "🌇", "name": "Sunset Over Buildings", "code": "1F307" },
+  { "glyph": "🌈", "name": "Rainbow", "code": "1F308" },
+  { "glyph": "🌉", "name": "Bridge at Night", "code": "1F309" },
+  { "glyph": "🌊", "name": "Water Wave", "code": "1F30A" },
+  { "glyph": "🌋", "name": "Volcano", "code": "1F30B" }
+]
