@@ -133,17 +133,8 @@ echo '    </ul>
 
     <div id="quickChange" class="info">Change quick links [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
 
-    <div id="mainFrameContainer">
 
-        <!--    ^   id:mainFrameContainer   ^   -->
-        <div id="frameTitler">iframe.src: <span id="frameName"><?php print $defaultIframe; ?></span>
-        </div>
-        <!--    $   id:frameTitler  $   -->
-        <iframe title="frame content as selected in main navigation" src="default.php" id="mainFrame">
-        </iframe>
-    </div>
-
-    <!--    $   id:mainFrameContainer   $   -->
+    
 </div>
 
 <!--    $   id:maincol  $   -->

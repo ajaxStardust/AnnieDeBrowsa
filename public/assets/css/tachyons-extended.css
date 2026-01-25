@@ -1,4 +1,7 @@
 /* MIGRATED STYLES **/
+.body {
+    background: #ffeccd;
+}
 
 #header {
     background-image: url("../images/head_bg_2022.png");
@@ -22,6 +25,11 @@
     display: list-item;
 }
 
+#navlist li ul {
+    display:none;
+}
+
+
 #navlist {
     background-color: rgba(217, 217, 217, 0.5);
     color: #aaa;
@@ -32,6 +40,12 @@
     padding: unset;
     max-width: 20rem;
     min-width: 10rem;
+    margin-left: 2em;
+}
+
+#leftcol {
+        position:relative;
+        float:left;
 }
 
 .navlist {
@@ -82,7 +96,7 @@
 }
 
 #pageControls li {
-    background-color: rgba(0,0,0,0.9); /* black background */
+    background-color: rgba(126, 126, 126, 0.9); /* black background */
 }
 
 #toggle:checked ~ #pageControls {
@@ -98,7 +112,10 @@
 #pageControls li a {
     display: inline-block;
     color: black;
-      text-decoration: none;
+    text-decoration: none;
+    font-variant: small-caps;
+    width:100%;
+    background-color:seashell;
 }
 
 #adb-header {
@@ -118,17 +135,31 @@ display: inline-block;
   font-family: orbitron, sans-serif;
 }
 
-#brand {
+/* #brand {
   height: 100px;
-  left: 65%;
   position: relative;
-  bottom: 11rem;
-}
+  bottom: 50%;
+} */
 
-#svgtitle {
+/* #svgtitle {
     width: 75%;
     position: relative;
 	right: 25%;
+} */
+
+details.content-item.card {
+    float: left;
+}
+
+iframe#mainFrame {
+    clear: both;
+    width: 78%;
+    float: right;
+    min-height: 110vh;
+    bottom: 25%;
+    position: relative;
+    right: 1rem;
+    background: white;
 }
 
 /*! TACHYONS v4.11.1 | http://tachyons.io */
