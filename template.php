@@ -315,7 +315,7 @@ bd-success - Success border</pre>
         </details>
             </section>
 
-        <section class="content clearfix">
+        <section class="content">
 <p>Paragraph in Content Div</p>
 <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
 <?php include 'public/html-card-github.php' ?>

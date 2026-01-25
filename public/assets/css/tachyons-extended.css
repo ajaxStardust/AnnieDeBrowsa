@@ -1,318 +1,264 @@
-/* MIGRATED STYLES **/
+
+@charset "UTF-8";
+
+@font-face {
+    font-family:"Material Symbols Outlined";font-style:normal;font-weight:100 700;src:url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v179/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2)format("woff2")
+}
+
+@font-face {
+    font-family:"Orbitron";font-style:normal;font-weight:100 700;src:url(https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900%26display=swap)format("woff2")
+}
+
+:root {
+    font-family: "HelveticaNeue-Light","HelveticaNeue","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    background-color: rgba(245,245,247,.9);
+    color: #333
+}
+
 .body {
-    background: #ffeccd;
+    background: #ffeccd
 }
 
 #pagewidth {
-    background-color: transparent;
+    background-color: transparent
 }
 
-#frameTitler    {
-    font-size: 0.8rem;
+#frameTitler {
+    font-size: .8rem;
     font-weight: 500;
-    margin: 0.5rem;
-    outline: 0.1em solid #000000aa;
+    margin: .5rem;
+    outline: .1em solid #000000aa;
     border-radius: 2rem;
     float: right;
-    clear: both;
-}
-
-#wrapper {
-    background-color: transparent;
-    width: 100%;
-    border: 1em solid silver;
-    border-radius: 2em;
-    overflow: auto;
+    clear: both
 }
 
 #header {
-    background-image: url("../images/head_bg_2022.png");
+    background-image: url(../images/head_bg_2022.png);
     background-position: center bottom;
     clear: both;
     color: #ffe;
-    font-family: Impact, "charcoal", fantasy, sans-serif;
+    font-family: Impact,"charcoal",fantasy,sans-serif;
     height: 10rem;
     text-align: center;
-    text-shadow: 0.08em 0.08em 0.06rem;
-    z-index: 00;
-    border-bottom: 20px solid lightseagreen;
+    text-shadow: .08em .08em .06rem;
+    z-index: 0;
+    border-bottom: 20px solid #20b2aa;
     position: relative;
-    bottom: -10px;
+    bottom: -10px
 }
 
-#navlist,
-#navlist li,
-.bottomsmaller::first-line {
+#navlist,#navlist li,.bottomsmaller::first-line {
     font-variant: small-caps;
-    display: list-item;
+    display: list-item
 }
 
-#navlist li ul {
-    display:none;
+#navlist li ul,.hide-show-element input[type=checkbox] {
+    display: none
 }
-
 
 #navlist {
-    background-color: rgba(217, 217, 217, 0.5);
+    background-color: rgba(217,217,217,.5);
     color: #aaa;
-    font-size: 0.9rem;
+    font-size: .9rem;
     margin-top: 1rem;
     text-align: left;
-    outline: 0.1em solid #f88;
+    outline: .1em solid #f88;
     padding: unset;
     max-width: 20rem;
     min-width: 10rem;
-    margin-left: 2em;
+    margin-left: 2em
 }
 
 #leftcol {
-        position:relative;
-        float:left;
+    position: relative;
+    float: left
 }
 
 .navlist {
     list-style-position: outside;
     padding-top: 1px;
     padding-bottom: 1px;
-    line-height: 1.3rem;
+    line-height: 1.3rem
 }
 
 .backgroundblue {
-    background-color: #00005f;
+    background-color: #00005f
 }
 
 #app {
     float: right;
     top: -1em;
     left: 70%;
-    position: fixed;
+    position: fixed
 }
 
 #appHeading {
-    color: #ffff00;
+    color: #ff0;
     background-color: #ffffff55;
-    border-radius: 0.25rem;
-    padding: 0.5rem;
-    margin: 0.5rem;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: .25rem;
+    padding: .5rem;
+    margin: .5rem;
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
     text-align: center;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    text-shadow: 1px 1px 3px #003300aa;
+    text-shadow: 1px 1px 3px #003300aa
 }
 
 figure#header-icon {
     max-width: 30%;
-    min-height: 0.1px;
+    min-height: .1px
 }
 
 #pageControls {
     position: fixed;
     top: 1rem;
     right: 1rem;
-    background-color: rgba(0, 0, 0, 0.9) !important;
-    /* black background */
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-color: rgba(0,0,0,.9)!important;
+    color: #fff;
+    padding: .5rem 1rem;
+    border-radius: .5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,.3);
     transform: translateY(-150%);
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    transition: transform .3s ease,opacity .3s ease;
     opacity: 0;
-    z-index: 1000;
+    z-index: 1000
 }
 
 #pageControls li {
-<<<<<<< HEAD
-    background-color: rgba(126, 126, 126, 0.9); /* black background */
-=======
-    background-color: rgba(0, 0, 0, 0.9);
-    /* black background */
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
+    background-color: rgba(0,0,0,.9)
 }
 
 #toggle:checked~#pageControls {
     transform: translateY(0);
-    opacity: 1;
+    opacity: 1
 }
 
-
 #pageControls li a:hover {
-    text-decoration: underline;
+    text-decoration: underline
 }
 
 #pageControls li a {
     display: inline-block;
-    color: black;
-    text-decoration: none;
-<<<<<<< HEAD
-    font-variant: small-caps;
-    width:100%;
-    background-color:seashell;
-=======
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
+    color: #000;
+    text-decoration: none
 }
 
 #adb-header {
     display: block;
     align-items: center;
     gap: 15px;
-    display:flex;
+    display: flex
+}
+
+#adb-header,#adb-header * {
+    font-family: orbitron,sans-serif
 }
 
 #svg-header-title {
-float: left;
-width: 30em;
+    float: left;
+    width: 30em
+}
+
+.orbitron {
+    font-family: orbitron,Helvetica,sans-serif
 }
 
 #headingTitle {
-/* text-align: center; */
     width: 100%;
     font-size: xx-large;
-    font-family: orbitron, sans-serif;
+    font-family: orbitron,sans-serif
 }
 
-<<<<<<< HEAD
-/* #brand {
-  height: 100px;
-  position: relative;
-  bottom: 50%;
-} */
-
-/* #svgtitle {
-    width: 75%;
-    position: relative;
-	right: 25%;
-} */
-
-details.content-item.card {
-    float: left;
-}
-
-iframe#mainFrame {
-    clear: both;
-    width: 78%;
-    float: right;
-    min-height: 110vh;
-    bottom: 25%;
-    position: relative;
-    right: 1rem;
-    background: white;
-=======
 #brand {
-    height: 100px;
-
-    position: relative;
-
+    height: 100px
 }
 
-#svg-header-title {
-    position: relative;
+#brand,#svg-header-title {
+    position: relative
 }
 
-figure {
-    overflow: visible;
-    /* padding: 1rem; */
+figure,figure#header-icon {
+    overflow: visible
 }
-
-
-figure#header-icon {
-    overflow: visible;
-
-}
-
 
 img#header-icon-media {
     max-width: 20em;
     border: 0;
-        height:15em;
-}
-
-
-img#header-icon-media {
-
-    border: 0;
-    height:15em;
+    height: 15em
 }
 
 summary:first-letter {
     font-size: 2rem;
-    color:#533;
+    color: #533
 }
 
-/* Force Page Tools visible once scrolled */
 .page-tools.force-visible #pageControls {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  pointer-events: auto !important;
+    display: block!important;
+    opacity: 1!important;
+    visibility: visible!important;
+    pointer-events: auto!important
 }
 
 #mainFrameContainer {
-
-height: 100vh;
-}
-
-#mainFrameContainer {
-
-height: 100vh;
+    height: 100vh
 }
 
 #adb-card-github {
     width: 100%;
     padding: 1em;
-    margin:0 auto;
+    margin: 0 auto;
+    align-content: center;
+    font-size: 1rem;
+    outline: .1em solid #3332;
+    display: block;
+    font-family: orbitron,sans-serif
 }
 
-/** EXTENDS TACHYONS **/
 .bg-light-corn {
-    background-color: hsl(76, 85%, 82%);
+    background-color: #e3f8aa
 }
 
 .hide-show-element {
-    width: 10rem;
+    width: 10rem
 }
 
 .hide-show-element label:hover {
-    color: #d00;
-}
-
-.hide-show-element input[type="checkbox"] {
-    display: none;
+    color: #d00
 }
 
 .hide-show-element label {
-    padding: 0 0.3em;
+    padding: 0 .3em;
     border-radius: 3px;
     line-height: 1.625;
-    font-size: 0.83em;
+    font-size: .83em;
     font-family: inherit;
     background-color: #f7f7f7;
-    box-shadow:
-        0 0.1em 0 rgba(0, 0, 0, 0.2),
-        0 0 0 0.2em #fff inset;
+    box-shadow: 0 .1em 0 rgba(0,0,0,.2),0 0 0 .2em #fff inset;
     color: #e8e6ff;
     cursor: pointer;
     display: inline-block;
     text-align: center;
-    transition-duration: 0.5s;
+    transition-duration: .5s;
     margin: 0;
-    text-shadow: 0.06rem 0.06rem 0.1rem #33333355;
+    text-shadow: .06rem .06rem .1rem #33333355
 }
 
 .hide-show-element label:after {
     display: block;
-    content: "Show Controls";
+    content: "Show Controls"
 }
 
-.hide-show-element input:checked + label {
+.hide-show-element input:checked+label {
     background-color: none;
-    color: #3a29bb;
+    color: #3a29bb
 }
 
-.hide-show-element input:checked + label:after {
-    content: "Hide Controls";
+.hide-show-element input:checked+label:after {
+    content: "Hide Controls"
 }
 
 .test1 {
@@ -321,41 +267,39 @@ height: 100vh;
     height: 0;
     transform: rotate(135deg);
     top: 20%;
-    transition-duration: 0.6s;
-    width: 0;
+    transition-duration: .6s;
+    width: 0
 }
 
-.hide-show-element input:checked ~ .test1 {
+.hide-show-element input:checked~.test1 {
     filter: grayscale(25%);
     opacity: 1;
     height: 200px;
     transform: rotate(0);
     width: 8rem;
-    z-index: 999;
+    z-index: 999
 }
 
 .randomimage {
     display: inline-block;
     max-width: 1024;
-    max-height: 768;
+    max-height: 768
 }
 
 #jsaffect {
     display: inline-block;
     flex-direction: unset;
-    border: 0.01rem solid #7fd5ff;
+    border: .01rem solid #7fd5ff
 }
 
-.condiment-regular,
-.header,
-.heading {
-    font-family: "Condiment", cursive;
+.condiment-regular,.header,.heading {
+    font-family: "Condiment",cursive;
     font-weight: 400;
-    font-style: normal;
+    font-style: normal
 }
 
 details#adb-card-github {
-    max-width: 29%;
+    max-width: 29%
 }
 
 #wrapper {
@@ -363,10 +307,21 @@ details#adb-card-github {
     width: 100%;
     border: 1em solid silver;
     border-radius: 2em;
-    overflow: auto;
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
+    overflow: auto
 }
 
+cite,h1,h2,h3,h4,h5,h6,summary {
+    font-family: Orbitron,Helvetica,sans-serif
+}
+
+details,details * a,details div {
+    font-family: sans-serif
+}
+
+.text-smallcaps {
+    font-variant: small-caps;
+    text-align: end
+}
 /*! TACHYONS v4.11.1 | http://tachyons.io */
 /*
  *

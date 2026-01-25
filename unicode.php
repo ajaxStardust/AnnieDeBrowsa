@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
 /*
@@ -22,47 +21,8 @@
  * MA 02110-1301, USA.
  */
 
-date_default_timezone_set('EST');
-$page_heading = 'Some Text Styles of &#x201c;Chota MicroCSS&#x201d; CSS';
-$title = 'TITLE ME PLEASE';
-$lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
+require 'src/View/Partials/html-doctype-head-unicode.partial.php';
 ?>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        <?php print $title; ?>
-    </title>
-    <link rel="icon" type="image/ico" href="favicon.ico">
-    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
-    <!-- link rel="stylesheet" href="https://unpkg.com/chota@latest" -->
-    <link href="assets/css/lightslider.css" rel="stylesheet">
-    <style>
-        .displaynone {
-            display: none;
-        }
-    </style>
-    <link rel="stylesheet" href="public/assets/css/extra/chota.min.css">
-    <style>
-        body.dark {
-            --bg-color: #000;
-            --bg-secondary-color: #131316;
-            --font-color: #f5f5f5;
-            --color-grey: #ccc;
-            --color-darkGrey: #777;
-        }
-    </style>
-    <script>
-        if (window.matchMedia &&
-            window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.body.classList.add('dark');
-        }
-    </script>
-</head>
-
 <body>
 
     <div id="pagewidth" class="container">

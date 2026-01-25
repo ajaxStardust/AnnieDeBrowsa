@@ -101,7 +101,7 @@ $resultsWithDescriptions = [
     <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <!-- Meta Tags Generated via https://opengraph.dev -->
-
+    
     <link rel="stylesheet" href="assets/css/tachyons-extended.css">
     <link href="assets/css/lightslider.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
@@ -168,6 +168,17 @@ $resultsWithDescriptions = [
         .gap3 {
             gap: 1rem;
         }
+        h1,h2,h3,h4,h5,h6,summary, cite  {
+            font-family: Orbitron,Helvetica,sans-serif;
+        }
+        details, details div, details * a {
+            font-family:sans-serif;
+        }
+        .text-smallcaps {
+	font-variant: small-caps;
+	text-align: end;
+}
+
     </style>
 </head>
 
@@ -181,13 +192,11 @@ $resultsWithDescriptions = [
                 <p class="ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Tranform URL</p>
             </div>
         </header>
-        <!-- CARD: AnnieDeBrowsa SAP Preview Tool  --
-
         <?php 
 		include 'html-card-github.php'; 
 		?>
 		
-		<!-- END CARD: AnnieDeBrowsa SAP Preview Tool  --
+		<!-- END CARD: AnnieDeBrowsa SAP Preview Tool  -->
         <!-- Environment Info -->
         <section class="bg-white-60 pv3 ph3 bt b--light-gray">
             <div class="mw9 center">

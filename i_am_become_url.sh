@@ -53,8 +53,8 @@ if [ $# -eq 0 ]; then
         sleep 3
 
         # Check if HOSTNAME is set in the SYSTEM ENV and valid. Uncomment next line to define HOSTNAME here instead. tweak with MYHostname
-        HOSTNAME='adbtest.jori'
-        # MYHOSTNAME='transformative.click' #OR WHATEVER you want it to be here is where you can define
+        # HOSTNAME='localhost.localdomain'
+        MYHOSTNAME='transformative.click' #OR WHATEVER you want it to be here is where you can define
         # ADBPATH='anniedebrowsa' #eg the developer setup default
 
         if [ -z "$ADBPATH" ]; then
@@ -66,7 +66,7 @@ if [ $# -eq 0 ]; then
         fi
         HOSTNAME=${HOSTNAME}
         printf "%s\n"
-        printf "%s\n" "${CYAN}Trying to serve ${FILENAME_ONLY} on ${GREEN}${HOSTNAME}${RESET}."
+        printf "%s\n" "${CYAN}Sending ${BLUE}${RED}${FILENAME_ONLY}${RESET} to ${GREEN}${BOLD}${HOSTNAME}${RESET}."
 
 sleep 1
                         # Construct the URL and ensure it is properly formatted

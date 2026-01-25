@@ -133,9 +133,6 @@ echo '    </ul>
     <div id="quickChange" class="info">Change quick links [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
 
 
-<<<<<<< HEAD
-    
-=======
         <!--    ^   id:mainFrameContainer   ^   -->
 
 
@@ -147,7 +144,6 @@ echo '    </ul>
     </div>
 
     <!--    $   id:mainFrameContainer   $   -->
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
 </div>
 
 <!--    $   id:maincol  $   -->

@@ -1,22 +1,3 @@
-@charset "UTF-8";
-
-@font-face {
-    font-family: "Material Symbols Outlined";
-    font-style: normal;
-    font-weight: 100 700;
-    src: url(https://fonts.gstatic.com/s/materialsymbolsoutlined/v179/kJEhBvYX7BgnkSrUwT8OhrdQw4oELdPIeeII9v6oFsI.woff2)
-        format("woff2");
-}
-
-
-
-:root {
-    font-family: "HelveticaNeue-Light", "HelveticaNeue", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial,
-        sans-serif;
-    font-size: 16px;
-    background-color: rgba(245, 245, 247, 0.5);
-    color: #333;
-}
 
 * {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande",
