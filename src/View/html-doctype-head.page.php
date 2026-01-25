@@ -28,7 +28,7 @@ $json_urls = $config["home_urls"]; // Assuming $config contains the parsed JSON 
 $build_local_urls = $Localsites->getSites($json_urls); // Call the function and output the result
 $title = str_ireplace("var/www/", "", $pathOps);
 
-/* 
+/*
  * html from head removed
  * <!-- link id="style_chota" rel="stylesheet" href="assets/css/chota.min.css" -->
     <!-- link rel="stylesheet" href="https://unpkg.com/chota@latest" -->
@@ -45,13 +45,21 @@ $title = str_ireplace("var/www/", "", $pathOps);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all">
     <link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
+<<<<<<< HEAD
     <!-- link id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all" -->
+=======
+    <link id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
+        <!-- ATTEMPT TO LOAD existing favicon dynamically  -->
+>>>>>>> 4bf4a9e (adminvps jaruda wi6)
     <link rel="icon" type="<?= $favtype ?>" href="<?= $favicon ?>">
-    <link rel="shortcut icon" type="<?= $favtype ?>" href="<?= $favicon ?>">
-    <link rel="icon" href="favicon.ico" sizes="32x32">
-    <link rel="icon" href="favicon.ico" sizes="192x192">
-    <link rel="icon" href="favicon.ico" sizes="16x16">
-    <link rel="apple-touch-icon" href="favicon.ico">
+                <!-- USE PATHS TO EXISTING ADB SuPPLIED ICONs  -->
+    <link rel="shortcut icon" type="image/png" href="/public/favicon.png">
+    <link rel="icon" href="/public/favicon.png" sizes="32x32">
+    <link rel="icon" href="/public/favicon.png" sizes="192x192">
+    <link rel="icon" href="/public/favicon.png" sizes="16x16">
+        <!-- some innovative shit for innovative things by wise old apes  -->
+    <link rel="apple-touch-icon" href="/public/favicon.png">
+        <!-- some stupid shit idea about silly icons for dying things by legacy of wise old chimps  -->
     <meta name="msapplication-TileImage" content="<?php echo "https://" .
         $_SERVER["DOCUMENT_ROOT"] .
         "/public/assets/svg/public/assets/svg/cannibus_find_plainsvg2.svg"; ?>">
@@ -59,5 +67,28 @@ $title = str_ireplace("var/www/", "", $pathOps);
 
     <link href="assets/css/lightslider.css" rel="stylesheet">
     <link id="tachyons" rel="stylesheet" href="assets/css/tachyons-extended.css">
+    <meta name="description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:url" content="https://transformative.click">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Transformative.Click">
+    <meta property="og:description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
+    <meta property="og:image" content="https://transformative.click/plaidicon.png">
+    <meta property="og:image:width" content="680">
+    <meta property="og:image:height" content="680">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="transformative.click">
+    <meta property="twitter:url" content="https://transformative.click">
+    <meta name="twitter:title" content="Transformative.Click">
+    <meta name="twitter:description" content="Single Page Application (SPA) browser for developers with FireBug Lite built-in GitHub://ajaxstardust/AnnieDeBrowsa">
+    <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <!-- Meta Tags Generated via https://opengraph.dev -->
 </head>

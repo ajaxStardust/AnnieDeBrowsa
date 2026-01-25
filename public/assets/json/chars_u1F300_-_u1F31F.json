@@ -1,0 +1,22 @@
+[
+  { "glyph": "🌌", "name": "Milky Way", "code": "1F30C" },
+  { "glyph": "🌍", "name": "Earth Globe Europe-Africa", "code": "1F30D" },
+  { "glyph": "🌎", "name": "Earth Globe Americas", "code": "1F30E" },
+  { "glyph": "🌏", "name": "Earth Globe Asia-Australia", "code": "1F30F" },
+  { "glyph": "🌐", "name": "Globe with Meridians", "code": "1F310" },
+  { "glyph": "🌑", "name": "New Moon", "code": "1F311" },
+  { "glyph": "🌒", "name": "Waxing Crescent Moon", "code": "1F312" },
+  { "glyph": "🌓", "name": "First Quarter Moon", "code": "1F313" },
+  { "glyph": "🌔", "name": "Waxing Gibbous Moon", "code": "1F314" },
+  { "glyph": "🌕", "name": "Full Moon", "code": "1F315" },
+  { "glyph": "🌖", "name": "Waning Gibbous Moon", "code": "1F316" },
+  { "glyph": "🌗", "name": "Last Quarter Moon", "code": "1F317" },
+  { "glyph": "🌘", "name": "Waning Crescent Moon", "code": "1F318" },
+  { "glyph": "🌙", "name": "Crescent Moon", "code": "1F319" },
+  { "glyph": "🌚", "name": "New Moon Face", "code": "1F31A" },
+  { "glyph": "🌛", "name": "First Quarter Moon Face", "code": "1F31B" },
+  { "glyph": "🌜", "name": "Last Quarter Moon Face", "code": "1F31C" },
+  { "glyph": "🌝", "name": "Full Moon Face", "code": "1F31D" },
+  { "glyph": "🌞", "name": "Sun with Face", "code": "1F31E" },
+  { "glyph": "🌟", "name": "Glowing Star", "code": "1F31F" }
+]
