@@ -17,7 +17,13 @@ if [ $# -eq 0 ]; then
 else
     FILENAME="$1"
 fi
+else
+    FILENAME="$1"
+fi
 
+# Resolve the absolute path of the file using realpath
+FULL_PATH="$(realpath "$FILENAME")"
+FILENAME_ONLY="${FULL_PATH##*/}"
 # Resolve the absolute path of the file using realpath
 FULL_PATH="$(realpath "$FILENAME")"
 FILENAME_ONLY="${FULL_PATH##*/}"

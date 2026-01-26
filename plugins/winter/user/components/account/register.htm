@@ -1,0 +1,54 @@
+{% if canRegister %}
+    <h3>{{ 'winter.user::frontend.general.register' | trans }}</h3>
+
+    {{ form_ajax('onRegister') }}
+
+        <div class="form-group">
+            <label for="registerName">{{ 'winter.user::frontend.general.full_name' | trans }}</label>
+            <input
+                name="name"
+                type="text"
+                class="form-control"
+                id="registerName"
+                placeholder="{{ 'winter.user::frontend.general.full_name_placeholder' | trans }}"/>
+        </div>
+
+        <div class="form-group">
+            <label for="registerEmail">{{ 'winter.user::frontend.general.email' | trans }}</label>
+            <input
+                name="email"
+                type="email"
+                class="form-control"
+                id="registerEmail"
+                placeholder="{{ 'winter.user::frontend.general.email_placeholder' | trans }}"/>
+        </div>
+
+        {% if loginAttribute == "username" %}
+            <div class="form-group">
+                <label for="registerUsername">{{ 'winter.user::frontend.general.username' | trans }}</label>
+                <input
+                    name="username"
+                    type="text"
+                    class="form-control"
+                    id="registerUsername"
+                    placeholder="{{ 'winter.user::frontend.general.username_placeholder' | trans }}"/>
+            </div>
+        {% endif %}
+
+        <div class="form-group">
+            <label for="registerPassword">{{ 'winter.user::frontend.general.password' | trans }}</label>
+            <input
+                name="password"
+                type="password"
+                class="form-control"
+                id="registerPassword"
+                placeholder="{{ 'winter.user::frontend.general.password_placeholder' | trans }}"
+                autocomplete="new-password"/>
+        </div>
+
+        <button type="submit" class="btn btn-default">{{ 'winter.user::frontend.general.register' | trans }}</button>
+
+    {{ form_close() }}
+{% else %}
+    <!-- Registration is disabled. -->
+{% endif %}
