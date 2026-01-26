@@ -1,0 +1,35 @@
+<script>
+function toggleAccountDeactivateForm() {
+    const form = document.getElementById('accountDeactivateForm');
+    form.style.display = (form.style.display === 'block') ? 'none' : 'block';
+}
+</script>
+
+<a
+    href="javascript:;"
+    onclick="toggleAccountDeactivateForm()"
+    class="deactivate"
+>
+    {{ 'winter.user::frontend.deactivate_account.title' | trans }}
+</a>
+
+<div id="accountDeactivateForm" style="display: none">
+    {{ form_ajax('onDeactivate') }}
+        <h3>{{ 'winter.user::frontend.deactivate_account.prompt' | trans }}</h3>
+        <p>
+            {{ 'winter.user::frontend.deactivate_account.description' | trans }}
+        </p>
+        <div class="form-group">
+            <label for="accountDeletePassword">{{ 'winter.user::frontend.continue_with_password' | trans }}</label>
+            <input name="password" type="password" class="form-control" id="accountDeletePassword" />
+        </div>
+        <button type="submit" class="btn btn-danger">
+            {{ 'winter.user::frontend.deactivate_account.confirm' | trans }}
+        </button>
+        <a
+            href="javascript:;"
+            onclick="toggleAccountDeactivateForm()">
+            {{ 'winter.user::frontend.deactivate_account.cancel' | trans }}
+        </a>
+    {{ form_close() }}
+</div>
