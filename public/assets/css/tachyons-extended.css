@@ -204,7 +204,11 @@ summary:first-letter {
 }
 
 #mainFrameContainer {
-    height: 100vh
+    height: 80vh;
+    overflow-y: auto;
+    outline: 2rem solid #aaffaaaa;
+    border-radius: 1rem;
+/*    box-shadow: 0 0 1rem rgba(0,0,0,.2); */
 }
 
 #adb-card-github {
@@ -322,6 +326,18 @@ details,details * a,details div {
     font-variant: small-caps;
     text-align: end
 }
+
+
+
+/* End
+   ========================================================================== */
+   /* Outside of Tachyons Styles
+      ========================================================================== */
+      /* Extended
+         ========================================================================== */
+    /* Styles
+    ========================================================================== */
+
 /*! TACHYONS v4.11.1 | http://tachyons.io */
 /*
  *

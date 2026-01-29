@@ -106,7 +106,19 @@ $resultsWithDescriptions = [
     <link href="assets/css/lightslider.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
 
+    
+
     <style>
+        @keyframes pulse {
+  0%   { transform: scale(1);     opacity: 1; }
+  50%  { transform: scale(1.15);  opacity: 0.4; }
+  100% { transform: scale(1);     opacity: 1; }
+}
+
+.radio-highlight {
+  animation: pulse 0.6s ease-in-out;
+}
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -302,6 +314,21 @@ window.onload = function() {
         updateTwerkinPath();
     });
     </script>
+    <script>
+window.addEventListener("load", () => {
+  const radios = document.querySelectorAll("input[type='radio']");
+
+  setTimeout(() => {
+    radios.forEach((r, i) => {
+      setTimeout(() => {
+        r.classList.add("radio-highlight");
+        setTimeout(() => r.classList.remove("radio-highlight"), 600);
+      }, i * 300);
+    });
+  }, 3000);
+});
+</script>
+
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="assets/js/vue/app.js"></script>
 </body>
