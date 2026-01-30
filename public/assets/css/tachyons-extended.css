@@ -186,9 +186,10 @@ figure,figure#header-icon {
 }
 
 img#header-icon-media {
-    max-width: 20em;
-    border: 0;
-    height: 15em
+	max-width: 20em;
+	border: 0;
+	height: 15em;
+	padding: 2rem;
 }
 
 summary:first-letter {
