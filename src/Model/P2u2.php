@@ -66,6 +66,7 @@ class P2u2
 
         // use the following to remove your default server path:
         $this->clean_chars['url_2_convert'] = str_ireplace('/www/wwwroot', '', $this->clean_chars['url_2_convert']);
+        $this->clean_chars['url_2_convert'] = str_ireplace('/opt/lampp/htdocs', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('@([\x5c\x2f]+)@', '/', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/"/', '', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = preg_replace('/ /', '%20', $this->clean_chars['url_2_convert']);
