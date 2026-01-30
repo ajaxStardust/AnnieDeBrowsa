@@ -3,30 +3,8 @@ namespace Adb\View;
 error_reporting(E_ALL);
 ?>
 
-<<<<<<< HEAD
-<body id="index" class="body">
-    <header id="adb-header" title="Header Element contains object with SVG">
-                <object id="svgtitle" class="ma1"
-                               title="Documents of - container" data="assets/css/masthead.php"
-                               type="image/svg+xml">
-                           </object>
-                <object id="brand" class="ma1"
-                               title="Documents of - container" data="assets/svg/adblogo.svg"
-                               type="image/svg+xml">
-                           </object>
-<div id="headingTitle" class="green bg-animate bg-near-white ml5 z-99"></div>
-
-
-
-            </header>
-    <figure id="cssBox_Target" class="target displaynone dn">
-        <!-- ^ cssBoxContainer ^ -->
-        <img src="assets/images/css-box.png" alt="CSS Box-model illustration" id="cssBoxImg">
-    </figure>
-=======
 <body id="index" class="bg-light-corn-animated">
 
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
         <!-- $ cssBoxContainer $ -->
     <div id="pagewidth" style="background-color:transparent;">
         <!-- ^ id=pagewidth -->
@@ -38,10 +16,6 @@ error_reporting(E_ALL);
                 <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
                 <?php include 'html-card-github.php'; ?>
 
-<<<<<<< HEAD
-
-            
-=======
                 <object id="svg-header-title" class="ma4 float-left"
                     title="Documents of - container" data="assets/css/masthead.php"
                     type="image/svg+xml">
@@ -50,7 +24,6 @@ error_reporting(E_ALL);
 
 
             </header>
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
             <!-- end #header (svg object) $ -->
     <div id="mainFrameContainer">
 

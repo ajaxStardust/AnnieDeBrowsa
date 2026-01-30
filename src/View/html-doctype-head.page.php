@@ -45,12 +45,8 @@ $title = str_ireplace("var/www/", "", $pathOps);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all">
     <link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
-<<<<<<< HEAD
-    <!-- link id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all" -->
-=======
     <link id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
         <!-- ATTEMPT TO LOAD existing favicon dynamically  -->
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
     <link rel="icon" type="<?= $favtype ?>" href="<?= $favicon ?>">
                 <!-- USE PATHS TO EXISTING ADB SuPPLIED ICONs  -->
     <link rel="shortcut icon" type="image/png" href="/public/favicon.png">

@@ -133,21 +133,15 @@ echo '    </ul>
     <div id="quickChange" class="info">Change quick links [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
 
 
-<<<<<<< HEAD
-    
-=======
         <!--    ^   id:mainFrameContainer   ^   -->
 
 
         <div id="frameTitler">Send &#x3c;<span class="trigger" id="send2top" onclick="frame2top()"><a class="f3" title="send frame to top">iframe</a></span>&#x3e; to main view. current src: <span id="frameName"><?php print $defaultIframe; ?></span>
         </div>
         <!--    $   id:frameTitler  $   -->
-        <iframe title="frame content as selected in main navigation" src="default.php" id="mainFrame">
-        </iframe>
     </div>
 
     <!--    $   id:mainFrameContainer   $   -->
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
 </div>
 
 <!--    $   id:maincol  $   -->
