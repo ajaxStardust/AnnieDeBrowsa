@@ -2,15 +2,16 @@
 
 namespace P2u2;
 error_reporting(E_ALL);
+$page_heading = 'UNICODE - Curated for Icons'; // appears in page
+$title = 'DOCTYPE Unicode'; // which of the doctype folder used at line 10
 define('NS2', __NAMESPACE__);
 define('NS2_ROOT', dirname(__DIR__));
 require NS2_ROOT . '/vendor/autoload.php';
-
-// require NS2_ROOT . 'public/doctype/doctype-unicode.php';
+require NS2_ROOT . '/public/doctype/doctype-unicode.php';
 
 ?>
 <body>
-<h1>u1f390-u1f5ff</h1>
+    <h1 class="text-x-large"><?= $page_heading; ?></h1>
 
 <table class="table-auto border-collapse border border-gray-300 w-full text-center mb-8">
     <thead>
@@ -357,6 +358,6 @@ require NS2_ROOT . '/vendor/autoload.php';
 <?php
 // include '/public/content/content-unicode-curated.php'
 
-require '/public/footer/footer-unicode.php'
+require NS2_ROOT . '/public/footer/footer-unicode.php'
 
 ?>

@@ -186,10 +186,10 @@ figure,figure#header-icon {
 }
 
 img#header-icon-media {
-	max-width: 20em;
-	border: 0;
-	height: 15em;
-	padding: 2rem;
+    max-width: 20em;
+    border: 0;
+    height: 15em;
+    padding: 2rem
 }
 
 summary:first-letter {
@@ -208,8 +208,7 @@ summary:first-letter {
     height: 80vh;
     overflow-y: auto;
     outline: 2rem solid #aaffaaaa;
-    border-radius: 1rem;
-/*    box-shadow: 0 0 1rem rgba(0,0,0,.2); */
+    border-radius: 1rem
 }
 
 #adb-card-github {
@@ -328,7 +327,168 @@ details,details * a,details div {
     text-align: end
 }
 
+.css-escape-sample::before {
+    content: var(--css-escape);
+    font-size: 3rem;
+    line-height: 1;
+    color: #1d4ed8
+}
 
+.css-escape-demo {
+    position: relative;
+    display: inline-block;
+    cursor: help
+}
+
+.css-escape-popup {
+    position: absolute;
+    top: 1.8em;
+    left: 0;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 140ms ease,transform 140ms ease;
+    background: #eff6ff;
+    border: 1px solid #93c5fd;
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-shadow: 0 6px 14px rgba(0,0,0,.25),0 2px 6px rgba(37,99,235,.35)
+}
+
+.css-escape-demo:hover .css-escape-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0)
+}
+
+.preview-glyph {
+    font-size: 3rem;
+    display: inline-block;
+    padding: .5rem;
+    border-radius: .5rem;
+    background-color: #f3f4f6;
+    min-width: 3rem;
+    text-align: center
+}
+
+.th-css-hover-demo {
+    position: relative;
+    cursor: help;
+    text-decoration: underline dotted
+}
+
+.th-css-hover-popup {
+    position: absolute;
+    top: 1.8em;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 140ms ease,transform 140ms ease;
+    background: #f9fafb;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 6px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.15);
+    font-size: .85rem;
+    color: #111;
+    white-space: nowrap
+}
+
+.th-css-hover-demo:focus-within .th-css-hover-popup,.th-css-hover-demo:hover .th-css-hover-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0)
+}
+
+.css-escape-demo {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+}
+
+.css-escape-popup {
+    position: absolute;
+    top: 1.8em;
+    left: 0;
+    z-index: 20;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 140ms ease, transform 140ms ease;
+    background: #eff6ff;
+    border: 1px solid #93c5fd;
+    border-radius: 6px;
+    padding: 10px 12px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25),
+                0 2px 6px rgba(37, 99, 235, 0.35);
+}
+
+.css-escape-demo:hover .css-escape-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.css-escape-sample::before {
+    content: var(--css-escape);
+    font-size: 3rem;
+    line-height: 1;
+    color: #1d4ed8;
+}
+
+.preview-glyph {
+    font-size: 3rem;
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #f3f4f6;
+    min-width: 3rem;
+    text-align: center;
+}
+/* ================= CSS Column Header Hover Popup ================= */
+.th-css-hover-demo {
+    position: relative;
+    cursor: help;
+    text-decoration: underline dotted;
+}
+
+.th-css-hover-popup {
+    position: absolute;
+    top: 1.8em;
+    left: 0;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 140ms ease, transform 140ms ease;
+
+    background: #f9fafb;       /* light gray, neutral */
+    border: 1px solid #d1d5db; /* gray border */
+    border-radius: 6px;
+    padding: 6px 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    font-size: 0.85rem;
+    color: #111;                /* dark text */
+    white-space: nowrap;
+}
+
+.th-css-hover-demo:hover .th-css-hover-popup,
+.th-css-hover-demo:focus-within .th-css-hover-popup {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+h1 {
+    font-size:2.2em;
+    font-weight:900;
+}
+
+.text-x-large {
+    font-size: x-large;
+}
 
 /* End
    ========================================================================== */
