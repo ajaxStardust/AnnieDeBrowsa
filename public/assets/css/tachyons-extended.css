@@ -151,7 +151,9 @@ figure#header-icon {
     display: block;
     align-items: center;
     gap: 15px;
-    display: flex
+    display: flex;
+    background-color:#f0f0f0;
+    border-radius: 2rem;
 }
 
 #adb-header,#adb-header * {

@@ -7,11 +7,7 @@ error_reporting(E_ALL);
 
         <!-- $ cssBoxContainer $ -->
     <div id="pagewidth" style="background-color:transparent;">
-        <!-- ^ id=pagewidth -->
-        <div id="wrapper" class="unfloat">
-            <!-- ^ id=wrapper ^ -->
-            <div class="content" id="cookieData"></div>
-            <header class="clearfix" id="adb-header" title="Header Element contains object with SVG">
+                    <header class="clearfix" id="adb-header" title="Header Element contains object with SVG">
 
                 <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
                 <?php include 'html-card-github.php'; ?>
@@ -24,4 +20,9 @@ error_reporting(E_ALL);
 
 
             </header>
+        <!-- ^ id=pagewidth -->
+        <div id="wrapper" class="unfloat">
+            <!-- ^ id=wrapper ^ -->
+
+
             <!-- end #header (svg object) $ -->
