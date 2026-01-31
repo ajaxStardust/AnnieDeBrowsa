@@ -71,8 +71,13 @@ echo '    </ul>
 </nav>';
 ?>
 
+<<<<<<< HEAD
 <div id="maincol">
 <h2 id="doc_loc_href" class="green sans-serif" title="currentUrlPath.pathInfoBasename"><?= $currentUrlPath; ?></h2>
+=======
+ <main id="maincol" class="flex-auto" tabindex="-1">
+    <h2 id="doc_loc_href" class="green sans-serif" title="currentUrlPath.pathInfoBasename"><?= $currentUrlPath; ?></h2>
+>>>>>>> 68735b1c (windows11)
 
 <div class="hide-show-element">
 <input type="checkbox" id="toggle" />
@@ -110,8 +115,12 @@ echo '    </ul>
 <!-- temp note: moved css box model image to dochead for now -->
 
 </div>
+<<<<<<< HEAD
 </div>
 <hr class="hidden" />
+=======
+ </div> 
+>>>>>>> 68735b1c (windows11)
 
 <?php
 
@@ -120,6 +129,7 @@ echo '    </ul>
 $Backlinks = json_decode(json_encode($Backlinks));
 */
 
+<<<<<<< HEAD
 ?>
 <section id="offsitelinks" class="content">
 <details>
@@ -129,6 +139,17 @@ Off-site Links, see config.json
 <?= $build_local_urls ?>
 </details>
 </section>
+=======
+    ?>
+<section class="content">
+                <details>
+                    <summary class="text-smallcaps">
+                        Off-site Links, see config.json
+                    </summary>
+                    <?= $build_local_urls; ?>
+        </details>
+            </section>
+>>>>>>> 68735b1c (windows11)
 
 <div id="edit-offsitelinks" class="info">Change quick links [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
 
@@ -141,8 +162,23 @@ Off-site Links, see config.json
 </iframe>
 </div>
 
+<<<<<<< HEAD
 <!--    $   id:mainFrameContainer   $   -->
-</div>
+=======
+        <!--    ^   id:mainFrameContainer   ^   -->
 
+
+        <div id="frameTitler">Send &#x3c;<span class="trigger" id="send2top" onclick="frame2top()"><a class="f3" title="send frame to top">iframe</a></span>&#x3e; to main view. current src: <span id="frameName"><?php print $defaultIframe; ?></span>
+        </div>
+        <!--    $   id:frameTitler  $   -->
+        <iframe title="frame content as selected in main navigation" src="default.php" id="mainFrame">
+        </iframe>
+        
+    </div>
+
+    <!--    $   id:mainFrameContainer   $   -->
+>>>>>>> 68735b1c (windows11)
+</div>
+</main>
 <!--    $   id:maincol  $   -->
 </main>

@@ -1,14 +1,5 @@
 <?php
 
-namespace P2u2\Public\Doctype;
-
-<<<<<<< HEAD
-
-
-date_default_timezone_set('EST');
-$page_heading ? $page_heading : 'LAYOUT: DOCTYPE Base';
-$title ? $title : 'Base HTML DOCTYPE Plus HEAD';
-=======
 /*
  * adb_simplest/template.phtml
  *
@@ -31,9 +22,8 @@ $title ? $title : 'Base HTML DOCTYPE Plus HEAD';
  */
 
 date_default_timezone_set('EST');
-$page_heading ? $page_heading : 'LAYOUT (DOCTYPE) UNICODE';
-$title ? $title : 'TITLE ME PLEASE for LAYOUT (DOCTYPE) UNICODE';
->>>>>>> 68735b1c (windows11)
+$page_heading ? $page_heading : 'DYNAMIC PAGE HEADING AT LINE 25';
+$title ? $title : 'TITLE ME PLEASE';
 $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
 ?>
 <!DOCTYPE html>
@@ -44,12 +34,10 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php print $title; ?></title>
 
-<<<<<<< HEAD
-            <link rel="shortcut icon" type="image/png" href="favicon.png">
-=======
             <link rel="icon" type="image/ico" href="favicon.ico">
             <link rel="shortcut icon" type="image/ico" href="favicon.ico">
->>>>>>> 68735b1c (windows11)
+                <!-- Tailwind CSS CDN -->
+            <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 
             <link href="assets/css/lightslider.css" rel="stylesheet">
             <meta name="description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
@@ -70,27 +58,89 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
             <meta name="twitter:title" content="Transformative.Click">
             <meta name="twitter:description" content="Unicode Misc Symbols and Pictographs in Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
             <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
-<<<<<<< HEAD
-            <!-- Meta Tags Generated via https://opengraph.dev -->
-
-            <!-- Tachyons-Extended CSS LOCAL (mine) -->
             <link href="public/assets/css/tachyons-extended.css" rel="stylesheet">
-
-            <!-- Tailwind CSS CDN -->
+            <!-- Meta Tags Generated via https://opengraph.dev -->
             <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 
-=======
-            <link href="public/assets/css/tachyons-extended.css" rel="stylesheet">
-            <!-- Meta Tags Generated via https://opengraph.dev -->
-
-    <!-- Picnic CSS CDN -->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
-
-
-
     <style>
-        /* ================= Demo Styling ================= */
+        /* ================= Unicode ::before Demo Styling ================= */
+        .css-escape-demo {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
 
+        .css-escape-popup {
+            position: absolute;
+            top: 1.8em;
+            left: 0;
+            z-index: 20;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-6px);
+            transition: opacity 140ms ease, transform 140ms ease;
+            background: #eff6ff;
+            border: 1px solid #93c5fd;
+            border-radius: 6px;
+            padding: 10px 12px;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25),
+                        0 2px 6px rgba(37, 99, 235, 0.35);
+        }
+
+        .css-escape-demo:hover .css-escape-popup {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .css-escape-sample::before {
+            content: var(--css-escape);
+            font-size: 3rem;
+            line-height: 1;
+            color: #1d4ed8;
+        }
+
+        .preview-glyph {
+            font-size: 3rem;
+            display: inline-block;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            background-color: #f3f4f6;
+            min-width: 3rem;
+            text-align: center;
+        }
+        /* ================= CSS Column Header Hover Popup ================= */
+        .th-css-hover-demo {
+            position: relative;
+            cursor: help;
+            text-decoration: underline dotted;
+        }
+
+        .th-css-hover-popup {
+            position: absolute;
+            top: 1.8em;
+            left: 0;
+            z-index: 10;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-4px);
+            transition: opacity 140ms ease, transform 140ms ease;
+
+            background: #f9fafb;       /* light gray, neutral */
+            border: 1px solid #d1d5db; /* gray border */
+            border-radius: 6px;
+            padding: 6px 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            font-size: 0.85rem;
+            color: #111;                /* dark text */
+            white-space: nowrap;
+        }
+
+        .th-css-hover-demo:hover .th-css-hover-popup,
+        .th-css-hover-demo:focus-within .th-css-hover-popup {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
     </style>
->>>>>>> 68735b1c (windows11)
 </head>

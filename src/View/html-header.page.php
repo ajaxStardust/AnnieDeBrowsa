@@ -4,10 +4,14 @@ error_reporting(E_ALL);
 ?>
 
 <body id="index" class="bg-light-corn-animated">
+<<<<<<< HEAD
 
         <!-- $ cssBoxContainer $ -->
     <div id="pagewidth" style="background-color:transparent;">
                     <header class="clearfix" id="adb-header" title="Header Element contains object with SVG">
+=======
+            <header class="clearfix" id="adb-header" title="Header Element contains object with SVG">
+>>>>>>> 68735b1c (windows11)
 
                 <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
                 <?php include 'html-card-github.php'; ?>
@@ -26,3 +30,6 @@ error_reporting(E_ALL);
 
 
             <!-- end #header (svg object) $ -->
+  <div id="pagewidth" class="min-h-screen">
+    <div id="wrapper" class="flex"> 
+        

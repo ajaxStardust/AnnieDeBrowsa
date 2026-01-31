@@ -1,4 +1,3 @@
-
 @charset "UTF-8";
 
 @font-face {
@@ -34,19 +33,17 @@
     clear: both
 }
 
-#header {
-    background-image: url(../images/head_bg_2022.png);
-    background-position: center bottom;
+#adb-header {
     clear: both;
-    color: #ffe;
-    font-family: Impact,"charcoal",fantasy,sans-serif;
-    height: 10rem;
+    background-color: #fafafa55;
+    color: #333;
+    height: 18rem;
     text-align: center;
     text-shadow: .08em .08em .06rem;
     z-index: 0;
     border-bottom: 20px solid #20b2aa;
     position: relative;
-    bottom: -10px
+    padding: 0
 }
 
 #navlist,#navlist li,.bottomsmaller::first-line {
@@ -147,12 +144,25 @@ figure#header-icon {
     text-decoration: none
 }
 
-#adb-header {
+#pagewidth {
+    background-color: #fff;
     display: block;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0;
+    border-radius: 2rem;
+}
+
+#adb-header {
+    width:80%;
+    margin: 0 auto;
     align-items: center;
     gap: 15px;
     display: flex;
+<<<<<<< HEAD
     background-color:#f0f0f0;
+=======
+>>>>>>> 68735b1c (windows11)
     border-radius: 2rem;
 }
 
@@ -161,8 +171,7 @@ figure#header-icon {
 }
 
 #svg-header-title {
-    float: left;
-    width: 30em
+    float: left
 }
 
 .orbitron {
@@ -329,6 +338,7 @@ details,details * a,details div {
     text-align: end
 }
 
+<<<<<<< HEAD
 .css-escape-sample::before {
     content: var(--css-escape);
     font-size: 3rem;
@@ -492,6 +502,8 @@ h1 {
     font-size: x-large;
 }
 
+=======
+>>>>>>> 68735b1c (windows11)
 /* End
    ========================================================================== */
    /* Outside of Tachyons Styles

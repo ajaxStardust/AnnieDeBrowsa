@@ -1,13 +1,5 @@
 <?php
 
-<<<<<<< HEAD
-namespace P2u2;
-error_reporting(E_ALL);
-$page_heading = 'UNICODE - Curated for Icons'; // appears in page
-$title = 'DOCTYPE Unicode'; // which of the doctype folder used at line 10
-define('NS2', __NAMESPACE__);
-define('NS2_ROOT', dirname(__DIR__));
-=======
 namespace P2u2\Public;
 error_reporting(E_ALL);
 define('NS2', __NAMESPACE__);
@@ -15,14 +7,12 @@ define('NS2_ROOT', dirname(__DIR__));
 $page_heading = 'Miscellaneous Unicode NCR\'s for Use in CSS ::before';
 $title = $page_heading . ' | transformative.jori';
 
->>>>>>> 68735b1c (windows11)
 require NS2_ROOT . '/vendor/autoload.php';
 require NS2_ROOT . '/public/doctype/doctype-unicode.php';
 
 ?>
 <body>
-<<<<<<< HEAD
-    <h1 class="text-x-large"><?= $page_heading; ?></h1>
+<h1 class="text-3xl font-semibold mb-3"><?= $page_heading ?></h1>
 
 <table class="table-auto border-collapse border border-gray-300 w-full text-center mb-8">
     <thead>
@@ -369,17 +359,6 @@ require NS2_ROOT . '/public/doctype/doctype-unicode.php';
 <?php
 // include '/public/content/content-unicode-curated.php'
 
-require NS2_ROOT . '/public/footer/footer-unicode.php'
-=======
- <header>Header</header>
- <main>Main
-    <section>Section in Main footer is include:</section>
- </main>
- 
-<?php
-// include '/public/content/content-unicode-curated.php'
-
 require NS2_ROOT . '/public/footer/footer-unicode.php';
->>>>>>> 68735b1c (windows11)
 
 ?>
