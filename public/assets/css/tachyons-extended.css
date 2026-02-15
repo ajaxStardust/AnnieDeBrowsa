@@ -53,7 +53,7 @@ font-variant:small-caps
 
 iframe#mainFrame {
 clear:both;
-width:78%;
+/* width:78%; */
 float:right;
 min-height:110vh;
 bottom:25%;
