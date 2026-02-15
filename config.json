@@ -41,6 +41,12 @@
             "name": "Outta.webSite",
             "data": "\ud83d\udc11",
             "count": 0
+        },
+        {
+            "url": "https:\/\/sourceforge.net\/p\/anniedebrowsa\/files-sf\/",
+            "name": "SourceForge (this project)",
+            "data": "\ud83d\ude08",
+            "count": 0
         }
     ]
 }

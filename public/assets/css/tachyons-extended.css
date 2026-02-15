@@ -692,6 +692,11 @@ li.shicon::before {
         "opsz" 24;
 }
 
+input#path2url {
+    background: #ffd700aa;
+}
+
+
 /* End
    ========================================================================== */
    /* Outside of Tachyons Styles

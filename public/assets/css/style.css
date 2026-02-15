@@ -240,7 +240,7 @@ li.webpicon.material-symbols-outlined::before {
 
 li.markdownicon,
 li.mdicon::before {
-    color: #fff;
+    color: #5f9;
     content: "∑";
 }
 
