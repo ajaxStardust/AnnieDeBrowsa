@@ -9,7 +9,7 @@
 }
 
 :root {
-    font-family: "HelveticaNeue-Light","HelveticaNeue","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
     font-size: 16px;
     background-color: rgba(245,245,247,.9);
     color: #333
@@ -106,8 +106,9 @@
 }
 
 figure#header-icon {
-    max-width: 30%;
-    min-height: .1px
+	min-height: 1px;
+	width: 60rem;
+	margin: 0 auto;
 }
 
 #pageControls {
@@ -148,7 +149,7 @@ figure#header-icon {
     background-color: #fff;
     display: block;
     margin: 0 auto;
-    width: 100%;
+    width: 80%;
     padding: 0;
     border-radius: 2rem;
 }
@@ -158,12 +159,10 @@ figure#header-icon {
     margin: 0 auto;
     align-items: center;
     gap: 15px;
-    display: flex;
-<<<<<<< HEAD
+
     background-color:#f0f0f0;
-=======
->>>>>>> 68735b1c (windows11)
     border-radius: 2rem;
+    display:flex;
 }
 
 #adb-header,#adb-header * {
@@ -180,24 +179,21 @@ figure#header-icon {
 
 #headingTitle {
     width: 100%;
-    font-size: xx-large;
-    font-family: orbitron,sans-serif
+    font-size: x-large;
+    font-family: orbitron,Helvetica,sans-serif;
+    text-align:center;
+    font-vairant:small-caps;
 }
 
-#brand {
-    height: 100px
-}
 
-#brand,#svg-header-title {
+
+#svg-header-title {
     position: relative
 }
 
-figure,figure#header-icon {
-    overflow: visible
-}
 
 img#header-icon-media {
-    max-width: 20em;
+    
     border: 0;
     height: 15em;
     padding: 2rem
@@ -222,15 +218,31 @@ summary:first-letter {
     border-radius: 1rem
 }
 
+#mainFrame {
+	align-content:center;
+	background-color: #FFFFFF88;
+	height: 100vh;
+	margin: 1em 0;
+	width: 100%;
+	border: 4px solid rgba(127, 255, 212, 0.1);
+	border-radius: 10px;
+	right: 8px;
+	position: relative;
+}
+
+
 #adb-card-github {
-    width: 100%;
-    padding: 1em;
-    margin: 0 auto;
-    align-content: center;
-    font-size: 1rem;
-    outline: .1em solid #3332;
-    display: block;
-    font-family: orbitron,sans-serif
+	width: 50rem;
+	padding: 1em;
+	margin: 0 2rem;
+	font-size: 1rem;
+	outline: .1em solid #3332;
+	display: block;
+	font-family: Orbitron,system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+	background-color: #fafafa;
+	text-align: left;
+	text-shadow: none;
+	border-radius: 1rem;
 }
 
 .bg-light-corn {
@@ -318,11 +330,11 @@ details#adb-card-github {
 }
 
 #wrapper {
-    background-color: #f5f4f3;
+    background-color: #f0f0f0;
     width: 100%;
-    border: 1em solid silver;
-    border-radius: 2em;
-    overflow: auto
+    border-radius: 0.5rem;
+    overflow: auto;
+    padding: 1rem 1rem 1rem 0;
 }
 
 cite,h1,h2,h3,h4,h5,h6,summary {
@@ -338,7 +350,6 @@ details,details * a,details div {
     text-align: end
 }
 
-<<<<<<< HEAD
 .css-escape-sample::before {
     content: var(--css-escape);
     font-size: 3rem;
@@ -502,8 +513,64 @@ h1 {
     font-size: x-large;
 }
 
-=======
->>>>>>> 68735b1c (windows11)
+/* =========== BEFORE COLORS ============== */
+li.htmicon::before,
+li.htmlicon::before {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+    color: hsla(0, 100%, 50%, 0.7);
+    content: "🍭";
+    margin-left: -3rem;
+    padding-left: 0;
+    white-space: pre;
+    font-size: 1.5rem;
+    float: left;
+    font-weight: 900;
+}
+
+li.phpicon::before,
+li.phtmlicon::before {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+    color: hsla(300, 100%, 50%, 0.705);
+    content: "🍷";
+    margin-left: -3rem;
+    padding-left: 0;
+    white-space: pre;
+    font-size: 1.5rem;
+    float: left;
+    font-weight: 900;
+}
+
+li.apficon::before, li.clpprjicon::before, li.code-workspaceicon::before, li.geanyicon::before, li.kpficon::before, li.nppsessionicon::before, li.pnprojicon::before, li.projectfile::before, li.projecticon::before, li.workspaceicon::before {
+	text-shadow: 0.1rem 0.1rem 0.1rem #737373b4;
+	color: #e7e7deb4;
+	content: "☸";
+	max-height: 16px;
+	max-width: 16px;
+	margin-left: -3.15rem;
+	padding-left: 0;
+	white-space: pre;
+	font-size: 1.5rem;
+	float: left;
+}
+
+strong.bg-yellow::before {
+	content: "🖜 ";
+}
+
+#easter-egg {
+	position: relative;
+	width: 23%;
+	left: 75%;
+}
+
+
+#headingTitle {
+	font-variant: small-caps;
+	font-size: 2.5em;
+	white-space: nowrap;
+	overflow: clip;
+}
+
 /* End
    ========================================================================== */
    /* Outside of Tachyons Styles

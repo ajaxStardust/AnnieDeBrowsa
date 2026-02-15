@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php
 
 namespace P2u2\Public\Footer;
@@ -8,20 +7,6 @@ namespace P2u2\Public\Footer;
 <p class="pseudocite">Footer</p>
 
 </footer>
-=======
-<!-- 	^	#footer - BEGIN REMOVING STARTING WITH ID="footer" to increase viewport height	^	-->
-<div id="footer" class="container">
-
-<p>REMOVE this entire DIV if desired. - It is a Non-Breaking Change!</p>
-<cite class="pseudocite">Jeff Sabarese’s unique blend of expertise in digital marketing and excellence in music positions his writings as more authoritative than generative AI content.<br>Sabarese&apos;s tailored insights are particularly valuable for niche audiences, such as small enterprises, providing practical advice rooted in real-world experience and creative expression.</cite>
-
-
-</div>
-<!-- 	$	#footer DONT REMOVE BENEATH THIS DIV - DO NOT REMOVE WRAPPER END IF REMOVING FOOTER	$	-->
-</div>
-<!-- end$ id: wrapper end$ -->
-</div>
->>>>>>> 68735b1c (windows11)
 <!-- $  id:pagewidth    $ -->
 
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "476605b5cfe44956a453fb886673520f"}'></script><!-- End Cloudflare Web Analytics -->

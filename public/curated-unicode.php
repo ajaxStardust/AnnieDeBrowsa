@@ -12,12 +12,15 @@ require NS2_ROOT . '/public/doctype/doctype-unicode.php';
 
 ?>
 <body>
-<h1 class="text-3xl font-semibold mb-3"><?= $page_heading ?></h1>
 
 <div class="container mx-auto px-4">
-    <h1 class="text-3xl font-semibold mb-3">Miscellaneous Unicode NCR's for Use in CSS ::before</h1>
+<h1 class="text-3xl font-semibold mb-3"><?= $page_heading ?></h1>
+
     <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
-    <?php include 'public/html-card-github.php' ?>
+    <?php 
+    
+    include NS2_ROOT . '/public/content/content-card-github.php' 
+    ?>
         <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
     <table class="table-auto border-collapse border border-gray-300 w-full text-center mb-8">
         <thead>

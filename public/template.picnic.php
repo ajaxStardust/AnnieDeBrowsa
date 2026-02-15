@@ -1,6 +1,6 @@
 <?php
 
-namespace P2u2\Public;
+namespace P2u2;
 error_reporting(E_ALL);
 define('NS2', __NAMESPACE__);
 define('NS2_ROOT', dirname(__DIR__));
@@ -50,7 +50,7 @@ require NS2_ROOT . '/public/doctype/doctype-picnic.php';
  </main>
  
 <?php
-// include '/public/content/content-unicode-curated.php'
+
 
 require NS2_ROOT . '/public/footer/footer-base.php';
 

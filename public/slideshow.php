@@ -1,8 +1,7 @@
 <?php
 
 namespace P2u2;
-<<<<<<< HEAD
-<<<<<<< HEAD
+ 
 error_reporting(E_ALL);
 $page_heading = 'LAYOUT (DOCTYPE) UNICODE - u1f390-u1f5ff';
 $title = 'DOCTYPE Unicode';
@@ -20,15 +19,4 @@ require NS2_ROOT . '/public/doctype/doctype-base.php';
 
 <p>The images will appear here once the correct function is created.</p>
   </section>
-=======
-=======
->>>>>>> 68735b1c (windows11)
-error_reporting(0);
-define('NS2', __NAMESPACE__);
-define('NS2_ROOT', dirname(__DIR__));
-require NS2_ROOT . '/vendor/autoload.php';
-require  NS2_ROOT . '/src/View/Slideshow.page.php';
-<<<<<<< HEAD
->>>>>>> 7d55e02 (jorin-wi-6)
-=======
->>>>>>> 68735b1c (windows11)
+  

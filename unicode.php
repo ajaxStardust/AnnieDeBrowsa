@@ -1,4 +1,5 @@
 <?php
-header('Location: ./public/unicode-01.php');
+header('Location: ./public/unicode-easteregg.php');
+
 exit();
 ?>

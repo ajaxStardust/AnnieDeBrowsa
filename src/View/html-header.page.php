@@ -4,32 +4,19 @@ error_reporting(E_ALL);
 ?>
 
 <body id="index" class="bg-light-corn-animated">
-<<<<<<< HEAD
-
-        <!-- $ cssBoxContainer $ -->
-    <div id="pagewidth" style="background-color:transparent;">
-                    <header class="clearfix" id="adb-header" title="Header Element contains object with SVG">
-=======
             <header class="clearfix" id="adb-header" title="Header Element contains object with SVG">
->>>>>>> 68735b1c (windows11)
-
-                <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
-                <?php include 'html-card-github.php'; ?>
-
+                <!-- MASTHEAD.PHP -->
                 <object id="svg-header-title" class="ma4 float-left"
                     title="Documents of - container" data="assets/css/masthead.php"
                     type="image/svg+xml">
                 </object>
-                <figure id="header-icon"><img id="header-icon-media" src="favicon.png" alt="icon"><figcaption class="caption-top"><div id="headingTitle" class="green z-99"></div></figcaption></figure>
-
-
+                <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
+                <?php include 'content/content-card-github.php'; ?>
+                <!-- HEADER-ICON -->
+                <figure id="header-icon"><img id="header-icon-media" src="filehttp.png" alt="icon"><figcaption class="caption-top"><div id="headingTitle" class="green z-99">Transformative.Click</div></figcaption></figure>
             </header>
-        <!-- ^ id=pagewidth -->
-        <div id="wrapper" class="unfloat">
-            <!-- ^ id=wrapper ^ -->
-
-
-            <!-- end #header (svg object) $ -->
+        <!-- ^ id=pagewidth --> 
+ 
   <div id="pagewidth" class="min-h-screen">
-    <div id="wrapper" class="flex"> 
+    <div id="wrapper"> 
         

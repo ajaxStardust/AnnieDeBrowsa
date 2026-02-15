@@ -205,7 +205,7 @@ $resultsWithDescriptions = [
             </div>
         </header>
         <?php 
-		include 'html-card-github.php'; 
+		include 'content/content-card-github.php'; 
 		?>
 		
 		<!-- END CARD: AnnieDeBrowsa SAP Preview Tool  -->

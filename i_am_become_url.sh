@@ -28,15 +28,9 @@ printf "%s\n"
 sleep 2
 
 # Check if HOSTNAME is set in the SYSTEM ENV and valid. Uncomment next line to define HOSTNAME here instead. tweak with MYHostname
-<<<<<<< HEAD
-HOSTNAME='localhost'
-# MYHOSTNAME='transformative.click' #OR WHATEVER you want it to be here is where you can define
-ADBPATH='anniedebrowsagitclone/public' #eg Change this if a subdir is required to point to ADB in your setup otherwise leave comment. see line 36
-=======
 HOSTNAME='transformative.jori'
 # MYHOSTNAME='transformative.click' #OR WHATEVER you want it to be here is where you can define
 # ADBPATH='public' #eg Change this if a subdir is required to point to ADB in your setup otherwise leave comment. see line 36
->>>>>>> 68735b1c (windows11)
 
 if [ -z "$ADBPATH" ]; then
     ADBPATH='public'

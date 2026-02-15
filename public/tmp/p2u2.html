@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P2U2 - Path to URL Converter | Annie DeBrowsa</title>
+    <link rel="icon" type="image/ico" href="favicon.ico">
+    <link rel="shortcut icon" type="image/ico" href="favicon.ico">
+    <link rel="stylesheet" href="assets/css/tachyons-extended.css">
+    <style>
+        :is([id*='google_ads_iframe'], [id*='taboola-'], .taboolaHeight, .taboola-placeholder, #top-ad, #credential_picker_container, #credentials-picker-container, #credential_picker_iframe, [id*='google-one-tap-iframe'], #google-one-tap-popup-container, .google-one-tap__module, .google-one-tap-modal-div, #amp_floatingAdDiv, #ez-content-blocker-container) {
+            display: none !important;
+            min-height: 0 !important;
+            height: 0 !important;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .card {
+            background: white;
+            border-radius: 0.375rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border-left: 4px solid #2c3e50;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.875rem;
+        }
+
+        .result-url {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+            padding: 0.75rem;
+            border-radius: 0.25rem;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+
+        .method-item {
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            background: #f0f4f8;
+            border-radius: 0.25rem;
+            border-left: 3px solid #3498db;
+        }
+
+        .path-component {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin: 0.25rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+        }
+
+        .server-badge {
+            display: inline-block;
+            background: #ffe0b2;
+            color: #e65100;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .todo-item {
+            background: #fff3e0;
+            border-left: 4px solid #ff9800;
+            padding: 0.75rem;
+            margin-bottom: 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body class="bg-light-gray">
+    <div class="w-100">
+        <!-- Header -->
+        <header class="bg-dark-blue white pv4 ph3">
+            <div class="mw9 center">
+                <h1 class="ma0 mb2 f2 fw7">Path to URL Converter</h1>
+                <p class="ma0 mt2 f4 fw4 o-80">Annie DeBrowsa P2U2 Debug Interface</p>
+            </div>
+        </header>
+
+        <!-- Environment Info -->
+        <section class="bg-white-60 pv3 ph3 bt b--light-gray">
+            <div class="mw9 center">
+                <div class="grid-2">
+                    <div>
+                        <p class="ma0 f6 gray">Location:</p>
+                        <p class="ma0 f5 mono">src/View/Main.page.phtml</p>
+                    </div>
+                    <div>
+                        <p class="ma0 f6 gray">Base Path:</p>
+                        <p class="ma0 f5 mono">/home/hestia/web/ai-anon.local/public_html</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="pv4 ph3">
+            <div class="mw9 center">
+                <!-- Results Section -->
+                <div class="mb4">
+                    <h2 class="section-title f3 fw7 mv3">Conversion Results</h2>
+                    <div class="grid-2-ns mt3">
+                        <div class="card pa3 mb3">
+                            <h3 class="mt0 mb2 f5 fw6">buildByComp</h3>
+                            <p class="mb2 f6 gray">Dynamic hostname (from _SERVER[])</p>
+                            <div class="result-url mb2">
+                                <a href="http://ai-anon.local/home/hestia/web/ai-anon.local/public_html"
+                                    class="mono f6">
+                                    http://ai-anon.local/home/hestia/web/ai-anon.local/public_html
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card pa3 mb3">
+                            <h3 class="mt0 mb2 f5 fw6">concatThis</h3>
+                            <p class="mb2 f6 gray">Filtered paths (most reliable)</p>
+                            <div class="result-url mb2">
+                                <a href="http://hestia/ai-anon.local" class="mono f6">
+                                    http://hestia/ai-anon.local
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card pa3 mb3">
+                            <h3 class="mt0 mb2 f5 fw6">concatSwitch</h3>
+                            <p class="mb2 f6 gray">Switch-case logic (experimental)</p>
+                            <div class="result-url mb2">
+                                <a href="http://ai-anon.local" class="mono f6">
+                                    http://ai-anon.local
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Path Processing Section -->
+                <div class="mb4">
+                    <h2 class="section-title f3 fw7 mv3">Path Processing Methods</h2>
+                    <div class="card pa4 mt3 lh-copy">
+                        <h3 class="mt0 mb3 f5 fw6">How Paths Are Converted</h3>
+                        <p class="mv2">
+                            Using regular expressions and string manipulation, URL components are extracted and stored
+                            in a path array.
+                        </p>
+                        <p class="mv2 f6 gray">
+                            <strong>Source:</strong> <code>$Eval→test_location($enterpathhere)['pb']</code>
+                        </p>
+
+                        <div class="mt3">
+                            <h4 class="mb2 f6 fw6">Method Comparison:</h4>
+                            <div class="method-item">
+                                <strong>buildByComp</strong>
+                                <p class="mt1 mb0 f6">Uses _SERVER[] and path[] to build HTTP URL directly. Fast but may
+                                    include non-domain paths.</p>
+                            </div>
+                            <div class="method-item">
+                                <strong>concatThis</strong>
+                                <p class="mt1 mb0 f6">Removes known standard paths before building. Most reliable for
+                                    real-world paths.</p>
+                            </div>
+                            <div class="method-item">
+                                <strong>concatSwitch</strong>
+                                <p class="mt1 mb0 f6">Employs switch-case logic for pattern matching. Experimental,
+                                    results may vary.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Path Components Section -->
+                <div class="mb4">
+                    <h2 class="section-title f3 fw7 mv3">Path Components</h2>
+                    <div class="card pa4 mt3">
+                        <p class="mb3 f6">Input path parsed into indexed array:</p>
+                        <div class="flex flex-wrap">
+                            <span class="path-component">path[0]: home</span>
+                            <span class="path-component">path[1]: hestia</span>
+                            <span class="path-component">path[2]: web</span>
+                            <span class="path-component">path[3]: ai-anon.local</span>
+                            <span class="path-component">path[4]: public_html</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Path Configuration Section -->
+                <div class="grid-2-ns mb4 gap4">
+                    <div>
+                        <h2 class="section-title f3 fw7 mv3">Path Configuration</h2>
+                        <div class="card pa4 mt3">
+                            <div class="mb3">
+                                <label class="db mb2 f6 fw6">Subdomain</label>
+                                <p class="ma0 f6 gray mb2">Leave at [none] if not applicable</p>
+                                <p class="ma0 code-block pa2 f6">[none] support blog forum help doc app</p>
+                            </div>
+                            <div class="mb3">
+                                <label class="db mb2 f6 fw6">Server Name</label>
+                                <p class="ma0 code-block pa2 f6">[none] localhost 127.0.0.1 example.org github.com
+                                    vivaldi.net</p>
+                            </div>
+                            <button class="mt3 pv2 ph3 bg-blue white bn br1 pointer f6 fw6">Update Domain/Path</button>
+                        </div>
+                    </div>
+
+                    <!-- To-Do Section -->
+                    <div>
+                        <h2 class="section-title f3 fw7 mv3">Implementation Notes</h2>
+                        <div class="card pa4 mt3">
+                            <h3 class="mt0 mb3 f6 fw6">Navigation Traversal</h3>
+                            <p class="mb3 f6 gray">The "go up" URL should appear as the first navigation item:</p>
+                            <div class="todo-item">
+                                <p class="ma0 f6"><strong>Subject:</strong>
+                                    <code>/home/hestia/web/ai-anon.local/public_html</code></p>
+                            </div>
+                            <div class="todo-item">
+                                <p class="ma0 f6"><strong>Search:</strong> <code>@^(.*(/)(?=.*))@</code></p>
+                            </div>
+                            <div class="todo-item">
+                                <p class="ma0 f6"><strong>Result:</strong> <code>public_html</code></p>
+                            </div>
+                            <div class="todo-item">
+                                <p class="ma0 f6"><strong>URL:</strong> <code>/ai-anon.local/</code></p>
+                            </div>
+                            <div class="todo-item">
+                                <p class="ma0 f6"><strong>Depth:</strong> <code>5</code></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Server Information Section -->
+                <section class="mb4">
+                    <h2 class="section-title f3 fw7 mv3">Server Information</h2>
+                    <div class="card pa4 mt3">
+                        <div class="grid-2-ns gap3">
+                            <div class="server-badge">
+                                <strong>Apache:</strong> 2.4.65 (Debian)
+                            </div>
+                            <div class="server-badge">
+                                <strong>PHP:</strong> 8.3.27
+                            </div>
+                            <div class="server-badge">
+                                <strong>Host:</strong> ai-anon.local
+                            </div>
+                            <div class="server-badge">
+                                <strong>IP:</strong> 192.168.1.100
+                            </div>
+                        </div>
+                        <div class="mt4 pt3 bt b--light-gray">
+                            <p class="ma0 f6 gray">
+                                Project by <a href="https://github.com/ajaxStardust" class="fw6">@ajaxStardust</a> •
+                                Modified: Fri Nov 7 2025 23:46:16 EST
+                            </p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-dark-blue white pa3 tc">
+            <p class="ma0 f6">Annie DeBrowsa Path-to-URL Converter Debug View</p>
+        </footer>
+    </div>
+</body>
+
+</html>

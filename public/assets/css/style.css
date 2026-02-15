@@ -8,11 +8,7 @@ body {
     font-weight: 300;
 }
 
-#pagewidth {
-    min-width: 860px;
-    max-width: 1280px;
-}
-
+ 
 #navlist li a,
 a {
     text-decoration: none;
@@ -219,7 +215,7 @@ li.markdownicon,
 li.mdicon::before,
 li.webmicon,
 li.webpicon {
-    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373b4;
     display: block;
     list-style-type: none;
     font-weight: 500;
@@ -308,7 +304,7 @@ li.shtmlicon::before,
 li.xmlicon::before,
 li.yamlicon::before,
 li.ymlicon::before {
-    color: #fff;
+    color: #ffa764;
     content: "⛧";
     margin-left: -3.1rem;
     padding-left: 0;
@@ -384,7 +380,7 @@ li.regicon::before {
 
 li.txticon::before {
     content: "🖹";
-    color: #fff;
+    color: hsl(0, 0%, 74%);
     font-weight: 500;
 }
 
@@ -2378,7 +2374,7 @@ li.shicon::before {
 }
 
 li.shicon::before {
-    color: #ffe6cc;
+    color: #fffb79;
     content: "↯";
     font-weight: 900;
 }
@@ -2389,7 +2385,7 @@ li.shicon::before {
 }
 
 #pageControls {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.796);
     border-radius: 1rem;
     font-family: sans-serif;
     font-size: x-small;
@@ -2431,15 +2427,15 @@ li#toTopJscon::before {
 }
 
 li#toTopJscon::before {
-    content: "";
+    content: "🔝";
 }
 
 li#leftColtrigger::before {
-    content: "";
+    content: "⬅️";
 }
 
 li#pageCon_goBack::before {
-    content: "";
+    content: "↪️";
 }
 
 li#cssBoxFig::before,

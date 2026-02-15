@@ -117,7 +117,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
     <div id="pagewidth" class="container">
 
         <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
-        <?php include 'public/html-card-github.php' ?>
+        <?php include 'public/content/content-card-github.php' ?>
         <!-- END CARD: AnnieDeBrowsa SAP Preview Tool  -->
 
         <section id="header">
@@ -346,7 +346,7 @@ bd-success - Success border</pre>
         <section class="content">
 <p>Paragraph in Content Div</p>
 <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
-<?php include 'public/html-card-github.php' ?>
+<?php include 'public/content/content-card-github.php' ?>
 <!-- END CARD: AnnieDeBrowsa SAP Preview Tool  -->
         </section> <!-- $ :end #_glossary -->
     </section> <!-- $ :end #_glossary -->
