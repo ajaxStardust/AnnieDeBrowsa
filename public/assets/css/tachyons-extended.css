@@ -79,12 +79,6 @@ color:#533
 }
 
 .page-tools.force-visible #pageControls {
-<<<<<<< HEAD
-display:block!important;
-opacity:1!important;
-visibility:visible!important;
-pointer-events:auto!important
-=======
     display: block!important;
     opacity: 1!important;
     visibility: visible!important;
@@ -116,7 +110,6 @@ pointer-events:auto!important
 
 .hide-show-element {
     width: 10rem
->>>>>>> 595d6588 (I Am Kira)
 }
 
 .hide-show-element label:hover {
@@ -609,10 +602,96 @@ text-align:end
 }
 
 
-<<<<<<< HEAD
-=======
+li.bmp,
+li.bmpicon,
+li.gif,
+li.gificon,
+li.ico,
+li.icoicon,
+li.jpg,
+li.jpgicon,
+li.pdn,
+li.pdnicon,
+li.png,
+li.pngicon,
+li.psd,
+li.psdicon,
+li.svg,
+li.svgicon,
+li.tga,
+li.tgaicon,
+li.tif,
+li.tiff,
+li.tifficon,
+li.tificon,
+li.xcf {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+    list-style-image: none;
+}
 
->>>>>>> 595d6588 (I Am Kira)
+li.bmp::before,
+li.bmpicon::before,
+li.gif::before,
+li.gificon::before,
+li.ico::before,
+li.icoicon::before,
+li.jpg::before,
+li.jpgicon::before,
+li.pdn::before,
+li.pdnicon::before,
+li.png::before,
+li.pngicon::before,
+li.psd::before,
+li.psdicon::before,
+li.svg::before,
+li.svgicon::before,
+li.tga::before,
+li.tgaicon::before,
+li.tif::before,
+li.tiff::before,
+li.tifficon::before,
+li.tificon::before,
+li.xcf::before,
+li.xcficon::before {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+    color: #006093AA;
+    content: "\01F441";
+    margin-left: -3rem;
+    padding-left: 0;
+    white-space: pre;
+    font-size: 1.5rem;
+    float: left;
+    font-weight: 900;
+}
+
+li.xcficon::before {
+    list-style-image: none;
+}
+
+#navlist li ul li.icon::before,
+li.shicon::before {
+    text-shadow: 0.1rem 0.1rem 0.1rem #737373aa;
+    margin-left: -3rem;
+    padding-left: 0;
+    white-space: pre;
+    font-size: 1.5rem;
+    float: left;
+}
+
+#navlist li ul li.icon::before {
+    font-family: "Material Symbols Outlined";
+    color: #d83f3f88;
+    content: "";
+    display: block;
+    list-style-type: none;
+    font-weight: 500;
+    font-variation-settings:
+        "FILL" 0,
+        "wght" 400,
+        "GRAD" 0,
+        "opsz" 24;
+}
+
 /* End
    ========================================================================== */
    /* Outside of Tachyons Styles
