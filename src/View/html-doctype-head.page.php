@@ -26,13 +26,9 @@ $css = "assets/css/style.css";
 $config = $Adbsoc->getConfig();
 $json_urls = $config["home_urls"]; // Assuming $config contains the parsed JSON data
 $build_local_urls = $Localsites->getSites($json_urls); // Call the function and output the result
-$title = str_ireplace("var/www/", "", $pathOps);
+$title = str_ireplace("/home/admin/web", "", $pathOps);
 
-/*
- * html from head removed
- * <!-- link id="style_chota" rel="stylesheet" href="assets/css/chota.min.css" -->
-    <!-- link rel="stylesheet" href="https://unpkg.com/chota@latest" -->
-    */
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,12 +41,8 @@ $title = str_ireplace("var/www/", "", $pathOps);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="meyerreset" rel="stylesheet" type="text/css" href="assets/css/emeyereset.css" media="all">
     <link id="unlockFrame" rel="stylesheet" type="text/css" href="assets/css/unlockframe.css" media="all">
-<<<<<<< HEAD
-    <!-- link id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all" -->
-=======
     <link id="style_main" rel="stylesheet" type="text/css" href="assets/css/style.css" media="all">
         <!-- ATTEMPT TO LOAD existing favicon dynamically  -->
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
     <link rel="icon" type="<?= $favtype ?>" href="<?= $favicon ?>">
                 <!-- USE PATHS TO EXISTING ADB SuPPLIED ICONs  -->
     <link rel="shortcut icon" type="image/png" href="/public/favicon.png">
@@ -85,7 +77,7 @@ $title = str_ireplace("var/www/", "", $pathOps);
     <meta name="twitter:title" content="Transformative.Click">
     <meta name="twitter:description" content="Single Page Application (SPA) browser for developers with FireBug Lite built-in GitHub://ajaxstardust/AnnieDeBrowsa">
     <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900%26display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 

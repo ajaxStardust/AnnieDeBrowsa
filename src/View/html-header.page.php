@@ -3,62 +3,20 @@ namespace Adb\View;
 error_reporting(E_ALL);
 ?>
 
-<<<<<<< HEAD
-<body id="index" class="body">
-    <header id="adb-header" title="Header Element contains object with SVG">
-                <object id="svgtitle" class="ma1"
-                               title="Documents of - container" data="assets/css/masthead.php"
-                               type="image/svg+xml">
-                           </object>
-                <object id="brand" class="ma1"
-                               title="Documents of - container" data="assets/svg/adblogo.svg"
-                               type="image/svg+xml">
-                           </object>
-<div id="headingTitle" class="green bg-animate bg-near-white ml5 z-99"></div>
-
-
-
-            </header>
-    <figure id="cssBox_Target" class="target displaynone dn">
-        <!-- ^ cssBoxContainer ^ -->
-        <img src="assets/images/css-box.png" alt="CSS Box-model illustration" id="cssBoxImg">
-    </figure>
-=======
 <body id="index" class="bg-light-corn-animated">
-
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
-        <!-- $ cssBoxContainer $ -->
-    <div id="pagewidth" style="background-color:transparent;">
-        <!-- ^ id=pagewidth -->
-        <div id="wrapper" class="unfloat">
-            <!-- ^ id=wrapper ^ -->
-            <div class="content" id="cookieData"></div>
             <header class="clearfix" id="adb-header" title="Header Element contains object with SVG">
-
-                <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
-                <?php include 'html-card-github.php'; ?>
-
-<<<<<<< HEAD
-
-            
-=======
+                <!-- MASTHEAD.PHP -->
                 <object id="svg-header-title" class="ma4 float-left"
                     title="Documents of - container" data="assets/css/masthead.php"
                     type="image/svg+xml">
                 </object>
-                <figure id="header-icon"><img id="header-icon-media" src="favicon.png" alt="icon"><figcaption class="caption-top"><div id="headingTitle" class="green z-99"></div></figcaption></figure>
-
-
+                <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
+                <?php include 'content/content-card-github.php'; ?>
+                <!-- HEADER-ICON -->
+                <figure id="header-icon"><img id="header-icon-media" src="filehttp.png" alt="icon"><figcaption class="caption-top"><div id="headingTitle" class="green z-99">Transformative.Click</div></figcaption></figure>
             </header>
->>>>>>> 4bf4a9e (adminvps jaruda wi6)
-            <!-- end #header (svg object) $ -->
-    <div id="mainFrameContainer">
-
-        <!--    ^   id:mainFrameContainer   ^   -->
-        <div id="frameTitler">iframe.src: <span id="frameName"><?php print $defaultIframe; ?></span>
-        </div>
-        <!--    $   id:frameTitler  $   -->
-        <iframe title="frame content as selected in main navigation" src="default.php" id="mainFrame">
-        </iframe>
-    </div>
-    <!--    $   id:mainFrameContainer   $   -->
+        <!-- ^ id=pagewidth --> 
+ 
+  <div id="pagewidth" class="min-h-screen">
+    <div id="wrapper"> 
+        

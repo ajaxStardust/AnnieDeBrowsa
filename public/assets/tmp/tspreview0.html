@@ -1,0 +1,4052 @@
+
+<html><head><title>Preview</title>
+<base href="C:\Users\jsaba\Downloads\">
+<style type="text/css"><!--
+@charset "utf-8";
+
+:root {
+    --bg-color: #ffffff;
+    --bg-secondary-color: #f3f3f6;
+    --color-primary: #14854f;
+    --color-lightGrey: #d2d6dd;
+    --color-grey: #747681;
+    --color-darkGrey: #3f4144;
+    --color-error: #d43939;
+    --color-success: #28bd14;
+    --grid-maxWidth: 120rem;
+    --grid-gutter: 2rem;
+    --font-size: 1.6rem;
+    --text-small: 1.2rem;
+    --text-smaller: 1.4rem;
+    --text-medium: 1.6rem;
+    --text-large: 1.8rem;
+    --font-color: #333333;
+    --font-family-sans: lato, sans-serif;
+    --font-family-mono: monaco, "Consolas", "Lucida Console", monospace;
+}
+
+.bg-red,
+.dirtree-active {
+    background-color: red;
+}
+
+.bg-grey,
+.dirtree-sibling {
+    background-color: gray;
+}
+
+.dirtree-folder {
+    background-color: rgb(225, 222, 214);
+}
+
+/* ## DIRTREE NAV THING ##
+ * for the effect of the show/collapse thing */
+
+.hide {
+    display: none;
+}
+
+.unhide {
+    display: inherit;
+}
+
+button.navbar-toggle {
+    visibility: hidden;
+}
+
+.dirtree-inside {
+    display: none;
+}
+
+/* -inside - display none for IDs like this
+ * for the effect of the show/collapse thing */
+[id$="-inside"] {
+    display: none;
+}
+
+.jumbotron .row {
+    border-radius: 2rem;
+}
+
+header + * {
+    margin: 1em auto 0 auto;
+}
+
+nav {
+    text-transform: capitalize;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    max-height: 5em;
+    margin: auto;
+    border: 1px solid transparent;
+    font-size: 2rem;
+    padding: 0;
+}
+
+.col {
+    outline: color(from red srgb 255 255 127);
+}
+
+.row {
+    outline: color(from green srgb 255 255 127);
+}
+
+.card {
+    outline: color(from BLUE srgb 255 255 127);
+}
+
+.inferior-content {
+    background-color: #fefdfa;
+    font-family: lato, Georgia, "Times New Roman", Times, serif;
+    margin: 0.5rem;
+}
+
+.jumbotron .container .card,
+.jumbotron .container .col,
+.jumbotron + .row .col,
+.jumbotron .container .row,
+.jumbotron .row .card,
+.jumbotron .row .col {
+    background-color: #fffe;
+    outline-width: 0.1rem;
+    outline-color: #666a;
+    outline-offset: 0.65em;
+    outline-style: double;
+    margin: 0.5rem;
+}
+
+.contentblock {
+    background-color: rgba(245, 245, 255, 127);
+    padding: 0.6rem;
+    margin: auto;
+}
+
+#tree_basiktheme {
+    /* background-color:rgb(26, 28, 31); */
+    background-color: aliceblue;
+}
+
+[id^="folder-"].dirtree-folder {
+    background-color: #14854f;
+}
+
+[class$="-chatgpt"] blockquote {
+    font-size: var(--text-smaller);
+}
+
+#chotatest2-section details.dropdown {
+    display: block;
+}
+
+.calculonsaid-chatgpt {
+    font-family: lato, sans-serif;
+    /* background-color:var(--bg-secondary-color); */
+    color: var(--color-primary);
+}
+
+.yousaid-chatgpt {
+    /*  font-family: serif; */
+    color: var(--color-grey);
+    background-color: var(--bg-secondary-color);
+}
+
+details summary::after {
+    content: "Click to expand";
+    margin-left: 0.5em;
+    border: solid gray;
+    border-width: 0em 0em 0.1rem 0.1rem;
+    border-color: var(--color-primary);
+    transform: rotate(45deg);
+    transition: transform 0.2s ease-in-out;
+}
+
+.is-half-screen {
+    min-height: 51vh;
+    width: 100%;
+}
+
+body.dark {
+    --bg-color: #000;
+    --bg-secondary-color: #131316;
+    --font-color: #f5f5f5;
+    --color-grey: #ccc;
+    --color-darkGrey: #777;
+}
+
+#jumbo-section {
+    background-color: #aliceblue;
+}
+
+.blog-post {
+    min-height: 51vh;
+    width: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+    column-count: 2;
+    column-gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .blog-post {
+        column-count: 1;
+    }
+}
+
+.blog-post p {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.blog-post h2,
+.blog-post img,
+.blog-post blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+}
+
+/* picnic css */
+html {
+    font-family: sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+audio,
+canvas,
+progress,
+video {
+    display: inline-block;
+    vertical-align: baseline;
+}
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+[hidden],
+template {
+    display: none;
+}
+a {
+    background: transparent;
+}
+a:active,
+a:hover {
+    outline: 0;
+}
+abbr[title] {
+    border-bottom: 1px dotted;
+}
+b,
+strong {
+    font-weight: bold;
+}
+dfn {
+    font-style: italic;
+}
+h1 {
+    font-size: 2em;
+    margin: 0.67em 0;
+}
+mark {
+    background: #fff;
+    color: #111;
+}
+small {
+    font-size: 80%;
+}
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+sup {
+    top: -0.5em;
+}
+sub {
+    bottom: -0.25em;
+}
+img {
+    border: 0;
+}
+svg:not(:root) {
+    overflow: hidden;
+}
+figure {
+    margin: 1em 40px;
+}
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+pre {
+    overflow: auto;
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+    color: inherit;
+    font: inherit;
+    margin: 0;
+}
+button {
+    overflow: visible;
+}
+button,
+select {
+    text-transform: none;
+}
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+}
+button[disabled],
+input[disabled] {
+    cursor: default;
+}
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+input {
+    line-height: normal;
+}
+input[type="checkbox"],
+input[type="radio"] {
+    box-sizing: border-box;
+    padding: 0;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+fieldset {
+    border: 0;
+    padding: 0;
+}
+legend {
+    border: 0;
+    padding: 0;
+}
+textarea {
+    overflow: auto;
+}
+optgroup {
+    font-weight: bold;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+td,
+th {
+    padding: 0;
+}
+* {
+    box-sizing: inherit;
+}
+html,
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+}
+body {
+    color: #111;
+    font-size: 1.1em;
+    line-height: 1.5;
+    background: #fff;
+}
+main {
+    display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0.6em 0;
+}
+li {
+    margin: 0 0 0.3em;
+}
+a {
+    color: #0074d9;
+    text-decoration: none;
+    box-shadow: none;
+    transition: all 0.3s;
+}
+code {
+    padding: 0.3em 0.6em;
+    font-size: 0.8em;
+    background: #f5f5f5;
+}
+pre {
+    text-align: left;
+    padding: 0.3em;
+    background: #f5f5f5;
+    border-radius: 0.2em;
+}
+pre code {
+    padding: 0;
+}
+blockquote {
+    padding: 0 0 0 1em;
+    margin: 0 0 0 0.1em;
+    box-shadow: inset 5px 0 rgba(17, 17, 17, 0.3);
+}
+label {
+    cursor: pointer;
+}
+[class^="icon-"]:before,
+[class*=" icon-"]:before {
+    margin: 0 0.6em 0 0;
+}
+i[class^="icon-"]:before,
+i[class*=" icon-"]:before {
+    margin: 0;
+}
+.dropimage,
+button,
+.button,
+[type="submit"],
+.label,
+[data-tooltip]:after {
+    display: inline-block;
+    text-align: center;
+    letter-spacing: inherit;
+    margin: 0;
+    padding: 0.3em 0.9em;
+    vertical-align: middle;
+    background: #0074d9;
+    color: #fff;
+    border: 0;
+    border-radius: 0.2em;
+    width: auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.success.dropimage,
+button.success,
+.success.button,
+.success[type="submit"],
+.success.label,
+.success[data-tooltip]:after {
+    background: #2ecc40;
+}
+.warning.dropimage,
+button.warning,
+.warning.button,
+.warning[type="submit"],
+.warning.label,
+.warning[data-tooltip]:after {
+    background: #ff851b;
+}
+.error.dropimage,
+button.error,
+.error.button,
+.error[type="submit"],
+.error.label,
+.error[data-tooltip]:after {
+    background: #ff4136;
+}
+.pseudo.dropimage,
+button.pseudo,
+.pseudo.button,
+.pseudo[type="submit"],
+.pseudo.label,
+.pseudo[data-tooltip]:after {
+    background-color: transparent;
+    color: inherit;
+}
+.label,
+[data-tooltip]:after {
+    font-size: 0.6em;
+    padding: 0.4em 0.6em;
+    margin-left: 1em;
+    line-height: 1;
+}
+.dropimage,
+button,
+.button,
+[type="submit"] {
+    margin: 0.3em 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 0.2em;
+    height: auto;
+    vertical-align: baseline;
+    box-shadow: 0 0 rgba(17, 17, 17, 0) inset;
+}
+.dropimage:hover,
+button:hover,
+.button:hover,
+[type="submit"]:hover,
+.dropimage:focus,
+button:focus,
+.button:focus,
+[type="submit"]:focus {
+    box-shadow: inset 0 0 0 99em rgba(255, 255, 255, 0.2);
+    border: 0;
+}
+.pseudo.dropimage:hover,
+button.pseudo:hover,
+.pseudo.button:hover,
+.pseudo[type="submit"]:hover,
+.pseudo.dropimage:focus,
+button.pseudo:focus,
+.pseudo.button:focus,
+.pseudo[type="submit"]:focus {
+    box-shadow: inset 0 0 0 99em rgba(17, 17, 17, 0.1);
+}
+.active.dropimage,
+button.active,
+.active.button,
+.active[type="submit"],
+.dropimage:active,
+button:active,
+.button:active,
+[type="submit"]:active {
+    box-shadow: inset 0 0 0 99em rgba(17, 17, 17, 0.2);
+}
+[disabled].dropimage,
+button[disabled],
+[disabled].button,
+[disabled][type="submit"] {
+    cursor: default;
+    box-shadow: none;
+    background: #aaa;
+}
+:checked + .toggle,
+:checked + .toggle:hover {
+    box-shadow: inset 0 0 0 99em rgba(17, 17, 17, 0.2);
+}
+[type] + .toggle {
+    padding: 0.3em 0.9em;
+    margin-right: 0;
+}
+[type] + .toggle:after,
+[type] + .toggle:before {
+    display: none;
+}
+input,
+textarea,
+.select select {
+    line-height: 1.5;
+    margin: 0;
+    height: 2.1em;
+    padding: 0.3em 0.6em;
+    border: 1px solid #aaa;
+    background-color: #fff;
+    border-radius: 0.2em;
+    transition: all 0.3s;
+    width: 100%;
+}
+input:focus,
+textarea:focus,
+.select select:focus {
+    border: 1px solid #0074d9;
+    outline: 0;
+}
+textarea {
+    height: auto;
+}
+[type="file"],
+[type="color"] {
+    cursor: pointer;
+}
+[type="file"] {
+    height: auto;
+}
+select {
+    background: #fff
+        url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyIiBoZWlnaHQ9IjMiPjxwYXRoIGQ9Im0gMCwxIDEsMiAxLC0yIHoiLz48L3N2Zz4=)
+        no-repeat scroll 95% center/10px 15px;
+    background-position: calc(100% - 15px) center;
+    border: 1px solid #aaa;
+    border-radius: 0.2em;
+    cursor: pointer;
+    width: 100%;
+    height: 2.2em;
+    box-sizing: border-box;
+    padding: 0.3em 0.45em;
+    transition: all 0.3s;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+select::-ms-expand {
+    display: none;
+}
+select:focus,
+select:active {
+    border: 1px solid #0074d9;
+    transition: outline 0s;
+}
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #111;
+}
+select option {
+    font-size: inherit;
+    padding: 0.45em;
+}
+select[multiple] {
+    height: auto;
+    background: none;
+    padding: 0;
+}
+[type="checkbox"],
+[type="radio"] {
+    opacity: 0;
+    width: 0;
+    position: absolute;
+    display: inline-block;
+}
+[type="checkbox"] + .checkable:hover:before,
+[type="radio"] + .checkable:hover:before,
+[type="checkbox"]:focus + .checkable:before,
+[type="radio"]:focus + .checkable:before {
+    border: 1px solid #0074d9;
+}
+[type="checkbox"] + .checkable,
+[type="radio"] + .checkable {
+    position: relative;
+    cursor: pointer;
+    padding-left: 1.5em;
+    margin-right: 0.6em;
+}
+[type="checkbox"] + .checkable:before,
+[type="radio"] + .checkable:before,
+[type="checkbox"] + .checkable:after,
+[type="radio"] + .checkable:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1em;
+    line-height: 1em;
+    color: transparent;
+    font-family: sans;
+    text-align: center;
+    box-sizing: border-box;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+[type="checkbox"] + .checkable:before,
+[type="radio"] + .checkable:before {
+    border: 1px solid #aaa;
+}
+[type="checkbox"]:checked + .checkable:after,
+[type="radio"]:checked + .checkable:after {
+    background: #111;
+    transform: scale(0.5) translateY(-100%);
+}
+[type="checkbox"] + .checkable:before {
+    border-radius: 0.2em;
+}
+[type="checkbox"] + .checkable:after {
+    content: "?";
+    background: none;
+    transform: scale(2) translateY(-25%);
+    visibility: hidden;
+    opacity: 0;
+}
+[type="checkbox"]:checked + .checkable:after {
+    color: #111;
+    background: none;
+    transform: translateY(-50%);
+    transition: all 0.3s;
+    visibility: visible;
+    opacity: 1;
+}
+table {
+    text-align: left;
+}
+td,
+th {
+    padding: 0.3em 2.4em 0.3em 0.6em;
+}
+th {
+    text-align: left;
+    font-weight: 900;
+    color: #fff;
+    background-color: #0074d9;
+}
+.success th {
+    background-color: #2ecc40;
+}
+.warning th {
+    background-color: #ff851b;
+}
+.error th {
+    background-color: #ff4136;
+}
+.dull th {
+    background-color: #aaa;
+}
+tr:nth-child(even) {
+    background: rgba(17, 17, 17, 0.05);
+}
+.flex {
+    display: -ms-flexbox;
+    display: flex;
+    margin-left: -0.6em;
+    width: calc(100% + 0.6em);
+    flex-wrap: wrap;
+    transition: all 0.3s ease;
+}
+.flex > * {
+    box-sizing: border-box;
+    flex: 1 1 auto;
+    padding-left: 0.6em;
+    padding-bottom: 0.6em;
+}
+.flex[class*="one"] > *,
+.flex[class*="two"] > *,
+.flex[class*="three"] > *,
+.flex[class*="four"] > *,
+.flex[class*="five"] > *,
+.flex[class*="six"] > *,
+.flex[class*="seven"] > *,
+.flex[class*="eight"] > *,
+.flex[class*="nine"] > *,
+.flex[class*="ten"] > *,
+.flex[class*="eleven"] > *,
+.flex[class*="twelve"] > * {
+    flex-grow: 0;
+}
+.flex.grow > * {
+    flex-grow: 1;
+}
+.center {
+    justify-content: center;
+}
+.one > * {
+    width: 100%;
+}
+.two > * {
+    width: 50%;
+}
+.three > * {
+    width: 33.33333%;
+}
+.four > * {
+    width: 25%;
+}
+.five > * {
+    width: 20%;
+}
+.six > * {
+    width: 16.66666%;
+}
+.seven > * {
+    width: 14.28571%;
+}
+.eight > * {
+    width: 12.5%;
+}
+.nine > * {
+    width: 11.11111%;
+}
+.ten > * {
+    width: 10%;
+}
+.eleven > * {
+    width: 9.09091%;
+}
+.twelve > * {
+    width: 8.33333%;
+}
+@media all and (min-width: 500px) {
+    .one-500 > * {
+        width: 100%;
+    }
+    .two-500 > * {
+        width: 50%;
+    }
+    .three-500 > * {
+        width: 33.33333%;
+    }
+    .four-500 > * {
+        width: 25%;
+    }
+    .five-500 > * {
+        width: 20%;
+    }
+    .six-500 > * {
+        width: 16.66666%;
+    }
+    .seven-500 > * {
+        width: 14.28571%;
+    }
+    .eight-500 > * {
+        width: 12.5%;
+    }
+    .nine-500 > * {
+        width: 11.11111%;
+    }
+    .ten-500 > * {
+        width: 10%;
+    }
+    .eleven-500 > * {
+        width: 9.09091%;
+    }
+    .twelve-500 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 600px) {
+    .one-600 > * {
+        width: 100%;
+    }
+    .two-600 > * {
+        width: 50%;
+    }
+    .three-600 > * {
+        width: 33.33333%;
+    }
+    .four-600 > * {
+        width: 25%;
+    }
+    .five-600 > * {
+        width: 20%;
+    }
+    .six-600 > * {
+        width: 16.66666%;
+    }
+    .seven-600 > * {
+        width: 14.28571%;
+    }
+    .eight-600 > * {
+        width: 12.5%;
+    }
+    .nine-600 > * {
+        width: 11.11111%;
+    }
+    .ten-600 > * {
+        width: 10%;
+    }
+    .eleven-600 > * {
+        width: 9.09091%;
+    }
+    .twelve-600 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 700px) {
+    .one-700 > * {
+        width: 100%;
+    }
+    .two-700 > * {
+        width: 50%;
+    }
+    .three-700 > * {
+        width: 33.33333%;
+    }
+    .four-700 > * {
+        width: 25%;
+    }
+    .five-700 > * {
+        width: 20%;
+    }
+    .six-700 > * {
+        width: 16.66666%;
+    }
+    .seven-700 > * {
+        width: 14.28571%;
+    }
+    .eight-700 > * {
+        width: 12.5%;
+    }
+    .nine-700 > * {
+        width: 11.11111%;
+    }
+    .ten-700 > * {
+        width: 10%;
+    }
+    .eleven-700 > * {
+        width: 9.09091%;
+    }
+    .twelve-700 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 800px) {
+    .one-800 > * {
+        width: 100%;
+    }
+    .two-800 > * {
+        width: 50%;
+    }
+    .three-800 > * {
+        width: 33.33333%;
+    }
+    .four-800 > * {
+        width: 25%;
+    }
+    .five-800 > * {
+        width: 20%;
+    }
+    .six-800 > * {
+        width: 16.66666%;
+    }
+    .seven-800 > * {
+        width: 14.28571%;
+    }
+    .eight-800 > * {
+        width: 12.5%;
+    }
+    .nine-800 > * {
+        width: 11.11111%;
+    }
+    .ten-800 > * {
+        width: 10%;
+    }
+    .eleven-800 > * {
+        width: 9.09091%;
+    }
+    .twelve-800 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 900px) {
+    .one-900 > * {
+        width: 100%;
+    }
+    .two-900 > * {
+        width: 50%;
+    }
+    .three-900 > * {
+        width: 33.33333%;
+    }
+    .four-900 > * {
+        width: 25%;
+    }
+    .five-900 > * {
+        width: 20%;
+    }
+    .six-900 > * {
+        width: 16.66666%;
+    }
+    .seven-900 > * {
+        width: 14.28571%;
+    }
+    .eight-900 > * {
+        width: 12.5%;
+    }
+    .nine-900 > * {
+        width: 11.11111%;
+    }
+    .ten-900 > * {
+        width: 10%;
+    }
+    .eleven-900 > * {
+        width: 9.09091%;
+    }
+    .twelve-900 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1000px) {
+    .one-1000 > * {
+        width: 100%;
+    }
+    .two-1000 > * {
+        width: 50%;
+    }
+    .three-1000 > * {
+        width: 33.33333%;
+    }
+    .four-1000 > * {
+        width: 25%;
+    }
+    .five-1000 > * {
+        width: 20%;
+    }
+    .six-1000 > * {
+        width: 16.66666%;
+    }
+    .seven-1000 > * {
+        width: 14.28571%;
+    }
+    .eight-1000 > * {
+        width: 12.5%;
+    }
+    .nine-1000 > * {
+        width: 11.11111%;
+    }
+    .ten-1000 > * {
+        width: 10%;
+    }
+    .eleven-1000 > * {
+        width: 9.09091%;
+    }
+    .twelve-1000 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1100px) {
+    .one-1100 > * {
+        width: 100%;
+    }
+    .two-1100 > * {
+        width: 50%;
+    }
+    .three-1100 > * {
+        width: 33.33333%;
+    }
+    .four-1100 > * {
+        width: 25%;
+    }
+    .five-1100 > * {
+        width: 20%;
+    }
+    .six-1100 > * {
+        width: 16.66666%;
+    }
+    .seven-1100 > * {
+        width: 14.28571%;
+    }
+    .eight-1100 > * {
+        width: 12.5%;
+    }
+    .nine-1100 > * {
+        width: 11.11111%;
+    }
+    .ten-1100 > * {
+        width: 10%;
+    }
+    .eleven-1100 > * {
+        width: 9.09091%;
+    }
+    .twelve-1100 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1200px) {
+    .one-1200 > * {
+        width: 100%;
+    }
+    .two-1200 > * {
+        width: 50%;
+    }
+    .three-1200 > * {
+        width: 33.33333%;
+    }
+    .four-1200 > * {
+        width: 25%;
+    }
+    .five-1200 > * {
+        width: 20%;
+    }
+    .six-1200 > * {
+        width: 16.66666%;
+    }
+    .seven-1200 > * {
+        width: 14.28571%;
+    }
+    .eight-1200 > * {
+        width: 12.5%;
+    }
+    .nine-1200 > * {
+        width: 11.11111%;
+    }
+    .ten-1200 > * {
+        width: 10%;
+    }
+    .eleven-1200 > * {
+        width: 9.09091%;
+    }
+    .twelve-1200 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1300px) {
+    .one-1300 > * {
+        width: 100%;
+    }
+    .two-1300 > * {
+        width: 50%;
+    }
+    .three-1300 > * {
+        width: 33.33333%;
+    }
+    .four-1300 > * {
+        width: 25%;
+    }
+    .five-1300 > * {
+        width: 20%;
+    }
+    .six-1300 > * {
+        width: 16.66666%;
+    }
+    .seven-1300 > * {
+        width: 14.28571%;
+    }
+    .eight-1300 > * {
+        width: 12.5%;
+    }
+    .nine-1300 > * {
+        width: 11.11111%;
+    }
+    .ten-1300 > * {
+        width: 10%;
+    }
+    .eleven-1300 > * {
+        width: 9.09091%;
+    }
+    .twelve-1300 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1400px) {
+    .one-1400 > * {
+        width: 100%;
+    }
+    .two-1400 > * {
+        width: 50%;
+    }
+    .three-1400 > * {
+        width: 33.33333%;
+    }
+    .four-1400 > * {
+        width: 25%;
+    }
+    .five-1400 > * {
+        width: 20%;
+    }
+    .six-1400 > * {
+        width: 16.66666%;
+    }
+    .seven-1400 > * {
+        width: 14.28571%;
+    }
+    .eight-1400 > * {
+        width: 12.5%;
+    }
+    .nine-1400 > * {
+        width: 11.11111%;
+    }
+    .ten-1400 > * {
+        width: 10%;
+    }
+    .eleven-1400 > * {
+        width: 9.09091%;
+    }
+    .twelve-1400 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1500px) {
+    .one-1500 > * {
+        width: 100%;
+    }
+    .two-1500 > * {
+        width: 50%;
+    }
+    .three-1500 > * {
+        width: 33.33333%;
+    }
+    .four-1500 > * {
+        width: 25%;
+    }
+    .five-1500 > * {
+        width: 20%;
+    }
+    .six-1500 > * {
+        width: 16.66666%;
+    }
+    .seven-1500 > * {
+        width: 14.28571%;
+    }
+    .eight-1500 > * {
+        width: 12.5%;
+    }
+    .nine-1500 > * {
+        width: 11.11111%;
+    }
+    .ten-1500 > * {
+        width: 10%;
+    }
+    .eleven-1500 > * {
+        width: 9.09091%;
+    }
+    .twelve-1500 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1600px) {
+    .one-1600 > * {
+        width: 100%;
+    }
+    .two-1600 > * {
+        width: 50%;
+    }
+    .three-1600 > * {
+        width: 33.33333%;
+    }
+    .four-1600 > * {
+        width: 25%;
+    }
+    .five-1600 > * {
+        width: 20%;
+    }
+    .six-1600 > * {
+        width: 16.66666%;
+    }
+    .seven-1600 > * {
+        width: 14.28571%;
+    }
+    .eight-1600 > * {
+        width: 12.5%;
+    }
+    .nine-1600 > * {
+        width: 11.11111%;
+    }
+    .ten-1600 > * {
+        width: 10%;
+    }
+    .eleven-1600 > * {
+        width: 9.09091%;
+    }
+    .twelve-1600 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1700px) {
+    .one-1700 > * {
+        width: 100%;
+    }
+    .two-1700 > * {
+        width: 50%;
+    }
+    .three-1700 > * {
+        width: 33.33333%;
+    }
+    .four-1700 > * {
+        width: 25%;
+    }
+    .five-1700 > * {
+        width: 20%;
+    }
+    .six-1700 > * {
+        width: 16.66666%;
+    }
+    .seven-1700 > * {
+        width: 14.28571%;
+    }
+    .eight-1700 > * {
+        width: 12.5%;
+    }
+    .nine-1700 > * {
+        width: 11.11111%;
+    }
+    .ten-1700 > * {
+        width: 10%;
+    }
+    .eleven-1700 > * {
+        width: 9.09091%;
+    }
+    .twelve-1700 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1800px) {
+    .one-1800 > * {
+        width: 100%;
+    }
+    .two-1800 > * {
+        width: 50%;
+    }
+    .three-1800 > * {
+        width: 33.33333%;
+    }
+    .four-1800 > * {
+        width: 25%;
+    }
+    .five-1800 > * {
+        width: 20%;
+    }
+    .six-1800 > * {
+        width: 16.66666%;
+    }
+    .seven-1800 > * {
+        width: 14.28571%;
+    }
+    .eight-1800 > * {
+        width: 12.5%;
+    }
+    .nine-1800 > * {
+        width: 11.11111%;
+    }
+    .ten-1800 > * {
+        width: 10%;
+    }
+    .eleven-1800 > * {
+        width: 9.09091%;
+    }
+    .twelve-1800 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 1900px) {
+    .one-1900 > * {
+        width: 100%;
+    }
+    .two-1900 > * {
+        width: 50%;
+    }
+    .three-1900 > * {
+        width: 33.33333%;
+    }
+    .four-1900 > * {
+        width: 25%;
+    }
+    .five-1900 > * {
+        width: 20%;
+    }
+    .six-1900 > * {
+        width: 16.66666%;
+    }
+    .seven-1900 > * {
+        width: 14.28571%;
+    }
+    .eight-1900 > * {
+        width: 12.5%;
+    }
+    .nine-1900 > * {
+        width: 11.11111%;
+    }
+    .ten-1900 > * {
+        width: 10%;
+    }
+    .eleven-1900 > * {
+        width: 9.09091%;
+    }
+    .twelve-1900 > * {
+        width: 8.33333%;
+    }
+}
+@media all and (min-width: 2000px) {
+    .one-2000 > * {
+        width: 100%;
+    }
+    .two-2000 > * {
+        width: 50%;
+    }
+    .three-2000 > * {
+        width: 33.33333%;
+    }
+    .four-2000 > * {
+        width: 25%;
+    }
+    .five-2000 > * {
+        width: 20%;
+    }
+    .six-2000 > * {
+        width: 16.66666%;
+    }
+    .seven-2000 > * {
+        width: 14.28571%;
+    }
+    .eight-2000 > * {
+        width: 12.5%;
+    }
+    .nine-2000 > * {
+        width: 11.11111%;
+    }
+    .ten-2000 > * {
+        width: 10%;
+    }
+    .eleven-2000 > * {
+        width: 9.09091%;
+    }
+    .twelve-2000 > * {
+        width: 8.33333%;
+    }
+}
+.full {
+    width: 100%;
+}
+.half {
+    width: 50%;
+}
+.third {
+    width: 33.33333%;
+}
+.two-third {
+    width: 66.66666%;
+}
+.fourth {
+    width: 25%;
+}
+.three-fourth {
+    width: 75%;
+}
+.fifth {
+    width: 20%;
+}
+.two-fifth {
+    width: 40%;
+}
+.three-fifth {
+    width: 60%;
+}
+.four-fifth {
+    width: 80%;
+}
+.sixth {
+    width: 16.66666%;
+}
+.none {
+    display: none;
+}
+@media all and (min-width: 500px) {
+    .full-500 {
+        width: 100%;
+        display: block;
+    }
+    .half-500 {
+        width: 50%;
+        display: block;
+    }
+    .third-500 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-500 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-500 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-500 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-500 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-500 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-500 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-500 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-500 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 600px) {
+    .full-600 {
+        width: 100%;
+        display: block;
+    }
+    .half-600 {
+        width: 50%;
+        display: block;
+    }
+    .third-600 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-600 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-600 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-600 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-600 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-600 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-600 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-600 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-600 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 700px) {
+    .full-700 {
+        width: 100%;
+        display: block;
+    }
+    .half-700 {
+        width: 50%;
+        display: block;
+    }
+    .third-700 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-700 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-700 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-700 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-700 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-700 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-700 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-700 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-700 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 800px) {
+    .full-800 {
+        width: 100%;
+        display: block;
+    }
+    .half-800 {
+        width: 50%;
+        display: block;
+    }
+    .third-800 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-800 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-800 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-800 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-800 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-800 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-800 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-800 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-800 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 900px) {
+    .full-900 {
+        width: 100%;
+        display: block;
+    }
+    .half-900 {
+        width: 50%;
+        display: block;
+    }
+    .third-900 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-900 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-900 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-900 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-900 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-900 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-900 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-900 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-900 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1000px) {
+    .full-1000 {
+        width: 100%;
+        display: block;
+    }
+    .half-1000 {
+        width: 50%;
+        display: block;
+    }
+    .third-1000 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1000 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1000 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1000 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1000 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1000 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1000 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1000 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1000 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1100px) {
+    .full-1100 {
+        width: 100%;
+        display: block;
+    }
+    .half-1100 {
+        width: 50%;
+        display: block;
+    }
+    .third-1100 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1100 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1100 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1100 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1100 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1100 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1100 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1100 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1100 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1200px) {
+    .full-1200 {
+        width: 100%;
+        display: block;
+    }
+    .half-1200 {
+        width: 50%;
+        display: block;
+    }
+    .third-1200 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1200 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1200 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1200 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1200 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1200 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1200 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1200 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1200 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1300px) {
+    .full-1300 {
+        width: 100%;
+        display: block;
+    }
+    .half-1300 {
+        width: 50%;
+        display: block;
+    }
+    .third-1300 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1300 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1300 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1300 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1300 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1300 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1300 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1300 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1300 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1400px) {
+    .full-1400 {
+        width: 100%;
+        display: block;
+    }
+    .half-1400 {
+        width: 50%;
+        display: block;
+    }
+    .third-1400 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1400 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1400 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1400 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1400 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1400 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1400 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1400 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1400 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1500px) {
+    .full-1500 {
+        width: 100%;
+        display: block;
+    }
+    .half-1500 {
+        width: 50%;
+        display: block;
+    }
+    .third-1500 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1500 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1500 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1500 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1500 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1500 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1500 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1500 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1500 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1600px) {
+    .full-1600 {
+        width: 100%;
+        display: block;
+    }
+    .half-1600 {
+        width: 50%;
+        display: block;
+    }
+    .third-1600 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1600 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1600 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1600 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1600 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1600 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1600 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1600 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1600 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1700px) {
+    .full-1700 {
+        width: 100%;
+        display: block;
+    }
+    .half-1700 {
+        width: 50%;
+        display: block;
+    }
+    .third-1700 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1700 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1700 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1700 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1700 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1700 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1700 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1700 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1700 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1800px) {
+    .full-1800 {
+        width: 100%;
+        display: block;
+    }
+    .half-1800 {
+        width: 50%;
+        display: block;
+    }
+    .third-1800 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1800 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1800 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1800 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1800 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1800 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1800 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1800 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1800 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 1900px) {
+    .full-1900 {
+        width: 100%;
+        display: block;
+    }
+    .half-1900 {
+        width: 50%;
+        display: block;
+    }
+    .third-1900 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-1900 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-1900 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-1900 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-1900 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-1900 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-1900 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-1900 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-1900 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 2000px) {
+    .full-2000 {
+        width: 100%;
+        display: block;
+    }
+    .half-2000 {
+        width: 50%;
+        display: block;
+    }
+    .third-2000 {
+        width: 33.33333%;
+        display: block;
+    }
+    .two-third-2000 {
+        width: 66.66666%;
+        display: block;
+    }
+    .fourth-2000 {
+        width: 25%;
+        display: block;
+    }
+    .three-fourth-2000 {
+        width: 75%;
+        display: block;
+    }
+    .fifth-2000 {
+        width: 20%;
+        display: block;
+    }
+    .two-fifth-2000 {
+        width: 40%;
+        display: block;
+    }
+    .three-fifth-2000 {
+        width: 60%;
+        display: block;
+    }
+    .four-fifth-2000 {
+        width: 80%;
+        display: block;
+    }
+    .sixth-2000 {
+        width: 16.66666%;
+        display: block;
+    }
+}
+@media all and (min-width: 500px) {
+    .none-500 {
+        display: none;
+    }
+}
+@media all and (min-width: 600px) {
+    .none-600 {
+        display: none;
+    }
+}
+@media all and (min-width: 700px) {
+    .none-700 {
+        display: none;
+    }
+}
+@media all and (min-width: 800px) {
+    .none-800 {
+        display: none;
+    }
+}
+@media all and (min-width: 900px) {
+    .none-900 {
+        display: none;
+    }
+}
+@media all and (min-width: 1000px) {
+    .none-1000 {
+        display: none;
+    }
+}
+@media all and (min-width: 1100px) {
+    .none-1100 {
+        display: none;
+    }
+}
+@media all and (min-width: 1200px) {
+    .none-1200 {
+        display: none;
+    }
+}
+@media all and (min-width: 1300px) {
+    .none-1300 {
+        display: none;
+    }
+}
+@media all and (min-width: 1400px) {
+    .none-1400 {
+        display: none;
+    }
+}
+@media all and (min-width: 1500px) {
+    .none-1500 {
+        display: none;
+    }
+}
+@media all and (min-width: 1600px) {
+    .none-1600 {
+        display: none;
+    }
+}
+@media all and (min-width: 1700px) {
+    .none-1700 {
+        display: none;
+    }
+}
+@media all and (min-width: 1800px) {
+    .none-1800 {
+        display: none;
+    }
+}
+@media all and (min-width: 1900px) {
+    .none-1900 {
+        display: none;
+    }
+}
+@media all and (min-width: 2000px) {
+    .none-2000 {
+        display: none;
+    }
+}
+.off-none {
+    margin-left: 0;
+}
+.off-half {
+    margin-left: 50%;
+}
+.off-third {
+    margin-left: 33.33333%;
+}
+.off-two-third {
+    margin-left: 66.66666%;
+}
+.off-fourth {
+    margin-left: 25%;
+}
+.off-three-fourth {
+    margin-left: 75%;
+}
+.off-fifth {
+    margin-left: 20%;
+}
+.off-two-fifth {
+    margin-left: 40%;
+}
+.off-three-fifth {
+    margin-left: 60%;
+}
+.off-four-fifth {
+    margin-left: 80%;
+}
+.off-sixth {
+    margin-left: 16.66666%;
+}
+@media all and (min-width: 500px) {
+    .off-none-500 {
+        margin-left: 0;
+    }
+    .off-half-500 {
+        margin-left: 50%;
+    }
+    .off-third-500 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-500 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-500 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-500 {
+        margin-left: 75%;
+    }
+    .off-fifth-500 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-500 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-500 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-500 {
+        margin-left: 80%;
+    }
+    .off-sixth-500 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 600px) {
+    .off-none-600 {
+        margin-left: 0;
+    }
+    .off-half-600 {
+        margin-left: 50%;
+    }
+    .off-third-600 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-600 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-600 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-600 {
+        margin-left: 75%;
+    }
+    .off-fifth-600 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-600 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-600 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-600 {
+        margin-left: 80%;
+    }
+    .off-sixth-600 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 700px) {
+    .off-none-700 {
+        margin-left: 0;
+    }
+    .off-half-700 {
+        margin-left: 50%;
+    }
+    .off-third-700 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-700 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-700 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-700 {
+        margin-left: 75%;
+    }
+    .off-fifth-700 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-700 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-700 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-700 {
+        margin-left: 80%;
+    }
+    .off-sixth-700 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 800px) {
+    .off-none-800 {
+        margin-left: 0;
+    }
+    .off-half-800 {
+        margin-left: 50%;
+    }
+    .off-third-800 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-800 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-800 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-800 {
+        margin-left: 75%;
+    }
+    .off-fifth-800 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-800 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-800 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-800 {
+        margin-left: 80%;
+    }
+    .off-sixth-800 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 900px) {
+    .off-none-900 {
+        margin-left: 0;
+    }
+    .off-half-900 {
+        margin-left: 50%;
+    }
+    .off-third-900 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-900 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-900 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-900 {
+        margin-left: 75%;
+    }
+    .off-fifth-900 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-900 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-900 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-900 {
+        margin-left: 80%;
+    }
+    .off-sixth-900 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1000px) {
+    .off-none-1000 {
+        margin-left: 0;
+    }
+    .off-half-1000 {
+        margin-left: 50%;
+    }
+    .off-third-1000 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1000 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1000 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1000 {
+        margin-left: 75%;
+    }
+    .off-fifth-1000 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1000 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1000 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1000 {
+        margin-left: 80%;
+    }
+    .off-sixth-1000 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1100px) {
+    .off-none-1100 {
+        margin-left: 0;
+    }
+    .off-half-1100 {
+        margin-left: 50%;
+    }
+    .off-third-1100 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1100 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1100 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1100 {
+        margin-left: 75%;
+    }
+    .off-fifth-1100 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1100 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1100 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1100 {
+        margin-left: 80%;
+    }
+    .off-sixth-1100 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1200px) {
+    .off-none-1200 {
+        margin-left: 0;
+    }
+    .off-half-1200 {
+        margin-left: 50%;
+    }
+    .off-third-1200 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1200 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1200 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1200 {
+        margin-left: 75%;
+    }
+    .off-fifth-1200 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1200 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1200 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1200 {
+        margin-left: 80%;
+    }
+    .off-sixth-1200 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1300px) {
+    .off-none-1300 {
+        margin-left: 0;
+    }
+    .off-half-1300 {
+        margin-left: 50%;
+    }
+    .off-third-1300 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1300 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1300 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1300 {
+        margin-left: 75%;
+    }
+    .off-fifth-1300 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1300 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1300 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1300 {
+        margin-left: 80%;
+    }
+    .off-sixth-1300 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1400px) {
+    .off-none-1400 {
+        margin-left: 0;
+    }
+    .off-half-1400 {
+        margin-left: 50%;
+    }
+    .off-third-1400 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1400 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1400 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1400 {
+        margin-left: 75%;
+    }
+    .off-fifth-1400 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1400 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1400 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1400 {
+        margin-left: 80%;
+    }
+    .off-sixth-1400 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1500px) {
+    .off-none-1500 {
+        margin-left: 0;
+    }
+    .off-half-1500 {
+        margin-left: 50%;
+    }
+    .off-third-1500 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1500 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1500 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1500 {
+        margin-left: 75%;
+    }
+    .off-fifth-1500 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1500 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1500 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1500 {
+        margin-left: 80%;
+    }
+    .off-sixth-1500 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1600px) {
+    .off-none-1600 {
+        margin-left: 0;
+    }
+    .off-half-1600 {
+        margin-left: 50%;
+    }
+    .off-third-1600 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1600 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1600 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1600 {
+        margin-left: 75%;
+    }
+    .off-fifth-1600 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1600 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1600 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1600 {
+        margin-left: 80%;
+    }
+    .off-sixth-1600 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1700px) {
+    .off-none-1700 {
+        margin-left: 0;
+    }
+    .off-half-1700 {
+        margin-left: 50%;
+    }
+    .off-third-1700 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1700 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1700 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1700 {
+        margin-left: 75%;
+    }
+    .off-fifth-1700 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1700 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1700 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1700 {
+        margin-left: 80%;
+    }
+    .off-sixth-1700 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1800px) {
+    .off-none-1800 {
+        margin-left: 0;
+    }
+    .off-half-1800 {
+        margin-left: 50%;
+    }
+    .off-third-1800 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1800 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1800 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1800 {
+        margin-left: 75%;
+    }
+    .off-fifth-1800 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1800 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1800 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1800 {
+        margin-left: 80%;
+    }
+    .off-sixth-1800 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 1900px) {
+    .off-none-1900 {
+        margin-left: 0;
+    }
+    .off-half-1900 {
+        margin-left: 50%;
+    }
+    .off-third-1900 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-1900 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-1900 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-1900 {
+        margin-left: 75%;
+    }
+    .off-fifth-1900 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-1900 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-1900 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-1900 {
+        margin-left: 80%;
+    }
+    .off-sixth-1900 {
+        margin-left: 16.66666%;
+    }
+}
+@media all and (min-width: 2000px) {
+    .off-none-2000 {
+        margin-left: 0;
+    }
+    .off-half-2000 {
+        margin-left: 50%;
+    }
+    .off-third-2000 {
+        margin-left: 33.33333%;
+    }
+    .off-two-third-2000 {
+        margin-left: 66.66666%;
+    }
+    .off-fourth-2000 {
+        margin-left: 25%;
+    }
+    .off-three-fourth-2000 {
+        margin-left: 75%;
+    }
+    .off-fifth-2000 {
+        margin-left: 20%;
+    }
+    .off-two-fifth-2000 {
+        margin-left: 40%;
+    }
+    .off-three-fifth-2000 {
+        margin-left: 60%;
+    }
+    .off-four-fifth-2000 {
+        margin-left: 80%;
+    }
+    .off-sixth-2000 {
+        margin-left: 16.66666%;
+    }
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3em;
+    padding: 0 0.6em;
+    background: #fff;
+    box-shadow: 0 0 0.2em rgba(170, 170, 170, 0.2);
+    z-index: 10000;
+    transition: all 0.3s;
+    transform-style: preserve-3d;
+}
+nav .brand,
+nav .menu,
+nav .burger {
+    float: right;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+nav .brand {
+    font-weight: 700;
+    float: left;
+    padding: 0 0.6em;
+    max-width: 50%;
+    white-space: nowrap;
+    color: inherit;
+}
+nav .brand * {
+    vertical-align: middle;
+}
+nav .logo {
+    height: 2em;
+    margin-right: 0.3em;
+}
+nav .select::after {
+    height: calc(100% - 1px);
+    padding: 0;
+    line-height: 2.4em;
+}
+nav .menu > * {
+    margin-right: 0.6em;
+}
+nav .burger {
+    display: none;
+}
+@media all and (max-width: 60em) {
+    nav .burger {
+        display: inline-block;
+        cursor: pointer;
+        bottom: -1000em;
+        margin: 0;
+        -webkit-tap-highlight-color: transparent;
+    }
+    nav .burger ~ .menu,
+    nav .show:checked ~ .burger {
+        position: fixed;
+        min-height: 100%;
+        top: 0;
+        right: 0;
+        bottom: -1000em;
+        margin: 0;
+        background: #fff;
+        transition: all 0.5s ease;
+        transform: none;
+    }
+    nav .burger ~ .menu {
+        z-index: 11;
+    }
+    nav .show:checked ~ .burger {
+        color: transparent;
+        width: 100%;
+        border-radius: 0;
+        background: rgba(17, 17, 17, 0.2);
+        transition: all 0.5s ease;
+    }
+    nav .show ~ .menu {
+        width: 70%;
+        max-width: 300px;
+        transform-origin: center right;
+        transition: all 0.25s ease;
+        transform: scaleX(0);
+    }
+    nav .show ~ .menu > * {
+        transform: translateX(100%);
+        transition: all 0s ease 0.5s;
+    }
+    nav .show:checked ~ .menu > *:nth-child(1) {
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0s;
+    }
+    nav .show:checked ~ .menu > *:nth-child(2) {
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
+    }
+    nav .show:checked ~ .menu > *:nth-child(3) {
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.2s;
+    }
+    nav .show:checked ~ .menu > *:nth-child(4) {
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.3s;
+    }
+    nav .show:checked ~ .menu > *:nth-child(5) {
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.4s;
+    }
+    nav .show:checked ~ .menu > *:nth-child(6) {
+        transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1) 0.5s;
+    }
+    nav .show:checked ~ .menu {
+        transform: scaleX(1);
+    }
+    nav .show:checked ~ .menu > * {
+        transform: translateX(0);
+        transition: all 0.5s ease-in-out 0.6s;
+    }
+    nav .burger ~ .menu > * {
+        display: block;
+        margin: 0.3em;
+        text-align: left;
+        max-width: calc(100% - 0.6em);
+    }
+    nav .burger ~ .menu > a {
+        padding: 0.3em 0.9em;
+    }
+}
+.stack,
+.stack .toggle {
+    margin-top: 0;
+    margin-bottom: 0;
+    display: block;
+    width: 100%;
+    text-align: left;
+    border-radius: 0;
+}
+.stack:first-child,
+.stack:first-child .toggle {
+    border-top-left-radius: 0.2em;
+    border-top-right-radius: 0.2em;
+}
+.stack:last-child,
+.stack:last-child .toggle {
+    border-bottom-left-radius: 0.2em;
+    border-bottom-right-radius: 0.2em;
+}
+input.stack,
+textarea.stack,
+select.stack {
+    transition: border-bottom 0 ease 0;
+    border-bottom-width: 0;
+}
+input.stack:last-child,
+textarea.stack:last-child,
+select.stack:last-child {
+    border-bottom-width: 1px;
+}
+input.stack:focus + input,
+input.stack:focus + textarea,
+input.stack:focus + select,
+textarea.stack:focus + input,
+textarea.stack:focus + textarea,
+textarea.stack:focus + select,
+select.stack:focus + input,
+select.stack:focus + textarea,
+select.stack:focus + select {
+    border-top-color: #0074d9;
+}
+.modal .overlay ~ *,
+.card {
+    position: relative;
+    box-shadow: none;
+    border-radius: 0.2em;
+    border: 1px solid #aaa;
+    overflow: hidden;
+    text-align: left;
+    background: #fff;
+    margin-bottom: 0.6em;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+.modal .overlay ~ .hidden,
+.hidden.card,
+.modal .overlay ~ :checked + *,
+.modal .overlay:checked + *,
+:checked + .card {
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+.modal .overlay ~ * > *,
+.card > * {
+    max-width: 100%;
+    display: block;
+}
+.modal .overlay ~ * > *:last-child,
+.card > *:last-child {
+    margin-bottom: 0;
+}
+.modal .overlay ~ * header,
+.card header,
+.modal .overlay ~ * section,
+.card section,
+.modal .overlay ~ * > p,
+.card > p {
+    padding: 0.6em 0.8em;
+}
+.modal .overlay ~ * section,
+.card section {
+    padding: 0.6em 0.8em 0;
+}
+.modal .overlay ~ * hr,
+.card hr {
+    border: none;
+    height: 1px;
+    background-color: #aaa;
+}
+.modal .overlay ~ * header,
+.card header {
+    font-weight: bold;
+    position: relative;
+    border-bottom: 1px solid #aaa;
+}
+.modal .overlay ~ * header h1,
+.card header h1,
+.modal .overlay ~ * header h2,
+.card header h2,
+.modal .overlay ~ * header h3,
+.card header h3,
+.modal .overlay ~ * header h4,
+.card header h4,
+.modal .overlay ~ * header h5,
+.card header h5,
+.modal .overlay ~ * header h6,
+.card header h6 {
+    padding: 0;
+    margin: 0 2em 0 0;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+.modal .overlay ~ * header:last-child,
+.card header:last-child {
+    border-bottom: 0;
+}
+.modal .overlay ~ * footer,
+.card footer {
+    padding: 0.8em;
+}
+.modal .overlay ~ * p,
+.card p {
+    margin: 0.3em 0;
+}
+.modal .overlay ~ * p:first-child,
+.card p:first-child {
+    margin-top: 0;
+}
+.modal .overlay ~ * p:last-child,
+.card p:last-child {
+    margin-bottom: 0;
+}
+.modal .overlay ~ * > p,
+.card > p {
+    margin: 0;
+    padding-right: 2.5em;
+}
+.modal .overlay ~ * .close,
+.card .close {
+    position: absolute;
+    top: 0.4em;
+    right: 0.3em;
+    font-size: 1.2em;
+    padding: 0 0.5em;
+    cursor: pointer;
+    width: auto;
+}
+.modal .overlay ~ * .close:hover,
+.card .close:hover {
+    color: #ff4136;
+}
+.modal .overlay ~ * h1 + .close,
+.card h1 + .close {
+    margin: 0.2em;
+}
+.modal .overlay ~ * h2 + .close,
+.card h2 + .close {
+    margin: 0.1em;
+}
+.modal .overlay ~ * .dangerous,
+.card .dangerous {
+    background: #ff4136;
+    float: right;
+}
+.modal {
+    text-align: center;
+}
+.modal > input {
+    display: none;
+}
+.modal > input ~ * {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+}
+.modal .overlay {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    margin: 0;
+    border-radius: 0;
+    background: rgba(17, 17, 17, 0.2);
+    transition: all 0.3s;
+    z-index: 100000;
+}
+.modal .overlay:before,
+.modal .overlay:after {
+    display: none;
+}
+.modal .overlay ~ * {
+    border: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0.2, 0.2);
+    z-index: 1000000;
+    transition: all 0.3s;
+}
+.modal > input:checked ~ * {
+    display: block;
+    opacity: 1;
+    max-height: 10000px;
+    transition: all 0.3s;
+}
+.modal > input:checked ~ .overlay ~ * {
+    max-height: 90%;
+    overflow: auto;
+    -webkit-transform: translateX(-50%) translateY(-50%) scale(1, 1);
+    transform: translateX(-50%) translateY(-50%) scale(1, 1);
+}
+@media (max-width: 60em) {
+    .modal .overlay ~ * {
+        min-width: 90%;
+    }
+}
+.dropimage {
+    position: relative;
+    display: block;
+    padding: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    cursor: pointer;
+    border: 0;
+    margin: 0.3em 0;
+    border-radius: 0.2em;
+    background-color: #ddd;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NDAiIGhlaWdodD0iNjQwIiB2ZXJzaW9uPSIxLjEiPjxnIHN0eWxlPSJmaWxsOiMzMzMiPjxwYXRoIGQ9Ik0gMTg3IDIzMCBDIDE3NSAyMzAgMTY1IDI0MCAxNjUgMjUyIEwgMTY1IDMwMCBMIDE2NSA0MDggQyAxNjUgNDIwIDE3NSA0MzAgMTg3IDQzMCBMIDQ2MyA0MzAgQyA0NzUgNDMwIDQ4NSA0MjAgNDg1IDQwOCBMIDQ4NSAzMDAgTCA0ODUgMjUyIEMgNDg1IDI0MCA0NzUgMjMwIDQ2MyAyMzAgTCAxODcgMjMwIHogTSAzNjAgMjU2IEEgNzAgNzIgMCAwIDEgNDMwIDMyOCBBIDcwIDcyIDAgMCAxIDM2MCA0MDAgQSA3MCA3MiAwIDAgMSAyOTAgMzI4IEEgNzAgNzIgMCAwIDEgMzYwIDI1NiB6Ii8+PGNpcmNsZSBjeD0iMzYwIiBjeT0iMzMwIiByPSI0MSIvPjxwYXRoIGQ9Im0yMDUgMjI1IDUtMTAgMjAgMCA1IDEwLTMwIDAiLz48cGF0aCBkPSJNMjg1IDIwMEwyNzAgMjI1IDM3NiAyMjUgMzYxIDIwMCAyODUgMjAwek0zMTAgMjA1TDMzNyAyMDUgMzM3IDIxOCAzMTAgMjE4IDMxMCAyMDV6Ii8+PHBhdGggZD0ibTQwNSAyMjUgNS0xMCAyMCAwIDUgMTAtMzAgMCIvPjwvZz48L3N2Zz4=);
+}
+.dropimage input {
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+}
+.tabs {
+    position: relative;
+    overflow: hidden;
+}
+.tabs > label img {
+    float: left;
+    margin-left: 0.6em;
+}
+.tabs > .row {
+    width: calc(100% + 1.2em);
+    display: table;
+    table-layout: fixed;
+    position: relative;
+    padding-left: 0;
+    transition: all 0.3s;
+    border-spacing: 0;
+    margin: 0;
+}
+.tabs > .row:before,
+.tabs > .row:after {
+    display: none;
+}
+.tabs > .row > *,
+.tabs > .row img {
+    display: table-cell;
+    vertical-align: top;
+    margin: 0;
+    width: 100%;
+}
+.tabs > input {
+    display: none;
+}
+.tabs > input + * {
+    width: 100%;
+}
+.tabs > input + label {
+    width: auto;
+}
+.two.tabs > .row {
+    width: 200%;
+    left: -100%;
+}
+.two.tabs > input:nth-of-type(1):checked ~ .row {
+    margin-left: 100%;
+}
+.two.tabs > label img {
+    width: 48%;
+    margin: 4% 0 4% 4%;
+}
+.three.tabs > .row {
+    width: 300%;
+    left: -200%;
+}
+.three.tabs > input:nth-of-type(1):checked ~ .row {
+    margin-left: 200%;
+}
+.three.tabs > input:nth-of-type(2):checked ~ .row {
+    margin-left: 100%;
+}
+.three.tabs > label img {
+    width: 30%;
+    margin: 5% 0 5% 5%;
+}
+.four.tabs > .row {
+    width: 400%;
+    left: -300%;
+}
+.four.tabs > input:nth-of-type(1):checked ~ .row {
+    margin-left: 300%;
+}
+.four.tabs > input:nth-of-type(2):checked ~ .row {
+    margin-left: 200%;
+}
+.four.tabs > input:nth-of-type(3):checked ~ .row {
+    margin-left: 100%;
+}
+.four.tabs > label img {
+    width: 22%;
+    margin: 4% 0 4% 4%;
+}
+.five.tabs > .row {
+    width: 500%;
+    left: -400%;
+}
+.five.tabs > input:nth-of-type(1):checked ~ .row {
+    margin-left: 400%;
+}
+.five.tabs > input:nth-of-type(2):checked ~ .row {
+    margin-left: 300%;
+}
+.five.tabs > input:nth-of-type(3):checked ~ .row {
+    margin-left: 200%;
+}
+.five.tabs > input:nth-of-type(4):checked ~ .row {
+    margin-left: 100%;
+}
+.five.tabs > label img {
+    width: 18%;
+    margin: 2% 0 2% 2%;
+}
+.six.tabs > .row {
+    width: 600%;
+    left: -500%;
+}
+
+.intro {
+    padding: 10px;
+    max-width: 960px;
+    width: 100%;
+    margin: 100px auto 500px;
+}
+
+.six.tabs > input:nth-of-type(1):checked ~ .row {
+    margin-left: 500%;
+}
+.six.tabs > input:nth-of-type(2):checked ~ .row {
+    margin-left: 400%;
+}
+.six.tabs > input:nth-of-type(3):checked ~ .row {
+    margin-left: 300%;
+}
+.six.tabs > input:nth-of-type(4):checked ~ .row {
+    margin-left: 200%;
+}
+.six.tabs > input:nth-of-type(5):checked ~ .row {
+    margin-left: 100%;
+}
+.six.tabs > label img {
+    width: 12%;
+    margin: 1% 0 1% 1%;
+}
+.tabs > label:first-of-type img {
+    margin-left: 0;
+}
+[data-tooltip] {
+    position: relative;
+}
+[data-tooltip]:after,
+[data-tooltip]:before {
+    position: absolute;
+    z-index: 10;
+    opacity: 0;
+    border-width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    transition:
+        opacity 0.6s ease,
+        height 0s ease 0.6s;
+    top: calc(100% - 6px);
+    left: 0;
+    margin-top: 12px;
+}
+[data-tooltip]:after {
+    margin-left: 0;
+    font-size: 0.8em;
+    background: #111;
+    content: attr(data-tooltip);
+    white-space: nowrap;
+}
+[data-tooltip]:before {
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 0;
+    border-style: solid;
+    border-color: transparent transparent #111;
+    margin-top: 0;
+    left: 10px;
+}
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:after,
+[data-tooltip]:hover:before,
+[data-tooltip]:focus:before {
+    opacity: 1;
+    border-width: 6px;
+    height: auto;
+}
+[data-tooltip]:hover:after,
+[data-tooltip]:focus:after {
+    padding: 0.45em 0.9em;
+}
+.tooltip-top:after,
+.tooltip-top:before {
+    top: auto;
+    bottom: calc(100% - 6px);
+    left: 0;
+    margin-bottom: 12px;
+}
+.tooltip-top:before {
+    border-color: #111 transparent transparent;
+    margin-bottom: 0;
+    left: 10px;
+}
+.tooltip-right:after,
+.tooltip-right:before {
+    left: 100%;
+    margin-left: 6px;
+    margin-top: 0;
+    top: 0;
+}
+.tooltip-right:before {
+    border-color: transparent #111 transparent transparent;
+    margin-left: -6px;
+    left: 100%;
+    top: 7px;
+}
+.tooltip-left:after,
+.tooltip-left:before {
+    right: 100%;
+    margin-right: 6px;
+    left: auto;
+    margin-top: 0;
+    top: 0;
+}
+.tooltip-left:before {
+    border-color: transparent transparent transparent #111;
+    margin-right: -6px;
+    right: 100%;
+    top: 7px;
+}
+
+ul#navbarNav.navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbarNav li {
+    float: left;
+    margin-right: 2rem;
+}
+#navbarNav ul {
+    list-style-type: none;
+}
+
+#navbarNav ul li.nav-item {
+    float: left;
+    margin: 0 1.5rem 0 0.5rem;
+}
+
+--></style>
+</head>
+<body>
+<div class="bg-red">Class bg-red</div>
+<div class="dirtree-active">Class dirtree-active</div>
+<div class="bg-grey">Class bg-grey</div>
+<div class="dirtree-sibling">Class dirtree-sibling</div>
+<div class="dirtree-folder">Class dirtree-folder</div>
+<div class="hide">Class hide</div>
+<div class="unhide">Class unhide</div>
+<button class="navbar-toggle">Element button.navbar-toggle</button><br>
+<div class="dirtree-inside">Class dirtree-inside</div>
+<span class="jumbotron"><span class="row">Contextual .jumbotron .row</span></span><br>
+<nav>Element nav</nav><br>
+<div class="navbar">Class navbar</div>
+<div class="col">Class col</div>
+<div class="row">Class row</div>
+<div class="card">Class card</div>
+<div class="inferior-content">Class inferior-content</div>
+<span class="jumbotron"><span class="container"><span class="card">Contextual .jumbotron .container .card</span></span></span><br>
+<span class="jumbotron"><span class="container"><span class="col">Contextual .jumbotron .container .col</span></span></span><br>
+<span class="jumbotron"><span class="row .col">Adjacent .jumbotron+.row .col</span></span><br>
+<span class="jumbotron"><span class="container"><span class="row">Contextual .jumbotron .container .row</span></span></span><br>
+<span class="jumbotron"><span class="row"><span class="card">Contextual .jumbotron .row .card</span></span></span><br>
+<span class="jumbotron"><span class="row"><span class="col">Contextual .jumbotron .row .col</span></span></span><br>
+<div class="contentblock">Class contentblock</div>
+<div id="tree_basiktheme">ID tree_basiktheme</div>
+<span id="chotatest2-section"><details class="dropdown">Contextual #chotatest2-section details.dropdown</details></span><br>
+<div class="calculonsaid-chatgpt">Class calculonsaid-chatgpt</div>
+<div class="yousaid-chatgpt">Class yousaid-chatgpt</div>
+<details><summary>Contextual details summary</summary></details><br>
+<div class="is-half-screen">Class is-half-screen</div>
+<div id="jumbo-section">ID jumbo-section</div>
+<div class="blog-post">Class blog-post</div>
+<span class="blog-post"><p>Contextual .blog-post p</p></span><br>
+<span class="blog-post"><h2>Contextual .blog-post h2</h2></span><br>
+<span class="blog-post"><img src="file:///C|/Portable/TOPSTY~1/IMG.gif" alt="image">Contextual .blog-post img</span><br>
+<span class="blog-post"><blockquote>Contextual .blog-post blockquote</blockquote></span><br>
+<article>Element article</article><br>
+<aside>Element aside</aside><br>
+<details>Element details</details><br>
+<figcaption>Element figcaption</figcaption><br>
+<figure>Element figure</figure><br>
+<footer>Element footer</footer><br>
+<header>Element header</header><br>
+<hgroup>Element hgroup</hgroup><br>
+<main>Element main</main><br>
+<section>Element section</section><br>
+<summary>Element summary</summary><br>
+<audio>Element audio</audio><br>
+<canvas>Element canvas</canvas><br>
+<progress>Element progress</progress><br>
+<video>Element video</video><br>
+<template>Element template</template><br>
+<a href="http://www.topstyle4.com/" target="_blank">Element a</a><br>
+<b>Element b</b><br>
+<strong>Element strong</strong><br>
+<dfn>Element dfn</dfn><br>
+<h1>Element h1</h1><br>
+<mark>Element mark</mark><br>
+<small>Element small</small><br>
+<sub>Element sub</sub><br>
+<sup>Element sup</sup><br>
+<img src="file:///C|/Portable/TOPSTY~1/IMG.gif" alt="image">Element img<br>
+<svg>Element svg</svg><br>
+<hr>Element hr</hr><br>
+<pre>Element pre</pre><br>
+<code>Element code</code><br>
+<kbd>Element kbd</kbd><br>
+<samp>Element samp</samp><br>
+<button>Element button</button><br>
+<form><input value="Element INPUT"></form><br>
+<optgroup>Element optgroup</optgroup><br>
+<form><select><option>Element OPTION</option></select></form><br>
+<form><textarea>Element textarea</textarea></form><br>
+<fieldset>Element fieldset</fieldset><br>
+<legend>Element legend</legend><br>
+<table><tr><td>Element table</td></tr></table><br>
+<table><tr><td>Element td</td></tr></table><br>
+<table><tr><th>Element th</th></tr></table><br>
+<h2>Element h2</h2><br>
+<h3>Element h3</h3><br>
+<h4>Element h4</h4><br>
+<h5>Element h5</h5><br>
+<h6>Element h6</h6><br>
+<ol><li>Element li</ol><br>
+<pre><code>Contextual pre code</code></pre><br>
+<blockquote>Element blockquote</blockquote><br>
+<label>Element label</label><br>
+<div class="dropimage">Class dropimage</div>
+<div class="button">Class button</div>
+<div class="label">Class label</div>
+<div class="success.dropimage">Class success.dropimage</div>
+<button class="success">Element button.success</button><br>
+<div class="success.button">Class success.button</div>
+<div class="success.label">Class success.label</div>
+<div class="warning.dropimage">Class warning.dropimage</div>
+<button class="warning">Element button.warning</button><br>
+<div class="warning.button">Class warning.button</div>
+<div class="warning.label">Class warning.label</div>
+<div class="error.dropimage">Class error.dropimage</div>
+<button class="error">Element button.error</button><br>
+<div class="error.button">Class error.button</div>
+<div class="error.label">Class error.label</div>
+<div class="pseudo.dropimage">Class pseudo.dropimage</div>
+<button class="pseudo">Element button.pseudo</button><br>
+<div class="pseudo.button">Class pseudo.button</div>
+<div class="pseudo.label">Class pseudo.label</div>
+<div class="active.dropimage">Class active.dropimage</div>
+<button class="active">Element button.active</button><br>
+<div class="active.button">Class active.button</div>
+<span class="select"><form><select><option>Element OPTIONContextual .select select</option></select></form></span><br>
+<form><select><option>Element OPTION<form><select><option>Element OPTIONContextual select option</option></select></form></option></select></form><br>
+<span class="success"><table><tr><th>Contextual .success th</th></tr></table></span><br>
+<span class="warning"><table><tr><th>Contextual .warning th</th></tr></table></span><br>
+<span class="error"><table><tr><th>Contextual .error th</th></tr></table></span><br>
+<span class="dull"><table><tr><th>Contextual .dull th</th></tr></table></span><br>
+<table><tr><td>Element tr</td></tr></table><br>
+<div class="flex">Class flex</div>
+<div class="center">Class center</div>
+<div class="full">Class full</div>
+<div class="half">Class half</div>
+<div class="third">Class third</div>
+<div class="two-third">Class two-third</div>
+<div class="fourth">Class fourth</div>
+<div class="three-fourth">Class three-fourth</div>
+<div class="fifth">Class fifth</div>
+<div class="two-fifth">Class two-fifth</div>
+<div class="three-fifth">Class three-fifth</div>
+<div class="four-fifth">Class four-fifth</div>
+<div class="sixth">Class sixth</div>
+<div class="none">Class none</div>
+<div class="full-500">Class full-500</div>
+<div class="half-500">Class half-500</div>
+<div class="third-500">Class third-500</div>
+<div class="two-third-500">Class two-third-500</div>
+<div class="fourth-500">Class fourth-500</div>
+<div class="three-fourth-500">Class three-fourth-500</div>
+<div class="fifth-500">Class fifth-500</div>
+<div class="two-fifth-500">Class two-fifth-500</div>
+<div class="three-fifth-500">Class three-fifth-500</div>
+<div class="four-fifth-500">Class four-fifth-500</div>
+<div class="sixth-500">Class sixth-500</div>
+<div class="full-600">Class full-600</div>
+<div class="half-600">Class half-600</div>
+<div class="third-600">Class third-600</div>
+<div class="two-third-600">Class two-third-600</div>
+<div class="fourth-600">Class fourth-600</div>
+<div class="three-fourth-600">Class three-fourth-600</div>
+<div class="fifth-600">Class fifth-600</div>
+<div class="two-fifth-600">Class two-fifth-600</div>
+<div class="three-fifth-600">Class three-fifth-600</div>
+<div class="four-fifth-600">Class four-fifth-600</div>
+<div class="sixth-600">Class sixth-600</div>
+<div class="full-700">Class full-700</div>
+<div class="half-700">Class half-700</div>
+<div class="third-700">Class third-700</div>
+<div class="two-third-700">Class two-third-700</div>
+<div class="fourth-700">Class fourth-700</div>
+<div class="three-fourth-700">Class three-fourth-700</div>
+<div class="fifth-700">Class fifth-700</div>
+<div class="two-fifth-700">Class two-fifth-700</div>
+<div class="three-fifth-700">Class three-fifth-700</div>
+<div class="four-fifth-700">Class four-fifth-700</div>
+<div class="sixth-700">Class sixth-700</div>
+<div class="full-800">Class full-800</div>
+<div class="half-800">Class half-800</div>
+<div class="third-800">Class third-800</div>
+<div class="two-third-800">Class two-third-800</div>
+<div class="fourth-800">Class fourth-800</div>
+<div class="three-fourth-800">Class three-fourth-800</div>
+<div class="fifth-800">Class fifth-800</div>
+<div class="two-fifth-800">Class two-fifth-800</div>
+<div class="three-fifth-800">Class three-fifth-800</div>
+<div class="four-fifth-800">Class four-fifth-800</div>
+<div class="sixth-800">Class sixth-800</div>
+<div class="full-900">Class full-900</div>
+<div class="half-900">Class half-900</div>
+<div class="third-900">Class third-900</div>
+<div class="two-third-900">Class two-third-900</div>
+<div class="fourth-900">Class fourth-900</div>
+<div class="three-fourth-900">Class three-fourth-900</div>
+<div class="fifth-900">Class fifth-900</div>
+<div class="two-fifth-900">Class two-fifth-900</div>
+<div class="three-fifth-900">Class three-fifth-900</div>
+<div class="four-fifth-900">Class four-fifth-900</div>
+<div class="sixth-900">Class sixth-900</div>
+<div class="full-1000">Class full-1000</div>
+<div class="half-1000">Class half-1000</div>
+<div class="third-1000">Class third-1000</div>
+<div class="two-third-1000">Class two-third-1000</div>
+<div class="fourth-1000">Class fourth-1000</div>
+<div class="three-fourth-1000">Class three-fourth-1000</div>
+<div class="fifth-1000">Class fifth-1000</div>
+<div class="two-fifth-1000">Class two-fifth-1000</div>
+<div class="three-fifth-1000">Class three-fifth-1000</div>
+<div class="four-fifth-1000">Class four-fifth-1000</div>
+<div class="sixth-1000">Class sixth-1000</div>
+<div class="full-1100">Class full-1100</div>
+<div class="half-1100">Class half-1100</div>
+<div class="third-1100">Class third-1100</div>
+<div class="two-third-1100">Class two-third-1100</div>
+<div class="fourth-1100">Class fourth-1100</div>
+<div class="three-fourth-1100">Class three-fourth-1100</div>
+<div class="fifth-1100">Class fifth-1100</div>
+<div class="two-fifth-1100">Class two-fifth-1100</div>
+<div class="three-fifth-1100">Class three-fifth-1100</div>
+<div class="four-fifth-1100">Class four-fifth-1100</div>
+<div class="sixth-1100">Class sixth-1100</div>
+<div class="full-1200">Class full-1200</div>
+<div class="half-1200">Class half-1200</div>
+<div class="third-1200">Class third-1200</div>
+<div class="two-third-1200">Class two-third-1200</div>
+<div class="fourth-1200">Class fourth-1200</div>
+<div class="three-fourth-1200">Class three-fourth-1200</div>
+<div class="fifth-1200">Class fifth-1200</div>
+<div class="two-fifth-1200">Class two-fifth-1200</div>
+<div class="three-fifth-1200">Class three-fifth-1200</div>
+<div class="four-fifth-1200">Class four-fifth-1200</div>
+<div class="sixth-1200">Class sixth-1200</div>
+<div class="full-1300">Class full-1300</div>
+<div class="half-1300">Class half-1300</div>
+<div class="third-1300">Class third-1300</div>
+<div class="two-third-1300">Class two-third-1300</div>
+<div class="fourth-1300">Class fourth-1300</div>
+<div class="three-fourth-1300">Class three-fourth-1300</div>
+<div class="fifth-1300">Class fifth-1300</div>
+<div class="two-fifth-1300">Class two-fifth-1300</div>
+<div class="three-fifth-1300">Class three-fifth-1300</div>
+<div class="four-fifth-1300">Class four-fifth-1300</div>
+<div class="sixth-1300">Class sixth-1300</div>
+<div class="full-1400">Class full-1400</div>
+<div class="half-1400">Class half-1400</div>
+<div class="third-1400">Class third-1400</div>
+<div class="two-third-1400">Class two-third-1400</div>
+<div class="fourth-1400">Class fourth-1400</div>
+<div class="three-fourth-1400">Class three-fourth-1400</div>
+<div class="fifth-1400">Class fifth-1400</div>
+<div class="two-fifth-1400">Class two-fifth-1400</div>
+<div class="three-fifth-1400">Class three-fifth-1400</div>
+<div class="four-fifth-1400">Class four-fifth-1400</div>
+<div class="sixth-1400">Class sixth-1400</div>
+<div class="full-1500">Class full-1500</div>
+<div class="half-1500">Class half-1500</div>
+<div class="third-1500">Class third-1500</div>
+<div class="two-third-1500">Class two-third-1500</div>
+<div class="fourth-1500">Class fourth-1500</div>
+<div class="three-fourth-1500">Class three-fourth-1500</div>
+<div class="fifth-1500">Class fifth-1500</div>
+<div class="two-fifth-1500">Class two-fifth-1500</div>
+<div class="three-fifth-1500">Class three-fifth-1500</div>
+<div class="four-fifth-1500">Class four-fifth-1500</div>
+<div class="sixth-1500">Class sixth-1500</div>
+<div class="full-1600">Class full-1600</div>
+<div class="half-1600">Class half-1600</div>
+<div class="third-1600">Class third-1600</div>
+<div class="two-third-1600">Class two-third-1600</div>
+<div class="fourth-1600">Class fourth-1600</div>
+<div class="three-fourth-1600">Class three-fourth-1600</div>
+<div class="fifth-1600">Class fifth-1600</div>
+<div class="two-fifth-1600">Class two-fifth-1600</div>
+<div class="three-fifth-1600">Class three-fifth-1600</div>
+<div class="four-fifth-1600">Class four-fifth-1600</div>
+<div class="sixth-1600">Class sixth-1600</div>
+<div class="full-1700">Class full-1700</div>
+<div class="half-1700">Class half-1700</div>
+<div class="third-1700">Class third-1700</div>
+<div class="two-third-1700">Class two-third-1700</div>
+<div class="fourth-1700">Class fourth-1700</div>
+<div class="three-fourth-1700">Class three-fourth-1700</div>
+<div class="fifth-1700">Class fifth-1700</div>
+<div class="two-fifth-1700">Class two-fifth-1700</div>
+<div class="three-fifth-1700">Class three-fifth-1700</div>
+<div class="four-fifth-1700">Class four-fifth-1700</div>
+<div class="sixth-1700">Class sixth-1700</div>
+<div class="full-1800">Class full-1800</div>
+<div class="half-1800">Class half-1800</div>
+<div class="third-1800">Class third-1800</div>
+<div class="two-third-1800">Class two-third-1800</div>
+<div class="fourth-1800">Class fourth-1800</div>
+<div class="three-fourth-1800">Class three-fourth-1800</div>
+<div class="fifth-1800">Class fifth-1800</div>
+<div class="two-fifth-1800">Class two-fifth-1800</div>
+<div class="three-fifth-1800">Class three-fifth-1800</div>
+<div class="four-fifth-1800">Class four-fifth-1800</div>
+<div class="sixth-1800">Class sixth-1800</div>
+<div class="full-1900">Class full-1900</div>
+<div class="half-1900">Class half-1900</div>
+<div class="third-1900">Class third-1900</div>
+<div class="two-third-1900">Class two-third-1900</div>
+<div class="fourth-1900">Class fourth-1900</div>
+<div class="three-fourth-1900">Class three-fourth-1900</div>
+<div class="fifth-1900">Class fifth-1900</div>
+<div class="two-fifth-1900">Class two-fifth-1900</div>
+<div class="three-fifth-1900">Class three-fifth-1900</div>
+<div class="four-fifth-1900">Class four-fifth-1900</div>
+<div class="sixth-1900">Class sixth-1900</div>
+<div class="full-2000">Class full-2000</div>
+<div class="half-2000">Class half-2000</div>
+<div class="third-2000">Class third-2000</div>
+<div class="two-third-2000">Class two-third-2000</div>
+<div class="fourth-2000">Class fourth-2000</div>
+<div class="three-fourth-2000">Class three-fourth-2000</div>
+<div class="fifth-2000">Class fifth-2000</div>
+<div class="two-fifth-2000">Class two-fifth-2000</div>
+<div class="three-fifth-2000">Class three-fifth-2000</div>
+<div class="four-fifth-2000">Class four-fifth-2000</div>
+<div class="sixth-2000">Class sixth-2000</div>
+<div class="none-500">Class none-500</div>
+<div class="none-600">Class none-600</div>
+<div class="none-700">Class none-700</div>
+<div class="none-800">Class none-800</div>
+<div class="none-900">Class none-900</div>
+<div class="none-1000">Class none-1000</div>
+<div class="none-1100">Class none-1100</div>
+<div class="none-1200">Class none-1200</div>
+<div class="none-1300">Class none-1300</div>
+<div class="none-1400">Class none-1400</div>
+<div class="none-1500">Class none-1500</div>
+<div class="none-1600">Class none-1600</div>
+<div class="none-1700">Class none-1700</div>
+<div class="none-1800">Class none-1800</div>
+<div class="none-1900">Class none-1900</div>
+<div class="none-2000">Class none-2000</div>
+<div class="off-none">Class off-none</div>
+<div class="off-half">Class off-half</div>
+<div class="off-third">Class off-third</div>
+<div class="off-two-third">Class off-two-third</div>
+<div class="off-fourth">Class off-fourth</div>
+<div class="off-three-fourth">Class off-three-fourth</div>
+<div class="off-fifth">Class off-fifth</div>
+<div class="off-two-fifth">Class off-two-fifth</div>
+<div class="off-three-fifth">Class off-three-fifth</div>
+<div class="off-four-fifth">Class off-four-fifth</div>
+<div class="off-sixth">Class off-sixth</div>
+<div class="off-none-500">Class off-none-500</div>
+<div class="off-half-500">Class off-half-500</div>
+<div class="off-third-500">Class off-third-500</div>
+<div class="off-two-third-500">Class off-two-third-500</div>
+<div class="off-fourth-500">Class off-fourth-500</div>
+<div class="off-three-fourth-500">Class off-three-fourth-500</div>
+<div class="off-fifth-500">Class off-fifth-500</div>
+<div class="off-two-fifth-500">Class off-two-fifth-500</div>
+<div class="off-three-fifth-500">Class off-three-fifth-500</div>
+<div class="off-four-fifth-500">Class off-four-fifth-500</div>
+<div class="off-sixth-500">Class off-sixth-500</div>
+<div class="off-none-600">Class off-none-600</div>
+<div class="off-half-600">Class off-half-600</div>
+<div class="off-third-600">Class off-third-600</div>
+<div class="off-two-third-600">Class off-two-third-600</div>
+<div class="off-fourth-600">Class off-fourth-600</div>
+<div class="off-three-fourth-600">Class off-three-fourth-600</div>
+<div class="off-fifth-600">Class off-fifth-600</div>
+<div class="off-two-fifth-600">Class off-two-fifth-600</div>
+<div class="off-three-fifth-600">Class off-three-fifth-600</div>
+<div class="off-four-fifth-600">Class off-four-fifth-600</div>
+<div class="off-sixth-600">Class off-sixth-600</div>
+<div class="off-none-700">Class off-none-700</div>
+<div class="off-half-700">Class off-half-700</div>
+<div class="off-third-700">Class off-third-700</div>
+<div class="off-two-third-700">Class off-two-third-700</div>
+<div class="off-fourth-700">Class off-fourth-700</div>
+<div class="off-three-fourth-700">Class off-three-fourth-700</div>
+<div class="off-fifth-700">Class off-fifth-700</div>
+<div class="off-two-fifth-700">Class off-two-fifth-700</div>
+<div class="off-three-fifth-700">Class off-three-fifth-700</div>
+<div class="off-four-fifth-700">Class off-four-fifth-700</div>
+<div class="off-sixth-700">Class off-sixth-700</div>
+<div class="off-none-800">Class off-none-800</div>
+<div class="off-half-800">Class off-half-800</div>
+<div class="off-third-800">Class off-third-800</div>
+<div class="off-two-third-800">Class off-two-third-800</div>
+<div class="off-fourth-800">Class off-fourth-800</div>
+<div class="off-three-fourth-800">Class off-three-fourth-800</div>
+<div class="off-fifth-800">Class off-fifth-800</div>
+<div class="off-two-fifth-800">Class off-two-fifth-800</div>
+<div class="off-three-fifth-800">Class off-three-fifth-800</div>
+<div class="off-four-fifth-800">Class off-four-fifth-800</div>
+<div class="off-sixth-800">Class off-sixth-800</div>
+<div class="off-none-900">Class off-none-900</div>
+<div class="off-half-900">Class off-half-900</div>
+<div class="off-third-900">Class off-third-900</div>
+<div class="off-two-third-900">Class off-two-third-900</div>
+<div class="off-fourth-900">Class off-fourth-900</div>
+<div class="off-three-fourth-900">Class off-three-fourth-900</div>
+<div class="off-fifth-900">Class off-fifth-900</div>
+<div class="off-two-fifth-900">Class off-two-fifth-900</div>
+<div class="off-three-fifth-900">Class off-three-fifth-900</div>
+<div class="off-four-fifth-900">Class off-four-fifth-900</div>
+<div class="off-sixth-900">Class off-sixth-900</div>
+<div class="off-none-1000">Class off-none-1000</div>
+<div class="off-half-1000">Class off-half-1000</div>
+<div class="off-third-1000">Class off-third-1000</div>
+<div class="off-two-third-1000">Class off-two-third-1000</div>
+<div class="off-fourth-1000">Class off-fourth-1000</div>
+<div class="off-three-fourth-1000">Class off-three-fourth-1000</div>
+<div class="off-fifth-1000">Class off-fifth-1000</div>
+<div class="off-two-fifth-1000">Class off-two-fifth-1000</div>
+<div class="off-three-fifth-1000">Class off-three-fifth-1000</div>
+<div class="off-four-fifth-1000">Class off-four-fifth-1000</div>
+<div class="off-sixth-1000">Class off-sixth-1000</div>
+<div class="off-none-1100">Class off-none-1100</div>
+<div class="off-half-1100">Class off-half-1100</div>
+<div class="off-third-1100">Class off-third-1100</div>
+<div class="off-two-third-1100">Class off-two-third-1100</div>
+<div class="off-fourth-1100">Class off-fourth-1100</div>
+<div class="off-three-fourth-1100">Class off-three-fourth-1100</div>
+<div class="off-fifth-1100">Class off-fifth-1100</div>
+<div class="off-two-fifth-1100">Class off-two-fifth-1100</div>
+<div class="off-three-fifth-1100">Class off-three-fifth-1100</div>
+<div class="off-four-fifth-1100">Class off-four-fifth-1100</div>
+<div class="off-sixth-1100">Class off-sixth-1100</div>
+<div class="off-none-1200">Class off-none-1200</div>
+<div class="off-half-1200">Class off-half-1200</div>
+<div class="off-third-1200">Class off-third-1200</div>
+<div class="off-two-third-1200">Class off-two-third-1200</div>
+<div class="off-fourth-1200">Class off-fourth-1200</div>
+<div class="off-three-fourth-1200">Class off-three-fourth-1200</div>
+<div class="off-fifth-1200">Class off-fifth-1200</div>
+<div class="off-two-fifth-1200">Class off-two-fifth-1200</div>
+<div class="off-three-fifth-1200">Class off-three-fifth-1200</div>
+<div class="off-four-fifth-1200">Class off-four-fifth-1200</div>
+<div class="off-sixth-1200">Class off-sixth-1200</div>
+<div class="off-none-1300">Class off-none-1300</div>
+<div class="off-half-1300">Class off-half-1300</div>
+<div class="off-third-1300">Class off-third-1300</div>
+<div class="off-two-third-1300">Class off-two-third-1300</div>
+<div class="off-fourth-1300">Class off-fourth-1300</div>
+<div class="off-three-fourth-1300">Class off-three-fourth-1300</div>
+<div class="off-fifth-1300">Class off-fifth-1300</div>
+<div class="off-two-fifth-1300">Class off-two-fifth-1300</div>
+<div class="off-three-fifth-1300">Class off-three-fifth-1300</div>
+<div class="off-four-fifth-1300">Class off-four-fifth-1300</div>
+<div class="off-sixth-1300">Class off-sixth-1300</div>
+<div class="off-none-1400">Class off-none-1400</div>
+<div class="off-half-1400">Class off-half-1400</div>
+<div class="off-third-1400">Class off-third-1400</div>
+<div class="off-two-third-1400">Class off-two-third-1400</div>
+<div class="off-fourth-1400">Class off-fourth-1400</div>
+<div class="off-three-fourth-1400">Class off-three-fourth-1400</div>
+<div class="off-fifth-1400">Class off-fifth-1400</div>
+<div class="off-two-fifth-1400">Class off-two-fifth-1400</div>
+<div class="off-three-fifth-1400">Class off-three-fifth-1400</div>
+<div class="off-four-fifth-1400">Class off-four-fifth-1400</div>
+<div class="off-sixth-1400">Class off-sixth-1400</div>
+<div class="off-none-1500">Class off-none-1500</div>
+<div class="off-half-1500">Class off-half-1500</div>
+<div class="off-third-1500">Class off-third-1500</div>
+<div class="off-two-third-1500">Class off-two-third-1500</div>
+<div class="off-fourth-1500">Class off-fourth-1500</div>
+<div class="off-three-fourth-1500">Class off-three-fourth-1500</div>
+<div class="off-fifth-1500">Class off-fifth-1500</div>
+<div class="off-two-fifth-1500">Class off-two-fifth-1500</div>
+<div class="off-three-fifth-1500">Class off-three-fifth-1500</div>
+<div class="off-four-fifth-1500">Class off-four-fifth-1500</div>
+<div class="off-sixth-1500">Class off-sixth-1500</div>
+<div class="off-none-1600">Class off-none-1600</div>
+<div class="off-half-1600">Class off-half-1600</div>
+<div class="off-third-1600">Class off-third-1600</div>
+<div class="off-two-third-1600">Class off-two-third-1600</div>
+<div class="off-fourth-1600">Class off-fourth-1600</div>
+<div class="off-three-fourth-1600">Class off-three-fourth-1600</div>
+<div class="off-fifth-1600">Class off-fifth-1600</div>
+<div class="off-two-fifth-1600">Class off-two-fifth-1600</div>
+<div class="off-three-fifth-1600">Class off-three-fifth-1600</div>
+<div class="off-four-fifth-1600">Class off-four-fifth-1600</div>
+<div class="off-sixth-1600">Class off-sixth-1600</div>
+<div class="off-none-1700">Class off-none-1700</div>
+<div class="off-half-1700">Class off-half-1700</div>
+<div class="off-third-1700">Class off-third-1700</div>
+<div class="off-two-third-1700">Class off-two-third-1700</div>
+<div class="off-fourth-1700">Class off-fourth-1700</div>
+<div class="off-three-fourth-1700">Class off-three-fourth-1700</div>
+<div class="off-fifth-1700">Class off-fifth-1700</div>
+<div class="off-two-fifth-1700">Class off-two-fifth-1700</div>
+<div class="off-three-fifth-1700">Class off-three-fifth-1700</div>
+<div class="off-four-fifth-1700">Class off-four-fifth-1700</div>
+<div class="off-sixth-1700">Class off-sixth-1700</div>
+<div class="off-none-1800">Class off-none-1800</div>
+<div class="off-half-1800">Class off-half-1800</div>
+<div class="off-third-1800">Class off-third-1800</div>
+<div class="off-two-third-1800">Class off-two-third-1800</div>
+<div class="off-fourth-1800">Class off-fourth-1800</div>
+<div class="off-three-fourth-1800">Class off-three-fourth-1800</div>
+<div class="off-fifth-1800">Class off-fifth-1800</div>
+<div class="off-two-fifth-1800">Class off-two-fifth-1800</div>
+<div class="off-three-fifth-1800">Class off-three-fifth-1800</div>
+<div class="off-four-fifth-1800">Class off-four-fifth-1800</div>
+<div class="off-sixth-1800">Class off-sixth-1800</div>
+<div class="off-none-1900">Class off-none-1900</div>
+<div class="off-half-1900">Class off-half-1900</div>
+<div class="off-third-1900">Class off-third-1900</div>
+<div class="off-two-third-1900">Class off-two-third-1900</div>
+<div class="off-fourth-1900">Class off-fourth-1900</div>
+<div class="off-three-fourth-1900">Class off-three-fourth-1900</div>
+<div class="off-fifth-1900">Class off-fifth-1900</div>
+<div class="off-two-fifth-1900">Class off-two-fifth-1900</div>
+<div class="off-three-fifth-1900">Class off-three-fifth-1900</div>
+<div class="off-four-fifth-1900">Class off-four-fifth-1900</div>
+<div class="off-sixth-1900">Class off-sixth-1900</div>
+<div class="off-none-2000">Class off-none-2000</div>
+<div class="off-half-2000">Class off-half-2000</div>
+<div class="off-third-2000">Class off-third-2000</div>
+<div class="off-two-third-2000">Class off-two-third-2000</div>
+<div class="off-fourth-2000">Class off-fourth-2000</div>
+<div class="off-three-fourth-2000">Class off-three-fourth-2000</div>
+<div class="off-fifth-2000">Class off-fifth-2000</div>
+<div class="off-two-fifth-2000">Class off-two-fifth-2000</div>
+<div class="off-three-fifth-2000">Class off-three-fifth-2000</div>
+<div class="off-four-fifth-2000">Class off-four-fifth-2000</div>
+<div class="off-sixth-2000">Class off-sixth-2000</div>
+<nav><span class="brand">Contextual nav .brand</span></nav><br>
+<nav><span class="menu">Contextual nav .menu</span></nav><br>
+<nav><span class="burger">Contextual nav .burger</span></nav><br>
+<nav><span class="logo">Contextual nav .logo</span></nav><br>
+<nav><span class="select">Contextual nav .select</span></nav><br>
+<nav><span class="burger"><~><span class="menu">Contextual nav .burger ~ .menu</span></~></span></nav><br>
+<nav><span class="show">Contextual nav .show</span></nav><br>
+<nav><span class="show"><~><span class="menu">Contextual nav .show ~ .menu</span></~></span></nav><br>
+<nav  class="burger ~ .menu"><a href="http://www.topstyle4.com/" target="_blank">Child nav .burger ~ .menu&gt;a</a></nav ><br>
+<div class="stack">Class stack</div>
+<span class="stack"><span class="toggle">Contextual .stack .toggle</span></span><br>
+<form><input value="Element INPUT" class="stack">Element input.stack</form><br>
+<form><textarea class="stack">Element textarea.stack</textarea></form><br>
+<form><select class="stack"><option>Element OPTIONElement select.stack</option></select></form><br>
+<span class="modal"><span class="overlay"><~><span class="hidden">Contextual .modal .overlay ~ .hidden</span></~></span></span><br>
+<div class="hidden.card">Class hidden.card</div>
+<span class="modal"><span class="overlay"><~>Contextual .modal .overlay ~ </~></span></span><br>
+<span class="modal"><span class="overlay">Contextual .modal .overlay</span></span><br>
+<span class="card"><header>Contextual .card header</header></span><br>
+<span class="card"><section>Contextual .card section</section></span><br>
+<span class="card"><p>Child .card&gt;p</p></span><br>
+<span class="card"><hr>Contextual .card hr</hr></span><br>
+<span class="card"><header><h1>Contextual .card header h1</h1></header></span><br>
+<span class="card"><header><h2>Contextual .card header h2</h2></header></span><br>
+<span class="card"><header><h3>Contextual .card header h3</h3></header></span><br>
+<span class="card"><header><h4>Contextual .card header h4</h4></header></span><br>
+<span class="card"><header><h5>Contextual .card header h5</h5></header></span><br>
+<span class="card"><header><h6>Contextual .card header h6</h6></header></span><br>
+<span class="card"><footer>Contextual .card footer</footer></span><br>
+<span class="card"><p>Contextual .card p</p></span><br>
+<span class="card"><span class="close">Contextual .card .close</span></span><br>
+<span class="card h1"><span class="close">Adjacent .card h1+.close</span></span><br>
+<span class="card h2"><span class="close">Adjacent .card h2+.close</span></span><br>
+<span class="card"><span class="dangerous">Contextual .card .dangerous</span></span><br>
+<div class="modal">Class modal</div>
+<span class="modal"><form><input value="Element INPUT">Child .modal&gt;input</form></span><br>
+<span class="dropimage"><form><input value="Element INPUT">Contextual .dropimage input</form></span><br>
+<div class="tabs">Class tabs</div>
+<span class="tabs"><label img>Child .tabs&gt;label img</label img></span><br>
+<span class="tabs"><span class="row">Child .tabs&gt;.row</span></span><br>
+<span class="tabs"><span class="row img">Child .tabs&gt;.row img</span></span><br>
+<span class="tabs"><form><input value="Element INPUT">Child .tabs&gt;input</form></span><br>
+<span class="tabs"><form><input+label value="Element INPUT">Child .tabs&gt;input+label</form></span><br>
+<span class="two.tabs"><span class="row">Child .two.tabs&gt;.row</span></span><br>
+<span class="two.tabs"><form><input value="Element INPUT">Child .two.tabs&gt;input</form></span><br>
+<span class="two.tabs"><label img>Child .two.tabs&gt;label img</label img></span><br>
+<span class="three.tabs"><span class="row">Child .three.tabs&gt;.row</span></span><br>
+<span class="three.tabs"><form><input value="Element INPUT">Child .three.tabs&gt;input</form></span><br>
+<span class="three.tabs"><label img>Child .three.tabs&gt;label img</label img></span><br>
+<span class="four.tabs"><span class="row">Child .four.tabs&gt;.row</span></span><br>
+<span class="four.tabs"><form><input value="Element INPUT">Child .four.tabs&gt;input</form></span><br>
+<span class="four.tabs"><label img>Child .four.tabs&gt;label img</label img></span><br>
+<span class="five.tabs"><span class="row">Child .five.tabs&gt;.row</span></span><br>
+<span class="five.tabs"><form><input value="Element INPUT">Child .five.tabs&gt;input</form></span><br>
+<span class="five.tabs"><label img>Child .five.tabs&gt;label img</label img></span><br>
+<span class="six.tabs"><span class="row">Child .six.tabs&gt;.row</span></span><br>
+<div class="intro">Class intro</div>
+<span class="six.tabs"><form><input value="Element INPUT">Child .six.tabs&gt;input</form></span><br>
+<span class="six.tabs"><label img>Child .six.tabs&gt;label img</label img></span><br>
+<span class="tabs"><label>Child .tabs&gt;label</label></span><br>
+<div class="tooltip-top">Class tooltip-top</div>
+<div class="tooltip-right">Class tooltip-right</div>
+<div class="tooltip-left">Class tooltip-left</div>
+<ul class="navbar-nav"><li id="navbarNav">Element ul#navbarNav.navbar-nav</ul><br>
+<span id="navbarNav"><ol><li>Contextual #navbarNav li</ol></span><br>
+<span id="navbarNav"><ul><li>Contextual #navbarNav ul</ul></span><br>
+<span id="navbarNav"><ul><li><ol><li class="nav-item">Contextual #navbarNav ul li.nav-item</ol></ul></span><br>
+</body></html>

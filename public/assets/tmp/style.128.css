@@ -1,0 +1,128 @@
+:root {
+  --bg: #000;
+  --fg: #fff;
+  --string: #888;
+  --fret: #666;
+  --nut: #999;
+  --note: #222;
+  --active: #d6b45a;
+}
+
+body {
+  margin: 0;
+  background: #eee;
+  font-family: system-ui, sans-serif;
+}
+
+header {
+  padding: 12px;
+  background: #fdfdfd;
+  border-bottom: 1px solid #ccc;
+}
+
+#controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+
+.control-group {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.neck-wrap {
+  transform: scale(0.7);
+  transform-origin: top left;
+  padding: 12px;
+}
+
+svg {
+  background: #111;
+  border: 2px solid #333;
+}
+
+.note circle {
+  fill: var(--note);
+  stroke: #ddd;
+  stroke-width: 2;
+}
+
+.note text {
+  fill: #eee;
+  font-size: 14px;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.note.blink circle {
+  animation: blink 0.3s steps(1);
+}
+
+@keyframes blink {
+  50% { fill: var(--active); }
+}
+
+/* Faux slider */
+.switch {
+  position: relative;
+  width: 46px;
+  height: 22px;
+}
+.switch input { display: none; }
+.slider {
+  position: absolute;
+  inset: 0;
+  background: #bbb;
+  border-radius: 22px;
+}
+.slider:before {
+  content: "";
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 2px;
+  bottom: 2px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+input:checked + .slider {
+  background: #8aa37b;
+}
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Keyboard */
+#keyboard {
+  display: flex;
+  margin: 12px;
+}
+
+.key {
+  width: 32px;
+  height: 120px;
+  background: #fafafa;
+  border: 1px solid #555;
+  position: relative;
+}
+
+.key.black {
+  width: 20px;
+  height: 80px;
+  background: #222;
+  margin: 0 -10px;
+  z-index: 2;
+}
+
+.key.blink {
+  animation: blinkKey 0.3s steps(1);
+}
+
+@keyframes blinkKey {
+  50% { background: var(--active); }
+}

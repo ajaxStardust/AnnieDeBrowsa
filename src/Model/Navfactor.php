@@ -212,7 +212,7 @@ class Navfactor
     {
         $this->goUp = $this->prepareGoUpUrl(NS_ROOT);
         $this->htmlPrint = [];
-        $this->htmlPrint[] = '<nav id="leftcol" class="navlist">
+        $this->htmlPrint[] = '<main id="mainview"><nav id="leftcol" class="navlist">
         <ul id="navlist" class="navlist">
         <li id="goUpItem" class="nav"><a title="Navigate to parent directory." href="//' . $this->goUp['url'] . '">' . $this->goUp['url'] . '</a></li>
             ';

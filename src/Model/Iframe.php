@@ -44,8 +44,7 @@ class Iframe
             $defaultFrameArray = array(
                 'default.php',
                 'p2u2.phtml',
-                'tree.html',
-                'https://bunsen/p2u2.phhtml'
+                'tree.html'
             );
 
             foreach ($defaultFrameArray as $thisIframe) {
@@ -56,7 +55,7 @@ class Iframe
                 }
             }
             if (!file_exists($this->defaultIframe)) {
-                $this->defaultIframe = 'https://bunsen/p2u2.phhtml';
+                $this->defaultIframe = 'https://localhost/index.html';
             }
         }
 

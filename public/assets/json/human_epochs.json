@@ -1,0 +1,109 @@
+{
+  "slides": [
+    {
+      "period": "Deep Prehistory",
+      "date": "-300000",
+      "headline": "Emergence of Homo sapiens",
+      "core_concept": "Anatomically modern humans appear in Africa.",
+      "transition_marker": "Biology precedes civilization."
+    },
+    {
+      "period": "Neolithic Revolution",
+      "date": "-12000",
+      "headline": "Agriculture Begins",
+      "core_concept": "Permanent settlement and food surplus emerge.",
+      "transition_marker": "Surplus enables hierarchy."
+    },
+    {
+      "period": "End of Prehistory (Regional)",
+      "date": "-3500",
+      "headline": "Writing in Mesopotamia",
+      "core_concept": "Cuneiform marks the beginning of recorded history.",
+      "transition_marker": "Prehistory ends where writing begins."
+    },
+    {
+      "period": "State Formation",
+      "date": "-3100",
+      "headline": "Unification of Egypt",
+      "core_concept": "Centralized authority emerges in the Nile Valley.",
+      "transition_marker": "Bureaucracy + taxation + writing."
+    },
+    {
+      "period": "Axial Age",
+      "date": "-800",
+      "headline": "Philosophical Foundations",
+      "core_concept": "Confucius, Buddha, Greek philosophers reshape ethics.",
+      "transition_marker": "Ideas scale beyond tribe."
+    },
+    {
+      "period": "Common Era",
+      "date": "1",
+      "headline": "Beginning of CE",
+      "core_concept": "Calendar standardization in imperial context.",
+      "transition_marker": "CE replaces AD in secular scholarship."
+    },
+    {
+      "period": "Information Acceleration",
+      "date": "1450",
+      "headline": "Printing Revolution",
+      "core_concept": "Knowledge replication becomes scalable.",
+      "transition_marker": "Ideas travel faster than armies."
+    },
+    {
+      "period": "Global Integration",
+      "date": "1492",
+      "headline": "Columbian Exchange",
+      "core_concept": "Old and New Worlds merge biologically and economically.",
+      "transition_marker": "True globalization begins."
+    },
+    {
+      "period": "Sovereign State System",
+      "date": "1648",
+      "headline": "Peace of Westphalia",
+      "core_concept": "Territorial sovereignty defines diplomacy.",
+      "transition_marker": "Modern international order."
+    },
+    {
+      "period": "Energy Revolution",
+      "date": "1760",
+      "headline": "Industrial Revolution",
+      "core_concept": "Fossil fuels replace organic energy systems.",
+      "transition_marker": "Productivity escapes biological limits."
+    },
+    {
+      "period": "Mass Politics",
+      "date": "1776",
+      "headline": "Age of Revolutions",
+      "core_concept": "Citizenship replaces subjecthood.",
+      "transition_marker": "Nation-state intensifies."
+    },
+    {
+      "period": "Industrialized War",
+      "date": "1914",
+      "headline": "World War I",
+      "core_concept": "Industrial capacity applied to total warfare.",
+      "transition_marker": "Empires destabilize."
+    },
+    {
+      "period": "Superpower Era",
+      "date": "1945",
+      "headline": "Global Superpowers Emerge",
+      "core_concept": "Nuclear, economic, ideological global projection.",
+      "transition_marker": "Bipolar world order."
+    },
+    {
+      "period": "Unipolar Moment",
+      "date": "1991",
+      "headline": "Soviet Collapse",
+      "core_concept": "Temporary single superpower dominance.",
+      "transition_marker": "Global liberalization phase."
+    },
+    {
+      "period": "Digital Globalization",
+      "date": "2001",
+      "headline": "Networked World",
+      "core_concept": "Instant planetary information exchange.",
+      "transition_marker": "Power diffuses beyond states."
+    }
+  ]
+}
