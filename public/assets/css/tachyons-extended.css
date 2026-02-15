@@ -79,10 +79,44 @@ color:#533
 }
 
 .page-tools.force-visible #pageControls {
+<<<<<<< HEAD
 display:block!important;
 opacity:1!important;
 visibility:visible!important;
 pointer-events:auto!important
+=======
+    display: block!important;
+    opacity: 1!important;
+    visibility: visible!important;
+    pointer-events: auto!important
+}
+
+#mainFrameContainer {
+    height: 80vh;
+    overflow-y: auto;
+    outline: 2rem solid #aaffaaaa;
+    border-radius: 1rem;
+/*    box-shadow: 0 0 1rem rgba(0,0,0,.2); */
+}
+
+#adb-card-github {
+    width: 100%;
+    padding: 1em;
+    margin: 0 auto;
+    align-content: center;
+    font-size: 1rem;
+    outline: .1em solid #3332;
+    display: block;
+    font-family: orbitron,sans-serif
+}
+
+.bg-light-corn {
+    background-color: #e3f8aa
+}
+
+.hide-show-element {
+    width: 10rem
+>>>>>>> 595d6588 (I Am Kira)
 }
 
 .hide-show-element label:hover {
@@ -575,6 +609,10 @@ text-align:end
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 595d6588 (I Am Kira)
 /* End
    ========================================================================== */
    /* Outside of Tachyons Styles
