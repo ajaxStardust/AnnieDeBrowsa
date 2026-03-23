@@ -1,6 +1,7 @@
 <?php
 
 namespace P2u2\View;
+require_once dirname(__DIR__) . '/Model/PathNormalizer.php';
 
 /*
  * CONTRACT: Main.page.php live transform page
@@ -25,9 +26,12 @@ use P2u2\Model\Evalpath as Evalpath;
 use P2u2\Model\Functions as Functions;
 use P2u2\Model\Newmethod as Newmethod;
 use P2u2\Model\P2u2 as P2u2;
+use Adb\Model\PathNormalizer;
 
 $Env = new Env(NS2_ROOT);
 $initEnv = $Env->whatis(NS2_ROOT);
+$displayLocation = PathNormalizer::normalizeDisplayPathFromRoot(NS2_ROOT, __FILE__);
+$displayBasePath = PathNormalizer::normalizeDisplayPath(NS2_ROOT);
 // set Env variable array ver01
 $title = $Env->initialize_enviornment["title"];
 
@@ -150,10 +154,10 @@ $resultsWithDescriptions = [
                 <h2 class="adb-env-heading">Environment</h2>
                 <div class="bg-white-60 pa4 h-100 br2">
                 <p class="ma0 f6 gray">Location:</p>
-                <p class="ma0 f5 mono mb3"><?= __FILE__; ?></p>
+                <p class="ma0 f5 mono mb3"><?= htmlspecialchars($displayLocation, ENT_QUOTES, 'UTF-8'); ?></p>
 
                 <p class="ma0 f6 gray">Base Path:</p>
-                <p class="ma0 f5 mono mb3"><?php echo isset($Env->initialize_enviornment["abspathtml"]) ? $Env->initialize_enviornment["abspathtml"] : 'Not set'; ?></p>
+                <p class="ma0 f5 mono mb3"><?= htmlspecialchars($displayBasePath, ENT_QUOTES, 'UTF-8'); ?></p>
 
                 <p class="ma0 f6 gray">Server Type:</p>
                 <p class="ma0 f5 mono mb3"><?= $_SERVER["SERVER_SOFTWARE"]; ?></p>

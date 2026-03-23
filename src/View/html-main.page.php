@@ -131,6 +131,45 @@ Off-site Links, see config.json
 
 <div id="edit-offsitelinks" class="info">Change quick links [ <a id="jsoneditor_open" class="json-edit-link" data-filepath="config_editor.html" href="file_loader.php?file=config_editor.html">EDIT</a> ] </div>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const trackedLinks = document.querySelectorAll('.offsite-track-link');
+
+    trackedLinks.forEach((link) => {
+        link.addEventListener('click', function () {
+            const url = link.dataset.url;
+            const countTargetId = link.dataset.countTarget;
+
+            if (!url) {
+                return;
+            }
+
+            const payload = JSON.stringify({ url });
+
+            if (navigator.sendBeacon) {
+                const blob = new Blob([payload], { type: 'application/json' });
+                navigator.sendBeacon('api_link_click.php', blob);
+            } else {
+                fetch('api_link_click.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: payload,
+                    keepalive: true
+                }).catch(() => {});
+            }
+
+            if (countTargetId) {
+                const countTarget = document.getElementById(countTargetId);
+                if (countTarget) {
+                    const currentCount = parseInt(countTarget.textContent || '0', 10);
+                    countTarget.textContent = String(currentCount + 1);
+                }
+            }
+        });
+    });
+});
+</script>
+
 <!--    ^   id:mainFrameContainer   ^   -->
 
 <div id="frameTitler">Send &#x3c;<span class="trigger" id="send2top" onclick="frame2top()"><a class="f3" title="send frame to top">iframe</a></span>&#x3e; to main view. current src: <span id="frameName"><?php print $defaultIframe; ?></span>

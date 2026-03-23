@@ -1,6 +1,6 @@
 # CONTRACT.md
 
-This is version 2 of the repository contract for transformative.lan / transformative.click.
+This is version 3 of the repository contract for transformative.lan / transformative.click.
 
 ## Project Context
 
@@ -101,6 +101,22 @@ Legacy/parallel public template chain:
 - Preferred page pattern: thin entrypoint + `public/doctype` + `public/content` + `public/footer`.
 - Layout rule: doctype files should own the opening HTML shell through `<body>`, and footer files should own the closing scripts plus `</body></html>`.
 
+### Environment Path Normalization Rule
+
+- The UI currently normalizes common hosting paths before displaying project identity.
+- The following layouts are treated as first-class supported inputs for display logic:
+- `/www/wwwroot/DOMAIN`
+- `/home/USER/web/DOMAIN/public_html`
+- Current relied-on outputs include the masthead SVG title, the top-level nav label, and the environment path display on the live default page.
+- Do not revert these surfaces to raw filesystem prefixes unless explicitly requested.
+
+### Off-Site Links Rule
+
+- The off-site links panel is backed by `config.json` `home_urls` entries.
+- Entries may now persist preview metadata including `og_title`, `og_image`, `og_description`, and `og_site_name` in addition to `url`, `name`, `data`, and `count`.
+- Off-site link clicks are expected to persist visit counts back into `config.json` through the dedicated click-count update path.
+- Treat the off-site links section as data-backed UI, not static markup.
+
 ### Unicode Utility Rule
 
 - [unicode.php](unicode.php) is an accepted root entrypoint into the Unicode/easter-egg experience.
@@ -121,6 +137,8 @@ Update this contract when any of the following changes:
 7. The preferred reference template changes away from [public/template-editable.php](public/template-editable.php).
 8. The Unicode/easter-egg route chain or artifact policy changes role.
 9. [unicode.php](unicode.php) stops redirecting to [public/unicode-easteregg.php](public/unicode-easteregg.php).
+10. Supported environment path normalization rules change for masthead/nav/environment displays.
+11. `config.json` off-site link entry shape changes or click counting stops persisting.
 
 ## Implementation Guidance
 
@@ -147,3 +165,5 @@ Outside an active session, no autonomous ongoing responsibility exists. Future u
 - User-approved decommission actions executed for obsolete artifacts, including removal of [public/template.picnic.php](public/template.picnic.php) and root static [easter-egg_unicode.html](easter-egg_unicode.html).
 - Root template redirect updated: [template.php](template.php) now routes to [public/template-editable.php](public/template-editable.php).
 - Iframe recursion guard added: nav click handling now prevents loading index.php into the iframe shell by rerouting that click target to /public/default.php; Go Home in the default page now targets the top window.
+- Common hosting path normalization added so masthead SVG, top nav root label, and environment path display show project identity rather than raw prefixes like `wwwroot` or `public_html`.
+- Off-site links gained persisted Open Graph preview metadata support plus stored click-count updates through the config-backed link tracking flow.

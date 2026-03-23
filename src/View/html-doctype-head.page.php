@@ -1,10 +1,12 @@
 <?php
 namespace Adb\View;
+require_once dirname(__DIR__) . '/Model/PathNormalizer.php';
 
 use Adb\Model\Adbsoc as Adbsoc;
 use Adb\Model\Htmldochead as Htmldochead;
 use Adb\Model\Iframe as Iframe;
 use Adb\Model\Localsites as Localsites;
+use Adb\Model\PathNormalizer;
 
 if (!isset($pathOps)) {
     $pathOps = dirname(dirname(__DIR__));
@@ -26,7 +28,7 @@ $css = "assets/css/style.css";
 $config = $Adbsoc->getConfig();
 $json_urls = $config["home_urls"]; // Assuming $config contains the parsed JSON data
 $build_local_urls = $Localsites->getSites($json_urls); // Call the function and output the result
-$title = str_ireplace("/home/admin/web", "", $pathOps);
+$title = PathNormalizer::normalizeDisplayPath($pathOps);
 
  
 ?>

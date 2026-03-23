@@ -6,10 +6,13 @@
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <style>
     body { font-family: Arial, sans-serif; margin: 2em; background: #f0f0f0; }
-    table { border-collapse: collapse; width: 100%; max-width: 700px; margin-bottom: 1em;}
+    table { border-collapse: collapse; width: 100%; max-width: 1400px; margin-bottom: 1em;}
     th, td { padding: 8px 12px; border: 1px solid #ccc; }
     input[type=text], input[type=number] { width: 100%; padding: 6px; box-sizing: border-box; }
     button { padding: 6px 12px; margin-top: 10px; cursor: pointer; }
+    img.preview-thumb { width: 120px; aspect-ratio: 1.91 / 1; object-fit: cover; background: #ddd; border-radius: 6px; display: block; margin-bottom: 6px; }
+    .stack-actions { display: flex; flex-direction: column; gap: 8px; }
+    .muted { color: #666; font-size: 12px; }
   </style>
 </head>
 <body>
@@ -22,6 +25,7 @@
       <tr>
         <th>URL</th>
         <th>Name</th>
+        <th>Preview</th>
         <th>Visit Count</th>
                 <th>Data</th>
         <th>Actions</th>
@@ -31,9 +35,20 @@
       <tr v-for="(item, index) in home_urls" :key="index">
         <td><input type="text" v-model="item.url" /></td>
         <td><input type="text" v-model="item.name" /></td>
+        <td>
+          <img v-if="item.og_image" :src="item.og_image" :alt="item.og_title || item.name || item.url" class="preview-thumb" />
+          <input type="text" v-model="item.og_title" placeholder="OG title" />
+          <input type="text" v-model="item.og_image" placeholder="OG image URL" />
+        </td>
         <td><input type="number" min="0" v-model.number="item.count" /></td>
                 <td><input type="text" v-model="item.data" /></td>
-        <td><button @click="removeItem(index)">Remove</button></td>
+        <td>
+          <div class="stack-actions">
+            <button @click="fetchPreview(index)" :disabled="previewing[index]">{{ previewing[index] ? 'Loading...' : 'Fetch OGP' }}</button>
+            <button @click="removeItem(index)">Remove</button>
+            <span v-if="item.og_site_name || item.og_description" class="muted">{{ item.og_site_name || item.og_description }}</span>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -41,6 +56,7 @@
   <p v-else>No URLs found. Add one below!</p>
 
   <button @click="addItem">Add New URL</button>
+  <button @click="fetchAllMissing" :disabled="bulkPreviewing">{{ bulkPreviewing ? 'Fetching previews...' : 'Fetch Missing Previews' }}</button>
   <button @click="saveConfig" :disabled="saving">{{ saving ? 'Saving...' : 'Save Changes' }}</button>
 
   <p v-if="message" :style="{color: messageColor}">{{ message }}</p>
@@ -53,6 +69,8 @@ createApp({
   data() {
     return {
       home_urls: [],
+      previewing: {},
+      bulkPreviewing: false,
       saving: false,
       message: '',
       messageColor: 'green'
@@ -64,17 +82,80 @@ createApp({
         const res = await fetch('api_config.php');
         if (!res.ok) throw new Error('Failed to load config');
         const data = await res.json();
-        this.home_urls = data.home_urls || [];
+        this.home_urls = (data.home_urls || []).map((item) => ({
+          url: item.url || '',
+          name: item.name || '',
+          data: item.data || '',
+          count: Number(item.count || 0),
+          og_title: item.og_title || '',
+          og_image: item.og_image || '',
+          og_description: item.og_description || '',
+          og_site_name: item.og_site_name || ''
+        }));
       } catch (e) {
         this.message = e.message;
         this.messageColor = 'red';
       }
     },
     addItem() {
-      this.home_urls.push({ url: '', name: '', data: 'visited:', count: 0 });
+      this.home_urls.push({ url: '', name: '', data: 'visited:', count: 0, og_title: '', og_image: '', og_description: '', og_site_name: '' });
     },
     removeItem(index) {
       this.home_urls.splice(index, 1);
+    },
+    async fetchPreview(index) {
+      const item = this.home_urls[index];
+      if (!item || !item.url) {
+        this.message = 'Add a URL before fetching preview metadata.';
+        this.messageColor = 'red';
+        return;
+      }
+
+      this.previewing = { ...this.previewing, [index]: true };
+      this.message = '';
+
+      try {
+        const res = await fetch(`api_link_preview.php?url=${encodeURIComponent(item.url)}`);
+        const json = await res.json();
+        if (!res.ok || json.error) {
+          throw new Error(json.error || 'Failed to fetch preview');
+        }
+
+        item.og_title = json.og_title || item.og_title || '';
+        item.og_image = json.og_image || item.og_image || '';
+        item.og_description = json.og_description || '';
+        item.og_site_name = json.og_site_name || '';
+        if (!item.name && item.og_title) {
+          item.name = item.og_title;
+        }
+        this.message = 'Preview metadata loaded. Save changes to keep it.';
+        this.messageColor = 'green';
+      } catch (e) {
+        this.message = e.message;
+        this.messageColor = 'red';
+      } finally {
+        this.previewing = { ...this.previewing, [index]: false };
+      }
+    },
+    async fetchAllMissing() {
+      this.bulkPreviewing = true;
+      this.message = '';
+
+      try {
+        for (let index = 0; index < this.home_urls.length; index += 1) {
+          const item = this.home_urls[index];
+          if (!item.url || (item.og_title && item.og_image)) {
+            continue;
+          }
+          await this.fetchPreview(index);
+        }
+        if (!this.message) {
+          this.message = 'Fetched available preview metadata for missing entries.';
+          this.messageColor = 'green';
+        }
+      } finally {
+        this.bulkPreviewing = false;
+      }
     },
     async saveConfig() {
       this.saving = true;

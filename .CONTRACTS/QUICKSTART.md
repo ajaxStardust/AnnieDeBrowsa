@@ -35,8 +35,13 @@ Read in order:
 | Main transform page | [src/View/Main.page.php](src/View/Main.page.php) | Active Tool A layout + Vue output |
 | Iframe nav click behavior | [public/assets/js/addlistener.js](public/assets/js/addlistener.js) | Guards against loading index.php into main iframe; remaps to /public/default.php |
 | Browser header layout | [src/View/html-header.page.php](src/View/html-header.page.php) | Active nav/header styling |
-| Navigation generation | [src/Model/Dirhandler.php](src/Model/Dirhandler.php), [src/Model/Navfactor.php](src/Model/Navfactor.php) | Dot files now hidden in Dirhandler |
+| Navigation generation | [src/Model/Dirhandler.php](src/Model/Dirhandler.php), [src/Model/Navfactor.php](src/Model/Navfactor.php), [src/Model/PathNormalizer.php](src/Model/PathNormalizer.php) | Dot files hidden; top-level label normalized for common hosting paths |
+| Masthead SVG title | [public/assets/css/masthead.php](public/assets/css/masthead.php), [src/Model/PathNormalizer.php](src/Model/PathNormalizer.php) | Uses normalized project/domain name instead of raw install directory prefixes |
+| Environment summary display | [src/View/Main.page.php](src/View/Main.page.php), [src/Model/PathNormalizer.php](src/Model/PathNormalizer.php) | Location and base path are shown in normalized project-relative form |
 | Main style surface | [public/assets/css/tachyons-extended.css](public/assets/css/tachyons-extended.css) | Active nav/header overrides appended here |
+| Off-site link rendering | [src/Model/Localsites.php](src/Model/Localsites.php) | Renders config-backed cards, preview imagery, and visit counts |
+| Off-site link preview fetch | [src/Model/OpenGraphPreview.php](src/Model/OpenGraphPreview.php), [public/api_link_preview.php](public/api_link_preview.php) | Pulls OGP/title/image metadata for editor enrichment |
+| Off-site click counting | [src/Model/Jsonconfigmanager.php](src/Model/Jsonconfigmanager.php), [public/api_link_click.php](public/api_link_click.php) | Persists `count` updates back into config.json |
 | Editable template bootstrap | [public/template-editable.php](public/template-editable.php) | Preferred template entrypoint |
 | Editable template doctype | [public/doctype/doctype-tachyons.php](public/doctype/doctype-tachyons.php) | Uses dynamic title variable |
 | Editable template content | [public/template/editable-html.php](public/template/editable-html.php) | User-editable boilerplate chunk |
@@ -56,12 +61,24 @@ Read in order:
 - transform form works
 - header composition still balanced
 - Go Home link escapes iframe context (target top window)
+- masthead title shows project/domain name rather than `wwwroot` or `public_html`
+- environment Location and Base Path show normalized project-relative paths
 
-3. Open /public/template-editable.php and verify:
+3. Open the off-site links details panel and verify:
+- cards render title, optional preview image, and current visit count
+- clicking a link opens it in a new tab and increments the visible visit count immediately
+- refreshing after a click shows the updated persisted count from `config.json`
+
+4. Open /public/config_editor.html and verify:
+- Fetch OGP populates preview title/image fields for a row
+- Fetch Missing Previews fills empty preview metadata where available
+- Save Changes persists added preview metadata and updated counts cleanly
+
+5. Open /public/template-editable.php and verify:
 - page title comes from $title in bootstrap
 - h1 uses $page_heading from editable content include
 
-4. Open /public/unicode-easteregg.php and verify:
+6. Open /public/unicode-easteregg.php and verify:
 - Unicode dashboard loads
 - historical carousel appears
 

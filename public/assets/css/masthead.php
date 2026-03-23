@@ -8,11 +8,14 @@ if (!defined('MASTHEAD_ROOT')) {
 }
 
 require '../../../src/Model/Urlprocessor.php';
+require '../../../src/Model/PathNormalizer.php';
+use Adb\Model\PathNormalizer;
+
 $svgPathChopper = new urlChopper($_SERVER['PHP_SELF']);
 
 // === Dynamic text: the segment 4 levels up from this file IS the install root ===
 // {install-root}/public/assets/css/masthead.php → dirname(__FILE__, 4) = install root
-$tspan = basename(dirname(__FILE__, 4));
+$tspan = PathNormalizer::extractProjectName(dirname(__FILE__, 4));
 
 // Final fallback
 if (empty($tspan) || $tspan === '.') {
