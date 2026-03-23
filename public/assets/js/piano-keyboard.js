@@ -70,8 +70,11 @@ export class PianoKeyboard extends HTMLElement {
 
     svgParts.push(`</svg>`);
 
+    const qualitySuffix = this.context && this.context.quality ? ` (${this.context.quality})` : "";
     const ctxLabel = this.context
-      ? `<div>Key of ${this.context.tonic} – ${this.context.type} degree ${this.context.degree}</div>`
+      ? this.context.type === "chord"
+        ? `<div>Key of ${this.context.tonic}, Triad degree ${this.context.degree} (${this.context.modeName || ""})${qualitySuffix}</div>`
+        : `<div>Key of ${this.context.tonic}, Mode: ${this.context.modeName || this.context.degree}${qualitySuffix}</div>`
       : "";
 
     this.shadowRoot.innerHTML = `

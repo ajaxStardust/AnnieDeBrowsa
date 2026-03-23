@@ -1,0 +1,207 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Interactive Guitar Fretboard — Frets Numbered</title>
+<style>
+body { font-family:sans-serif; padding:20px; background:#f9f9f9; }
+#controller { margin-bottom:16px; }
+#note-panel { line-height:1.5; font-weight:bold; margin-top:12px; }
+label { margin-right:10px; }
+guitar-fretboard { border:1px solid #ccc; display:block; margin-top:20px; }
+</style>
+</head>
+<body>
+
+<h2>Interactive Guitar Fretboard (SVG) — Frets Numbered</h2>
+
+<div id="controller">
+  <label><input type="radio" name="mode" value="scale" checked> Scale</label>
+  <label><input type="radio" name="mode" value="chord"> Chord</label>
+  <br><br>
+
+  <div id="tonic-radios"></div>
+  <br>
+
+  <label for="scale-select">Mode / Scale:</label>
+  <select id="scale-select"></select>
+
+  <label for="chord-select">Chord Type:</label>
+  <select id="chord-select"></select>
+</div>
+
+<div id="note-panel"></div>
+
+<guitar-fretboard frets="12"></guitar-fretboard>
+
+<script type="module">
+const NOTES = ['C','C♯','D','D♯','E','F','F♯','G','G♯','A','A♯','B'];
+const PARENT_SCALE = ['G','A','B','C','D','E','F♯'];
+const MODES = {
+  Ionian:[0,2,4,5,7,9,11],
+  Dorian:[0,2,3,5,7,9,10],
+  Phrygian:[0,1,3,5,7,8,10],
+  Lydian:[0,2,4,6,7,9,11],
+  Mixolydian:[0,2,4,5,7,9,10],
+  Aeolian:[0,2,3,5,7,8,10],
+  Locrian:[0,1,3,5,6,8,10]
+};
+const DIATONIC_CHORDS = {
+  'G':['Major','Maj7'],'A':['Minor','m7'],'B':['Minor','m7'],
+  'C':['Major','Maj7'],'D':['Dominant7'],'E':['Minor','m7'],'F♯':[]
+};
+const CHORD_INTERVALS = {
+  'Major':[0,4,7],'Maj7':[0,4,7,11],
+  'Minor':[0,3,7],'m7':[0,3,7,10],
+  'Dominant7':[0,4,7,10]
+};
+
+// --- Build tonic radios ---
+const tonicRadiosDiv = document.getElementById('tonic-radios');
+let selectedTonic = PARENT_SCALE[0];
+PARENT_SCALE.forEach((note, idx)=>{
+  const label=document.createElement('label');
+  const radio=document.createElement('input');
+  radio.type='radio'; radio.name='tonic'; radio.value=note;
+  if(idx===0) radio.checked=true;
+  label.appendChild(radio);
+  label.appendChild(document.createTextNode(note));
+  tonicRadiosDiv.appendChild(label);
+});
+document.querySelectorAll('input[name="tonic"]').forEach(r=>{
+  r.addEventListener('change', ()=>{
+    selectedTonic = r.value;
+    updateChordDropdown();
+    updateHighlights();
+  });
+});
+
+// --- Populate scale dropdown ---
+const scaleSelect=document.getElementById('scale-select');
+Object.keys(MODES).forEach(mode=>{
+  const opt=document.createElement('option'); opt.value=mode; opt.textContent=mode;
+  scaleSelect.appendChild(opt);
+});
+
+// --- Populate chord dropdown ---
+const chordSelect=document.getElementById('chord-select');
+function updateChordDropdown(){
+  chordSelect.innerHTML='';
+  DIATONIC_CHORDS[selectedTonic].forEach(type=>{
+    const opt=document.createElement('option');
+    opt.value=`${selectedTonic}-${type}`;
+    opt.textContent=type;
+    chordSelect.appendChild(opt);
+  });
+}
+
+// --- GuitarFretboard custom element ---
+class GuitarFretboard extends HTMLElement{
+  constructor(){
+    super();
+    this.attachShadow({mode:'open'});
+    this.strings=['E','B','G','D','A','E'].reverse();
+    this.frets=parseInt(this.getAttribute('frets'))||12;
+    this.svgNS="http://www.w3.org/2000/svg";
+    this.render();
+  }
+
+  render(){
+    const svg=document.createElementNS(this.svgNS,'svg');
+    svg.setAttribute('width','520'); svg.setAttribute('height','180');
+    const fretGap=40; const stringGap=24;
+
+    // --- fret numbers ---
+    const numberedFrets=[0,3,5,7,9,12];
+    numberedFrets.forEach(f=>{
+      const text=document.createElementNS(this.svgNS,'text');
+      text.setAttribute('x',f*fretGap+fretGap/2);
+      text.setAttribute('y',12);
+      text.setAttribute('text-anchor','middle');
+      text.setAttribute('font-size','12');
+      text.setAttribute('fill','#000');
+      text.textContent=f;
+      svg.appendChild(text);
+    });
+
+    // --- strings & circles ---
+    for(let s=0;s<this.strings.length;s++){
+      const y=30+s*stringGap;
+      const line=document.createElementNS(this.svgNS,'line');
+      line.setAttribute('x1',0); line.setAttribute('y1',y);
+      line.setAttribute('x2',this.frets*fretGap); line.setAttribute('y2',y);
+      line.setAttribute('stroke','#000'); line.setAttribute('stroke-width',1.5);
+      svg.appendChild(line);
+
+      let openNoteIndex=NOTES.indexOf(this.strings[s]);
+      for(let f=0;f<this.frets;f++){
+        const note=NOTES[(openNoteIndex+f)%12];
+        const circle=document.createElementNS(this.svgNS,'circle');
+        circle.setAttribute('cx',f*fretGap+fretGap/2); circle.setAttribute('cy',y);
+        circle.setAttribute('r',10);
+        circle.setAttribute('fill','white');
+        circle.setAttribute('stroke','#000'); circle.dataset.note=note;
+        svg.appendChild(circle);
+      }
+    }
+
+    this.shadowRoot.innerHTML='';
+    this.shadowRoot.appendChild(svg);
+  }
+
+  updateHighlights(allowedNotes){
+    const svg=this.shadowRoot.querySelector('svg');
+    svg.querySelectorAll('circle').forEach((c)=>{
+      if(allowedNotes.includes(c.dataset.note)){
+        c.setAttribute('fill','gold');
+      } else {
+        c.setAttribute('fill','white');
+      }
+    });
+  }
+}
+
+customElements.define('guitar-fretboard',GuitarFretboard);
+
+const gf=document.querySelector('guitar-fretboard');
+
+// --- Compute allowed notes ---
+function computeAllowedNotes(){
+  const mode = document.querySelector('input[name="mode"]:checked').value;
+  const tonicIndex = NOTES.indexOf(selectedTonic);
+  if(mode==='scale'){
+    return MODES[scaleSelect.value].map(off=>NOTES[(tonicIndex+off)%12]);
+  } else {
+    const chordKey = chordSelect.value;
+    if(!chordKey) return [];
+    const [tonic,type] = chordKey.split('-');
+    return CHORD_INTERVALS[type].map(off=>NOTES[(tonicIndex+off)%12]);
+  }
+}
+
+// --- Update function ---
+function updateHighlights(){
+  const allowedNotes=computeAllowedNotes();
+  gf.updateHighlights(allowedNotes);
+  document.getElementById('note-panel').innerHTML=allowedNotes.join('<br>');
+}
+
+// --- Event listeners ---
+document.querySelectorAll('input[name="mode"]').forEach(r=>{
+  r.addEventListener('change',()=>{
+    const mode=r.value;
+    scaleSelect.disabled=mode==='chord';
+    chordSelect.disabled=mode==='scale';
+    updateHighlights();
+  });
+});
+scaleSelect.addEventListener('change',updateHighlights);
+chordSelect.addEventListener('change',updateHighlights);
+
+// --- Initialize ---
+updateChordDropdown();
+scaleSelect.value='Ionian';
+updateHighlights();
+
+</script>
+</body>
+</html>

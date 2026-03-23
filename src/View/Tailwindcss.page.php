@@ -74,7 +74,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
     <meta property="og:type" content="website">
     <meta property="og:title" content="Transformative.Click">
     <meta property="og:description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
-    <meta property="og:image" content="https://transformative.click/plaidicon.png">
+    <meta property="og:image" content="https://transformative.click/favicon.png">
     <meta property="og:image:width" content="680">
     <meta property="og:image:height" content="680">
 
@@ -84,7 +84,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
     <meta property="twitter:url" content="https://transformative.click">
     <meta name="twitter:title" content="Transformative.Click">
     <meta name="twitter:description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
-    <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
+    <meta name="twitter:image" content="https://transformative.click/favicon.png">
 
     <!-- Meta Tags Generated via https://opengraph.dev -->
     <link href="assets/css/lightslider.css" rel="stylesheet">

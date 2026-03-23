@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Subdir index</title>
+</head>
+<body>
+<h1>It works!</h1>
+<p>Relax server directory permissions to allow viewing all contents. E.g. without an index.html</p>
+</body>
+
+</html>

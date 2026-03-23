@@ -29,7 +29,8 @@ class Dirhandler
         $openDir = opendir($this->dirPath);
 
         while ($file = readdir($openDir)) {
-            if ($file !== '..' && $file !== '.') {
+            // Hide dotfiles and dot-directories from nav output.
+            if ($file !== '..' && $file !== '.' && strpos($file, '.') !== 0) {
                 $directoryContents[] = $file;
             }
         }

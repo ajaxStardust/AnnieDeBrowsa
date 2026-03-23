@@ -18,8 +18,9 @@
 //
 //    • Width and fret count MUST align with <guitar-fretboard>
 //      so markers line up under the same fret numbers.
-//    • frets attribute (default 15) controls how many frets to
-//      span, exactly like guitar-fretboard.js.
+//    • Use the SAME segment layout as guitar-fretboard: numSegments = frets + 1
+//      (open + frets), fretWidth = width / numSegments, center of fret f at
+//      (f + 0.5) * fretWidth. Do NOT use width/frets or markers will misalign.
 //    • Background MUST remain transparent.
 //
 //  DO NOT:
@@ -47,11 +48,11 @@ export class GuitarFretMarkers extends HTMLElement {
     const frets = Number.isFinite(fretsAttr) && fretsAttr > 0 ? fretsAttr : DEFAULT_FRETS;
 
     // LLM NOTE:
-    // Width and height are chosen to mirror the fretboard's horizontal
-    // geometry while staying shorter vertically (a slim marker strip).
+    // Match fretboard geometry exactly: nut one segment in, so numSegments = frets + 1.
     const width = 1000;
     const height = 60;
-    const fretWidth = width / frets;
+    const numSegments = frets + 1;
+    const fretWidth = width / numSegments;
 
     const svgParts = [];
     svgParts.push(`<svg viewBox="0 0 ${width} ${height}" width="100%" height="100%">`);
@@ -62,7 +63,7 @@ export class GuitarFretMarkers extends HTMLElement {
 
     MARKER_FRETS.forEach(fretNum => {
       if (fretNum < 0 || fretNum > frets) return;
-      const xCenter = fretNum * fretWidth + fretWidth / 2;
+      const xCenter = (fretNum + 0.5) * fretWidth;
 
       if (fretNum === 12) {
         const offset = height * 0.18;

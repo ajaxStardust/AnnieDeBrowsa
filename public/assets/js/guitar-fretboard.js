@@ -49,6 +49,25 @@ const STRING_OPEN_SEMITONES = [4, 9, 2, 7, 11, 4]; // E A D G B E
 // LLM NOTE: This is the visual fret range. You can change it via attribute if needed.
 const DEFAULT_FRETS = 15;
 
+// LLM NOTE (PEDAGOGY / POSITION):
+// "Position" = the fret window where the student's eyes should focus for this degree
+// (e.g. G Ionian in "the box" = frets 2–5). We use rsync-style include logic:
+// we draw ALL dots that are in the mode/triad; we then INCLUDE (for focus styling)
+// only those dots that also lie inside the position window. So: full set first,
+// then a subset gets the focus hue — we never exclude dots from being drawn.
+const POSITION_FRET_SPAN = 4;
+
+function getPositionFretRange(degree, frets) {
+  const deg = Number(degree) || 1;
+  const minFret = Math.max(0, 2 + (deg - 1) * 2);
+  const maxFret = Math.min(frets, minFret + POSITION_FRET_SPAN - 1);
+  return { minFret, maxFret };
+}
+
+// Idle in-scale dots (outside position): normal yellow. Inside position: focus (brighter).
+const FILL_OUTSIDE_POSITION = "#ffbb33";
+const FILL_INSIDE_POSITION = "#ffdd66";
+
 export class GuitarFretboard extends HTMLElement {
   constructor() {
     super();
@@ -120,7 +139,10 @@ export class GuitarFretboard extends HTMLElement {
 
     const width = 1000;
     const height = 260;
-    const fretWidth = width / frets;
+    // Cosmetic: nut is drawn one fret-width in, so the board starts at 0 and the nut
+    // doesn't imply a "-1" fret (open is segment 0, nut is its right edge).
+    const numSegments = frets + 1; // open + frets 1..N
+    const fretWidth = width / numSegments;
     const stringHeight = height / (STRING_OPEN_SEMITONES.length + 1);
     const stringCount = STRING_OPEN_SEMITONES.length;
 
@@ -130,15 +152,25 @@ export class GuitarFretboard extends HTMLElement {
     // Therefore: string index 0 (low E) is drawn at the BOTTOM, not the top.
     const yForStringIndex = (sIdx) => (stringCount - sIdx) * stringHeight;
 
+    // Vertical extent of the imaginary maple: frets run only between top and bottom string.
+    const yMapleTop = yForStringIndex(stringCount - 1);
+    const yMapleBottom = yForStringIndex(0);
+
+    // Position window for "include" focus: only dots inside this fret range get focus fill.
+    const degree = this.context && this.context.degree != null ? this.context.degree : 1;
+    const { minFret, maxFret } = getPositionFretRange(degree, frets);
+
     const svgParts = [];
     svgParts.push(`<svg viewBox="0 0 ${width} ${height}" width="100%" height="100%">`);
 
-    // Frets
+    // Frets: nut at first segment boundary (one fret over), then fret 1..N.
+    // Frets do not extend beyond the maple (string band); they stay between top and bottom string.
     for (let f = 0; f <= frets; f++) {
-      const x = f * fretWidth;
+      const x = (f + 1) * fretWidth;
       const strokeWidth = f === 0 ? 4 : 1;
+      const stroke = f === 0 ? "#e8e0d5" : "#999";
       svgParts.push(
-        `<line x1="${x}" y1="0" x2="${x}" y2="${height}" stroke="#999" stroke-width="${strokeWidth}"/>`
+        `<line x1="${x}" y1="${yMapleTop}" x2="${x}" y2="${yMapleBottom}" stroke="${stroke}" stroke-width="${strokeWidth}"/>`
       );
     }
 
@@ -156,19 +188,23 @@ export class GuitarFretboard extends HTMLElement {
     // discover note identities by cross‑referencing the piano + table. We
     // still encode the note name as data-note for click handling, but keep
     // the visual dots anonymous.
+    // LLM NOTE (rsync-style include): All allowed dots are drawn. We INCLUDE
+    // for focus styling only those dots whose fret index lies in [minFret, maxFret].
     STRING_OPEN_SEMITONES.forEach((openSemi, sIdx) => {
       const y = yForStringIndex(sIdx);
       for (let f = 0; f <= frets; f++) {
-        const x = f * fretWidth + fretWidth / 2;
+        const x = (f + 0.5) * fretWidth;
         const sem = (openSemi + f) % 12;
 
         if (allowed.has(sem)) {
           const note = NOTE_NAMES[sem];
           const r = stringHeight * 0.3;
+          const inPosition = f >= minFret && f <= maxFret;
+          const fill = inPosition ? FILL_INSIDE_POSITION : FILL_OUTSIDE_POSITION;
 
           svgParts.push(`
                         <g data-note="${note}">
-                            <circle cx="${x}" cy="${y}" r="${r}" fill="#ffbb33" stroke="#333"/>
+                            <circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="#333"/>
                         </g>
                     `);
         }
@@ -183,7 +219,7 @@ export class GuitarFretboard extends HTMLElement {
       STRING_OPEN_SEMITONES.forEach((openSemi, sIdx) => {
         const y = yForStringIndex(sIdx);
         for (let f = 0; f <= frets; f++) {
-          const x = f * fretWidth + fretWidth / 2;
+          const x = (f + 0.5) * fretWidth;
           const sem = (openSemi + f) % 12;
           if (sem !== flashSemi) continue;
 
@@ -197,8 +233,11 @@ export class GuitarFretboard extends HTMLElement {
 
     svgParts.push(`</svg>`);
 
+    const qualitySuffix = this.context && this.context.quality ? ` (${this.context.quality})` : "";
     const ctxLabel = this.context
-      ? `<div class="ctx">Key of ${this.context.tonic} – ${this.context.type} degree ${this.context.degree}</div>`
+      ? this.context.type === "chord"
+        ? `<div class="ctx">Key of ${this.context.tonic}, Triad degree ${this.context.degree} (${this.context.modeName || ""})${qualitySuffix}</div>`
+        : `<div class="ctx">Key of ${this.context.tonic}, Mode: ${this.context.modeName || this.context.degree}${qualitySuffix}</div>`
       : `<div class="ctx">No context</div>`;
 
     this.shadowRoot.innerHTML = `
@@ -218,7 +257,7 @@ export class GuitarFretboard extends HTMLElement {
                     font-family: system-ui, sans-serif;
                 }
                 .ctx {
-                    color: #ddd;
+                    color: #222;
                     font-family: system-ui, sans-serif;
                     margin-bottom: 0.5rem;
                     font-size: 0.9rem;

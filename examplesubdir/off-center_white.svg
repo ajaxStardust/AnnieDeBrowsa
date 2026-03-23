@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="180mm"
+   height="180mm"
+   viewBox="0 0 180 180"
+   version="1.1"
+   id="svg833"
+   inkscape:version="1.4.3 (0d15f75042, 2025-12-25)"
+   sodipodi:docname="off-center_white.svg"
+   inkscape:export-filename="/home/jaruda/Pictures/favicon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview835"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.64052329"
+     inkscape:cx="224.03557"
+     inkscape:cy="561.25984"
+     inkscape:window-width="1920"
+     inkscape:window-height="1130"
+     inkscape:window-x="0"
+     inkscape:window-y="34"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     inkscape:showpageshadow="2"
+     inkscape:deskcolor="#d1d1d1" />
+  <defs
+     id="defs830">
+    <pattern
+       inkscape:collect="always"
+       xlink:href="#Gingham"
+       preserveAspectRatio="xMidYMid"
+       id="pattern2"
+       patternTransform="scale(0.5)"
+       x="0"
+       y="0" />
+    <pattern
+       patternUnits="userSpaceOnUse"
+       width="100"
+       height="100"
+       id="Gingham"
+       preserveAspectRatio="xMidYMid"
+       patternTransform="scale(0.5,0.5)"
+       style="fill:#005c8c"
+       inkscape:collect="always"
+       inkscape:isstock="true"
+       inkscape:label="Gingham">
+      <rect
+         style="fill-opacity:0.5;stroke:none"
+         id="rect3"
+         width="50"
+         height="50"
+         x="50"
+         y="0" />
+      <rect
+         style="stroke:none"
+         id="rect4"
+         width="50"
+         height="50"
+         x="50"
+         y="50" />
+      <rect
+         style="fill-opacity:0.5;stroke:none"
+         id="rect5"
+         width="50"
+         height="50"
+         x="0"
+         y="50" />
+    </pattern>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath52">
+      <path
+         id="path52"
+         style="stroke-width:0.1;stroke-linecap:square;paint-order:markers fill stroke;stop-color:#000000"
+         d="m -880.82767,-187.29769 h 1640.84 v 73.28155 h -1640.84 z" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#eef1dc;stroke:#feffa7;stroke-width:2.52817;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:0.501961;paint-order:fill markers stroke;fill-opacity:1"
+       id="path2"
+       cx="90"
+       cy="90"
+       r="87.735916" />
+    <g
+       id="g1"
+       transform="translate(-10,-9.9999995)"
+       style="fill:url(#pattern2);stroke:#000000;stroke-opacity:1;stroke-width:0.26458333;stroke-dasharray:none">
+      <path
+         id="path1122"
+         style="fill:url(#pattern2);stroke:#000000;stroke-width:0.26458333;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         d="M 100.00026,10.504169 A 89.495687,89.495682 0 0 0 10.504431,100 89.495687,89.495682 0 0 0 100.00026,189.49583 89.495687,89.495682 0 0 0 189.49557,100 89.495687,89.495682 0 0 0 100.00026,10.504169 Z m 0,20.384802 A 69.111251,69.111251 0 0 1 169.11128,100 69.111251,69.111251 0 0 1 100.00026,169.11103 69.111251,69.111251 0 0 1 30.888717,100 69.111251,69.111251 0 0 1 100.00026,30.888971 Z"
+         inkscape:export-filename="C:\Users\jsaba\OneDrive\Pictures\Creative_Imaging\InkScape\off-center.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <circle
+         style="fill:url(#pattern2);stroke:#000000;stroke-width:0.26458333;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="path1399"
+         cx="124.6427"
+         cy="89.828423"
+         r="18.295843"
+         inkscape:export-filename="C:\Users\jsaba\OneDrive\Pictures\Creative_Imaging\InkScape\off-center.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+    <g
+       id="g2"
+       transform="translate(-10,-9.9999995)"
+       style="fill:url(#pattern2);stroke:#000000;stroke-opacity:1;stroke-width:0.26458333;stroke-dasharray:none">
+      <path
+         id="path1"
+         style="fill:url(#pattern2);stroke:#000000;stroke-width:0.26458333;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         d="M 100.00026,10.504169 A 89.495687,89.495682 0 0 0 10.504431,100 89.495687,89.495682 0 0 0 100.00026,189.49583 89.495687,89.495682 0 0 0 189.49557,100 89.495687,89.495682 0 0 0 100.00026,10.504169 Z m 0,20.384802 A 69.111251,69.111251 0 0 1 169.11128,100 69.111251,69.111251 0 0 1 100.00026,169.11103 69.111251,69.111251 0 0 1 30.888717,100 69.111251,69.111251 0 0 1 100.00026,30.888971 Z"
+         inkscape:export-filename="C:\Users\jsaba\OneDrive\Pictures\Creative_Imaging\InkScape\off-center.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+      <circle
+         style="fill:url(#pattern2);stroke:#000000;stroke-width:0.26458333;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;stroke-dasharray:none"
+         id="circle1"
+         cx="124.6427"
+         cy="89.828423"
+         r="18.295843"
+         inkscape:export-filename="C:\Users\jsaba\OneDrive\Pictures\Creative_Imaging\InkScape\off-center.png"
+         inkscape:export-xdpi="96"
+         inkscape:export-ydpi="96" />
+    </g>
+  </g>
+</svg>

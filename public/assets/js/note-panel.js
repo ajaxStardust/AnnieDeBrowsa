@@ -38,10 +38,11 @@ export class NotePanel extends HTMLElement {
               </tr>`;
     }).join("");
 
+    const qualitySuffix = this.context && this.context.quality ? ` (${this.context.quality})` : "";
     const ctxLabel = this.context
       ? this.context.type === "chord"
-        ? `Tonic ${this.context.tonic} – triad built on degree ${this.context.degree}`
-        : `Tonic ${this.context.tonic} – 7‑note pattern on degree ${this.context.degree}`
+        ? `Key of ${this.context.tonic}, Triad degree ${this.context.degree} (${this.context.modeName || ""})${qualitySuffix}`
+        : `Key of ${this.context.tonic}, Mode: ${this.context.modeName || this.context.degree}${qualitySuffix}`
       : "No context";
 
     this.shadowRoot.innerHTML = `

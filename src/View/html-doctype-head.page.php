@@ -66,7 +66,7 @@ $title = str_ireplace("/home/admin/web", "", $pathOps);
     <meta property="og:type" content="website">
     <meta property="og:title" content="Transformative.Click">
     <meta property="og:description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
-    <meta property="og:image" content="https://transformative.click/plaidicon.png">
+    <meta property="og:image" content="https://transformative.click/favicon.png">
     <meta property="og:image:width" content="680">
     <meta property="og:image:height" content="680">
 
@@ -76,7 +76,7 @@ $title = str_ireplace("/home/admin/web", "", $pathOps);
     <meta property="twitter:url" content="https://transformative.click">
     <meta name="twitter:title" content="Transformative.Click">
     <meta name="twitter:description" content="Single Page Application (SPA) browser for developers with FireBug Lite built-in GitHub://ajaxstardust/AnnieDeBrowsa">
-    <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
+    <meta name="twitter:image" content="https://transformative.click/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900%26display=swap" rel="stylesheet">
     <!-- Tailwind CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">

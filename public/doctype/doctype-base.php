@@ -2,6 +2,24 @@
 
 namespace P2u2\Public\Doctype;
 
+/*
+ * CONTRACT: base doctype layout
+ *
+ * ROLE:
+ * - Opening layout shell for public-side composed pages.
+ * - Owns the document prolog, <html>, <head>, and opening <body> tag.
+ *
+ * INVARIANTS:
+ * - Pages that use this file SHOULD NOT open a second <body> tag.
+ * - Closing tags should come from the paired footer include.
+ * - Page-specific variables such as $title and $page_heading may be defined by
+ *   the entrypoint before this file is required.
+ *
+ * DESIGN RULE:
+ * - This file is intentionally Layout-like, similar to a WinterCMS layout or
+ *   an app.blade-style outer shell.
+ */
+
 
 
 date_default_timezone_set('EST');
@@ -27,7 +45,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
             <meta property="og:type" content="website">
             <meta property="og:title" content="Transformative.Click">
             <meta property="og:description" content="Unicode Misc Symbols and Pictographs in Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
-            <meta property="og:image" content="https://transformative.click/plaidicon.png">
+            <meta property="og:image" content="https://transformative.click/favicon.png">
             <meta property="og:image:width" content="680">
             <meta property="og:image:height" content="680">
 
@@ -37,17 +55,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
             <meta property="twitter:url" content="https://transformative.click">
             <meta name="twitter:title" content="Transformative.Click">
             <meta name="twitter:description" content="Unicode Misc Symbols and Pictographs in Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
-            <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
+            <meta name="twitter:image" content="https://transformative.click/favicon.png">
             <link href="public/assets/css/tachyons-extended.css" rel="stylesheet">
             <!-- Meta Tags Generated via https://opengraph.dev -->
-
-    <!-- Picnic CSS CDN -->
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/picnic">
-
-
-
-    <style>
-        /* ================= Demo Styling ================= */
-
-    </style>
 </head>

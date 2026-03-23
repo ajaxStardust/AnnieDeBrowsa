@@ -1,0 +1,168 @@
+/* -------------------------------------------------- */
+/* Guitar Fretboard Trainer Styles                     */
+/* -------------------------------------------------- */
+
+/* Body and Layout */
+body {
+    font-family: sans-serif;
+    background-color: #f5f3ee;
+    margin: 20px;
+    color: #222;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* Controls */
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+#controls div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.switch span {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 24px;
+    transition: 0.4s;
+}
+
+.switch span::before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+input:checked + span::before {
+    transform: translateX(26px);
+}
+
+input:checked + span {
+    background-color: #2196F3;
+}
+
+/* Fretboard Wrapper */
+.fretboard-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+/* String Names (Nut area) */
+.string-names {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: 5px;
+}
+
+.string-names div {
+    height: 24px;
+    line-height: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Guitar Fretboard SVG */
+.guitar-fretboard {
+    background: linear-gradient(to bottom, #deb887, #c08d53); /* maple/rosewood gradient */
+    border: 2px solid #8b5e3c;
+    border-radius: 8px;
+}
+
+/* Frets */
+.guitar-fretboard line {
+    stroke: #4b2e2e; /* dark brown for frets */
+    stroke-width: 2px;
+}
+
+/* Strings */
+.guitar-fretboard line.string {
+    stroke: #000;
+    stroke-width: 1.5px;
+}
+
+/* Fret Markers (dots on frets 3,5,7,9,12) */
+.guitar-fretboard circle.fret-marker {
+    fill: #888;
+}
+
+/* Note Dots */
+.guitar-fretboard circle[data-note] {
+    cursor: pointer;
+    stroke: #333;
+    stroke-width: 1.5px;
+    transition: all 0.3s ease;
+}
+
+/* Flashing / Active Notes */
+.note-flash {
+    animation: flash 0.5s ease-in-out 3;
+}
+
+@keyframes flash {
+    0% { fill: white; }
+    50% { fill: yellow; }
+    100% { fill: blue; }
+}
+
+/* Selected Tonic */
+.note-tonic {
+    fill: yellow !important;
+}
+
+/* Selected Guess */
+.note-guess {
+    fill: blue !important;
+}
+
+/* Keyboard container (if needed) */
+#keyboard {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Radio buttons */
+#tonic-radios label {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#tonic-radios input:disabled + span {
+    opacity: 0.5;
+}

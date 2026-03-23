@@ -1,6 +1,20 @@
 <?php
 
 namespace P2u2\Public;
+
+/*
+ * CONTRACT: Unicode/easter-egg public entrypoint
+ *
+ * ROLE:
+ * - Thin public bootstrap for a self-contained feature page.
+ * - Demonstrates the preferred sandbox composition pattern:
+ *   public/doctype + public/content + public/footer.
+ *
+ * INVARIANTS:
+ * - Keep page-level variables here.
+ * - Keep layout/body/footer implementation in the required fragment files.
+ * - Prefer extending the fragment files instead of growing this bootstrap file.
+ */
 error_reporting(E_ALL);
 define('NS2', __NAMESPACE__);
 define('NS2_ROOT', dirname(__DIR__));

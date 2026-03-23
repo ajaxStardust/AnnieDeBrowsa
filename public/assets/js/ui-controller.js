@@ -27,6 +27,8 @@
 // ─────────────────────────────────────────────────────────────
 //
 
+import { getModeName } from "./music-theory.js";
+
 export function initUIController(onChange) {
 
     // ─────────────────────────────────────────────────────────
@@ -42,7 +44,7 @@ export function initUIController(onChange) {
     }
 
     // ─────────────────────────────────────────────────────────
-    //  Populate degree dropdown (1–7)
+    //  Populate degree dropdown (1–7) with mode names for pedagogy.
     //  LLM NOTE: This MUST run or the dropdown will be empty.
     // ─────────────────────────────────────────────────────────
     function populateDegree() {
@@ -50,7 +52,7 @@ export function initUIController(onChange) {
         for (let d = 1; d <= 7; d++) {
             const opt = document.createElement("option");
             opt.value = String(d);
-            opt.textContent = `Degree ${d}`;
+            opt.textContent = `Degree ${d} – ${getModeName(d)}`;
             degreeSelect.appendChild(opt);
         }
     }

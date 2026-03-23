@@ -50,6 +50,33 @@ const NOTE_NAMES = ["C", "C#", "D", "Eb", "E", "F", "F#", "G", "Ab", "A", "Bb", 
 // LLM NOTE: DO NOT MODIFY THIS TEMPLATE.
 const IONIAN_TEMPLATE = [0, 2, 4, 5, 7, 9, 11];
 
+// LLM NOTE (PEDAGOGY): Degree 1–7 maps to the standard mode names.
+// Used for dropdown labels and context text ("Key of G, Mode: Dorian").
+const DEGREE_TO_MODE_NAME = {
+  1: "Ionian", 2: "Dorian", 3: "Phrygian", 4: "Lydian",
+  5: "Mixolydian", 6: "Aeolian", 7: "Locrian"
+};
+
+export function getModeName(degree) {
+  return DEGREE_TO_MODE_NAME[Number(degree)] ?? `Degree ${degree}`;
+}
+
+// LLM NOTE (PEDAGOGY): Derive triad quality from the actual intervals in the notes.
+// Does NOT hardcode degree→quality; keeps the tonic-relative architecture.
+// Expects an array of at least 3 note objects with .semitones (root, third, fifth).
+export function getTriadQuality(notes) {
+  if (!Array.isArray(notes) || notes.length < 3) return "";
+  const root = notes[0].semitones;
+  const third = notes[1].semitones;
+  const fifth = notes[2].semitones;
+  const thirdInterval = (third - root + 12) % 12;
+  const fifthInterval = (fifth - root + 12) % 12;
+  if (thirdInterval === 3 && fifthInterval === 6) return "Diminished";
+  if (thirdInterval === 4) return "Major";
+  if (thirdInterval === 3) return "Minor";
+  return "";
+}
+
 // LLM NOTE: This mapping MUST remain stable.
 // DO NOT add enharmonic logic. DO NOT remove entries.
 const TONIC_TO_SEMITONE = {

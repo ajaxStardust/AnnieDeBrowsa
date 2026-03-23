@@ -1,0 +1,12 @@
+# WHY.md (Pointer Stub)
+
+Canonical WHY artifact moved to:
+
+- [.CONTRACTS/WHY.md](.CONTRACTS/WHY.md)
+
+Read in order:
+
+1. [.CONTRACTS/CONTRACT.md](.CONTRACTS/CONTRACT.md)
+2. [.CONTRACTS/WHY.md](.CONTRACTS/WHY.md)
+3. [.CONTRACTS/QUICKSTART.md](.CONTRACTS/QUICKSTART.md)
+4. [.CONTRACTS/FUTURE.md](.CONTRACTS/FUTURE.md)

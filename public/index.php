@@ -1,6 +1,12 @@
 <?php
 namespace Adb;
 
+if (isset($_GET['path2url'])) {
+    $qs = $_SERVER['QUERY_STRING'];
+    header('Location: default.php?' . $qs);
+    exit();
+}
+
 define('NS', __NAMESPACE__);
 
 ini_set('display_errors', 1);

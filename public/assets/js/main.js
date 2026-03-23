@@ -26,7 +26,7 @@
 //
 // ─────────────────────────────────────────────────────────────
 
-import { buildModeFromDegree, buildTriadFromDegree } from "./music-theory.js";
+import { buildModeFromDegree, buildTriadFromDegree, getModeName, getTriadQuality } from "./music-theory.js";
 import { initUIController } from "./ui-controller.js";
 import "./guitar-fretboard.js";
 import "./guitar-fret-markers.js";
@@ -40,13 +40,7 @@ function updateAllComponents({ type, degree, tonic }) {
     // Convert to number safely.
     const deg = Number(degree) || 1;
 
-    // LLM NOTE:
-    // This context object is passed to ALL components.
-    // Do NOT rename these keys.
-    const ctx = { type, degree: deg, tonic };
-
     let answerKey;
-
     // LLM NOTE:
     // Type determines SHAPE of output (mode = 7 notes, chord = 3 notes).
     if (type === "chord") {
@@ -54,6 +48,15 @@ function updateAllComponents({ type, degree, tonic }) {
     } else {
         answerKey = buildModeFromDegree(deg, tonic);
     }
+
+    // Triad on this degree (for mode we still have a chord quality on the degree).
+    const triadOnDegree = buildTriadFromDegree(deg, tonic);
+    const quality = getTriadQuality(triadOnDegree);
+
+    // LLM NOTE:
+    // This context object is passed to ALL components.
+    // modeName for labels; quality derived from intervals (Major/Minor/Diminished).
+    const ctx = { type, degree: deg, tonic, modeName: getModeName(deg), quality };
 
     // LLM NOTE:
     // These custom elements MUST exist in the DOM.
