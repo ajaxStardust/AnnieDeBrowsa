@@ -211,49 +211,40 @@ $resultsWithDescriptions = [
 <script src="assets/js/showme-hideme.js"></script>
     <script src="assets/js/dynamicdrop.js"></script>
     <script>
-window.onload = function() {
-    const blockA = document.querySelector('#url_buildByComp').closest('.card');
-    const blockB = document.querySelector('#url_concatThis').closest('.card');
-    const blockC = document.querySelector('#url_concatSwitch').closest('.card');
-
-    setTimeout(() => {
-        blockC.classList.add('bg-highlight');
-    }, 200);
-    setTimeout(() => blockC.classList.remove('bg-highlight'), 300);
-
-    setTimeout(() => blockB.classList.add('bg-highlight'), 400);
-    setTimeout(() => blockB.classList.remove('bg-highlight'), 500);
-
-    setTimeout(() => blockA.classList.add('bg-highlight'), 600);
-    setTimeout(() => blockA.classList.remove('bg-highlight'), 700);
-};
     // Auto-populate Twerkin path field when URL selection changes
     function updateTwerkinPath() {
+        const dataHref01 = document.getElementById('dataHref01');
+        if (!dataHref01) return; // Element doesn't exist on this page
+        
         const selectedRadio = document.querySelector('input[name="selectedUrl"]:checked');
         if (selectedRadio) {
-            document.getElementById('dataHref01').value = selectedRadio.value;
+            dataHref01.value = selectedRadio.value;
         }
     }
 
     // Initialize on page load with default selection
     document.addEventListener('DOMContentLoaded', function() {
         updateTwerkinPath();
+        
+        // Radio button flashing effect - animate border colors
+        const cards = document.querySelectorAll('.card-result');
+        const borderColors = ['#ff0000', '#ff9900', '#ffff00', '#6366f1']; // red, orange, yellow, selected indigo
+        
+        cards.forEach((card, index) => {
+            let colorIndex = 0;
+            setTimeout(() => {
+                // Cycle through border colors
+                const flashInterval = setInterval(() => {
+                    card.style.setProperty('border-left-color', borderColors[colorIndex], 'important');
+                    colorIndex++;
+                    if (colorIndex >= borderColors.length) {
+                        clearInterval(flashInterval);
+                    }
+                }, 200);
+            }, 600 + (index * 400));
+        });
     });
     </script>
-    <script>
-window.addEventListener("load", () => {
-  const radios = document.querySelectorAll("input[type='radio']");
-
-  setTimeout(() => {
-    radios.forEach((r, i) => {
-      setTimeout(() => {
-        r.classList.add("radio-highlight");
-        setTimeout(() => r.classList.remove("radio-highlight"), 600);
-      }, i * 300);
-    });
-  }, 3000);
-});
-</script>
 
         <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="assets/js/vue/app.js"></script>

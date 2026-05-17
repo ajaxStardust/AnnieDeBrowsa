@@ -11265,6 +11265,11 @@ code,
     cursor: pointer;
 }
 
+/* Allow border flash effect to override transition */
+.card-result[style*="border-left-color"] {
+    transition: none !important;
+}
+
 .card-result:has(input[type="radio"]:checked) {
     border-left-color: #6366f1;
     background-color: #eef2ff;
