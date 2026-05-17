@@ -39,7 +39,7 @@ $buildByComp = $pipelineData['protocol'] . "://" . $pipelineData['host'] . "/" .
 
 // Result 2: concatThis - filter host-like components
 $concatThis = $pipelineData['protocol'] . "://" . $pipelineData['host'];
-$host_like = ['var', 'www', 'admin', 'home', 'web'];
+$host_like = ['var', 'www', 'admin', 'home', 'web', $pipelineData['host']];
 foreach ($pipelineData['components'] as $component) {
     if (!in_array($component, $host_like)) {
         $component = str_ireplace("public_html", "", $component);

@@ -100,17 +100,16 @@ class UrlBuilder
                 continue;
             }
 
-            // Skip first two components (typically server root indicators)
-            if ($index < 2) {
-                $path .= '/' . $component;
-                break;
+            // Skip component if it matches the host (domain name already in URL)
+            if ($component === $this->host) {
+                continue;
             }
 
             // Add remaining components
             $path .= '/' . $component;
         }
 
-        return rtrim($path, '/');
+        return ltrim($path, '/');
     }
 
     /**
