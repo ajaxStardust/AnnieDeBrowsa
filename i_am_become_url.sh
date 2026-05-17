@@ -13,17 +13,11 @@ CYAN=$(tput setaf 6)
 
 # Check if a filename argument is provided
 if [ $# -eq 0 ]; then
-    FILENAME=$(OLDPWD)
-else
-    FILENAME="$1"
-fi
+    FILENAME=$OLDPWD
 else
     FILENAME="$1"
 fi
 
-# Resolve the absolute path of the file using realpath
-FULL_PATH="$(realpath "$FILENAME")"
-FILENAME_ONLY="${FULL_PATH##*/}"
 # Resolve the absolute path of the file using realpath
 FULL_PATH="$(realpath "$FILENAME")"
 FILENAME_ONLY="${FULL_PATH##*/}"

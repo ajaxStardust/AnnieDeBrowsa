@@ -31,7 +31,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
             <meta property="og:type" content="website">
             <meta property="og:title" content="Transformative.Click">
             <meta property="og:description" content="Unicode Misc Symbols and Pictographs in Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
-            <meta property="og:image" content="https://transformative.click/plaidicon.png">
+            <meta property="og:image" content="https://transformative.click/favicon.png">
             <meta property="og:image:width" content="680">
             <meta property="og:image:height" content="680">
 
@@ -41,7 +41,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
             <meta property="twitter:url" content="https://transformative.click">
             <meta name="twitter:title" content="Transformative.Click">
             <meta name="twitter:description" content="Unicode Misc Symbols and Pictographs in Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
-            <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
+            <meta name="twitter:image" content="https://transformative.click/favicon.png">
             <link href="public/assets/css/tachyons-extended.css" rel="stylesheet">
             <!-- Meta Tags Generated via https://opengraph.dev -->
             <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css" rel="stylesheet">

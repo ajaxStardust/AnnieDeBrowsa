@@ -31,20 +31,28 @@ min-height:.1px
 
 #toggle:checked~#pageControls {
 transform:translateY(0);
-opacity:1
+opacity:1;
+visibility:visible
 }
 
 #pageControls li a:hover {
-text-decoration:underline
+text-decoration:none;
+opacity:1;
+color:#e2e8f0
 }
 
-#pageControls li a,#pagewidth {
-color:#000;
-text-decoration:none
+#pageControls .page-controls-link,#pageControls #controList a {
+color:#94a3b8;
+text-decoration:none;
+font-size:.8125rem;
+font-weight:500;
+letter-spacing:.015em;
+font-family:ui-monospace,'Cascadia Code','Fira Code',monospace
 }
 
 #pageControls li a {
-display:inline-block
+display:inline-block;
+width:100%
 }
 
 #pagewidth {
@@ -82,6 +90,7 @@ color:#533
     display: block!important;
     opacity: 1!important;
     visibility: visible!important;
+    transform: translateY(0)!important;
     pointer-events: auto!important
 }
 
@@ -147,14 +156,7 @@ color:#3a29bb
 content:"Hide Controls"
 }
 
-.hide-show-element input:checked~.test1 {
-filter:grayscale(25%);
-opacity:1;
-height:200px;
-transform:rotate(0);
-width:8rem;
-z-index:999
-}
+/* Visibility of #pageControls when open: use #toggle:checked~#pageControls (below) */
 
 details#adb-card-github {
 max-width:29%
@@ -456,43 +458,95 @@ background-color:#00005f
 }
 
 #app {
-float:right;
-top:-1em;
-left:70%;
-position:fixed
+    position: relative;
 }
 
 #appHeading {
-color:#ff0;
-background-color:#fff5;
-border-radius:.25rem;
-padding:.5rem;
-margin:.5rem;
-box-shadow:0 0 10px #0003;
-text-align:center;
-overflow:hidden;
-white-space:nowrap;
-text-overflow:ellipsis;
-text-shadow:1px 1px 3px #030a
+    font-family: Orbitron, Helvetica, sans-serif;
+    color: #818cf8;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
+}
+
+.adb-env-heading {
+    font-family: Orbitron, Helvetica, sans-serif;
+    color: #475569;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0 0 1rem 0;
+    text-transform: uppercase;
 }
 
 #pageControls {
 position:fixed;
 top:1rem;
 right:1rem;
-background-color:#000000e6!important;
-color:#fff;
-padding:.5rem 1rem;
-border-radius:.5rem;
-box-shadow:0 4px 12px #0000004d;
-transform:translateY(-150%);
-transition:transform .3s ease,opacity .3s ease;
+min-width:11.5rem;
+max-width:min(90vw,16rem);
+background:linear-gradient(180deg,#0d1630 0%,#0b142b 55%,#0a1328 100%)!important;
+color:#7b8ba3;
+padding:.55rem .75rem .65rem;
+border-radius:.65rem;
+border:2px solid rgba(99,102,241,.82);
+box-shadow:0 8px 28px rgba(2,6,23,.45),inset -1px 0 0 rgba(15,23,42,.45);
+transform:translateY(calc(-100% - 2rem));
+transition:transform .28s ease,opacity .28s ease,visibility .28s ease;
 opacity:0;
+visibility:hidden;
 z-index:1000
 }
 
-#pageControls li {
-background-color:#000000e6
+#pageControls .page-controls-heading,#pageControls #pageControlHeader {
+font-size:.66rem;
+font-weight:500;
+text-transform:uppercase;
+letter-spacing:.1em;
+margin:0 0 .45rem;
+padding-bottom:.35rem;
+border-bottom:1px solid rgba(71,85,105,.34);
+font-family:ui-monospace,'Cascadia Code','Fira Code',monospace;
+color:#7b8ba3
+}
+
+#pageControls ul#controList,#controList {
+list-style:none;
+margin:0;
+padding:0;
+display:flex;
+flex-direction:column;
+gap:.2rem
+}
+
+#pageControls li.page-controls-item,#pageControls #controList>li {
+margin:0;
+padding:.2rem .35rem;
+border-radius:.3rem;
+line-height:1.35;
+transition:background-color .15s ease
+}
+
+#pageControls li.page-controls-item:hover,#pageControls #controList>li:hover {
+background:linear-gradient(180deg,#1c2a45,#19253f);
+color:#cbd5e1
+}
+
+#pageControls li.page-controls-item:hover .page-controls-link,#pageControls li.page-controls-item:hover a,#pageControls #controList>li:hover .page-controls-link,#pageControls #controList>li:hover a {
+color:#e2e8f0
+}
+
+#pageControls .page-controls-icon {
+vertical-align:-3px;
+margin-left:.2rem;
+opacity:.9
+}
+
+#pageControls .material-symbols-outlined {
+font-size:1rem;
+font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 20
 }
 
 #adb-header {
@@ -556,15 +610,7 @@ background-color:#e3f8aa
 width:10rem
 }
 
-.test1 {
-opacity:0;
-position:relative;
-height:0;
-transform:rotate(135deg);
-top:20%;
-transition-duration:.6s;
-width:0
-}
+/* Legacy .test1 removed; #pageControls handles panel visibility */
 
 .randomimage {
 display:inline-block;
@@ -2899,7 +2945,7 @@ code,
 }
 
 .overflow-x-hidden {
-    overflow-x: hidden;
+    overflow-x: visible;
 }
 
 .overflow-x-scroll {
@@ -3370,21 +3416,23 @@ code,
 
 .bg-light-corn-animated {
     background: radial-gradient(circle at center, #4e496d 0%, #07071d 100%);
-    background-size: 100% 100%;
-    animation: animationName 30s ease infinite;
+    background-size: 160% 160%;
+    background-position: 50% 50%;
+    animation: adbBgDrift 26s ease-in-out infinite;
+    will-change: background-position;
+}
 
-    @keyframes animationName {
-        0% {
-            background-position: 0% 50%;
-        }
+@keyframes adbBgDrift {
+    0% {
+        background-position: 36% 42%;
+    }
 
-        50% {
-            background-position: 100% 50%;
-        }
+    50% {
+        background-position: 64% 58%;
+    }
 
-        100% {
-            background-position: 0% 50%;
-        }
+    100% {
+        background-position: 36% 42%;
     }
 }
 
@@ -11177,4 +11225,413 @@ code,
     .v-btm-l {
         vertical-align: bottom;
     }
+}
+
+/* =============================================================
+   ADB: Annie DeBrowsa app utilities (migrated from Main.page.php)
+   ============================================================= */
+
+@keyframes pulse {
+    0%   { transform: scale(1);    opacity: 1; }
+    50%  { transform: scale(1.15); opacity: 0.4; }
+    100% { transform: scale(1);    opacity: 1; }
+}
+
+.radio-highlight {
+    animation: pulse 0.6s ease-in-out;
+}
+
+.adb-body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f1f5f9;
+    min-height: 100vh;
+}
+
+/* ADB header bar — dark slate with indigo accent line */
+.adb-header {
+    background-color: #0f172a;
+    border-bottom: 3px solid #6366f1;
+}
+
+.adb-header h1 {
+    font-family: Orbitron, Helvetica, sans-serif;
+    letter-spacing: 0.04em;
+}
+
+/* Result cards — highlight selected via :has() */
+.card-result {
+    border-left: 4px solid transparent;
+    transition: border-left-color 0.15s ease, background-color 0.15s ease;
+    cursor: pointer;
+}
+
+.card-result:has(input[type="radio"]:checked) {
+    border-left-color: #6366f1;
+    background-color: #eef2ff;
+}
+
+/* Vue output card — terminal feel */
+.adb-output-card {
+    background-color: #0f172a;
+    color: #e2e8f0;
+    border-radius: 0.5rem;
+    border-top: 3px solid #6366f1;
+}
+
+.adb-output-card label {
+    color: #818cf8;
+    font-family: Orbitron, Helvetica, sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.adb-output-card input[type="text"] {
+    background-color: #1e293b;
+    color: #e2e8f0;
+    border-color: #334155;
+    border-radius: 0.25rem;
+}
+
+.adb-output-card p {
+    color: #94a3b8;
+    font-size: 0.875rem;
+}
+
+.adb-output-card a {
+    color: #818cf8;
+    font-weight: 600;
+    word-break: break-all;
+}
+
+.adb-output-card a:hover {
+    color: #a5b4fc;
+    text-decoration: underline;
+}
+
+.adb-output-card details summary {
+    color: #94a3b8;
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-family: sans-serif;
+}
+
+.adb-output-card details summary::first-letter {
+    font-size: inherit;
+    color: inherit;
+}
+
+.adb-output-card code {
+    background-color: #1e293b;
+    color: #7dd3fc;
+    padding: 0.1em 0.4em;
+    border-radius: 0.2rem;
+}
+
+.adb-output-card mark {
+    background-color: #312e81;
+    color: #c7d2fe;
+    border-radius: 0.15rem;
+    padding: 0 0.2em;
+}
+
+.card {
+    background: white;
+    border-radius: 0.375rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+.section-title {
+    color: #2c3e50;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+.todo-item {
+    background: #fff3e0;
+    border-left: 4px solid #ff9800;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 0.25rem;
+}
+
+.server-badge {
+    display: inline-block;
+    background: #ffe0b2;
+    color: #e65100;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.break-word {
+    word-break: break-all;
+}
+
+.gap2 { gap: 0.5rem; }
+.gap3 { gap: 1rem; }
+
+.adb-heading {
+    font-family: Orbitron, Helvetica, sans-serif;
+}
+
+.text-smallcaps {
+    font-variant: small-caps;
+    text-align: end;
+}
+
+#offsitelinks .text-smallcaps {
+    text-align: left;
+    text-align: start;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+   ADB NAV — dark-slate collapsed alpha-group sidebar navigation
+   Overrides style.css. Loads after, so same/higher specificity wins.
+   IMPORTANT: .inner-list { display:none } is the toggle anchor —
+   showHide() sets display:block. collapseNav() sets display:none on #leftcol.
+   DO NOT remove either rule.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Layout: replace style.css floats with a flex row ── */
+main#mainview {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 0.5rem;
+    background: linear-gradient(180deg, #e8edf5 0%, #dfe5ee 100%);
+    min-height: 100vh;
+}
+
+#leftcol {
+    float: none !important;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 15.5rem !important;
+    min-width: 15.5rem !important;
+    max-width: 15.5rem !important;
+    flex-shrink: 0;
+    background: linear-gradient(180deg, #0d1630 0%, #0b142b 55%, #0a1328 100%);
+    border-right: 2px solid rgba(99, 102, 241, 0.82);
+    font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace;
+    font-size: 0.82rem;
+    z-index: 10;
+    scrollbar-width: thin;
+    scrollbar-color: #6366f1 #0f172a;
+    box-shadow: inset -1px 0 0 rgba(15, 23, 42, 0.45);
+}
+
+#leftcol::-webkit-scrollbar { width: 4px; }
+#leftcol::-webkit-scrollbar-track { background: #0f172a; }
+#leftcol::-webkit-scrollbar-thumb { background-color: #6366f1; border-radius: 2px; }
+
+main#maincol {
+    float: none !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto !important;
+    margin-left: 0.25rem;
+}
+
+/* Make the embedded page read as a deliberate iframe viewport. */
+#mainFrameContainer {
+    position: relative;
+    margin-left: 0 !important;
+    border: 2px solid rgba(99, 102, 241, 0.42) !important;
+    border-radius: 0.75rem;
+    box-shadow: inset 0 0 0 1px rgba(15, 23, 42, 0.24), 0 0.35rem 1rem rgba(2, 6, 23, 0.18);
+    background: linear-gradient(170deg, rgba(99, 102, 241, 0.1), rgba(15, 23, 42, 0.03) 45%, rgba(255, 255, 255, 0.35));
+}
+
+#mainFrame {
+    position: static !important;
+    right: auto !important;
+    margin: 0 !important;
+    border: 2px solid rgba(30, 41, 59, 0.28) !important;
+    border-radius: 0.55rem;
+    box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.08);
+    background-color: #ffffff;
+}
+
+/* ── navlist ul reset ── */
+ul#navlist {
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+    outline: none !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    font-variant: normal !important;
+}
+
+/* ── "Go Up" header row ── */
+li#goUpItem {
+    display: block !important;
+    background: linear-gradient(180deg, #0b1428, #0a1120) !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.34) !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0.72rem 0.85rem !important;
+    font-size: 0.66rem !important;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7b8ba3 !important;
+    font-variant: normal !important;
+    text-indent: 0 !important;
+}
+
+li#goUpItem a {
+    color: #475569 !important;
+    text-decoration: none !important;
+    display: block;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li#goUpItem a:hover { color: #6366f1 !important; }
+
+/* ── letter-group toggler rows ── */
+#navlist li.toggler {
+    display: block !important;
+    padding: 0.5rem 0.75rem !important;
+    margin: 0 !important;
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(71, 85, 105, 0.28) !important;
+    border-radius: 0 !important;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.94), rgba(12, 20, 38, 0.98)) !important;
+    color: #7b8ba3 !important;
+    font-size: 0.76rem;
+    letter-spacing: 0.04em;
+    line-height: 1.3;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: none !important;
+    font-variant: normal !important;
+    text-indent: 0 !important;
+    transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+/* the letter label inside each toggler */
+#navlist li.toggler > span:first-child,
+#navlist li.toggler > span[style] {
+    color: #6366f1 !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem;
+    min-width: 1.3rem;
+    display: inline-block;
+    font-style: normal !important;
+    font-variant: normal !important;
+}
+
+#navlist li.toggler:hover {
+    background: linear-gradient(180deg, #1c2a45, #19253f) !important;
+    color: #cbd5e1 !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    visibility: visible !important;
+}
+
+/* ── inner file list: control display:none here ── */
+ul.inner-list {
+    display: none;   /* showHide() toggles this to block — keep as none */
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: linear-gradient(180deg, #081022, #070d1b) !important;
+    border-top: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+/* ── individual file items ── */
+#navlist li.navlist.target,
+ul.inner-list > li {
+    display: block !important;
+    position: relative;
+    background: linear-gradient(180deg, #091125, #080f21) !important;
+    border-top: none !important;
+    border-right: none !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.78) !important;
+    border-left: 3px solid transparent !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 0.78rem !important;
+    font-variant: normal !important;
+    text-indent: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    outline: none !important;
+    transition: border-left-color 0.12s ease, background-color 0.16s ease;
+}
+
+#navlist li.navlist.target:hover,
+ul.inner-list > li:hover {
+    background: linear-gradient(180deg, #0f1a33, #0d172d) !important;
+    border-left-color: #6366f1 !important;
+}
+
+/* ── nav link anchor ── */
+a.iframe-nav-link {
+    display: block !important;
+    padding: 0.44rem 0.72rem 0.44rem 1.1rem !important;
+    color: #94a3b8 !important;
+    text-decoration: none !important;
+    font-size: 0.78rem !important;
+    font-family: ui-monospace, 'Cascadia Code', 'Fira Code', monospace !important;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    letter-spacing: 0.015em;
+    line-height: 1.4;
+    transition: color 0.1s ease;
+}
+
+/* Pin filetype glyphs to the row's left border, overriding legacy float/negative-margin rules. */
+#leftcol ul.inner-list > li::before {
+    margin-left: 0 !important;
+    padding-left: 0 !important;
+    float: none !important;
+    position: absolute;
+    left: -0.55rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.9rem !important;
+    line-height: 1;
+    width: 0.95rem;
+    text-align: center;
+}
+
+a.iframe-nav-link:hover {
+    color: #e2e8f0 !important;
+}
+
+/* ── extension span ── */
+a.iframe-nav-link span.bold,
+a.iframe-nav-link span.red,
+#navlist span.bold {
+    color: #f87171 !important;
+    font-weight: 700 !important;
+}
+
+/* override style.css first-letter rule which was 1.5rem blue */
+#navlist li a:first-letter {
+    color: #818cf8 !important;
+    font-size: 1em !important;
 }

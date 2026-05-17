@@ -46,9 +46,9 @@ foreach ($common_paths as $cpathKey => $cpathVal) {
 }
 
 $buildByComp =
-    $_SERVER["REQUEST_SCHEME"] . "://" . $contructNewMethod["_dynamichost"] . "/" . ltrim($trimmed_new_url, "/");
-$concatThis = $_SERVER["REQUEST_SCHEME"] . "://";
-$concatSwitch = $_SERVER["REQUEST_SCHEME"] . "://" . $contructNewMethod["_dynamichost"];
+    "http://" . $contructNewMethod["_dynamichost"] . "/" . ltrim($trimmed_new_url, "/");
+$concatThis = "http://";
+$concatSwitch = "http://" . $contructNewMethod["_dynamichost"];
 foreach ($P2u2->path_comps["matches"] as $mKey => $mVal) {
     echo "<br>path[" . $mKey . "]: " . $mVal;
     if ($mVal != "var" && $mVal != "www" && $mVal != "admin" && $mVal != "home" && $mVal != "web") {
@@ -103,7 +103,7 @@ foreach ($process_location as $mKey => $mVal) {
                     
                     foreach ($results as $method => $url) {
                         $isChecked = ($method === 'concatSwitch') ? 'checked' : '';
-                        echo '<div class="card pa3 br2 ba b--light-gray">';
+                        echo '<div class="card card-result pa3 br2 ba b--light-gray">';
                         echo '<div class="mb2 flex items-center">';
                         echo '<input type="radio" onchange="updateTwerkinPath()" id="url_' . $method . '" name="selectedUrl" value="' . htmlspecialchars($url) . '" ' . $isChecked . ' class="mr2">';
                         echo '<label for="url_' . $method . '" class="f6 fw6 pointer mb0">' . ucfirst($method) . '</label>';

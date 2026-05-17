@@ -4,6 +4,28 @@ namespace P2u2\Model;
 
 use P2u2\Model\P2u2;
 
+/*
+ * CONTRACT: Newmethod URL construction compatibility layer
+ *
+ * ROLE:
+ * - Builds legacy/debug-oriented URL construction data from P2u2 output.
+ * - Feeds view/debug flows that expect _construct_NewMethod keys.
+ *
+ * PRECONDITIONS:
+ * - P2u2::clean_url_chars() and extract_path_components() return compatible data.
+ * - HTTP_HOST may be absent; localhost fallback is acceptable.
+ *
+ * POSTCONDITIONS:
+ * - buildUrl() and buildUrlLast() MUST keep storing results in _construct_NewMethod.
+ * - The following keys are compatibility-sensitive and should not be casually renamed:
+ *   _dynamichost, extracted_components, new_url_concat, nurlLoop.
+ *
+ * INVARIANTS:
+ * - This class is not clean architecture; it is a compatibility zone.
+ * - Preserve behavior and debug visibility before any structural cleanup.
+ * - If keys or route-building semantics change, update CONTRACT.md.
+ */
+
 class Newmethod
 {
 
@@ -38,6 +60,8 @@ class Newmethod
         $this->_construct_NewMethod['extracted_comps_html'] = '<br>extracted_components[html]: ' . $extracted_components['html'];
         $this->_construct_NewMethod['feloop'] = $feloop = 0;
         $this->_construct_NewMethod['_dynamichost'] = $_dynamichost = isset($_SERVER['HTTP_HOST']) ? $_SERVER['HTTP_HOST'] : $_dynamichost;
+        // CONTRACT NOTE: callers rely on the accumulated _construct_NewMethod map,
+        // including intermediate/debug fields, not only the final URL string.
         foreach ($extracted_components as $nUrlKey => $nUrlVal) {
 
             if (!$nUrlKey == 'component') {
@@ -95,6 +119,7 @@ class Newmethod
         $nurlLoop = $this->_construct_NewMethod["extracted_comps_html"];
         $new_url_concat = rtrim($new_url_concat, '/');
         
+        // CONTRACT NOTE: common_paths is a normalization allowlist for known dev/server roots.
         $common_paths=[
             '\/var\/www\/html',
             '\/var\/www\/htdocs',
@@ -128,9 +153,9 @@ foreach($common_paths as $pathSubject) {
 
 }
         $nurlLoop = $nurlLoop . '<p>new_url_concat: ' . $new_url_concat . '</p>
-    <p>New URL Construct:<br> _SERVER[REQUEST_SCHEME] . :// . _SERVER[HTTP_HOST] . new_url_concat ==</p>
-    <p><a href="' . $_SERVER['REQUEST_SCHEME'] . '://' . $_dynamichost . '/' . $this->_construct_NewMethod['new_url_concat'] . '" target="_blank">'
-            . $_SERVER['REQUEST_SCHEME'] . '://' . $_dynamichost . '/' . $this->_construct_NewMethod['new_url_concat']  . '</a></p>
+    <p>New URL Construct:<br> http:// HTTP_HOST . new_url_concat ==</p>
+    <p><a href="' . 'http://' . $_dynamichost . '/' . $this->_construct_NewMethod['new_url_concat'] . '" target="_blank">'
+            . 'http://' . $_dynamichost . '/' . $this->_construct_NewMethod['new_url_concat']  . '</a></p>
     </div>';
         $this->_construct_NewMethod['nurlLoop'] = $nurlLoop;
 

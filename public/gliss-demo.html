@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Glissando Mock Demo</title>
+  <style>
+    body {
+      background: #111;
+      color: #eee;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+    guitar-fretboard-gliss-demo {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Glissando Mock: G (3rd fret) to G (12th fret)</h1>
+  <guitar-fretboard-gliss-demo></guitar-fretboard-gliss-demo>
+
+  <script type="module">
+    class GuitarFretboardGlissDemo extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.width = 800;
+        this.height = 120;
+        this.frets = 13; // 0–12
+        this.currentFret = 3;
+        this.targetFret = 12;
+        this.duration = 1000; // ms
+        this.steps = this.targetFret - this.currentFret;
+        this.interval = this.duration / this.steps;
+      }
+
+      connectedCallback() {
+        this.render();
+        this.startGliss();
+      }
+
+      render() {
+        const svgNS = 'http://www.w3.org/2000/svg';
+        const container = document.createElement('div');
+
+        const svg = document.createElementNS(svgNS, 'svg');
+        svg.setAttribute('width', this.width);
+        svg.setAttribute('height', this.height);
+        svg.setAttribute('viewBox', `0 0 ${this.width} ${this.height}`);
+        svg.style.background = '#2b1b0f';
+
+        // Fretboard base
+        const board = document.createElementNS(svgNS, 'rect');
+        board.setAttribute('x', 0);
+        board.setAttribute('y', this.height / 4);
+        board.setAttribute('width', this.width);
+        board.setAttribute('height', this.height / 2);
+        board.setAttribute('fill', '#3b2615');
+        svg.appendChild(board);
+
+        // Frets
+        for (let i = 0; i < this.frets; i++) {
+          const x = this.fretToX(i);
+          const fretLine = document.createElementNS(svgNS, 'line');
+          fretLine.setAttribute('x1', x);
+          fretLine.setAttribute('y1', this.height / 4);
+          fretLine.setAttribute('x2', x);
+          fretLine.setAttribute('y2', (this.height * 3) / 4);
+          fretLine.setAttribute('stroke', i === 0 ? '#ccc' : '#888');
+          fretLine.setAttribute('stroke-width', i === 0 ? '4' : '2');
+          svg.appendChild(fretLine);
+        }
+
+        // String
+        const string = document.createElementNS(svgNS, 'line');
+        string.setAttribute('x1', 0);
+        string.setAttribute('y1', this.height / 2);
+        string.setAttribute('x2', this.width);
+        string.setAttribute('y2', this.height / 2);
+        string.setAttribute('stroke', '#d0d0d0');
+        string.setAttribute('stroke-width', '3');
+        svg.appendChild(string);
+
+        // Marker (the gliss note)
+        const marker = document.createElementNS(svgNS, 'circle');
+        marker.setAttribute('r', 10);
+        marker.setAttribute('fill', '#ffcc33');
+        marker.setAttribute('stroke', '#000');
+        marker.setAttribute('stroke-width', '2');
+        this.marker = marker;
+        this.updateMarkerPosition(this.currentFret);
+        svg.appendChild(marker);
+
+        // Fret labels
+        for (let i = 0; i < this.frets; i++) {
+          const x = this.fretToX(i);
+          const text = document.createElementNS(svgNS, 'text');
+          text.setAttribute('x', x + 4);
+          text.setAttribute('y', (this.height * 3) / 4 + 20);
+          text.setAttribute('fill', '#eee');
+          text.setAttribute('font-size', '10');
+          text.textContent = i;
+          svg.appendChild(text);
+        }
+
+        container.appendChild(svg);
+        this.shadowRoot.innerHTML = '';
+        this.shadowRoot.appendChild(container);
+      }
+
+      fretToX(fret) {
+        const usableWidth = this.width - 40; // padding
+        const startX = 20;
+        const step = usableWidth / (this.frets - 1);
+        return startX + fret * step;
+      }
+
+      updateMarkerPosition(fret) {
+        const x = this.fretToX(fret);
+        const y = this.height / 2;
+        this.marker.setAttribute('cx', x);
+        this.marker.setAttribute('cy', y);
+      }
+
+      startGliss() {
+        let step = 0;
+        const startFret = this.currentFret;
+        const endFret = this.targetFret;
+        const totalSteps = this.steps;
+
+        const timer = setInterval(() => {
+          const t = step / totalSteps;
+          const current = Math.round(startFret + t * (endFret - startFret));
+          this.updateMarkerPosition(current);
+          step++;
+
+          if (step > totalSteps) {
+            clearInterval(timer);
+          }
+        }, this.interval);
+      }
+    }
+
+    customElements.define('guitar-fretboard-gliss-demo', GuitarFretboardGlissDemo);
+  </script>
+</body>
+</html>

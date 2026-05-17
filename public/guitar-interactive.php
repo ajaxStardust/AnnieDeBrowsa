@@ -1,341 +1,489 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Interactive Guitar Fretboard with Piano Mapping</title>
-</head>
-<body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Interactive Guitar Fretboard with Piano Mapping</title>
 
-    <p>
-      <a href="https://statecollegeguitarlessons.site/journal/entry/diatonic-modes-guitar-interactive-svg-web-components" target="_blank">
-        More about it
-      </a>
-    </p>
+		<style>
+			/* Keep the page usable even if Tailwind is not loaded */
+			body {
+				font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+				margin: 16px;
+			}
+			.row {
+				display: flex;
+				gap: 20px;
+				align-items: flex-start;
+				flex-wrap: wrap;
+			}
+			#note-panel {
+				font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+					"Courier New", monospace;
+				line-height: 1.5;
+				min-width: 220px;
+				padding: 10px 12px;
+				border: 1px solid #ddd;
+				border-radius: 10px;
+				background: #fafafa;
+			}
+			#note-panel .hint {
+				color: #666;
+				font-size: 12px;
+				margin-bottom: 6px;
+			}
+			a {
+				color: #0b57d0;
+			}
+		</style>
+	</head>
 
-    <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
-    <!-- Styled with Tailwind CSS (latest, via CDN) -->
-    <details id="adb-card-github" class="content-item card border rounded-lg mr-4 mb-4 p-2 hover:bg-gray-50 transition w-80">
-      <summary class="flex items-center gap-2 cursor-pointer text-lg font-semibold"><img src="https://github.githubassets.com/favicons/favicon.svg" alt="GitHub" class="w-6 h-6">SPA Preview Tool</summary>          <div class="expanded-content flex flex-col items-start mt-2">
-        <div class="mb-2">
-          <a href="https://github.com/ajaxStardust/AnnieDeBrowsa.git" target="_blank" class="text-blue-600 hover:underline font-mono">
-            ajaxStardust / AnnieDeBrowsa
-          </a>
-        </div>
-        <div class="flex flex-wrap gap-2 mb-2">
-          <!-- Only meaningful badges -->
-          <img src="https://img.shields.io/github/forks/ajaxStardust/AnnieDeBrowsa?style=flat-square" alt="Forks">
-          <img src="https://img.shields.io/github/contributors/ajaxStardust/AnnieDeBrowsa?style=flat-square" alt="Contributors">
-          <img src="https://img.shields.io/github/commit-activity/m/ajaxStardust/AnnieDeBrowsa?style=flat-square" alt="Commit Activity">
-        </div>
-        <div class="text-sm text-gray-700 font-mono">
-          <p>Developer&apos;s easy <a class="text-blue-600 hover:underline" href="https://transformative.click" target="_blank">PREVIEW</a> rendered SPA.</p>
-          <p>Debug quickly with <a href="https://transformative.click" target="_blank">Firebug-Lite</a>. PLUS: System Path to HTTP <a href="https://transformative.click/public/default.php" target="_blank">URL Transformation</a> Tool!</p>
-        </div>
-      </div>
-    </details>
-    <hr class="cf clearfix hidden">
-    <!-- CARD END AnnieDeBrowsa SPA Preview Tool for Developers. -->
+	<body>
+		<p>
+			<a
+				href="https://statecollegeguitarlessons.site/journal/entry/diatonic-modes-guitar-interactive-svg-web-components"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				More about it
+			</a>
+		</p>
 
-<h2>Interactive Guitar Fretboard (with Piano Visualization)</h2>
+		<!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
+		<!-- Styled with Tailwind CSS (latest, via CDN) -->
+		<details
+			id="adb-card-github"
+			class="content-item card border rounded-lg mr-4 mb-4 p-2 hover:bg-gray-50 transition w-80"
+		>
+			<summary class="flex items-center gap-2 cursor-pointer text-lg font-semibold">
+				<img
+					src="https://github.githubassets.com/favicons/favicon.svg"
+					alt="GitHub"
+					class="w-6 h-6"
+				/>
+				SPA Preview Tool
+			</summary>
 
-<div style="display:flex; gap:20px; align-items:flex-start;">
-  <guitar-fretboard
-    frets="12"
-    scale="G"
-    difficulty="basic"
-    colorIntervals>
-  </guitar-fretboard>
+			<div class="expanded-content flex flex-col items-start mt-2">
+				<div class="mb-2">
+					<a
+						href="https://github.com/ajaxStardust/AnnieDeBrowsa.git"
+						target="_blank"
+						rel="noopener noreferrer"
+						class="text-blue-600 hover:underline font-mono"
+					>
+						ajaxStardust / AnnieDeBrowsa
+					</a>
+				</div>
 
-  <div id="note-panel" style="font-family:sans-serif; line-height:1.5;"></div>
-</div>
+				<div class="flex flex-wrap gap-2 mb-2">
+					<!-- Only meaningful badges -->
+					<img
+						src="https://img.shields.io/github/forks/ajaxStardust/AnnieDeBrowsa?style=flat-square"
+						alt="Forks"
+					/>
+					<img
+						src="https://img.shields.io/github/contributors/ajaxStardust/AnnieDeBrowsa?style=flat-square"
+						alt="Contributors"
+					/>
+					<img
+						src="https://img.shields.io/github/commit-activity/m/ajaxStardust/AnnieDeBrowsa?style=flat-square"
+						alt="Commit Activity"
+					/>
+				</div>
 
-<p>
-  <a href="interactive.html" target="_blank">
-      Current "working" iteration
-  </a>
-</p>
+				<div class="text-sm text-gray-700 font-mono">
+					<p>
+						Developer&apos;s easy
+						<a
+							class="text-blue-600 hover:underline"
+							href="https://transformative.click"
+							target="_blank"
+							rel="noopener noreferrer"
+							>PREVIEW</a
+						>
+						rendered SPA.
+					</p>
+					<p>
+						Debug quickly with
+						<a
+							href="https://transformative.click"
+							target="_blank"
+							rel="noopener noreferrer"
+							>Firebug-Lite</a
+						>. PLUS: System Path to HTTP
+						<a
+							href="https://transformative.click/public/default.php"
+							target="_blank"
+							rel="noopener noreferrer"
+							>URL Transformation</a
+						>
+						Tool!
+					</p>
+				</div>
+			</div>
+		</details>
 
-<p>
-  <a href="interactive.base.html" target="_blank">
-      Interactive Plus Piano Mapping, plus whatever you want!
-  </a>
-</p>
+		<hr class="cf clearfix hidden" />
+		<!-- CARD END AnnieDeBrowsa SPA Preview Tool for Developers. -->
 
-<p>
-  <a href="https://transformative.click" target="_blank">
-      Or go to "I" here for other Iterations
-  </a>
-</p>
+		<h2>Interactive Guitar Fretboard (with Piano Visualization)</h2>
 
+		<div class="row">
+			<guitar-fretboard frets="12" scale="G" difficulty="basic" colorintervals>
+			</guitar-fretboard>
 
-<script type="module">
-class GuitarFretboard extends HTMLElement {
+			<div id="note-panel" aria-live="polite">
+				<div class="hint">Click a highlighted note to toggle it.</div>
+				<div id="note-panel-content"></div>
+			</div>
+		</div>
 
-  constructor() {
-    super();
-    this.attachShadow({ mode: 'open' });
+		<p>
+			<a href="/interactive.php" target="_blank" rel="noopener noreferrer">
+				Current "working" iteration
+			</a>
+		</p>
+		<p>
+			<a
+				href="/public/guitar-interactive-base.php"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Current Testing Iteration
+			</a>
+		</p>
+		<p>
+			<a href="https://transformative.click" target="_blank" rel="noopener noreferrer">
+				Look under 🇮 here for other Iterations
+			</a>
+		</p>
 
-    this.strings = 6;
-    this.frets = parseInt(this.getAttribute('frets')) || 12;
+		<script type="module">
+			class GuitarFretboard extends HTMLElement {
+				static get observedAttributes() {
+					return ["frets"];
+				}
 
-    this.highlighted = new Set([
-      '6-3','6-5','5-2','5-3','5-5',
-      '4-2','4-4','4-5','3-2','3-4','3-5',
-      '2-3','2-5','1-2','1-3'
-    ]);
+				constructor() {
+					super();
+					this.attachShadow({ mode: "open" });
 
-    this.ghost = new Set(['6-2']);
+					this.strings = 6;
+					this.frets = parseInt(this.getAttribute("frets"), 10) || 12;
 
-    this.activePerString = new Map();
-    this.wrongIndicators = new Map();
-    for (let s = 1; s <= this.strings; s++) {
-      this.activePerString.set(s, new Set());
-      this.wrongIndicators.set(s, new Set());
-    }
+					// Allowed/correct targets for the exercise (as in your original)
+					this.highlighted = new Set([
+						"6-3",
+						"6-5",
+						"5-2",
+						"5-3",
+						"5-5",
+						"4-2",
+						"4-4",
+						"4-5",
+						"3-2",
+						"3-4",
+						"3-5",
+						"2-3",
+						"2-5",
+						"1-2",
+						"1-3",
+					]);
 
-    this.tempFlashNotes = new Set();
-    this.tempFlashPitches = new Set();
+					this.ghost = new Set(["6-2"]);
 
-    this.scaleMap = {
-      6: {0:'E',2:'F#',3:'G',5:'A',7:'B'},
-      5: {0:'A',2:'B',3:'C',5:'D',7:'E'},
-      4: {0:'D',2:'E',4:'F#',5:'G',7:'A'},
-      3: {0:'G',2:'A',4:'B',5:'C',7:'D'},
-      2: {0:'B',3:'D',5:'E',7:'F#'},
-      1: {0:'E',2:'F#',3:'G',5:'A',7:'B'}
-    };
+					this.activePerString = new Map();
+					this.wrongIndicators = new Map();
 
-    this.pianoKeys = [
-      { note:'C',  type:'white' },
-      { note:'C#', type:'black' },
-      { note:'D',  type:'white' },
-      { note:'D#', type:'black' },
-      { note:'E',  type:'white' },
-      { note:'F',  type:'white' },
-      { note:'F#', type:'black' },
-      { note:'G',  type:'white' },
-      { note:'G#', type:'black' },
-      { note:'A',  type:'white' },
-      { note:'A#', type:'black' },
-      { note:'B',  type:'white' }
-    ];
+					for (let s = 1; s <= this.strings; s++) {
+						this.activePerString.set(s, new Set());
+						this.wrongIndicators.set(s, new Set());
+					}
 
-    this.render();
-  }
+					this.tempFlashNotes = new Set();
+					this.tempFlashPitches = new Set();
 
-  render() {
-    const width = 720;
-    const fretboardHeight = 180;
-    const pianoHeight = 140;
-    const verticalGap = 24;
+					// Your original sparse map (kept); we guard for undefined notes now.
+					this.scaleMap = {
+						6: { 0: "E", 2: "F#", 3: "G", 5: "A", 7: "B" },
+						5: { 0: "A", 2: "B", 3: "C", 5: "D", 7: "E" },
+						4: { 0: "D", 2: "E", 4: "F#", 5: "G", 7: "A" },
+						3: { 0: "G", 2: "A", 4: "B", 5: "C", 7: "D" },
+						2: { 0: "B", 3: "D", 5: "E", 7: "F#" },
+						1: { 0: "E", 2: "F#", 3: "G", 5: "A", 7: "B" },
+					};
 
-    const stringSpacing = fretboardHeight / (this.strings + 1);
-    const fretSpacing = width / (this.frets + 1);
+					this.pianoKeys = [
+						{ note: "C", type: "white" },
+						{ note: "C#", type: "black" },
+						{ note: "D", type: "white" },
+						{ note: "D#", type: "black" },
+						{ note: "E", type: "white" },
+						{ note: "F", type: "white" },
+						{ note: "F#", type: "black" },
+						{ note: "G", type: "white" },
+						{ note: "G#", type: "black" },
+						{ note: "A", type: "white" },
+						{ note: "A#", type: "black" },
+						{ note: "B", type: "white" },
+					];
 
-    const svgNS = "http://www.w3.org/2000/svg";
+					this.render();
+					this.emitNoteChange(); // initialize panel listeners
+				}
 
-    this.shadowRoot.innerHTML = '';
+				attributeChangedCallback(name, oldValue, newValue) {
+					if (name === "frets" && oldValue !== newValue) {
+						const parsed = parseInt(newValue, 10);
+						this.frets = Number.isFinite(parsed) ? parsed : 12;
+						this.render();
+						this.emitNoteChange();
+					}
+				}
 
-    /* === FRETBOARD SVG === */
-    const fretboard = document.createElementNS(svgNS,'svg');
-    fretboard.setAttribute('viewBox', `0 0 ${width} ${fretboardHeight}`);
-    fretboard.setAttribute('width', width);
-    fretboard.setAttribute('height', fretboardHeight);
+				emitNoteChange() {
+					// Serialize sets so the event payload is structured-cloneable.
+					const active = {};
+					for (let s = 1; s <= this.strings; s++) {
+						active[s] = [...this.activePerString.get(s)].sort((a, b) => a - b);
+					}
 
-    for (let s = 0; s < this.strings; s++) {
-      const y = stringSpacing * (s + 1);
-      const line = document.createElementNS(svgNS,'line');
-      line.setAttribute('x1',0);
-      line.setAttribute('y1',y);
-      line.setAttribute('x2',width);
-      line.setAttribute('y2',y);
-      line.setAttribute('stroke','black');
-      line.setAttribute('stroke-width',2);
-      fretboard.appendChild(line);
-    }
+					this.dispatchEvent(
+						new CustomEvent("notechange", {
+							detail: {
+								activePerString: active,
+								scaleMap: this.scaleMap,
+								strings: this.strings,
+							},
+							bubbles: true,
+							composed: true,
+						})
+					);
+				}
 
-    for (let f = 0; f <= this.frets; f++) {
-      const x = fretSpacing * (f + 1);
-      const line = document.createElementNS(svgNS,'line');
-      line.setAttribute('x1',x);
-      line.setAttribute('y1',stringSpacing);
-      line.setAttribute('x2',x);
-      line.setAttribute('y2',fretboardHeight - stringSpacing);
-      line.setAttribute('stroke', f === 0 ? 'black' : '#888');
-      line.setAttribute('stroke-width', f === 0 ? 4 : 2);
-      fretboard.appendChild(line);
-    }
+				render() {
+					const width = 720;
+					const fretboardHeight = 180;
+					const pianoHeight = 140;
+					const verticalGap = 24;
 
-    for (let s = 0; s < this.strings; s++) {
-      for (let f = 0; f <= this.frets; f++) {
+					const stringSpacing = fretboardHeight / (this.strings + 1);
+					const fretSpacing = width / (this.frets + 1);
 
-        const key = `${s+1}-${f}`;
-        const cx = fretSpacing * (f + 0.5);
-        const cy = stringSpacing * (s + 1);
+					// FIX: correct namespace
+					const svgNS = "http://www.w3.org/2000/svg";
 
-        const circle = document.createElementNS(svgNS,'circle');
-        circle.setAttribute('cx',cx);
-        circle.setAttribute('cy',cy);
-        circle.setAttribute('r',8);
-        circle.setAttribute('stroke','black');
-        circle.style.cursor = 'pointer';
+					this.shadowRoot.innerHTML = `
+						<style>
+							:host { display: inline-block; }
+							/* Make clicking clearer */
+							svg { user-select: none; -webkit-tap-highlight-color: transparent; }
+						</style>
+					`;
 
-        const activeSet = this.activePerString.get(s+1);
-        const wrongSet = this.wrongIndicators.get(s+1);
+					/* === FRETBOARD SVG === */
+					const fretboard = document.createElementNS(svgNS, "svg");
+					fretboard.setAttribute("viewBox", `0 0 ${width} ${fretboardHeight}`);
+					fretboard.setAttribute("width", width);
+					fretboard.setAttribute("height", fretboardHeight);
 
-        if (this.tempFlashNotes.has(key)) {
-          circle.setAttribute('fill','orange');
-        } else if (activeSet.has(f)) {
-          circle.setAttribute('fill','red');
-        } else if (wrongSet.has(f)) {
-          circle.setAttribute('fill','grey');
-        } else if (this.ghost.has(key)) {
-          circle.setAttribute('fill','rgba(0,0,0,0.25)');
-        } else {
-          circle.setAttribute('fill','transparent');
-        }
+					for (let s = 0; s < this.strings; s++) {
+						const y = stringSpacing * (s + 1);
+						const line = document.createElementNS(svgNS, "line");
+						line.setAttribute("x1", 0);
+						line.setAttribute("y1", y);
+						line.setAttribute("x2", width);
+						line.setAttribute("y2", y);
+						line.setAttribute("stroke", "black");
+						line.setAttribute("stroke-width", 2);
+						fretboard.appendChild(line);
+					}
 
-        circle.addEventListener('click', () => {
-          if (!this.highlighted.has(key)) {
-            wrongSet.add(f);
-            this.render();
-            setTimeout(() => {
-              wrongSet.delete(f);
-              this.render();
-              this.updateNotePanel();
-            }, 2500);
-            return;
-          }
+					for (let f = 0; f <= this.frets; f++) {
+						const x = fretSpacing * (f + 1);
+						const line = document.createElementNS(svgNS, "line");
+						line.setAttribute("x1", x);
+						line.setAttribute("y1", stringSpacing);
+						line.setAttribute("x2", x);
+						line.setAttribute("y2", fretboardHeight - stringSpacing);
+						line.setAttribute("stroke", f === 0 ? "black" : "#888");
+						line.setAttribute("stroke-width", f === 0 ? 4 : 2);
+						fretboard.appendChild(line);
+					}
 
-          activeSet.has(f) ? activeSet.delete(f) : activeSet.add(f);
-          const note = this.scaleMap[s+1][f];
-          this.flashMatchingNotes(note, s+1, f);
-          this.render();
-          this.updateNotePanel();
-        });
+					for (let s = 0; s < this.strings; s++) {
+						for (let f = 0; f <= this.frets; f++) {
+							const key = `${s + 1}-${f}`;
+							const cx = fretSpacing * (f + 0.5);
+							const cy = stringSpacing * (s + 1);
 
-        fretboard.appendChild(circle);
-      }
-    }
+							const circle = document.createElementNS(svgNS, "circle");
+							circle.setAttribute("cx", cx);
+							circle.setAttribute("cy", cy);
+							circle.setAttribute("r", 8);
+							circle.setAttribute("stroke", "black");
+							circle.style.cursor = "pointer";
 
-    this.shadowRoot.appendChild(fretboard);
+							const activeSet = this.activePerString.get(s + 1);
+							const wrongSet = this.wrongIndicators.get(s + 1);
 
-    const spacer = document.createElement('div');
-    spacer.style.height = verticalGap + 'px';
-    this.shadowRoot.appendChild(spacer);
+							if (this.tempFlashNotes.has(key)) {
+								circle.setAttribute("fill", "orange");
+							} else if (activeSet.has(f)) {
+								circle.setAttribute("fill", "red");
+							} else if (wrongSet.has(f)) {
+								circle.setAttribute("fill", "grey");
+							} else if (this.ghost.has(key)) {
+								circle.setAttribute("fill", "rgba(0,0,0,0.25)");
+							} else {
+								circle.setAttribute("fill", "transparent");
+							}
 
-    this.shadowRoot.appendChild(this.renderPiano(svgNS, width, pianoHeight));
-    this.updateNotePanel();
-  }
+							circle.addEventListener("click", () => {
+								if (!this.highlighted.has(key)) {
+									wrongSet.add(f);
+									this.render();
+									setTimeout(() => {
+										wrongSet.delete(f);
+										this.render();
+										this.emitNoteChange();
+									}, 2500);
+									return;
+								}
 
-  renderPiano(svgNS, width, height) {
-    const piano = document.createElementNS(svgNS,'svg');
-    piano.setAttribute('viewBox', `0 0 ${width} ${height}`);
-    piano.setAttribute('width', width);
-    piano.setAttribute('height', height);
+								// FIX: guard undefined notes in the sparse scaleMap
+								const note = this.scaleMap[s + 1]?.[f];
+								if (!note) return;
 
-    const whiteKeyWidth = width / 7;
-    let whiteIndex = 0;
+								activeSet.has(f) ? activeSet.delete(f) : activeSet.add(f);
 
-    this.pianoKeys.forEach(k => {
-      if (k.type !== 'white') return;
+								this.flashMatchingNotes(note);
+								this.render();
+								this.emitNoteChange();
+							});
 
-      const x = whiteIndex * whiteKeyWidth;
-      const rect = document.createElementNS(svgNS,'rect');
-      rect.setAttribute('x', x);
-      rect.setAttribute('y', 0);
-      rect.setAttribute('width', whiteKeyWidth);
-      rect.setAttribute('height', height);
-      rect.setAttribute('stroke','black');
-      rect.setAttribute(
-        'fill',
-        this.tempFlashPitches.has(k.note) ? 'orange' : 'white'
-      );
+							fretboard.appendChild(circle);
+						}
+					}
 
-      const label = document.createElementNS(svgNS,'text');
-      label.setAttribute('x', x + whiteKeyWidth / 2);
-      label.setAttribute('y', height - 12);
-      label.setAttribute('text-anchor','middle');
-      label.setAttribute('font-size','14');
-      label.textContent = k.note;
+					this.shadowRoot.appendChild(fretboard);
 
-      piano.appendChild(rect);
-      piano.appendChild(label);
-      whiteIndex++;
-    });
+					const spacer = document.createElement("div");
+					spacer.style.height = verticalGap + "px";
+					this.shadowRoot.appendChild(spacer);
 
-    const blackKeyWidth = whiteKeyWidth * 0.6;
-    const blackKeyHeight = height * 0.65;
-    const blackOffsets = { 'C#':0.7,'D#':1.7,'F#':3.7,'G#':4.7,'A#':5.7 };
+					this.shadowRoot.appendChild(this.renderPiano(svgNS, width, pianoHeight));
+				}
 
-    this.pianoKeys.forEach(k => {
-      if (k.type !== 'black') return;
+				renderPiano(svgNS, width, height) {
+					const piano = document.createElementNS(svgNS, "svg");
+					piano.setAttribute("viewBox", `0 0 ${width} ${height}`);
+					piano.setAttribute("width", width);
+					piano.setAttribute("height", height);
 
-      const x = blackOffsets[k.note] * whiteKeyWidth - blackKeyWidth / 2;
+					const whiteKeyWidth = width / 7;
+					let whiteIndex = 0;
 
-      const rect = document.createElementNS(svgNS,'rect');
-      rect.setAttribute('x', x);
-      rect.setAttribute('y', 0);
-      rect.setAttribute('width', blackKeyWidth);
-      rect.setAttribute('height', blackKeyHeight);
-      rect.setAttribute(
-        'fill',
-        this.tempFlashPitches.has(k.note) ? 'orange' : 'black'
-      );
+					this.pianoKeys.forEach((k) => {
+						if (k.type !== "white") return;
 
-      const label = document.createElementNS(svgNS,'text');
-      label.setAttribute('x', x + blackKeyWidth / 2);
-      label.setAttribute('y', blackKeyHeight - 8);
-      label.setAttribute('text-anchor','middle');
-      label.setAttribute('font-size','10');
-      label.setAttribute('fill','white');
-      label.textContent = k.note;
+						const x = whiteIndex * whiteKeyWidth;
 
-      piano.appendChild(rect);
-      piano.appendChild(label);
-    });
+						const rect = document.createElementNS(svgNS, "rect");
+						rect.setAttribute("x", x);
+						rect.setAttribute("y", 0);
+						rect.setAttribute("width", whiteKeyWidth);
+						rect.setAttribute("height", height);
+						rect.setAttribute("stroke", "black");
+						rect.setAttribute("fill", this.tempFlashPitches.has(k.note) ? "orange" : "white");
 
-    return piano;
-  }
+						const label = document.createElementNS(svgNS, "text");
+						label.setAttribute("x", x + whiteKeyWidth / 2);
+						label.setAttribute("y", height - 12);
+						label.setAttribute("text-anchor", "middle");
+						label.setAttribute("font-size", "14");
+						label.textContent = k.note;
 
-  flashMatchingNotes(note, string, fret) {
-    this.tempFlashNotes.clear();
-    this.tempFlashPitches.clear();
-    this.tempFlashPitches.add(note);
+						piano.appendChild(rect);
+						piano.appendChild(label);
 
-    for (let s = 1; s <= this.strings; s++) {
-      for (let f = 0; f <= this.frets; f++) {
-        if (this.scaleMap[s][f] === note) {
-          this.tempFlashNotes.add(`${s}-${f}`);
-        }
-      }
-    }
+						whiteIndex++;
+					});
 
-    this.render();
-    setTimeout(() => {
-      this.tempFlashNotes.clear();
-      this.tempFlashPitches.clear();
-      this.render();
-    }, 500);
-  }
+					const blackKeyWidth = whiteKeyWidth * 0.6;
+					const blackKeyHeight = height * 0.65;
+					const blackOffsets = { "C#": 0.7, "D#": 1.7, "F#": 3.7, "G#": 4.7, "A#": 5.7 };
 
-  updateNotePanel() {
-    const panel = document.getElementById('note-panel');
-    if (!panel) return;
+					this.pianoKeys.forEach((k) => {
+						if (k.type !== "black") return;
 
-    let html = '';
-    for (let s = this.strings; s >= 1; s--) {
-      const notes = [...this.activePerString.get(s)]
-        .sort((a,b)=>a-b)
-        .map(f => this.scaleMap[s][f] || '-');
-      html += `${s}  ${notes.join(', ')}<br>`;
-    }
-    panel.innerHTML = html;
-  }
-}
+						const x = blackOffsets[k.note] * whiteKeyWidth - blackKeyWidth / 2;
 
-customElements.define('guitar-fretboard', GuitarFretboard);
-</script>
+						const rect = document.createElementNS(svgNS, "rect");
+						rect.setAttribute("x", x);
+						rect.setAttribute("y", 0);
+						rect.setAttribute("width", blackKeyWidth);
+						rect.setAttribute("height", blackKeyHeight);
+						rect.setAttribute("fill", this.tempFlashPitches.has(k.note) ? "orange" : "black");
 
-</body>
+						const label = document.createElementNS(svgNS, "text");
+						label.setAttribute("x", x + blackKeyWidth / 2);
+						label.setAttribute("y", blackKeyHeight - 8);
+						label.setAttribute("text-anchor", "middle");
+						label.setAttribute("font-size", "10");
+						label.setAttribute("fill", "white");
+						label.textContent = k.note;
+
+						piano.appendChild(rect);
+						piano.appendChild(label);
+					});
+
+					return piano;
+				}
+
+				flashMatchingNotes(note) {
+					this.tempFlashNotes.clear();
+					this.tempFlashPitches.clear();
+					this.tempFlashPitches.add(note);
+
+					for (let s = 1; s <= this.strings; s++) {
+						for (let f = 0; f <= this.frets; f++) {
+							if (this.scaleMap[s]?.[f] === note) {
+								this.tempFlashNotes.add(`${s}-${f}`);
+							}
+						}
+					}
+
+					this.render();
+
+					setTimeout(() => {
+						this.tempFlashNotes.clear();
+						this.tempFlashPitches.clear();
+						this.render();
+					}, 500);
+				}
+			}
+
+			customElements.define("guitar-fretboard", GuitarFretboard);
+
+			// Page-level listener updates the panel via events (so multiple components can coexist)
+			window.addEventListener("notechange", (e) => {
+				const { activePerString, scaleMap, strings } = e.detail || {};
+				if (!activePerString || !scaleMap) return;
+
+				const out = [];
+				for (let s = strings; s >= 1; s--) {
+					const frets = activePerString[s] || [];
+					const notes = frets.map((f) => scaleMap[s]?.[f] || "-");
+					out.push(`${s}  ${notes.join(", ")}`);
+				}
+
+				const target = document.getElementById("note-panel-content");
+				if (target) {
+					target.innerHTML = out.map((line) => `${line}`).join("<br>");
+				}
+			});
+		</script>
+	</body>
 </html>

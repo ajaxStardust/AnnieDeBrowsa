@@ -21,17 +21,24 @@ class Jsonconfigmanager extends Helpers
             foreach ($configPaths as $cKey => $config_path) {
                 $config_path = realpath($config_path);
                 if (file_exists($config_path)) {
+                    $this->jsonFile = $config_path;
                     $this->config = json_decode(file_get_contents($config_path), true);
                     if (!defined('JSONCONFIG')) {
                     define('JSONCONFIG', $config_path);
                     }
+                    break;
                 }
             }
         } else {
             if (!defined('JSONCONFIG')) {
                 $this->config = json_decode(file_get_contents('config.json'), true);
-                define('JSONCONFIG', realpath($this->config));
+                $this->jsonFile = realpath('config.json');
+                define('JSONCONFIG', $this->jsonFile);
             }
+        }
+
+        if (!is_array($this->config)) {
+            $this->config = [];
         }
     }
 
@@ -43,7 +50,16 @@ class Jsonconfigmanager extends Helpers
     public function saveConfig($data)
     {
         $this->config = $data;
-        file_put_contents($this->jsonFile, json_encode($this->config, JSON_PRETTY_PRINT));
+
+        if (empty($this->jsonFile)) {
+            return false;
+        }
+
+        return file_put_contents(
+            $this->jsonFile,
+            json_encode($this->config, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE),
+            LOCK_EX
+        ) !== false;
     }
 
     public function updateUrlCount($url)
@@ -51,12 +67,26 @@ class Jsonconfigmanager extends Helpers
         if (isset($this->config['home_urls'])) {
             foreach ($this->config['home_urls'] as &$entry) {
                 if ($entry['url'] === $url) {
-                    $entry['count']++;
-                    $this->saveConfig($this->config);
-                    return "Accessed $url. New count is {$entry['count']}.";
+                    $entry['count'] = intval($entry['count'] ?? 0) + 1;
+                    if ($this->saveConfig($this->config)) {
+                        return [
+                            'success' => true,
+                            'url' => $url,
+                            'count' => $entry['count'],
+                        ];
+                    }
+
+                    return [
+                        'success' => false,
+                        'error' => 'Unable to save config file.',
+                    ];
                 }
             }
         }
-        return "URL $url not found in JSON file.";
+
+        return [
+            'success' => false,
+            'error' => 'URL not found in config.',
+        ];
     }
 }

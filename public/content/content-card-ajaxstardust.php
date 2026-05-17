@@ -1,4 +1,4 @@
-<details id="adb-card-github" class="w-25 ba br2 pa2 mr3 mb3">
+<details id="adb-card-github" class="bg-white w-25 ba br2 pa2 mr3 mb3" style="background-color:#333;">
   <summary class="flex items-center gap-2 cursor-pointer f5 fw6">
     <img
       src="https://github.githubassets.com/favicons/favicon.svg"

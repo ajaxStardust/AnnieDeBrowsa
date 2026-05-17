@@ -48,9 +48,9 @@
         }
     }
 
-    $buildByComp = $_SERVER["REQUEST_SCHEME"] . "://" . $contructNewMethod["_dynamichost"] . "/" . ltrim($trimmed_new_url, "/");
-    $concatThis = $_SERVER["REQUEST_SCHEME"] . "://";
-    $concatSwitch = $_SERVER["REQUEST_SCHEME"] . "://" . $contructNewMethod["_dynamichost"];
+    $buildByComp = "http://" . $contructNewMethod["_dynamichost"] . "/" . ltrim($trimmed_new_url, "/");
+    $concatThis = "http://";
+    $concatSwitch = "http://" . $contructNewMethod["_dynamichost"];
     foreach ($P2u2->path_comps["matches"] as $mKey => $mVal) {
         echo "<br>path[" . $mKey . "]: " . $mVal;
         if ($mVal != "var" && $mVal != "www" && $mVal != "admin" && $mVal != "home" && $mVal != "web") {

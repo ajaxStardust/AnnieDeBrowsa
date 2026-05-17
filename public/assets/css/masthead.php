@@ -8,26 +8,27 @@ if (!defined('MASTHEAD_ROOT')) {
 }
 
 require '../../../src/Model/Urlprocessor.php';
+require '../../../src/Model/PathNormalizer.php';
+use Adb\Model\PathNormalizer;
+
 $svgPathChopper = new urlChopper($_SERVER['PHP_SELF']);
 
-// === Original dynamic text logic ===
-$svgSubject = dirname(dirname(__FILE__));
-$svgPattern = '/^(.*\/)([^\/]+)(\/public\/assets\/css\/masthead\.php)$/';
-$svgText = preg_replace($svgPattern, '$2', __FILE__);
+// === Dynamic text: the segment 4 levels up from this file IS the install root ===
+// {install-root}/public/assets/css/masthead.php → dirname(__FILE__, 4) = install root
+$tspan = PathNormalizer::extractProjectName(dirname(__FILE__, 4));
 
-if ((strlen($svgText) < 1)) {
-    $svgText = $_SERVER['SERVER_NAME'];
+// Final fallback
+if (empty($tspan) || $tspan === '.') {
+    $tspan = $_SERVER['SERVER_NAME'];
 }
-
-$tspan = $svgText;
 
 // Font size based on string length
 if (strlen($tspan) > 22) {
-    $fontSize = '1.8em';
+  $fontSize = '2.55em';
 } elseif (strlen($tspan) > 17) {
-    $fontSize = '2em';
+  $fontSize = '2.95em';
 } else {
-    $fontSize = '3em';
+  $fontSize = '4.25em';
 }
 
 // Escape for XML
@@ -42,8 +43,8 @@ header('Content-Type: image/svg+xml');
 ?>
 <svg xmlns="http://www.w3.org/2000/svg"
      width="100%"
-     height="150"
-     viewBox="0 0 800 150">
+  height="200"
+  viewBox="0 0 900 200">
 
   <!-- Google Font Import (Orbitron Bold) -->
   <style type="text/css">
@@ -58,16 +59,16 @@ header('Content-Type: image/svg+xml');
   </defs>
 
   <!-- Main part of text -->
-  <text x="50%" y="60"
+  <text x="50%" y="82"
         text-anchor="middle"
         dominant-baseline="middle"
         font-family="Orbitron, sans-serif"
         font-size="<?php echo $fontSize; ?>"
-        fill="#000000"
+        fill="#6366f1"
         filter="url(#shadow)">
     <tspan x="50%" dy="0"><?php echo $mainPart; ?></tspan>
-    <!-- Last segment: slightly offset and rotated -->
-    <tspan x="55%" dy="1.2em" transform="rotate(-10 0,0)">
+    <!-- Keep suffix on same line for domains like transformative.lan -->
+    <tspan dx="0.08em">
       <?php echo $lastSegment; ?>
     </tspan>
   </text>

@@ -1,0 +1,150 @@
+/* ============================================================================
+   FILE: guitarstyle.css
+   ROLE: Global layout + theme styling for the SPA container.
+
+   LLM‑ORIENTED NOTES (READ FIRST):
+   --------------------------------
+   • This stylesheet is GLOBAL. It affects the document, NOT Web Components.
+   • <guitar-fretboard>, <piano-keyboard>, and <note-panel> all use shadow DOM.
+     → Their internal visuals MUST NOT depend on this file.
+   • Only container-level layout, spacing, and background themes belong here.
+   • Do NOT add selectors that target internal component markup.
+   • Do NOT style SVG internals here — that belongs inside each component.
+   • Keep this file light; global CSS is a common source of accidental bleed.
+
+   CRITICAL INVARIANTS:
+   --------------------
+   • This file MUST NOT define styles for:
+       - .white, .black (piano keys)
+       - rect, circle, line (SVG internals)
+       - shadow DOM internals of any component
+   • This file MAY define:
+       - page layout
+       - control bar styling
+       - container backgrounds
+       - spacing and flexbox layout
+   • The maple theme for the guitarboard container is intentional.
+
+   DO NOT MODIFY (CRITICAL):
+   -------------------------
+   • Do NOT reintroduce legacy piano CSS here.
+   • Do NOT target #keyboard, #piano-keys, or any internal component IDs.
+   • Do NOT override component-level colors or geometry.
+   ============================================================================ */
+
+
+/* ============================================================================
+   PAGE BASE STYLING
+   LLM NOTE:
+   • Safe global styles: typography, background, margins.
+   • These do not interfere with shadow DOM components.
+   ============================================================================ */
+body {
+    font-family: system-ui, sans-serif;
+    background-color: #f7f7f7;
+    color: #222;
+    margin: 16px;
+}
+
+h2 {
+    text-align: center;
+    color: #222;
+}
+
+
+/* ============================================================================
+   CONTROL BAR
+   LLM NOTE:
+   • Pure layout + form styling.
+   • Selectors are safe because they target explicit IDs.
+   ============================================================================ */
+#controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+#controls label {
+    font-weight: bold;
+    color: #333;
+}
+
+select {
+    padding: 4px 6px;
+    border-radius: 4px;
+    border: 1px solid #888;
+    background-color: #fff;
+    color: #222;
+}
+
+
+/* ============================================================================
+   LAYOUT CONTAINERS
+   LLM NOTE:
+   • These containers wrap Web Components.
+   • Safe to style because they do not reach inside shadow DOM.
+   ============================================================================ */
+.row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+div#guitarboard {
+    background-color: #f2e7d5;
+    /* maple theme */
+    padding: 16px;
+    border-radius: 8px;
+    border: 2px solid #c4ad8a;
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+
+/* ============================================================================
+   COMPONENT WRAPPERS
+   LLM NOTE:
+   • These selectors target the custom elements themselves, not their internals.
+   • Safe: shadow DOM protects internal markup.
+   ============================================================================ */
+guitar-fretboard {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+}
+
+guitar-fret-markers {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 4px;
+}
+
+note-panel {
+    font-family: ui-monospace, monospace;
+    line-height: 1.5;
+    min-width: 220px;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    border: 1px solid #bbb;
+    color: #222;
+}
+
+
+/* ============================================================================
+   RESPONSIVE BEHAVIOR
+   LLM NOTE:
+   • Only affects layout containers.
+   • Does not affect component internals.
+   ============================================================================ */
+@media (max-width: 800px) {
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+}

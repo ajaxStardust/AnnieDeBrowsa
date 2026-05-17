@@ -1,0 +1,7 @@
+Options +ExecCGI
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(media/.*)$ - [L]
+RewriteRule ^(admin_media/.*)$ - [L]
+RewriteRule ^(flask\.wsgi/.*)$ - [L]
+RewriteRule ^(.*)$ flasktest/flask.wsgi/$1 [QSA,PT,L]

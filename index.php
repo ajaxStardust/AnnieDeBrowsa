@@ -2,7 +2,11 @@
 
 namespace Adb;
 
-
+if (isset($_GET['path2url'])) {
+    $qs = $_SERVER['QUERY_STRING'];
+    header('Location: public/default.php?' . $qs);
+    exit();
+}
 
 $uri = urldecode(
     parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)

@@ -1,4 +1,4 @@
 <?php
-header('Location: ./public/template.picnic.php');
+header('Location: ./public/template-editable.php');
 exit();
 ?>

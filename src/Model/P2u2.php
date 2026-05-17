@@ -2,6 +2,29 @@
 
 namespace P2u2\Model;
 
+/*
+ * CONTRACT: P2u2 path normalization and component extraction
+ *
+ * ROLE:
+ * - Compatibility model for converting local/system paths into URL-oriented data.
+ * - Newmethod depends on this class for normalization and path component parsing.
+ *
+ * PRECONDITIONS:
+ * - Input may be a filesystem path, a file:// path, or environment-specific dev path.
+ * - Sandbox-specific replacements are allowed here.
+ *
+ * POSTCONDITIONS:
+ * - clean_url_chars() MUST return an array containing url_2_convert.
+ * - extract_path_components() MUST populate path_comps and return an array.
+ * - Existing keys consumed by downstream code must remain stable unless callers
+ *   are updated in the same change.
+ *
+ * INVARIANTS:
+ * - This class is allowed to contain environment-sensitive cleanup logic.
+ * - Do not refactor for elegance alone; preserve behavior first.
+ * - If return keys or normalization rules change, update CONTRACT.md.
+ */
+
 error_reporting(0);
 
 class P2u2
@@ -61,8 +84,11 @@ class P2u2
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\Debian', 'localhost', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\kali-rolling', 'localhost', $this->clean_chars['url_2_convert']);
         $this->clean_chars['url_2_convert'] = str_ireplace('wsl.localhost\[DistroName]', '', $this->clean_chars['url_2_convert']);
-        /* dev env specific note where '/www/wwwroot' is reference to where my development server is on LAN.
-        Learn from this ratchet logic how to mod for your setup. */
+        /*
+         * CONTRACT NOTE:
+         * This block is intentionally environment-specific. The exact replacements
+         * are less important than preserving the observable output used by callers.
+         */
 
         // use the following to remove your default server path:
         $this->clean_chars['url_2_convert'] = str_ireplace('/www/wwwroot', '', $this->clean_chars['url_2_convert']);

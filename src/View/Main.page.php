@@ -1,15 +1,37 @@
 <?php
 
 namespace P2u2\View;
+require_once dirname(__DIR__) . '/Model/PathNormalizer.php';
+
+/*
+ * CONTRACT: Main.page.php live transform page
+ *
+ * ROLE:
+ * - This file currently renders the live public default transform app.
+ * - public/default.php requires this file directly.
+ *
+ * INVARIANTS:
+ * - Must continue rendering the environment summary, path conversion form,
+ *   conversion results, and Vue-powered Resulting URL card together.
+ * - The Vue mount element id must remain #app unless the JS mount changes too.
+ * - The Vue script load and assets/js/vue/app.js must remain coordinated.
+ *
+ * MIGRATION RULE:
+ * - If this page is decomposed into public/content and public/doctype fragments,
+ *   preserve visible parity with the live route and update CONTRACT.md.
+ */
 
 use P2u2\Model\Environment as Env;
 use P2u2\Model\Evalpath as Evalpath;
 use P2u2\Model\Functions as Functions;
 use P2u2\Model\Newmethod as Newmethod;
 use P2u2\Model\P2u2 as P2u2;
+use Adb\Model\PathNormalizer;
 
 $Env = new Env(NS2_ROOT);
 $initEnv = $Env->whatis(NS2_ROOT);
+$displayLocation = PathNormalizer::normalizeDisplayPathFromRoot(NS2_ROOT, __FILE__);
+$displayBasePath = PathNormalizer::normalizeDisplayPath(NS2_ROOT);
 // set Env variable array ver01
 $title = $Env->initialize_enviornment["title"];
 
@@ -88,7 +110,7 @@ $resultsWithDescriptions = [
     <meta property="og:type" content="website">
     <meta property="og:title" content="Transformative.Click">
     <meta property="og:description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
-    <meta property="og:image" content="https://transformative.click/plaidicon.png">
+    <meta property="og:image" content="https://transformative.click/favicon.png">
     <meta property="og:image:width" content="680">
     <meta property="og:image:height" content="680">
 
@@ -98,190 +120,89 @@ $resultsWithDescriptions = [
     <meta property="twitter:url" content="https://transformative.click">
     <meta name="twitter:title" content="Transformative.Click">
     <meta name="twitter:description" content="Single Page Application (SPA) browser for developers. Visit: GitHub.com/ajaxstardust/AnnieDeBrowsa">
-    <meta name="twitter:image" content="https://transformative.click/plaidicon.png">
+    <meta name="twitter:image" content="https://transformative.click/favicon.png">
     <link rel="shortcut icon" type="image/png" href="favicon.png">
     <!-- Meta Tags Generated via https://opengraph.dev -->
-    
+
     <link rel="stylesheet" href="assets/css/tachyons-extended.css">
     <link href="assets/css/lightslider.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
 
-    
 
-    <style>
-        @keyframes pulse {
-  0%   { transform: scale(1);     opacity: 1; }
-  50%  { transform: scale(1.15);  opacity: 0.4; }
-  100% { transform: scale(1);     opacity: 1; }
-}
 
-.radio-highlight {
-  animation: pulse 0.6s ease-in-out;
-}
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-        .card {
-            background: white;
-            border-radius: 0.375rem;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.2s ease;
-        }
-        .card:hover {
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-        }
-        .section-title {
-            color: #2c3e50;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 0.5rem;
-        }
-        .todo-item {
-            background: #fff3e0;
-            border-left: 4px solid #ff9800;
-            padding: 0.75rem;
-            margin-bottom: 0.5rem;
-            border-radius: 0.25rem;
-        }
-        .server-badge {
-            display: inline-block;
-            background: #ffe0b2;
-            color: #e65100;
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.25rem;
-            font-size: 0.875rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-        a {
-            color: #3498db;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
-        input, select, textarea {
-            font-size: 1rem;
-        }
-        .input-reset {
-            font: inherit;
-            border: 1px solid #ccc;
-        }
-        .break-word {
-            word-break: break-all;
-        }
-        .gap2 {
-            gap: 0.5rem;
-        }
-        .gap3 {
-            gap: 1rem;
-        }
-        h1,h2,h3,h4,h5,h6,summary, cite  {
-            font-family: Orbitron,Helvetica,sans-serif;
-        }
-        details, details div, details * a {
-            font-family:sans-serif;
-        }
-        .text-smallcaps {
-	font-variant: small-caps;
-	text-align: end;
-}
-
-    </style>
 </head>
 
-<body class="center px2 ph3">
-    <div class="center backgroundblue">
-    <div class="w-75  bg-light-gray">
+<body class="adb-body">
+    <div class="mw8 center bg-light-gray">
         <!-- Header -->
-        <header class="bg-silver white pv4 ph3">
+        <header class="adb-header white pv4 ph3">
             <div class="mw9 center">
-                <h1 class="ma0 mb2 f2 fw7"><?= $whatis["page_heading"] ?></h1>
-                <p class="ma0 mt2 f4 fw4 o-80">Annie DeBrowsa Tranform URL</p>
+                <h1 class="ma0 mb2 f3 fw7"><?= $whatis["page_heading"] ?></h1>
+                <p class="ma0 mt1 f6 o-60 tracked ttu">path &rarr; url &nbsp;&middot;&nbsp; dev utility</p>
             </div>
         </header>
-        <?php 
-		include 'content/content-card-github.php'; 
+        <?php
+		include 'content/content-card-github.php';
 		?>
-		
+
 		<!-- END CARD: AnnieDeBrowsa SAP Preview Tool  -->
-        <!-- Environment Info -->
-        <section class="bg-white-60 pv3 ph3 bt b--light-gray">
-            <div class="mw9 center">
-                <div class="grid-2">
-                    <div>
-                        <p class="ma0 f6 gray">Location:</p>
-                        <p class="ma0 f5 mono"><?= __FILE__; ?></p>
-                    </div>
-                    <div>
-                        <p class="ma0 f6 gray">Base Path:</p>
-                        <p class="ma0 f5 mono"><?php echo isset($Env->initialize_enviornment["abspathtml"]) ? $Env->initialize_enviornment["abspathtml"] : 'Not set'; ?></p>
-                    </div>
-            <div>
-                        <p class="ma0 f6 gray">Server Type:</p>
-                        <p class="ma0 f5 mono"><?= $_SERVER["SERVER_SOFTWARE"]; ?></p>
-                    </div>
-                    <div>
-                        <p class="ma0 f6 gray">Server Name:</p>
-                        <p class="ma0 f5 mono"><?= $_SERVER["SERVER_NAME"]; ?></p>
-                    </div>
-                    <div>
-                        <p class="ma0 f6 gray">ADB Main Page:</p>
-                        <p class="ma0 f5 mono"><a href="../">Go Home</a></p>
-                    </div>
+        <!-- Environment Info + Resulting URL: 50/50 split -->
+        <div class="flex pv3 ph3 bt b--light-gray" style="gap:1rem">
+
+            <!-- Left: environment fields -->
+            <section class="pa3 br2" style="flex:1;min-width:0">
+                <h2 class="adb-env-heading">Environment</h2>
+                <div class="bg-white-60 pa4 h-100 br2">
+                <p class="ma0 f6 gray">Location:</p>
+                <p class="ma0 f5 mono mb3"><?= htmlspecialchars($displayLocation, ENT_QUOTES, 'UTF-8'); ?></p>
+
+                <p class="ma0 f6 gray">Base Path:</p>
+                <p class="ma0 f5 mono mb3"><?= htmlspecialchars($displayBasePath, ENT_QUOTES, 'UTF-8'); ?></p>
+
+                <p class="ma0 f6 gray">Server Type:</p>
+                <p class="ma0 f5 mono mb3"><?= $_SERVER["SERVER_SOFTWARE"]; ?></p>
+
+                <p class="ma0 f6 gray">Server Name:</p>
+                <p class="ma0 f4 mono fw6 dark-gray mb3"><?= $_SERVER["SERVER_NAME"]; ?></p>
+
+                <p class="ma0 f6 gray">Server IP:</p>
+                <p class="ma0 f4 mono fw6 dark-gray"><?= $Env->initialize_enviornment['server_addr']; ?></p>
+
+                <div id="gohome" style="display:none;">
+                    <p class="ma0 f6 gray mt3">ADB Main Page:</p>
+                    <button class="mt2 ma0 f5 mono pv2 ph3 bg-green white bn br1 pointer f6 fw6"><a class="bg-green white" href="../" target="_top">Go Home</a></button>
                 </div>
+                </div>
+            </section>
+
+            <!-- Right: Vue resulting URL card -->
+            <div id="app" style="flex:1;min-width:0">
+              <h2 id="appHeading">Resulting URL</h2>
+              <div class="adb-output-card pa4 h-100">
+                <input type="text" v-model="selectedUrl" placeholder="Select a result below..." class="w-100 pa2 mt2 ba br2">
+                <div class="mt3">
+                  <p><strong><a target="_blank" v-bind:href="selectedUrl">{{ selectedUrl }}</a></strong></p>
+                  <p>Pick a radio button from the results below &mdash; or edit directly.</p>
+                  <div class="mt2">
+                    <details>
+                      <summary>Details</summary>
+                      <p>Edit <code>./src/View/Main.page.php</code> or its future public/content replacement to customize this <mark>View</mark>.</p>
+                      <p>Modify <code>./src/Model/P2u2.php</code> to <mark>Model</mark> the URL for your environment.</p>
+                      <p>Experiment with <mark>Vue.js</mark> to dynamically transform the resulting URL.</p>
+                    </details>
+                  </div>
+                </div>
+              </div>
             </div>
-        </section>
+
+        </div>
 
         <!-- Main Content -->
         <main class="pv4 ph3">
-            <div class="mw9 center">
-                <?php
-                    require "Trypath.form.php";
-                  //  require "Twerkin.form.php";
-                ?>
-                <!-- Navigation Go-Up Section -->
-
-
-
-
-
-<div id="app">
-  <h2 class="text-white" id="appHeading">Transformative.Click</h2>
-
-  <div class="card pa4 mt3">
-    <label class="b red mb2 f3">Resulting URL</label>
-    <input type="text" v-model="selectedUrl" placeholder="Type or select a URL..." class="w-100 pa2 mt2 ba b--gray br2">
-
-    <div class="mt2">
-      <p>Powered by <span class="bg-lightest-blue">Vue3 v-bind</span>. Edit the URL if necessary.</p>
-      <p><strong class="bg-yellow">Choose a radio-button</strong> from the available results to place that URL here.</p>
-      <p><strong><a target="_blank" v-bind:href="selectedUrl">{{ selectedUrl }}</a></strong></p>
-      <div class="mt2">
-        <details>
-            <summary>Details</summary>
-            <p>Edit <code class="bg-near-white br2">./src/View/Main.page.php</code> to customize this <mark>View</mark>. E.g. MVC</p>
-            <p>Modify the logic in the PHP <code class="bg-near-white br2">./src/Model/P2u2.php</code> to <mark>Model</mark> the URL based on your specific development environment.</p>
-            <p>Experiment with <mark class="bg-lightest-blue">Vue.js</mark> to dynamically transform the resulting URL, based on events or other conditions.</p>
-        </details>
-      </div>
+            <?php require "Trypath.form.php"; ?>
+        </main>
     </div>
-
-
-
-  </div>
-</div>
-        </div><!-- :after Twerkin.form.php -->
-        <!-- Navigation Go-Up Section -->
-
-        </div>
-    </main>
-    </div>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "476605b5cfe44956a453fb886673520f"}'></script><!-- End Cloudflare Web Analytics -->
+<script src="assets/js/kickout.js"></script>
 <script src="assets/js/showme-hideme.js"></script>
     <script src="assets/js/dynamicdrop.js"></script>
     <script>

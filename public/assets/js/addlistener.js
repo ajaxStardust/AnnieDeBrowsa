@@ -61,6 +61,19 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Get the file path from the data-filepath attribute
                 const filePath = e.target.getAttribute("data-filepath");
 
+                // Prevent recursive self-loading of the full browser shell inside its own iframe.
+                // If user clicks index.php from nav, load default.php in the iframe instead.
+                if (filePath === "index.php" || filePath === "public/index.php") {
+                    const baseURL = window.location.href.split("/").slice(0, -2).join("/");
+                    mainFrame.src = baseURL + "/public/default.php";
+                    frameName.textContent = "default.php";
+                    const headingTitle = document.getElementById("headingTitle");
+                    if (headingTitle) {
+                        headingTitle.textContent = "default.php";
+                    }
+                    return;
+                }
+
                 // Construct the URL to the PHP script with the requested file
                 const baseURL = window.location.href.split("/").slice(0, -2).join("/");
                 const fileUrl = baseURL + "/public/file_loader.php?file=" + encodeURIComponent(filePath);

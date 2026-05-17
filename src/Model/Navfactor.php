@@ -1,6 +1,9 @@
 <?php
 
 namespace Adb\Model;
+require_once __DIR__ . '/PathNormalizer.php';
+
+use Adb\Model\PathNormalizer;
 
 use Adb\Model\Auxx as Auxx;
 use Adb\Model\Dirhandler as Dirhandler;
@@ -211,10 +214,17 @@ class Navfactor
     private function initializeHtmlOutput()
     {
         $this->goUp = $this->prepareGoUpUrl(NS_ROOT);
+        $projectLabel = PathNormalizer::extractProjectName(NS_ROOT);
+        $projectHref = $projectLabel;
+
+        if (!preg_match('/^[A-Za-z0-9.-]+$/', $projectHref)) {
+            $projectHref = $this->goUp['url'];
+        }
+
         $this->htmlPrint = [];
         $this->htmlPrint[] = '<main id="mainview"><nav id="leftcol" class="navlist">
         <ul id="navlist" class="navlist">
-        <li id="goUpItem" class="nav"><a title="Navigate to parent directory." href="//' . $this->goUp['url'] . '">' . $this->goUp['url'] . '</a></li>
+        <li id="goUpItem" class="nav"><a title="Navigate to parent directory." href="//' . htmlspecialchars($projectHref, ENT_QUOTES, 'UTF-8') . '">' . htmlspecialchars($projectLabel, ENT_QUOTES, 'UTF-8') . '</a></li>
             ';
 
         return $this->htmlPrint;

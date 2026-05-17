@@ -1,8 +1,1 @@
-# RewriteEngine On
-# RewriteBase /
-# RewriteRule ^(public/.*)$ - [L]
-# RewriteRule ^(admin_media/.*)$ - [L]
-# SetHandler application/x-httpd-php .phtml
-AddHandler php-script .phtml
-
-
+ 
