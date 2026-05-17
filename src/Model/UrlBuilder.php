@@ -75,6 +75,12 @@ class UrlBuilder
         $components = $normalizedData['components'];
         $normalizedPath = $normalizedData['normalized_path'];
 
+        // Extract domain from path if present (e.g., /home/admin/web/example.com/public)
+        $extractedHost = $this->extractHostFromComponents($components);
+        if ($extractedHost) {
+            $this->host = $extractedHost;
+        }
+
         // Build URL from components
         $urlPath = $this->buildPathFromComponents($components);
         $fullUrl = $this->protocol . '://' . $this->host . '/' . ltrim($urlPath, '/');
@@ -86,6 +92,24 @@ class UrlBuilder
             'host' => $this->host,
             'protocol' => $this->protocol
         ];
+    }
+
+    /**
+     * Extract host from path components
+     */
+    private function extractHostFromComponents(array $components): ?string
+    {
+        if (empty($components)) {
+            return null;
+        }
+
+        // Check if first component looks like a domain (after server root stripping)
+        $firstComponent = $components[0];
+        if (strpos($firstComponent, '.') !== false && preg_match('/^[a-z0-9.-]+$/i', $firstComponent)) {
+            return $firstComponent;
+        }
+
+        return null;
     }
 
     /**

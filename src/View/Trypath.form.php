@@ -51,6 +51,10 @@ foreach ($pipelineData['components'] as $component) {
 // Result 3: concatSwitch - use all filtered components from evaluation
 $concatSwitch = $pipelineData['protocol'] . "://" . $pipelineData['host'];
 foreach ($pipelineData['filtered_components'] as $component) {
+    // Skip if component matches the host
+    if ($component === $pipelineData['host']) {
+        continue;
+    }
     $concatSwitch .= "/" . str_ireplace("/", "", $component);
 }
 ?>
