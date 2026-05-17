@@ -1,7 +1,7 @@
 # QUICKSTART.md
 
 WRITTEN FOR: human onboarding + AI agent onboarding
-LAST REVIEWED: 2026-03-29
+LAST REVIEWED: 2026-03-29-VERSION
 REVIEW TRIGGER: Update when entrypoints, template chain, or verification steps change.
 
 ## Session Start

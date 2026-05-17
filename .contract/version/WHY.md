@@ -1,7 +1,7 @@
 # WHY.md
 
 WRITTEN FOR: human onboarding + AI agent onboarding
-LAST REVIEWED: 2026-03-29
+LAST REVIEWED: 2026-03-29-VERSION
 REVIEW TRIGGER: Update when artifact ownership boundaries, steward scope, required reading order, or this “what each file is for” cheat sheet changes.
 
 ## Purpose
@@ -58,7 +58,7 @@ If uncertain, ask a clarifying question instead of guessing.
 
 Within an active user session, the coding agent acts as **governance steward**: authorized and expected to update the owning artifact when scope-affecting changes occur.
 
-**Acceptance (2026-03-29):** the steward **accepts** the role and scope below when the owner instructs “accept governance role” for `./.contract`.
+**Acceptance (2026-03-29-STEWARDSHIP):** the steward **accepts** the role and scope below when the owner instructs “accept governance role” for `./.contract`.
 
 **Steward authority scope (owner-granted):** full edit authority applies **only** to `./.contract/**/*.md` unless the owner explicitly expands scope for a given task. Do not infer permission to change application code from steward role alone.
 

@@ -173,7 +173,7 @@ Outside an active session, no autonomous ongoing responsibility exists. Future u
 
 ## Governance Update Log
 
-### 2026-03-29
+### 2026-03-29-VERSION
 
 - Path-to-URL **conversion outputs** (radio results, anchors, `Newmethod::buildUrlLast` debug link) are fixed to **`http://`** only; prior scheme-detection and scheme-selection UI were removed as unnecessary for this developer tool.
 - Required reading order in this file now includes [FUTURE.md](FUTURE.md) as step 4 (standby queue), matching the upstream Agentic Trivium + FUTURE methodology.
@@ -181,7 +181,7 @@ Outside an active session, no autonomous ongoing responsibility exists. Future u
 - **UX restyle (recorded retroactively):** the live path-to-URL app and browser-shell presentation were updated; treat [src/View/Main.page.php](src/View/Main.page.php), [src/View/html-header.page.php](src/View/html-header.page.php), [public/assets/css/tachyons-extended.css](public/assets/css/tachyons-extended.css), and [public/assets/css/masthead.php](public/assets/css/masthead.php) as the primary styling surfaces for that experience unless a later log entry supersedes this.
 - **Peripheral (non-mission-critical):** index shell **#pageControls** flyout restyled (nav-aligned CSS); details in [WHY.md](WHY.md) and [QUICKSTART.md](QUICKSTART.md), not a separate invariant. **#pageControls** was later demoted from any critical-invariants framing; governance trigger **#14** removed.
 
-### 2026-03-23
+### 2026-03-23-VERSION
 
 - User-approved template canonicalization: [public/template-editable.php](public/template-editable.php) chain is the preferred template path.
 - Doctype naming normalized to [public/doctype/doctype-tachyons.php](public/doctype/doctype-tachyons.php).

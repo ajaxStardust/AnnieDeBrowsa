@@ -1,7 +1,7 @@
 # FUTURE.md
 
 WRITTEN FOR: human maintainers + AI agents planning follow-up sessions
-LAST REVIEWED: 2026-03-29
+LAST REVIEWED: 2026-03-29-VERSION
 REVIEW TRIGGER: Update when roadmap priorities are completed, dropped, or reordered.
 
 ## Purpose

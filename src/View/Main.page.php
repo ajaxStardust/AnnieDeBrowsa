@@ -22,10 +22,10 @@ require_once dirname(__DIR__) . '/Model/PathNormalizer.php';
  */
 
 use P2u2\Model\Environment as Env;
-use P2u2\Model\Evalpath as Evalpath;
 use P2u2\Model\Functions as Functions;
-use P2u2\Model\Newmethod as Newmethod;
-use P2u2\Model\P2u2 as P2u2;
+use P2u2\Model\PathTransformer as PathTransformer;
+use P2u2\Model\UrlBuilder as UrlBuilder;
+use P2u2\Model\UrlEvaluator as UrlEvaluator;
 use Adb\Model\PathNormalizer;
 
 $Env = new Env(NS2_ROOT);
@@ -47,48 +47,42 @@ $enterpathhere = isset($path2url) ? $path2url : $_SERVER["DOCUMENT_ROOT"] . "/in
 // DIFF? whatis allows for path
 $whatis = $Env->whatis($enterpathhere);
 
-// P2u2()
-$P2u2 = new P2u2($enterpathhere);
-// P2u2() filtered path to process
-$clean_url = $P2u2->clean_url_chars($enterpathhere);
-// P2u2()
-$extract_components = $P2u2->extract_path_components($P2u2->clean_url_chars($enterpathhere));
+// NEW SEPARATED PIPELINE: Normalization → Construction → Evaluation
+$PathTransformer = new PathTransformer();
+$normalized = $PathTransformer->normalize($enterpathhere);
 
-// Evalpath()
-$Eval = new Evalpath($enterpathhere);
-// Evalpath()
-$EvalPathHere = $Eval->test_location($enterpathhere);
+$UrlBuilder = new UrlBuilder();
+$constructed = $UrlBuilder->build($normalized);
 
-// Newmethod()
-$Newmethod = new Newmethod($enterpathhere);
-// Newmethod()
-$buildUrl = $Newmethod->buildUrl($enterpathhere);
-// Newmethod()
-$buildUrlLast = $Newmethod->buildUrlLast($enterpathhere);
-// Newmethod()
-$contructNewMethod = $Newmethod->_construct_NewMethod;
+$UrlEvaluator = new UrlEvaluator();
+$evaluated = $UrlEvaluator->evaluate($constructed);
+
+// Legacy compatibility variables (preserve for backward compatibility)
+$clean_url = $normalized['normalized_path'];
+$extract_components = $normalized['components'];
+$contructNewMethod = $evaluated;
 
 // Functions()
 $Functions = new Functions();
 
 $resultsWithDescriptions = [
     [
-        'id' => 'url_buildByComp',
-        'value' => 'http://ai-anon.local/home/hestia/web/ai-anon.local/public_html',
-        'label' => 'BuildByComp',
-        'description' => 'Direct hostname construction'
+        'id' => 'url_normalized',
+        'value' => $normalized['normalized_path'],
+        'label' => 'Normalized Path',
+        'description' => 'Path after normalization layer'
     ],
     [
-        'id' => 'url_concatThis',
-        'value' => 'http://hestia/ai-anon.local',
-        'label' => 'ConcatThis',
-        'description' => 'Filtered paths (most reliable)'
+        'id' => 'url_constructed',
+        'value' => $constructed['url'],
+        'label' => 'Constructed URL',
+        'description' => 'URL after construction layer'
     ],
     [
-        'id' => 'url_concatSwitch',
-        'value' => 'http://ai-anon.local',
-        'label' => 'ConcatSwitch',
-        'description' => 'Switch-case logic (experimental)'
+        'id' => 'url_evaluated',
+        'value' => $evaluated['url'],
+        'label' => 'Evaluated URL',
+        'description' => 'Final URL after evaluation layer'
     ]
 ];
 ?>
