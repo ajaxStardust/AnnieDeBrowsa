@@ -34,7 +34,7 @@ class Environment
         
         $this->initialize_enviornment['lastMod'] = $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
 
-        if (!empty($GLOBALS['_REQUEST']['path2url'])) {
+        if (!empty($GLOBALS['_REQUEST']['path2url']) && !defined('REQUESTURL')) {
             define('REQUESTURL', $GLOBALS['_REQUEST']['path2url']);
             $this->initialize_enviornment['REQUESTURL'] = REQUESTURL;
         }
