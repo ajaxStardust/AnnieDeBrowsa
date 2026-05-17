@@ -2,6 +2,55 @@
 
 namespace P2u2\Model;
 
+/*
+ * CONTRACT: Environment - Runtime environment initialization
+ *
+ * PROJECT CONTEXT:
+ * Initializes runtime environment for the Annie DeBrowsa SPA preview tool.
+ * Handles error reporting, timezone, CORS headers, and path operations.
+ *
+ * ROLE:
+ * - Sets error reporting level and timezone
+ * - Configures CORS headers for cross-origin requests
+ * - Initializes path operations and environment constants
+ * - Defines REQUESTURL constant if provided in request
+ *
+ * PRECONDITIONS:
+ * - ADBLOCTN constant must be defined or NS2_ROOT must be available
+ * - Path operations may be passed as constructor parameter
+ *
+ * POSTCONDITIONS:
+ * - initialize_enviornment array populated with environment data
+ * - REQUESTURL constant defined if path2url in request
+ * - Error reporting set to E_ALL
+ * - Timezone set to America/New_York
+ *
+ * CRITICAL INVARIANTS - DO NOT BREAK THESE:
+ * 1. CONSTANT DEFINITION SAFETY
+ *    • MUST check !defined() before defining REQUESTURL
+ *    • VIOLATION causes "Constant already defined" warning
+ * 2. ERROR REPORTING CONSISTENCY
+ *    • MUST set error_reporting(E_ALL) for development
+ *    • VIOLATION hides errors and makes debugging impossible
+ * 3. TIMEZONE STABILITY
+ *    • MUST set to America/New_York for consistent timestamps
+ *    • VIOLATION causes timezone-related bugs in date operations
+ *
+ * KNOWN ISSUES & TECHNICAL DEBT:
+ * • whatis() method does too much - mixes environment setup with path operations
+ *   - TEMPORARY: Legacy design from original implementation
+ *   - FIX: Separate environment initialization from path operations
+ * • Hardcoded timezone and CORS settings
+ *   - CONSTRAINT: Current deployment requires these specific settings
+ *   - FIX: Make configurable via constructor or config file
+ *
+ * FUTURE IMPROVEMENTS:
+ * • Separate environment initialization from path operations
+ * • Make timezone and CORS settings configurable
+ * • Add environment detection (dev/staging/prod)
+ * • Implement proper dependency injection instead of global constants
+ */
+
 if(!defined('ADBLOCTN')){
     define('ADBLOCTN', NS2_ROOT);
 }
