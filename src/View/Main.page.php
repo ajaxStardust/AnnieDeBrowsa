@@ -57,32 +57,43 @@ $constructed = $UrlBuilder->build($normalized);
 $UrlEvaluator = new UrlEvaluator();
 $evaluated = $UrlEvaluator->evaluate($constructed);
 
-// Legacy compatibility variables (preserve for backward compatibility)
+// Data for Trypath.form.php (clean structure, not legacy compatibility)
+$pipelineData = [
+    'normalized_path' => $normalized['normalized_path'],
+    'components' => $normalized['components'],
+    'host' => $constructed['host'],
+    'protocol' => $constructed['protocol'],
+    'constructed_url' => $constructed['url'],
+    'constructed_path' => $constructed['path'],
+    'evaluated_url' => $evaluated['url'],
+    'filtered_components' => $evaluated['filtered_components']
+];
+
+// Legacy compatibility variables (preserve for any other code that might need them)
 $clean_url = $normalized['normalized_path'];
 $extract_components = $normalized['components'];
-$contructNewMethod = $evaluated;
 
 // Functions()
 $Functions = new Functions();
 
 $resultsWithDescriptions = [
     [
-        'id' => 'url_normalized',
-        'value' => $normalized['normalized_path'],
-        'label' => 'Normalized Path',
-        'description' => 'Path after normalization layer'
-    ],
-    [
-        'id' => 'url_constructed',
-        'value' => $constructed['url'],
+        'id' => 'url_buildByComp',
+        'value' => $pipelineData['constructed_url'],
         'label' => 'Constructed URL',
         'description' => 'URL after construction layer'
     ],
     [
-        'id' => 'url_evaluated',
-        'value' => $evaluated['url'],
+        'id' => 'url_concatThis',
+        'value' => $pipelineData['evaluated_url'],
         'label' => 'Evaluated URL',
         'description' => 'Final URL after evaluation layer'
+    ],
+    [
+        'id' => 'url_concatSwitch',
+        'value' => $pipelineData['normalized_path'],
+        'label' => 'Normalized Path',
+        'description' => 'Path after normalization layer'
     ]
 ];
 ?>
