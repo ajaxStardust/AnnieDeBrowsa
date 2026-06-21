@@ -12,7 +12,7 @@ require NS2_ROOT . '/public/doctype/doctype-unicode.php';
 
 ?>
 <body>
- <header><?= $page_heading; ?></header>
+ <header>Header</header>
  <main>Main
     <section>Section in Main footer is include:</section>
  </main>
@@ -20,6 +20,6 @@ require NS2_ROOT . '/public/doctype/doctype-unicode.php';
 <?php
 // include '/public/content/content-unicode-curated.php'
 
-require NS2_ROOT . '/public/footer/footer-unicode.php';
+require NS2_ROOT . '/public/footer/unicode.footer.php';
 
 ?>

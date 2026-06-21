@@ -8,7 +8,7 @@ $page_heading = 'Miscellaneous Unicode NCR\'s for Use in CSS ::before';
 $title = $page_heading . ' | transformative.jori';
 
 require NS2_ROOT . '/vendor/autoload.php';
-require NS2_ROOT . '/public/doctype/doctype-unicode.php';
+require NS2_ROOT . '/public/doctype/unicode.doctype.php';
 
 ?>
 <body>
@@ -19,7 +19,7 @@ require NS2_ROOT . '/public/doctype/doctype-unicode.php';
     <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
     <?php 
     
-    include NS2_ROOT . '/public/content/content-card-github.php' 
+    include NS2_ROOT . '/public/content/card-github.partial.php' 
     ?>
         <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
     <table class="table-auto border-collapse border border-gray-300 w-full text-center mb-8">

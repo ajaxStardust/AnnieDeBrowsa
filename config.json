@@ -5,27 +5,27 @@
             "name": " dufospy.com",
             "data": "🙋",
             "count": 5,
-            "og_title": "About | DufoSPY",
-            "og_image": "https://dufospy.com/user/themes/neuburner/images/dufospy-logo-ogp.png",
-            "og_description": "DufoSPY is the personal development and research site of Jeffrey Sabarese — exploring web development, AI utilities, programming workflows, and experimental software tools.",
+            "og_title": "Creatively Engineering AI",
+            "og_image": "https://dufospy.com/storage/files/1/dufospy-logo-ogp.png",
+            "og_description": "Explore Creative Engineering AI workflows and tools. Discover new projects and insights—visit DufoSPY today!",
             "og_site_name": ""
         },
         {
-            "url": "http://statecollegeguitarlessons.site",
-            "name": " statecollegeguitarlessons.site",
+            "url": "https://finga.studio",
+            "name": "Finga Studio",
             "data": "🐑",
             "count": 0,
-            "og_title": "State College Guitar Lessons by Jeff Sabarese",
-            "og_image": "https://statecollegeguitarlessons.site/assets/images/finga.studio-brand.png",
-            "og_description": "Guitar Lessons Music Theory Instruction in State College PA 16801 home of PSU in Centre County",
-            "og_site_name": "State College Guitar Lessons"
+            "og_title": "Finga Studio — Interactive Guitar Fretboard + Piano Trainer",
+            "og_image": "https://finga.studio/assets/images/finga.studio-brand-color-1200.png",
+            "og_description": "Explore modes, chords, and pentatonics on an interactive fretboard and piano. Pick tonic and degree—everything is derived from your choices.",
+            "og_site_name": "Finga Studio"
         },
         {
             "url": "http://whatsonyourbrain.com",
             "name": " whatsonyourbrain.com",
             "data": "🐒",
             "count": 0,
-            "og_title": "WhatsOnYourBrain.com by @ajaxStardust Jeffrey Sabarese, AI r",
+            "og_title": "Whats On Your Brain  - AI Research and Computational Musicol",
             "og_image": "https://whatsonyourbrain.com/themes/basix-jigsaw/assets/images/whatsonyourbrain-com-solid_cr.png",
             "og_description": "Jeffrey Sabarese (@ajaxStardust): born 1972. Educator, builder, researcher—CONTRACT-style code, Neutility._, PotBot. The dream of his generation is real; he's h",
             "og_site_name": "WhatsOnYourBrain™"
@@ -35,10 +35,10 @@
             "name": " Outta.webSite",
             "data": "🐑",
             "count": 0,
-            "og_title": "Outta dot Website",
+            "og_title": "Outta.Website",
             "og_image": "https://outta.website/wp-content/uploads/2022/09/off-center-e1681350842282.png",
-            "og_description": "Aww, WordPress™️! I'm all outta cash!",
-            "og_site_name": "Outta dot Website"
+            "og_description": "Resplendent Learning from Hash Flapjacks",
+            "og_site_name": "Outta.Website"
         },
         {
             "url": "https://transformative.click",
@@ -51,14 +51,14 @@
             "og_site_name": ""
         },
         {
-            "url": "https://finga.studio",
+            "url": "https://talk.finga.studio",
             "name": " fINGa.studio",
             "data": "visited:",
             "count": 0,
-            "og_title": "Finga Studio — Interactive Guitar Fretboard + Piano Trainer",
+            "og_title": "Finga Forum",
             "og_image": "https://finga.studio/assets/images/finga.studio-brand-color-1200.png",
-            "og_description": "Explore modes, chords, and pentatonics on an interactive fretboard and piano. Pick tonic and degree—everything is derived from your choices.",
-            "og_site_name": "Finga Studio"
+            "og_description": "",
+            "og_site_name": ""
         }
     ]
 }

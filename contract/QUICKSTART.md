@@ -87,6 +87,8 @@ To prevent "Contextual Drift" and ensure the agent understands the system's oper
 | **Configuration** | `public/config.json` | Domain presets and off-site link metadata. |
 | **Vue.js Integration** | `public/assets/js/vue/app.js` | Result card binding and URL selection logic. |
 | **CSS Framework** | `public/assets/css/tachyons-extended.css` | Main styling surface for nav/header overrides. |
+| **Public Composition** | `public/doctype/`, `public/footer/`, `public/content/` | WinterCMS-style modular layout system (suffix-based naming: *.doctype.php, *.footer.php, *.content.php). |
+| **API Endpoints** | `public/api/presets.php` | RESTful JSON API for domain presets CRUD operations. |
 
 ---
 
@@ -147,7 +149,7 @@ In the CSC framework, this file owns **operational truth**.
 
 ## 🕒 Last Reviewed & Trigger
 
-- **LAST REVIEWED**: 2026-05-16-DOMAIN-EXTRACTION  SIGNATURE: Cascade (SWE-1.6)
+- **LAST REVIEWED**: 2026-06-20-NAMING-CONVENTION  SIGNATURE: Cascade (SWE-1.6)
 - **REVIEW TRIGGER**: Update this file whenever the project structure changes, new tools are introduced, or a more effective verification method is developed.
 
 ---

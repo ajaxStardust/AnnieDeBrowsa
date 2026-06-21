@@ -8,11 +8,11 @@ $page_heading = 'Miscellaneous Unicode NCR\'s for Use in CSS ::before';
 $title = $page_heading . ' | transformative.jori';
 
 require NS2_ROOT . '/vendor/autoload.php';
-require NS2_ROOT . '/public/doctype/doctype-unicode.php';
+require NS2_ROOT . '/public/doctype/unicode.doctype.php';
 
 ?>
 <body>
- <header>Header</header>
+ <header><?= $page_heading; ?></header>
  <main>Main
     <section>Section in Main footer is include:</section>
  </main>
@@ -20,6 +20,6 @@ require NS2_ROOT . '/public/doctype/doctype-unicode.php';
 <?php
 // include '/public/content/content-unicode-curated.php'
 
-require NS2_ROOT . '/public/footer/footer-unicode.php';
+require NS2_ROOT . '/public/footer/unicode.footer.php';
 
 ?>

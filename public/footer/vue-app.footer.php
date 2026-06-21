@@ -1,20 +1,19 @@
-<?php
+<!-- 	^	#footer - BEGIN REMOVING STARTING WITH ID="footer" to increase viewport height	^	-->
+<footer id="footer" class="container">
 
-namespace P2u2\Public\Footer;
+<p>REMOVE this entire DIV if desired. - It is a Non-Breaking Change!</p>
+<cite class="pseudocite">jQuery is included in this footer</cite>
 
-?>
-<footer id="footer" class="content">
-<p class="pseudocite">Footer</p>
 
 </footer>
+<!-- 	$	#footer DONT REMOVE BENEATH THIS DIV - DO NOT REMOVE WRAPPER END IF REMOVING FOOTER	$	-->
+</div>
+<!-- end$ id: wrapper end$ -->
+</div>
 <!-- $  id:pagewidth    $ -->
 
-<script src="assets/js/showme-hideme.js">
-		</script>
-<script src="assets/js/addlistener.js">
-		</script>
-<script src="assets/js/dynamicdrop.js"></script>
-    
+<script src="assets/js/showme-hideme.js"></script>
+    <script src="assets/js/dynamicdrop.js"></script>
     <script>
 window.onload = function() {
     const blockA = document.querySelector('#url_buildByComp').closest('.card');
@@ -60,9 +59,7 @@ window.addEventListener("load", () => {
 });
 </script>
 
-        <script src="assets/js/vue/vue.global.js"></script>
+    <script src="assets/js/vue/vue.global.js"></script>
     <script src="assets/js/vue/app.js"></script>
-
-
 </body>
 </html>

@@ -1,4 +1,3 @@
-        <!-- Environment Info -->
         <section class="bg-white-60 pv3 ph3 bt b--light-gray">
             <div class="mw9 center">
                 <div class="grid-2">

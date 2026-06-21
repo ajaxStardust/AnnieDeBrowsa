@@ -13,7 +13,7 @@ error_reporting(E_ALL);
                 </object>
                 <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
                 <?php 
-                require NS2_ROOT . '/content/content-card-github.php'; 
+                require NS2_ROOT . '/content/card-github.partial.php'; 
                 ?>
                 <!-- HEADER-ICON -->
                 <figure id="header-icon"><figcaption class="caption-top"><div id="headingTitle" class="green z-99"></div></figcaption></figure>

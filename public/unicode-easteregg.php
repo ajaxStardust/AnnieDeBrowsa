@@ -22,8 +22,8 @@ $page_heading = 'Template - Doctype TAILWIND CSS local with jQuery';
 $title = $page_heading . ' | transformative.click';
 
 require NS2_ROOT . '/vendor/autoload.php';
-require NS2_ROOT . '/public/doctype/doctype-easteregg.php'; 
-require NS2_ROOT . '/public/content/content-easteregg-plus.php'; 
-require NS2_ROOT . '/public/footer/footer-jquery.php';
+require NS2_ROOT . '/public/doctype/easteregg.doctype.php';
+require NS2_ROOT . '/public/content/easteregg-plus.content.php';
+require NS2_ROOT . '/public/footer/jquery.footer.php';
 
 ?>

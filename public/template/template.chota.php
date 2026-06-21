@@ -52,6 +52,6 @@ require NS2_ROOT . '/public/doctype/doctype-picnic.php';
 <?php
 // include '/public/content/content-unicode-curated.php'
 
-require NS2_ROOT . '/public/footer/footer-base.php';
+require NS2_ROOT . '/public/footer/base.footer.php';
 
 ?>

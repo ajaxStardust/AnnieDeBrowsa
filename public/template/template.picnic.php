@@ -8,7 +8,7 @@ $page_heading = 'Miscellaneous Unicode NCR\'s for Use in CSS ::before';
 $title = $page_heading . ' | transformative.jori';
 
 require NS2_ROOT . '/vendor/autoload.php';
-require NS2_ROOT . '/public/doctype/doctype-picnic.php';
+require NS2_ROOT . '/public/doctype/picnic.doctype.php';
 
 ?>
 

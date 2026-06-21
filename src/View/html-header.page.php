@@ -16,7 +16,7 @@ error_reporting(E_ALL);
     justify-content: stretch;
     padding: 0.7rem 1.5rem;
     gap: 1.25rem;
-    min-height: 6.2rem;
+    max-height: 6.5rem;
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03), 0 0.75rem 1.4rem rgba(2, 6, 23, 0.24);
   }
   #adb-header object#svg-header-title {
@@ -131,7 +131,7 @@ error_reporting(E_ALL);
 
     <!-- SPA card -->
     <div class="adb-github-wrap">
-        <?php include 'content/content-card-github.php'; ?>
+        <?php include 'content/card-github.partial.php'; ?>
     </div>
 
 </header>

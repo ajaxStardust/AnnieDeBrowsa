@@ -147,7 +147,7 @@ $resultsWithDescriptions = [
             </div>
         </header>
         <?php
-		include 'content/content-card-github.php';
+		include 'content/card-github.partial.php';
 		?>
 
 		<!-- END CARD: AnnieDeBrowsa SAP Preview Tool  -->
@@ -233,7 +233,6 @@ $resultsWithDescriptions = [
         cards.forEach((card, index) => {
             let colorIndex = 0;
             setTimeout(() => {
-                // Cycle through border colors
                 const flashInterval = setInterval(() => {
                     card.style.setProperty('border-left-color', borderColors[colorIndex], 'important');
                     colorIndex++;

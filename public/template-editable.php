@@ -22,8 +22,8 @@ $page_heading = 'Template - Doctype TAILWIND CSS local with jQuery';
 $title = $page_heading . ' | transformative.click';
 
 require NS2_ROOT . '/vendor/autoload.php';
-require NS2_ROOT . '/public/doctype/doctype-tachyons.php';  // DOCTYPE USING TACHYONS ends with open element, BODY 
+require NS2_ROOT . '/public/doctype/tachyons.doctype.php';  // DOCTYPE USING TACHYONS ends with open element, BODY
 require NS2_ROOT . '/public/template/editable-html.php';   // the editable HTML template
-require NS2_ROOT . '/public/footer/footer-jquery.php'; // the jQuery footer
+require NS2_ROOT . '/public/footer/jquery.footer.php'; // the jQuery footer
 
 ?>

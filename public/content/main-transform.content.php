@@ -21,10 +21,10 @@
 <main class="pv4 ph3" id="transformative-main">
     <div class="mw9 center">
     <?php 
-        include NS2_ROOT . '/public/content/content-card-ajaxstardust.php'; 
-        include NS2_ROOT . '/public/content/content-environment.php';
+        include NS2_ROOT . '/public/content/card-ajaxstardust.partial.php';
+        include NS2_ROOT . '/public/content/environment.content.php';
         require NS2_ROOT . "/src/View/Trypath.form.php";
-        require NS2_ROOT . '/public/content/content-vue-app.php';
+        require NS2_ROOT . '/public/content/vue-app.content.php';
     ?>
     </div>
 </main>

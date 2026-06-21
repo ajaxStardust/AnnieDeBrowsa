@@ -19,12 +19,12 @@ require NS2_ROOT . '/vendor/autoload.php';
 /**
  * require DOCTYPE BASIC
  */
-require NS2_ROOT . '/public/doctype/doctype-base.php';
+require NS2_ROOT . '/public/doctype/base.doctype.php';
 
 /**
  * require SECTION ELEMENT
  */
-require NS2_ROOT . '/public/content/content-section-offsitelinks.php';
+require NS2_ROOT . '/public/content/section-offsitelinks.content.php';
 
 /**
  * require FOOTER BASIC

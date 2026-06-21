@@ -11,7 +11,7 @@ error_reporting(E_ALL);
 
         <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
         <?php 
-        include 'content/card-github.content.php';
+        include 'content/card-github.partial.php';
         ?>
 
         <!-- HEADING TITLE OBJECT IS DYNAMIC SVG  -->

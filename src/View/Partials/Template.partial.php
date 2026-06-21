@@ -117,7 +117,7 @@ $lastMod = 'Modified: ' . date('D M j Y G:i:s T', getlastmod());
     <div id="pagewidth" class="container">
 
         <!-- CARD: AnnieDeBrowsa SAP Preview Tool  -->
-        <?php include 'public/content/content-card-github.php' ?>
+        <?php include 'public/content/card-github.partial.php' ?>
         <!-- END CARD: AnnieDeBrowsa SAP Preview Tool  -->
 
         <section id="header">

@@ -25,6 +25,6 @@ require NS2_ROOT . '/public/doctype/doctype-base.php';
  <section>Section after Main | footer is include:</section>
 <?php
 
-require NS2_ROOT . '/public/footer/footer-jquery.php';
+require NS2_ROOT . '/public/footer/jquery.footer.php';
 
 ?>
